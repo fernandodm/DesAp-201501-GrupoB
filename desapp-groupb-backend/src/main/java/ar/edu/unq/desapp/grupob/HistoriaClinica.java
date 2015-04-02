@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupob;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -7,9 +8,9 @@ public class HistoriaClinica {
 	
 	private int peso;
 	private int altura;
-	private List<String> alergias;
+	private List<String> alergias = new ArrayList<String>();
 	private Calendar fecha;
-	private List<Diagnostico> diagnostico;
+	private List<Diagnostico> diagnostico = new ArrayList<Diagnostico>();
 	
 	
 	////////////////////////
