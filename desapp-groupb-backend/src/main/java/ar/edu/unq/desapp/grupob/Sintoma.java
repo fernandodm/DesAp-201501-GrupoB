@@ -4,18 +4,18 @@ import java.util.List;
 
 public class Sintoma {
 
-	private List<String> sintomas;
+	private String nombre;
 	
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
 
-	public List<String> getSintomas() {
-		return sintomas;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setSintomas(List<String> sintomas) {
-		this.sintomas = sintomas;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	////////////////////////////
 }
