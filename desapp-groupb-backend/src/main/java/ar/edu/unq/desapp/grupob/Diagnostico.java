@@ -31,6 +31,10 @@ public class Diagnostico {
 		return this.getSintomas().contains(sintoma);
 	}
 	
+	public void eliminarSintoma(Sintoma sintoma){
+		this.getSintomas().remove(sintoma);
+	}
+	
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////

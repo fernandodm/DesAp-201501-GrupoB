@@ -66,4 +66,13 @@ public class DiagnosticoTest extends TestCase{
 	public void testSeRelacionaConElSintomaFalse(){
 		assert(!diagnostico.seRelacionConElSintoma(sintoma));
 	}
+	
+	public void testEliminarSintoma(){
+		List<Sintoma> sintomas = new ArrayList<Sintoma>();
+		sintomas.add(sintoma);
+		diagnostico.setSintomas(sintomas);
+		diagnostico.eliminarSintoma(sintoma);
+		
+		assert(diagnostico.getSintomas().isEmpty());
+	}
 }
