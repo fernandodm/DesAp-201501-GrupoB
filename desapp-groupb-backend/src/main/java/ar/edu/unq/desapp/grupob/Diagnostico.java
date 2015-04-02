@@ -1,13 +1,27 @@
 package ar.edu.unq.desapp.grupob;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Diagnostico {
 	
 	private String nombre;
-	private List<Sintoma> sintomas;
-	private Tratamiento tratamiento;
+	private List<Sintoma> sintomas = new ArrayList<Sintoma>();
+	private List<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
 	
+	public Diagnostico(String nombre, List<Sintoma> sintomas, List<Tratamiento> tratamientos){
+		this.nombre = nombre;
+		this.sintomas = sintomas;
+		this.tratamientos = tratamientos;
+	}
+	
+	public void agregarSintoma(Sintoma sintoma){
+		this.sintomas.add(sintoma);
+	}
+	
+	public void agregarTratamineto(Tratamiento tratamiento){
+		this.tratamientos.add(tratamiento);
+	}
 	
 	////////////////////////
 	// GETTERS AND SETTERS//
@@ -25,11 +39,11 @@ public class Diagnostico {
 	public void setSintomas(List<Sintoma> sintomas) {
 		this.sintomas = sintomas;
 	}
-	public Tratamiento getTratamiento() {
-		return tratamiento;
+	public List<Tratamiento> getTratamientos() {
+		return tratamientos;
 	}
-	public void setTratamiento(Tratamiento tratamiento) {
-		this.tratamiento = tratamiento;
+	public void setTratamientos(List<Tratamiento> tratamientos) {
+		this.tratamientos = tratamientos;
 	}
 	
 	//////////////////////////////////////
