@@ -11,8 +11,24 @@ public class HistoriaClinica {
 	private List<String> alergias = new ArrayList<String>();
 	private Calendar fecha;
 	private List<Diagnostico> diagnostico = new ArrayList<Diagnostico>();
+	private Persona persona;
 	
 	
+	public HistoriaClinica(int peso, int altura, Calendar fecha, Persona persona){
+		this.peso = peso;
+		this.altura = altura;
+		this.fecha = fecha;
+		this.setPersona(persona);
+	}
+	
+	public void agregarAlergia(String alergia){
+		this.alergias.add(alergia);		
+	}
+	
+	public void agregarDiagnostico(Diagnostico diagnostico){
+		this.diagnostico.add(diagnostico);
+	}
+		
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
@@ -46,6 +62,14 @@ public class HistoriaClinica {
 	}
 	public void setDiagnostico(List<Diagnostico> diagnostico) {
 		this.diagnostico = diagnostico;
+	}
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 	
 	///////////////////////////////////////////////////////

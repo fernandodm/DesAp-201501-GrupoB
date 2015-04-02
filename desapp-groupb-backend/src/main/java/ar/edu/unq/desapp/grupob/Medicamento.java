@@ -6,6 +6,14 @@ public class Medicamento {
 	private int concentracion;
 	private int tiempo;
 	
+	public Medicamento(String droga, int concentracion, int tiempo){
+		
+		this.droga = droga;
+		this.concentracion = concentracion;
+		this.tiempo = tiempo;
+		
+	}
+	
 	////////////////////////
 	//GETTERS AND SETTERS//
 	////////////////////////

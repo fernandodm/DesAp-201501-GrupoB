@@ -4,9 +4,19 @@ public class Persona {
 
 	private String nombre;
 	private String apellido;
-	private String DNI;
+	private String dni;
 	private String usuario;
 	private String contrasena;
+	
+	public Persona(String nombre, String apellido, String dni,
+			String usuario, String contrasena){
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.usuario = usuario;
+		this.contrasena = contrasena;
+		
+	}
 	
 	////////////////////////
 	//GETTERS AND SETTERS//
@@ -24,11 +34,11 @@ public class Persona {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public String getDNI() {
-		return DNI;
+	public String getDni() {
+		return dni;
 	}
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setDni(String dni) {
+		dni = dni;
 	}
 	public String getUsuario() {
 		return usuario;

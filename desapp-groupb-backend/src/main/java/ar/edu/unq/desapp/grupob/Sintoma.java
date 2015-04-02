@@ -6,6 +6,10 @@ public class Sintoma {
 
 	private String nombre;
 	
+	public Sintoma(String nombre){
+		this.nombre = nombre;
+	}
+	
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
