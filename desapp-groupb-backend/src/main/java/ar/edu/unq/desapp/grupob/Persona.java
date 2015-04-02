@@ -38,7 +38,7 @@ public class Persona {
 		return dni;
 	}
 	public void setDni(String dni) {
-		dni = dni;
+		this.dni = dni;
 	}
 	public String getUsuario() {
 		return usuario;

@@ -1,7 +1,5 @@
 package ar.edu.unq.desapp.grupob;
 
-import java.util.List;
-
 public class Sintoma {
 
 	private String nombre;
