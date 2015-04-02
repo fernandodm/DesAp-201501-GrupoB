@@ -15,6 +15,10 @@ public class Diagnostico {
 		this.tratamientos = tratamientos;
 	}
 	
+	public Diagnostico(String nombre){
+		this.nombre = nombre;
+	}
+	
 	public void agregarSintoma(Sintoma sintoma){
 		this.sintomas.add(sintoma);
 	}
