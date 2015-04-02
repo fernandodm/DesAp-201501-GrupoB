@@ -27,6 +27,10 @@ public class Diagnostico {
 		this.tratamientos.add(tratamiento);
 	}
 	
+	public boolean seRelacionConElSintoma(Sintoma sintoma){
+		return this.getSintomas().contains(sintoma);
+	}
+	
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////

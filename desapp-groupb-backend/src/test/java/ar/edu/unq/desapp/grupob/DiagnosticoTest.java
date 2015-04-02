@@ -53,4 +53,17 @@ public class DiagnosticoTest extends TestCase{
 		
 	}
 
+	public void testSeRelacionaConElSintomaTrue(){
+		
+		List<Sintoma> sintomas = new ArrayList<Sintoma>();
+		sintomas.add(sintoma);
+		diagnostico.setSintomas(sintomas);
+				
+		assert(diagnostico.seRelacionConElSintoma(sintoma));
+		
+	}
+	
+	public void testSeRelacionaConElSintomaFalse(){
+		assert(!diagnostico.seRelacionConElSintoma(sintoma));
+	}
 }
