@@ -23,7 +23,7 @@ public class Diagnostico {
 		this.sintomas.add(sintoma);
 	}
 	
-	public void agregarTratamineto(Tratamiento tratamiento){
+	public void agregarTratamiento(Tratamiento tratamiento){
 		this.tratamientos.add(tratamiento);
 	}
 	
