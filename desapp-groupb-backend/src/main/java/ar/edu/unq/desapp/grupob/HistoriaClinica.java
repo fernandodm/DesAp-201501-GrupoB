@@ -28,7 +28,15 @@ public class HistoriaClinica {
 	public void agregarDiagnostico(Diagnostico diagnostico){
 		this.diagnostico.add(diagnostico);
 	}
-		
+	
+	/* ACLARACION: se podria poner como precondicion que la primer letra sea 
+	 * mayuscula y el resto minuscula o pasar todo a mayuscula y comparar
+	 * ahora voy hacer la primera opcion 
+	 * */
+	public boolean esAlergicoA(String alergia){
+		return this.getAlergias().contains(alergia);
+	}
+	
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////

@@ -1,6 +1,8 @@
 package ar.edu.unq.desapp.grupob;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import junit.framework.TestCase;
 import static org.mockito.Mockito.*;
@@ -30,6 +32,21 @@ public class HistoriaClinicaTest extends TestCase {
 		historiaClinica.agregarDiagnostico(diagnostico);
 		
 		assert(historiaClinica.getDiagnostico().contains(diagnostico));
+	}
+	
+	public void testEsAlergicoATrue(){
+		List<String> alergias = new ArrayList<String>();
+		alergias.add("Penicilina");
+		alergias.add("Amoxicilina");
+						
+		assert(historiaClinica.esAlergicoA("Penicilina"));
+	}
+	
+	public void testEsAlergicoAFalse(){
+		List<String> alergias = new ArrayList<String>();
+		alergias.add("Penicilina");
+								
+		assert(historiaClinica.esAlergicoA("Amoxicilina"));
 	}
 
 }
