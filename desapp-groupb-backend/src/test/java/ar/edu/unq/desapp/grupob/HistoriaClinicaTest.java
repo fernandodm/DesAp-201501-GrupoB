@@ -48,5 +48,12 @@ public class HistoriaClinicaTest extends TestCase {
 								
 		assert(historiaClinica.esAlergicoA("Amoxicilina"));
 	}
+	
+	public void testEliminarAlergia(){
+		List<String> alergias = new ArrayList<String>();
+		alergias.add("Penicilina");
+		historiaClinica.eliminarAlergia("Penicilina");
+		assert(historiaClinica.getAlergias().isEmpty());
+	}
 
 }

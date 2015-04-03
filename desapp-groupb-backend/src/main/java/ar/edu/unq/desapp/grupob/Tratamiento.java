@@ -25,7 +25,7 @@ public class Tratamiento {
 	public void agregarPracticaMedica(String practicaMedica){
 		this.getPracticasMedicas().add(practicaMedica);		
 	}
-	
+		
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
