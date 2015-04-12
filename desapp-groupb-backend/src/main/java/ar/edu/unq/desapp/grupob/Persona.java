@@ -53,4 +53,5 @@ public class Persona {
 		this.contrasena = contrasena;
 	}
 	/////////////////////////////////////
+
 }

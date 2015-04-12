@@ -25,18 +25,18 @@ public class DiagnosticoTest extends TestCase{
 		assert(diagnostico.getNombre() == "Sinositis");
 	}
 	
-	public void testDiagnosticoConTresParametros(){
-		List<Sintoma> sintomas = new ArrayList<Sintoma>();
-		sintomas.add(sintoma);
-		
-		List<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
-		tratamientos.add(tratamiento);
-		
-		Diagnostico diagnostico = new Diagnostico("Sinositis", sintomas, tratamientos);
-		assert(diagnostico.getNombre() == "Sinositis");
-		assert(diagnostico.getSintomas().contains(sintoma));
-		assert(diagnostico.getTratamientos().contains(tratamiento));
-	}
+//	public void testDiagnosticoConTresParametros(){
+//		List<Sintoma> sintomas = new ArrayList<Sintoma>();
+//		sintomas.add(sintoma);
+//		
+//		List<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
+//		tratamientos.add(tratamiento);
+//		
+//		Diagnostico diagnostico = new Diagnostico("Sinositis", sintomas, tratamientos);
+//		assert(diagnostico.getNombre() == "Sinositis");
+//		assert(diagnostico.getSintomas().contains(sintoma));
+//		assert(diagnostico.getTratamientos().contains(tratamiento));
+//	}
 	
 	public void testAgregarSintoma(){
 				
@@ -45,14 +45,7 @@ public class DiagnosticoTest extends TestCase{
 		assert(diagnostico.getSintomas().contains(sintoma));
 	}
 	
-	public void testAgregarTratamiento(){
-		
-		diagnostico.agregarTratamiento(tratamiento);
-		
-		assert(diagnostico.getTratamientos().contains(tratamiento));
-		
-	}
-
+	
 	public void testSeRelacionaConElSintomaTrue(){
 		
 		List<Sintoma> sintomas = new ArrayList<Sintoma>();

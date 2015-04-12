@@ -7,12 +7,12 @@ public class Diagnostico {
 	
 	private String nombre;
 	private List<Sintoma> sintomas = new ArrayList<Sintoma>();
-	private List<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
+	private Tratamiento tratamiento;
 	
-	public Diagnostico(String nombre, List<Sintoma> sintomas, List<Tratamiento> tratamientos){
+	public Diagnostico(String nombre, List<Sintoma> sintomas, Tratamiento tratamiento){
 		this.nombre = nombre;
 		this.sintomas = sintomas;
-		this.tratamientos = tratamientos;
+		this.tratamiento = tratamiento;
 	}
 	
 	public Diagnostico(String nombre){
@@ -21,10 +21,6 @@ public class Diagnostico {
 	
 	public void agregarSintoma(Sintoma sintoma){
 		this.sintomas.add(sintoma);
-	}
-	
-	public void agregarTratamiento(Tratamiento tratamiento){
-		this.tratamientos.add(tratamiento);
 	}
 	
 	public boolean seRelacionConElSintoma(Sintoma sintoma){
@@ -51,11 +47,11 @@ public class Diagnostico {
 	public void setSintomas(List<Sintoma> sintomas) {
 		this.sintomas = sintomas;
 	}
-	public List<Tratamiento> getTratamientos() {
-		return tratamientos;
+	public Tratamiento getTratamiento() {
+		return tratamiento;
 	}
-	public void setTratamientos(List<Tratamiento> tratamientos) {
-		this.tratamientos = tratamientos;
+	public void setTratamiento(Tratamiento tratamiento) {
+		this.tratamiento = tratamiento;
 	}
 	
 	//////////////////////////////////////

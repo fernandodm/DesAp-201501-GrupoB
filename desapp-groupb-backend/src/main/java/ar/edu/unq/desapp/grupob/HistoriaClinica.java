@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 public class HistoriaClinica {
@@ -9,26 +10,37 @@ public class HistoriaClinica {
 	private int peso;
 	private int altura;
 	private List<String> alergias = new ArrayList<String>();
-	private Calendar fecha;
-	private List<Diagnostico> diagnostico = new ArrayList<Diagnostico>();
+	private HashMap<Calendar,Diagnostico> eventos = new HashMap<Calendar,Diagnostico>();
 	private Persona persona;
 	
 	
-	public HistoriaClinica(int peso, int altura, Calendar fecha, Persona persona){
+	public HistoriaClinica(int peso, int altura, Persona persona){
 		this.peso = peso;
 		this.altura = altura;
-		this.fecha = fecha;
 		this.setPersona(persona);
 	}
 	
+	
+	
+	public HashMap<Calendar, Diagnostico> getEventos() {
+		return eventos;
+	}
+
+
+
+	public void setEventos(HashMap<Calendar, Diagnostico> eventos) {
+		this.eventos = eventos;
+	}
+
+
+
 	public void agregarAlergia(String alergia){
 		this.alergias.add(alergia);		
 	}
 	
-	public void agregarDiagnostico(Diagnostico diagnostico){
-		this.diagnostico.add(diagnostico);
-	}
-		
+
+	//agregar Diagnostico
+	
 	/* ACLARACION: se podria poner como precondicion que la primer letra sea 
 	 * mayuscula y el resto minuscula o pasar todo a mayuscula y comparar
 	 * ahora voy hacer la primera opcion 
@@ -39,6 +51,17 @@ public class HistoriaClinica {
 	
 	public void eliminarAlergia(String alergia){
 		this.getAlergias().remove(alergia);
+	}
+	
+	//TESTEAR
+	public boolean elPacienteEsCompatibleCon(Tratamiento t) {
+		List<Medicamento> medicamentos = t.getMedicamentos();
+		for(Medicamento m: medicamentos){
+			if(this.alergias.contains(m.getDroga())){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	////////////////////////
@@ -63,19 +86,7 @@ public class HistoriaClinica {
 	public void setAlergias(List<String> alergias) {
 		this.alergias = alergias;
 	}
-	public Calendar getFecha() {
-		return fecha;
-	}
-	public void setFecha(Calendar fecha) {
-		this.fecha = fecha;
-	}
-	public List<Diagnostico> getDiagnostico() {
-		return diagnostico;
-	}
-	public void setDiagnostico(List<Diagnostico> diagnostico) {
-		this.diagnostico = diagnostico;
-	}
-
+	
 	public Persona getPersona() {
 		return persona;
 	}
