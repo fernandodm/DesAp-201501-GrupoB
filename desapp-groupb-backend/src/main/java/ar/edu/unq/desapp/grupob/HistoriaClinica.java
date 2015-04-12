@@ -12,27 +12,20 @@ public class HistoriaClinica {
 	private List<String> alergias = new ArrayList<String>();
 	private HashMap<Calendar,Diagnostico> eventos = new HashMap<Calendar,Diagnostico>();
 	private Persona persona;
-	
-	
+		
 	public HistoriaClinica(int peso, int altura, Persona persona){
 		this.peso = peso;
 		this.altura = altura;
 		this.setPersona(persona);
-	}
-	
-	
+	}	
 	
 	public HashMap<Calendar, Diagnostico> getEventos() {
 		return eventos;
 	}
 
-
-
 	public void setEventos(HashMap<Calendar, Diagnostico> eventos) {
 		this.eventos = eventos;
 	}
-
-
 
 	public void agregarAlergia(String alergia){
 		this.alergias.add(alergia);		
@@ -53,7 +46,6 @@ public class HistoriaClinica {
 		this.getAlergias().remove(alergia);
 	}
 	
-	//TESTEAR
 	public boolean elPacienteEsCompatibleCon(Tratamiento t) {
 		List<Medicamento> medicamentos = t.getMedicamentos();
 		for(Medicamento m: medicamentos){

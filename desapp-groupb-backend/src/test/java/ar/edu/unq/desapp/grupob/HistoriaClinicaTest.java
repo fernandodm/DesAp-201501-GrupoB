@@ -1,6 +1,7 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -45,6 +46,47 @@ public class HistoriaClinicaTest extends TestCase {
 		alergias.add("Penicilina");
 		historiaClinica.eliminarAlergia("Penicilina");
 		assert(historiaClinica.getAlergias().isEmpty());
+	}
+	
+	public void testElPacienteEsCompatibleConTrue(){
+		Medicamento medicamento1 = mock(Medicamento.class);
+		Medicamento medicamento2 = mock(Medicamento.class);
+		Tratamiento tratamiento = mock(Tratamiento.class);
+		
+		List<Medicamento> medicamentos = Arrays.asList(medicamento1,medicamento2);
+		
+		when(tratamiento.getMedicamentos()).thenReturn(medicamentos);
+		when(medicamento1.getDroga()).thenReturn("azitromicina");
+		when(medicamento2.getDroga()).thenReturn("amoxicilina");
+		
+		historiaClinica.agregarAlergia("azitromicina");
+		historiaClinica.agregarAlergia("ibuprofeno");
+		historiaClinica.agregarAlergia("clindamicina");
+		
+		boolean esCompatible = historiaClinica.elPacienteEsCompatibleCon(tratamiento);
+		
+		assert(esCompatible);		
+		
+	}
+	
+	public void testElPacienteEsCompatibleConFalse(){
+		Medicamento medicamento1 = mock(Medicamento.class);
+		Medicamento medicamento2 = mock(Medicamento.class);
+		Tratamiento tratamiento = mock(Tratamiento.class);
+		
+		List<Medicamento> medicamentos = Arrays.asList(medicamento1,medicamento2);
+		
+		when(tratamiento.getMedicamentos()).thenReturn(medicamentos);
+		when(medicamento2.getDroga()).thenReturn("amoxicilina");
+		
+		historiaClinica.agregarAlergia("azitromicina");
+		historiaClinica.agregarAlergia("ibuprofeno");
+		historiaClinica.agregarAlergia("clindamicina");
+		
+		boolean esCompatible = historiaClinica.elPacienteEsCompatibleCon(tratamiento);
+		
+		assert(!esCompatible);		
+		
 	}
 
 }
