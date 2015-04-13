@@ -25,7 +25,7 @@ public class Profesional extends Persona {
 			if(h.getPersona().equals(persona)){
 				return h;
 			}
-		}
+	}
 				
 		throw new PacienteNoEncontradoException();
 	}
