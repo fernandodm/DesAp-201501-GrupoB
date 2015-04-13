@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.grupob;
 
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class ProfesionalTest extends TestCase {
 	HistoriaClinica historia1;
 	HistoriaClinica historia2;
 	List<HistoriaClinica> historias;
+	GregorianCalendar fecha;
 	
 	public void setUp(){
 		profesional = new Profesional("Fernando", "Tolaba", "35666897", "fer11", "1234");
@@ -34,6 +36,7 @@ public class ProfesionalTest extends TestCase {
 		diagnostico2 = mock(Diagnostico.class);
 		diagnostico3 = mock(Diagnostico.class);
 		diagnostico4 = mock(Diagnostico.class);
+		fecha = mock(GregorianCalendar.class);
 		historias = Arrays.asList(historia1, historia2);
 	}
 	
@@ -70,14 +73,14 @@ public class ProfesionalTest extends TestCase {
 		
 		List<Diagnostico> diagnosticos = Arrays.asList(diagnostico1, diagnostico2, diagnostico3, diagnostico4);
 		
-		HashMap<Calendar,Diagnostico> eventos1 = new HashMap<Calendar,Diagnostico>();
-		eventos1.put(Calendar.getInstance(), diagnostico1);
-		eventos1.put(Calendar.getInstance(), diagnostico2);
+		HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
+		eventos1.put(fecha, diagnostico1);
+		eventos1.put(fecha, diagnostico2);
 		
-		HashMap<Calendar,Diagnostico> eventos2 = new HashMap<Calendar,Diagnostico>();
-		eventos2.put(Calendar.getInstance(), diagnostico3);
-		eventos2.put(Calendar.getInstance(), diagnostico4);
-		eventos2.put(Calendar.getInstance(), diagnostico2);
+		HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
+		eventos2.put(fecha, diagnostico3);
+		eventos2.put(fecha, diagnostico4);
+		eventos2.put(fecha, diagnostico2);
 		
 		Tratamiento tratamiento1 = mock(Tratamiento.class);
 		Tratamiento tratamiento2 = mock(Tratamiento.class);
@@ -86,8 +89,8 @@ public class ProfesionalTest extends TestCase {
 		
 		when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
 		when(sistema.getHistorias()).thenReturn(historias);
-////		when(historia1.getEventos()).thenReturn(eventos1);
-//		when(historia2.getEventos()).thenReturn(eventos2);
+		when(historia1.getEventos()).thenReturn(eventos1);
+		when(historia2.getEventos()).thenReturn(eventos2);
 		when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
 		when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
 		when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
@@ -110,14 +113,14 @@ public void testTratamientosParaElDiagnosticoSinnDiagnostico() {
 		
 	List<Diagnostico> diagnosticos = Arrays.asList(diagnostico1, diagnostico2, diagnostico3, diagnostico4);
 	
-	HashMap<Calendar,Diagnostico> eventos1 = new HashMap<Calendar,Diagnostico>();
-	eventos1.put(Calendar.getInstance(), diagnostico1);
-	eventos1.put(Calendar.getInstance(), diagnostico2);
+	HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
+	eventos1.put(fecha, diagnostico1);
+	eventos1.put(fecha, diagnostico2);
 	
-	HashMap<Calendar,Diagnostico> eventos2 = new HashMap<Calendar,Diagnostico>();
-	eventos2.put(Calendar.getInstance(), diagnostico3);
-	eventos2.put(Calendar.getInstance(), diagnostico4);
-	eventos2.put(Calendar.getInstance(), diagnostico2);
+	HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
+	eventos2.put(fecha, diagnostico3);
+	eventos2.put(fecha, diagnostico4);
+	eventos2.put(fecha, diagnostico2);
 	
 	Tratamiento tratamiento1 = mock(Tratamiento.class);
 	Tratamiento tratamiento2 = mock(Tratamiento.class);
@@ -126,8 +129,8 @@ public void testTratamientosParaElDiagnosticoSinnDiagnostico() {
 	
 	when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
 	when(sistema.getHistorias()).thenReturn(historias);
-//	when(historia1.getEventos()).thenReturn(eventos1);
-//	when(historia2.getEventos()).thenReturn(eventos2);
+	when(historia1.getEventos()).thenReturn(eventos1);
+	when(historia2.getEventos()).thenReturn(eventos2);
 	when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
 	when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
 	when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
