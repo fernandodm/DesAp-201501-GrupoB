@@ -16,9 +16,7 @@ public class Profesional extends Persona {
 		super(nombre,apellido,dni,usuario, contrasena);
 		
 	}
-	
-	
-	//TESTEAR
+
 	public HistoriaClinica obtenerHistoriaClinicaDe(Persona persona, Sistema sistema) throws PacienteNoEncontradoException{
 		
 		for(HistoriaClinica h : sistema.getHistorias()){
@@ -29,15 +27,15 @@ public class Profesional extends Persona {
 				
 		throw new PacienteNoEncontradoException();
 	}
-	//TESTEAR
-	public List<Tratamiento> tratamientosParaElDiagnostico(Diagnostico diagnostico, Sistema sistema) throws DiagnosticoNoEncontradoException{
+	
+	public List<Tratamiento> tratamientosParaElDiagnostico(String nombre, Sistema sistema) throws DiagnosticoNoEncontradoException{
 		
 		Set<Tratamiento> tratamientos = new HashSet<Tratamiento>();
 		
-		if(sistema.getDiagnosticos().contains(diagnostico)){
+		if(this.tieneDiagnostico(nombre, sistema)){
 			for(HistoriaClinica h: sistema.getHistorias()){
 				for(Diagnostico d: h.getEventos().values()){
-					if(d.equals(diagnostico)){
+					if(d.getNombre().toUpperCase().equals(nombre.toUpperCase())){
 						tratamientos.add(d.getTratamiento());
 					}
 				}
@@ -48,9 +46,20 @@ public class Profesional extends Persona {
 			throw new DiagnosticoNoEncontradoException();
 		}
 	}
+	
+	public boolean tieneDiagnostico(String nombre, Sistema sistema){
+		for(Diagnostico d: sistema.getDiagnosticos()){
+			if(d.getNombre().toUpperCase().equals(nombre.toUpperCase())){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	//TESTEAR
-	public List<Tratamiento> sugerirTratamientosParaElPaciente(Paciente paciente,Diagnostico diagnostico, Sistema sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
-		List<Tratamiento> tratamientos = this.tratamientosParaElDiagnostico(diagnostico, sistema);
+	public List<Tratamiento> sugerirTratamientosParaElPaciente(Paciente paciente,String nombreDiagnostico, Sistema sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
+		List<Tratamiento> tratamientos = this.tratamientosParaElDiagnostico(nombreDiagnostico, sistema);
 		HistoriaClinica historia = this.obtenerHistoriaClinicaDe(paciente, sistema);
 		List<Tratamiento> tratamientosReturn = new ArrayList<Tratamiento>();
 		for(Tratamiento t: tratamientos){
