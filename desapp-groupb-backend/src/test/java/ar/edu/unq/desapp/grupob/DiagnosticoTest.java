@@ -18,6 +18,7 @@ public class DiagnosticoTest extends TestCase{
 		diagnostico = new Diagnostico("Sinositis");
 		sintoma = mock(Sintoma.class);
 		tratamiento = mock(Tratamiento.class);
+		diagnostico.agregarSintoma(sintoma);
 		
 	}
 	
@@ -67,5 +68,16 @@ public class DiagnosticoTest extends TestCase{
 		diagnostico.eliminarSintoma(sintoma);
 		
 		assert(diagnostico.getSintomas().isEmpty());
+	}
+	
+	public void testSeRelacionaConSintomaTrue(){
+		assert(diagnostico.seRelacionConElSintoma(sintoma));
+	}
+	
+	public void testSeRelacionaConSintomaFalse(){
+		Sintoma sintoma1 = mock(Sintoma.class);
+		Sintoma sintoma2 = mock(Sintoma.class);
+		diagnostico.agregarSintoma(sintoma1);
+		assert(diagnostico.seRelacionConElSintoma(sintoma2));
 	}
 }
