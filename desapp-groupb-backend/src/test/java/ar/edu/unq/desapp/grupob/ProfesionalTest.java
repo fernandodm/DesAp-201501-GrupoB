@@ -230,4 +230,32 @@ public void testTratamientosParaElDiagnosticoSinnDiagnostico() {
 		assert(tratamientos.containsAll(tratmientoAComparar));	
 
 	}
+	
+	public void testDiagnosticosPosiblesParaSintomatologia(){
+	
+		List<Diagnostico> diagnosticos = Arrays.asList(diagnostico1, diagnostico2, diagnostico3, diagnostico4);
+		
+		Sintoma sintoma1 = mock(Sintoma.class);
+		Sintoma sintoma2 = mock(Sintoma.class);
+		Sintoma sintoma3 = mock(Sintoma.class);
+		Sintoma sintoma4 = mock(Sintoma.class);
+		Sintoma sintoma5 = mock(Sintoma.class);
+		
+		List<Sintoma> sintomas1 = Arrays.asList(sintoma1,sintoma2);
+		List<Sintoma> sintomas2 = Arrays.asList(sintoma5,sintoma4);
+		List<Sintoma> sintomas3 = Arrays.asList(sintoma3,sintoma2,sintoma5);
+		
+		when(diagnostico1.getSintomas()).thenReturn(sintomas1);
+		when(diagnostico2.getSintomas()).thenReturn(sintomas2);
+		when(diagnostico3.getSintomas()).thenReturn(sintomas1);
+		when(diagnostico4.getSintomas()).thenReturn(sintomas3);
+		
+		when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
+		
+		
+		List<Diagnostico> diagnosticosReturn = profesional.diagnosticosPosiblesParaSintomatologia(sintomas1, sistema);
+		
+		assert(diagnosticosReturn.size() == 2);
+		assert(diagnosticosReturn.containsAll(Arrays.asList(diagnostico1,diagnostico3)));
+	}
 }

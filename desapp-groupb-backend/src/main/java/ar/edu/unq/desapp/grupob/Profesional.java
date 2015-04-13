@@ -70,7 +70,7 @@ public class Profesional extends Persona {
 		return false;
 	}
 	
-	//TESTEAR
+	
 	public List<Tratamiento> sugerirTratamientosParaElPaciente(Paciente paciente,String nombreDiagnostico, Sistema sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
 		List<Tratamiento> tratamientos = this.tratamientosParaElDiagnostico(nombreDiagnostico, sistema);
 		HistoriaClinica historia = this.obtenerHistoriaClinicaDe(paciente, sistema);
@@ -84,7 +84,6 @@ public class Profesional extends Persona {
 	}
 	
 	
-	//TESTEAR
 	public List<Diagnostico> diagnosticosPosiblesParaSintomatologia(List<Sintoma> sintomatologia, Sistema sistema){
 		
 		ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
