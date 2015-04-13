@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class HistoriaClinica {
 	private int peso;
 	private int altura;
 	private List<String> alergias = new ArrayList<String>();
-	private HashMap<Calendar,Diagnostico> eventos = new HashMap<Calendar,Diagnostico>();
+	private HashMap<GregorianCalendar,Diagnostico> eventos = new HashMap<GregorianCalendar,Diagnostico>();
 	private Persona persona;
 		
 	public HistoriaClinica(int peso, int altura, Persona persona){
@@ -19,11 +20,11 @@ public class HistoriaClinica {
 		this.setPersona(persona);
 	}	
 	
-	public HashMap<Calendar, Diagnostico> getEventos() {
+	public HashMap<GregorianCalendar, Diagnostico> getEventos() {
 		return eventos;
 	}
 
-	public void setEventos(HashMap<Calendar, Diagnostico> eventos) {
+	public void setEventos(HashMap<GregorianCalendar, Diagnostico> eventos) {
 		this.eventos = eventos;
 	}
 
@@ -85,6 +86,10 @@ public class HistoriaClinica {
 
 	public void setPersona(Persona persona) {
 		this.persona = persona;
+	}
+	
+	public void agregarEvento(GregorianCalendar fecha, Diagnostico diagnostico){
+		this.getEventos().put(fecha, diagnostico);
 	}
 	
 	///////////////////////////////////////////////////////

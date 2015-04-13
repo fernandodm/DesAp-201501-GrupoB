@@ -1,12 +1,13 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import ar.edu.unq.desapp.grupob.excepciones.DiagnosticoNoEncontradoException;
+import ar.edu.unq.desapp.grupob.excepciones.NombreDeUsuarioYaTomado;
 import ar.edu.unq.desapp.grupob.excepciones.PacienteNoEncontradoException;
 
 public class Profesional extends Persona {
@@ -17,6 +18,18 @@ public class Profesional extends Persona {
 		
 	}
 
+	public void registrarseEnElSistema(Sistema sistema, String nombre, String apellido, String dni,
+			String usuario, String contrasena) throws NombreDeUsuarioYaTomado{
+		sistema.darDeAltaNuevoUsuarioProfesional(nombre, apellido, dni, usuario, contrasena);
+	}
+	
+	public void darDeAltaNuevoUsuarioPacienteEnElSistema(String nombre, String apellido, String dni,
+			String usuario, String contrasena, int peso, int altura, Sistema sistema) throws NombreDeUsuarioYaTomado{
+		
+		sistema.darDeAltaNuevoUsuarioPaciente(nombre, apellido, dni, usuario, contrasena, peso, altura);
+	}
+	
+	
 	public HistoriaClinica obtenerHistoriaClinicaDe(Persona persona, Sistema sistema) throws PacienteNoEncontradoException{
 		
 		for(HistoriaClinica h : sistema.getHistorias()){
@@ -127,15 +140,24 @@ public class Profesional extends Persona {
 		
 	}
 	//TESTEAR
-	public void confirmarDiagnosticoParaPaciente(Paciente paciente, Diagnostico diagnostico, Calendar fecha, Sistema sistema){
+	public void confirmarDiagnosticoParaPaciente(Paciente paciente, Diagnostico diagnostico, GregorianCalendar fecha, Sistema sistema) throws PacienteNoEncontradoException{
 		
 		if(sistema.existePaciente(paciente)){
-			
+			this.obtenerHistoriaClinicaDe(paciente, sistema).agregarEvento(fecha, diagnostico);
+	
 		}else{
-			
+			throw new PacienteNoEncontradoException();
 		}
-		
 	}
 	
-	
+	 public static void main (String [ ] args) {
+
+		
+
+       GregorianCalendar c = new GregorianCalendar(2014,9,22);
+       GregorianCalendar f = new GregorianCalendar(2014,10,22);
+
+        System.out.println(f.before(c));
+
+	 }
 }

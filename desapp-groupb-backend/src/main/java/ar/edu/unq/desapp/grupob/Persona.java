@@ -1,5 +1,7 @@
 package ar.edu.unq.desapp.grupob;
 
+import ar.edu.unq.desapp.grupob.excepciones.PacienteNoEncontradoException;
+
 public class Persona {
 
 	private String nombre;
@@ -52,6 +54,13 @@ public class Persona {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
+	
+	public void login(Sistema sistema, String usuario, String password) throws PacienteNoEncontradoException{
+		if(sistema.loginValido(usuario, password)){
+			System.out.println("Login satisfactorio!");
+		}
+	}
+	
 	/////////////////////////////////////
 
 }

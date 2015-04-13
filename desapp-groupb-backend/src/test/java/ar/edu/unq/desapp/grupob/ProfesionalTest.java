@@ -86,8 +86,8 @@ public class ProfesionalTest extends TestCase {
 		
 		when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
 		when(sistema.getHistorias()).thenReturn(historias);
-		when(historia1.getEventos()).thenReturn(eventos1);
-		when(historia2.getEventos()).thenReturn(eventos2);
+////		when(historia1.getEventos()).thenReturn(eventos1);
+//		when(historia2.getEventos()).thenReturn(eventos2);
 		when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
 		when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
 		when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
@@ -126,8 +126,8 @@ public void testTratamientosParaElDiagnosticoSinnDiagnostico() {
 	
 	when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
 	when(sistema.getHistorias()).thenReturn(historias);
-	when(historia1.getEventos()).thenReturn(eventos1);
-	when(historia2.getEventos()).thenReturn(eventos2);
+//	when(historia1.getEventos()).thenReturn(eventos1);
+//	when(historia2.getEventos()).thenReturn(eventos2);
 	when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
 	when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
 	when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
