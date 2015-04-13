@@ -1,7 +1,6 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -179,4 +178,56 @@ public void testTratamientosParaElDiagnosticoSinnDiagnostico() {
 		assertFalse(tieneElDiagnostico);
 	}
 
+	
+	public void testSugerirTratamientosParaElPaciente()throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
+		
+		List<Diagnostico> diagnosticos = Arrays.asList(diagnostico1, diagnostico2, diagnostico3, diagnostico4);
+		
+		HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
+		eventos1.put(fecha, diagnostico1);
+		eventos1.put(fecha, diagnostico2);
+		
+		HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
+		eventos2.put(fecha, diagnostico3);
+		eventos2.put(fecha, diagnostico4);
+		eventos2.put(fecha, diagnostico2);
+		
+		Tratamiento tratamiento1 = mock(Tratamiento.class);
+		Tratamiento tratamiento2 = mock(Tratamiento.class);
+		Tratamiento tratamiento3 = mock(Tratamiento.class);
+		Tratamiento tratamiento4 = mock(Tratamiento.class);
+		
+		when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
+		when(sistema.getHistorias()).thenReturn(historias);
+		
+		when(historia1.getEventos()).thenReturn(eventos1);
+		when(historia2.getEventos()).thenReturn(eventos2);
+		when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
+		when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
+		when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
+		when(diagnostico4.getTratamiento()).thenReturn(tratamiento4);
+		when(diagnostico1.getNombre()).thenReturn("SinoSitis");
+		when(diagnostico2.getNombre()).thenReturn("sinositis");
+		when(diagnostico3.getNombre()).thenReturn("Gripe");
+		when(diagnostico4.getNombre()).thenReturn("sinositis");
+		
+		when(sistema.getHistorias()).thenReturn(historias);
+		when(historia1.getPersona()).thenReturn(paciente2);
+		when(historia2.getPersona()).thenReturn(paciente);
+		
+		when(historia2.elPacienteEsCompatibleCon(tratamiento1)).thenReturn(true);
+		when(historia2.elPacienteEsCompatibleCon(tratamiento4)).thenReturn(true);
+		when(historia2.elPacienteEsCompatibleCon(tratamiento2)).thenReturn(false);
+		
+	
+		
+		
+		List<Tratamiento> tratamientos = profesional.sugerirTratamientosParaElPaciente(paciente,"Sinositis", sistema);
+		
+		List<Tratamiento> tratmientoAComparar = Arrays.asList(tratamiento1,tratamiento4);
+		
+		assert(tratamientos.size() == 2);
+		assert(tratamientos.containsAll(tratmientoAComparar));	
+
+	}
 }
