@@ -72,7 +72,7 @@ public class Profesional extends Persona {
 		return false;
 	}
 	
-	//TESTEAR
+	
 	public List<Tratamiento> sugerirTratamientosParaElPaciente(Paciente paciente,String nombreDiagnostico, Sistema sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
 		List<Tratamiento> tratamientos = this.tratamientosParaElDiagnostico(nombreDiagnostico, sistema);
 		HistoriaClinica historia = this.obtenerHistoriaClinicaDe(paciente, sistema);
@@ -86,7 +86,6 @@ public class Profesional extends Persona {
 	}
 	
 	
-	//TESTEAR
 	public List<Diagnostico> diagnosticosPosiblesParaSintomatologia(List<Sintoma> sintomatologia, Sistema sistema){
 		
 		ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
@@ -100,8 +99,8 @@ public class Profesional extends Persona {
 		return diagnosticos;
 		
 	}
-	//TESTEAR
-	public List<Diagnostico> quienesTuvieronUnSintomaTambienTuvieron(String sintoma, Sistema sistema){
+	
+	public List<Diagnostico> quienesTuvieronUnSintomaTambienTuvieron(Sintoma sintoma, Sistema sistema){
 		
 		ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
 		
@@ -113,7 +112,7 @@ public class Profesional extends Persona {
 		
 		return diagnosticos;
 	}
-	//TESTEAR
+	
 	public List<Diagnostico> quienesTuvieronUnaEnfermedadTambienTuvieron(Diagnostico diagnostico, Sistema sistema){
 		
 		Set<Diagnostico> diagnosticos = new HashSet<Diagnostico>();
@@ -131,7 +130,7 @@ public class Profesional extends Persona {
 		return diagnosticosPosta;
 		
 	}
-	//TESTEAR
+	
 	public void agregarSintomaADiagnostico(Sintoma sintoma, Diagnostico diagnostico, Sistema sistema){
 		
 		for(Diagnostico each :  sistema.getDiagnosticos()){
@@ -141,7 +140,7 @@ public class Profesional extends Persona {
 		}
 		
 	}
-	//TESTEAR
+	
 	public void confirmarDiagnosticoParaPaciente(Paciente paciente, Diagnostico diagnostico, GregorianCalendar fecha, Sistema sistema) throws PacienteNoEncontradoException{
 		
 		if(sistema.existePaciente(paciente)){
@@ -151,27 +150,4 @@ public class Profesional extends Persona {
 			throw new PacienteNoEncontradoException();
 		}
 	}
-	
-	
-	
-	 public static void main (String [ ] args) {
-
-		
-
-//       GregorianCalendar c = new GregorianCalendar(2014,9,22);
-//       GregorianCalendar f = new GregorianCalendar(2014,c.get(2),14);
-//
-		 
-		 Calendar c = Calendar.getInstance();
-		 int i = Integer.parseInt(Integer.toString(c.get(Calendar.YEAR)));
-		 
-		 
-		 
-        System.out.println(i);
-//        List<String> ls = new ArrayList<String>();
-//        ls.add("a");
-//        ls.add("a");
-//        System.out.println(Collections.frequency(ls, "a"));
-        
-	 }
 }

@@ -29,7 +29,7 @@ public class PacienteTest extends TestCase {
 		
 		paciente.registrarEnElSistema(system, paciente.getNombre(), paciente.getApellido(), paciente.getDni(), paciente.getUsuario(), paciente.getContrasena(), 85, 180);
 		
-		verify(system).darDeAltaNuevoUsuarioPacienteeed(paciente.getNombre(), paciente.getApellido(), paciente.getDni(), paciente.getUsuario(), paciente.getContrasena(), 85, 180);
+		verify(system).darDeAltaNuevoUsuarioPaciente(paciente.getNombre(), paciente.getApellido(), paciente.getDni(), paciente.getUsuario(), paciente.getContrasena(), 85, 180);
 	}
 	
 	
