@@ -97,8 +97,8 @@ public class Profesional extends Persona {
 		return diagnosticos;
 		
 	}
-	//TESTEAR
-	public List<Diagnostico> quienesTuvieronUnSintomaTambienTuvieron(String sintoma, Sistema sistema){
+	
+	public List<Diagnostico> quienesTuvieronUnSintomaTambienTuvieron(Sintoma sintoma, Sistema sistema){
 		
 		ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
 		
@@ -110,7 +110,7 @@ public class Profesional extends Persona {
 		
 		return diagnosticos;
 	}
-	//TESTEAR
+	
 	public List<Diagnostico> quienesTuvieronUnaEnfermedadTambienTuvieron(Diagnostico diagnostico, Sistema sistema){
 		
 		Set<Diagnostico> diagnosticos = new HashSet<Diagnostico>();
@@ -128,7 +128,7 @@ public class Profesional extends Persona {
 		return diagnosticosPosta;
 		
 	}
-	//TESTEAR
+	
 	public void agregarSintomaADiagnostico(Sintoma sintoma, Diagnostico diagnostico, Sistema sistema){
 		
 		for(Diagnostico each :  sistema.getDiagnosticos()){
@@ -138,7 +138,7 @@ public class Profesional extends Persona {
 		}
 		
 	}
-	//TESTEAR
+	
 	public void confirmarDiagnosticoParaPaciente(Paciente paciente, Diagnostico diagnostico, GregorianCalendar fecha, Sistema sistema) throws PacienteNoEncontradoException{
 		
 		if(sistema.existePaciente(paciente)){
@@ -148,15 +148,4 @@ public class Profesional extends Persona {
 			throw new PacienteNoEncontradoException();
 		}
 	}
-	
-	 public static void main (String [ ] args) {
-
-		
-
-       GregorianCalendar c = new GregorianCalendar(2014,9,22);
-       GregorianCalendar f = new GregorianCalendar(2014,10,22);
-
-        System.out.println(f.before(c));
-
-	 }
 }
