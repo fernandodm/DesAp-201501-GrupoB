@@ -142,10 +142,6 @@ public class Sistema {
 		
 		Set<String> report = new HashSet<String>(sintomas);
 		
-		for (String key : report) {
-            System.out.println(key + " : " + this.porcentajeEnCantidad(Collections.frequency(sintomas, key), cantidadDeDiagnosticos)+ "%");
-        }
-		
 		for(String key : report){
 			reporte.put(key, this.porcentajeEnCantidad(Collections.frequency(sintomas, key), cantidadDeDiagnosticos));
 		}

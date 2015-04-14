@@ -1,7 +1,6 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -32,8 +31,6 @@ public class HistoriaClinica {
 		this.alergias.add(alergia);		
 	}
 	
-
-	//agregar Diagnostico
 	
 	/* ACLARACION: se podria poner como precondicion que la primer letra sea 
 	 * mayuscula y el resto minuscula o pasar todo a mayuscula y comparar

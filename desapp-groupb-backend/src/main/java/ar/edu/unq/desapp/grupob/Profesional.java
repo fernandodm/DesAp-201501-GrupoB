@@ -1,8 +1,6 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;

@@ -2,9 +2,6 @@ package ar.edu.unq.desapp.grupob;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.any;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -162,9 +159,8 @@ public class SistemaTest extends TestCase {
 		sistema.getUsuarios().add(paciente2);
 		sistema.getUsuarios().add(paciente3);
 		
-		boolean esEl;
 		try {
-			esEl = sistema.usuarioConNombre("Markinios").equals(paciente1);
+			sistema.usuarioConNombre("Markinios").equals(paciente1);
 			fail("No hay usuario con ese nombre");
 		} catch (PacienteNoEncontradoException e) {
 		}
@@ -282,7 +278,6 @@ public class SistemaTest extends TestCase {
 		GregorianCalendar fecha1 = mock(GregorianCalendar.class);
 		GregorianCalendar fecha2 = mock(GregorianCalendar.class);
 		GregorianCalendar fecha3 = mock(GregorianCalendar.class);
-		GregorianCalendar fecha4 = mock(GregorianCalendar.class);
 		
 		Calendar c = Calendar.getInstance();
 		
@@ -307,14 +302,13 @@ public class SistemaTest extends TestCase {
 		eventos2.put(fecha3, diagnostico3);
 		
 		when(historia1.eventosDesdeFecha(haceUnosMeses)).thenReturn(eventos1);
-		when(historia1.eventosDesdeFecha(haceUnosMeses)).thenReturn(eventos2);
+		when(historia2.eventosDesdeFecha(haceUnosMeses)).thenReturn(eventos2);
 		
 		sistema.getHistorias().add(historia1);
 		sistema.getHistorias().add(historia2);
 		
-//		HashMap<String,Float> reporte = sistema.porcentajeDeDolenciasTratadasEnLosUltimosMeses(1);
+		HashMap<String,Float> reporte = sistema.porcentajeDeDolenciasTratadasEnLosUltimosMeses(1);
 		
-//		assertTrue(reporte.size() == 0);
-//		verify(historia2).eventosDesdeFecha(any(GregorianCalendar.class));
+		assertTrue(reporte.size() == 4);
 	}
 }

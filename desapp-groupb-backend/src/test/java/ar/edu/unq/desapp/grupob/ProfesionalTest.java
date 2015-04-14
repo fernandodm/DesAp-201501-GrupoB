@@ -374,6 +374,6 @@ public class ProfesionalTest extends TestCase {
 	public void testDarDeAltaNuevoUsuarioPacienteEnElSistema() throws NombreDeUsuarioYaTomado{
 		
 		profesional.darDeAltaNuevoUsuarioPacienteEnElSistema("Fernando", "Di meglio", "3333333", "ferdoc", "1234", 70, 190, sistema);
-		sistema.darDeAltaNuevoUsuarioPaciente("Fernando", "Di meglio", "3333333", "ferdoc", "1234", 70, 190);
+		verify(sistema).darDeAltaNuevoUsuarioPaciente("Fernando", "Di meglio", "3333333", "ferdoc", "1234",70,190);
 	}
 }
