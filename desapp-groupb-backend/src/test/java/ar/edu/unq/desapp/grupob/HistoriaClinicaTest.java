@@ -99,7 +99,7 @@ public class HistoriaClinicaTest extends TestCase {
 		
 		boolean seAgrego = historiaClinica.getEventos().get(fecha).equals(diagnostico);
 		
-		assert(seAgrego);
+		assertTrue(seAgrego);
 		
 	}
 	
@@ -124,7 +124,7 @@ public class HistoriaClinicaTest extends TestCase {
 		
 		boolean retornaLasCorrectas = historiaClinica.eventosDesdeFecha(fecha4).size() == 2;
 		
-		assert(retornaLasCorrectas);
+		assertTrue(retornaLasCorrectas);
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +17,7 @@ public class Sistema {
 	private List<Persona> usuarios = new ArrayList<Persona>();
 	private List<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
 	private List<HistoriaClinica> historias = new ArrayList<HistoriaClinica>();
+	
 	
 	public List<Persona> getUsuarios() {
 		return usuarios;
@@ -34,50 +36,6 @@ public class Sistema {
 	}
 	public void setHistorias(List<HistoriaClinica> historias) {
 		this.historias = historias;
-	}
-	
-	public void registrarUsuario(String nombre, String apellido, String dni,
-			String usuario, String contrasena){
-		
-		Persona persona = new Persona(nombre, apellido, dni, usuario, contrasena);
-		this.usuarios.add(persona);
-	}
-	
-	public boolean existePaciente(Paciente paciente){
-		return this.getUsuarios().contains(paciente);
-	}
-	
-	public boolean hayHistoriaClinicaConPaciente(Paciente paciente){
-		boolean hay = false;
-		for(HistoriaClinica each : this.getHistorias()){
-			if(each.getPersona().equals(paciente)){
-				hay = true;
-				break;
-			}
-		}
-		return hay;
-	}
-	
-	public boolean hayUsuarioConNombre(String username){
-		boolean hay = false;
-		
-		for(Persona each : this.getUsuarios()){
-			if(each.getUsuario().equals(username)){
-				hay = true;
-				break;
-			}
-		}
-		
-		return hay;
-	}
-	
-	public Persona usuarioConNombre(String username) throws PacienteNoEncontradoException{
-		for(Persona each : this.getUsuarios()){
-			if(each.getUsuario().equals(username)){
-				return each;
-			}
-		}
-		throw new PacienteNoEncontradoException();
 	}
 	
 	public void darDeAltaNuevoUsuarioProfesional(String nombre, String apellido, String dni,
@@ -105,6 +63,36 @@ public class Sistema {
 		
 			
 	}
+	
+	
+	public boolean existePaciente(Paciente paciente){
+		return this.getUsuarios().contains(paciente);
+	}
+
+	
+	public boolean hayUsuarioConNombre(String username){
+		boolean hay = false;
+		
+		for(Persona each : this.getUsuarios()){
+			if(each.getUsuario().equals(username)){
+				hay = true;
+				break;
+			}
+		}
+		
+		return hay;
+	}
+	
+	public Persona usuarioConNombre(String username) throws PacienteNoEncontradoException{
+		for(Persona each : this.getUsuarios()){
+			if(each.getUsuario().equals(username)){
+				return each;
+			}
+		}
+		throw new PacienteNoEncontradoException();
+	}
+	
+	
 		
 	public boolean loginValido(String usuario, String password) throws PacienteNoEncontradoException{
 		
@@ -127,7 +115,9 @@ public class Sistema {
 		
 	}
 	
-	public void porcentajeDeDolenciasTratadasEnLosUltimosMeses(int meses){
+	public HashMap<String,Float> porcentajeDeDolenciasTratadasEnLosUltimosMeses(int meses){
+		
+		HashMap<String,Float> reporte = new HashMap<String,Float>();
 		
 		int cantidadDeDiagnosticos = 0;
 		ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
@@ -155,6 +145,12 @@ public class Sistema {
 		for (String key : report) {
             System.out.println(key + " : " + this.porcentajeEnCantidad(Collections.frequency(sintomas, key), cantidadDeDiagnosticos)+ "%");
         }
+		
+		for(String key : report){
+			reporte.put(key, this.porcentajeEnCantidad(Collections.frequency(sintomas, key), cantidadDeDiagnosticos));
+		}
+		
+		return reporte;
 	}
 	
 }

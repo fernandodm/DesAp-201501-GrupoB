@@ -92,7 +92,7 @@ public class HistoriaClinica {
 		this.getEventos().put(fecha, diagnostico);
 	}
 	
-	public HashMap<GregorianCalendar,Diagnostico> eventosDesdeFecha(Calendar fecha){
+	public HashMap<GregorianCalendar,Diagnostico> eventosDesdeFecha(GregorianCalendar fecha){
 		
 		HashMap<GregorianCalendar,Diagnostico> events = new HashMap<GregorianCalendar,Diagnostico>();
 		
