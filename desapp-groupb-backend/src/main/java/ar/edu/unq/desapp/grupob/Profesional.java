@@ -1,6 +1,8 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
@@ -150,14 +152,26 @@ public class Profesional extends Persona {
 		}
 	}
 	
+	
+	
 	 public static void main (String [ ] args) {
 
 		
 
-       GregorianCalendar c = new GregorianCalendar(2014,9,22);
-       GregorianCalendar f = new GregorianCalendar(2014,10,22);
-
-        System.out.println(f.before(c));
-
+//       GregorianCalendar c = new GregorianCalendar(2014,9,22);
+//       GregorianCalendar f = new GregorianCalendar(2014,c.get(2),14);
+//
+		 
+		 Calendar c = Calendar.getInstance();
+		 int i = Integer.parseInt(Integer.toString(c.get(Calendar.YEAR)));
+		 
+		 
+		 
+        System.out.println(i);
+//        List<String> ls = new ArrayList<String>();
+//        ls.add("a");
+//        ls.add("a");
+//        System.out.println(Collections.frequency(ls, "a"));
+        
 	 }
 }

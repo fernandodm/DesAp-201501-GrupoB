@@ -1,11 +1,14 @@
 package ar.edu.unq.desapp.grupob;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import junit.framework.TestCase;
-import static org.mockito.Mockito.*;
 
 public class HistoriaClinicaTest extends TestCase {
 	
@@ -85,7 +88,43 @@ public class HistoriaClinicaTest extends TestCase {
 		boolean esCompatible = historiaClinica.elPacienteEsCompatibleCon(tratamiento);
 		
 		assert(!esCompatible);		
+	}
+	
+	public void testAgregarEvento(){
 		
+		Diagnostico diagnostico = mock(Diagnostico.class);
+		GregorianCalendar fecha = mock(GregorianCalendar.class);
+		
+		historiaClinica.agregarEvento(fecha, diagnostico);
+		
+		boolean seAgrego = historiaClinica.getEventos().get(fecha).equals(diagnostico);
+		
+		assert(seAgrego);
+		
+	}
+	
+	public void testEventosDesdeFecha(){
+		
+		Diagnostico diagnostico1 = mock(Diagnostico.class);
+		GregorianCalendar fecha1 = mock(GregorianCalendar.class);
+		Diagnostico diagnostico2 = mock(Diagnostico.class);
+		GregorianCalendar fecha2 = mock(GregorianCalendar.class);
+		Diagnostico diagnostico3 = mock(Diagnostico.class);
+		GregorianCalendar fecha3 = mock(GregorianCalendar.class);
+		
+		GregorianCalendar fecha4 = mock(GregorianCalendar.class);
+		
+		when(fecha1.after(fecha4)).thenReturn(false);
+		when(fecha2.after(fecha4)).thenReturn(true);
+		when(fecha3.after(fecha4)).thenReturn(true);
+		
+		historiaClinica.agregarEvento(fecha1, diagnostico1);
+		historiaClinica.agregarEvento(fecha2, diagnostico2);
+		historiaClinica.agregarEvento(fecha3, diagnostico3);
+		
+		boolean retornaLasCorrectas = historiaClinica.eventosDesdeFecha(fecha4).size() == 2;
+		
+		assert(retornaLasCorrectas);
 	}
 
 }

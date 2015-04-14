@@ -1,9 +1,13 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import ar.edu.unq.desapp.grupob.excepciones.DiagnosticoNoEncontradoException;
 import ar.edu.unq.desapp.grupob.excepciones.NombreDeUsuarioYaTomado;
 import ar.edu.unq.desapp.grupob.excepciones.PacienteNoEncontradoException;
 
@@ -115,6 +119,42 @@ public class Sistema {
 			return false;
 		}
 		
+	}
+	
+	public float porcentajeEnCantidad(int a, int b){
+		
+		return (a * 100) / b;
+		
+	}
+	
+	public void porcentajeDeDolenciasTratadasEnLosUltimosMeses(int meses){
+		
+		int cantidadDeDiagnosticos = 0;
+		ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
+		ArrayList<String> sintomas = new ArrayList<String>();
+		Calendar c = Calendar.getInstance();
+		
+		int d = Integer.parseInt(Integer.toString(c.get(Calendar.DATE)));
+		int m = Integer.parseInt(Integer.toString(c.get(Calendar.MONTH)));
+		int a = Integer.parseInt(Integer.toString(c.get(Calendar.YEAR)));
+
+		GregorianCalendar haceUnosMeses = new GregorianCalendar(a,m-meses,d);
+		
+		for(HistoriaClinica each : this.getHistorias()){
+			cantidadDeDiagnosticos = cantidadDeDiagnosticos + each.eventosDesdeFecha(haceUnosMeses).size();
+		}
+		for(HistoriaClinica each : this.getHistorias()){
+			diagnosticos.addAll(each.eventosDesdeFecha(haceUnosMeses).values());
+		}
+		for(Diagnostico each : diagnosticos){
+			sintomas.addAll(each.listaSintomas());
+		}
+		
+		Set<String> report = new HashSet<String>(sintomas);
+		
+		for (String key : report) {
+            System.out.println(key + " : " + this.porcentajeEnCantidad(Collections.frequency(sintomas, key), cantidadDeDiagnosticos)+ "%");
+        }
 	}
 	
 }

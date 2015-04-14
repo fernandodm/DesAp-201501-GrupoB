@@ -53,7 +53,17 @@ public class Diagnostico {
 	public void setTratamiento(Tratamiento tratamiento) {
 		this.tratamiento = tratamiento;
 	}
-	
+	public List<String> listaSintomas(){
+		
+		List<String> ls = new ArrayList<String>();
+		
+		for(Sintoma each : this.getSintomas()){
+			ls.add(each.getNombre());
+		}
+		
+		return ls;
+		
+	}
 	//////////////////////////////////////
 	
 }

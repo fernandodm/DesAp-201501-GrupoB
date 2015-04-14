@@ -92,6 +92,18 @@ public class HistoriaClinica {
 		this.getEventos().put(fecha, diagnostico);
 	}
 	
-	///////////////////////////////////////////////////////
+	public HashMap<GregorianCalendar,Diagnostico> eventosDesdeFecha(Calendar fecha){
+		
+		HashMap<GregorianCalendar,Diagnostico> events = new HashMap<GregorianCalendar,Diagnostico>();
+		
+		for(GregorianCalendar each : this.getEventos().keySet()){
+			if(each.after(fecha)){
+				events.put(each, this.getEventos().get(each));
+			}
+		}
+		return events;
+	}
+	
+
 	
 }
