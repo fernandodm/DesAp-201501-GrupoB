@@ -49,7 +49,7 @@ public class Profesional extends Persona {
 		
 		if(this.tieneDiagnostico(nombre, sistema)){
 			for(HistoriaClinica h: sistema.getHistorias()){
-				for(Diagnostico d: h.getEventos().values()){
+				for(Diagnostico d: h.getEventos().values()){//System.out.println(d.getNombre()+ " + " +nombre);
 					if(d.getNombre().toUpperCase().equals(nombre.toUpperCase())){
 						tratamientos.add(d.getTratamiento());
 					}
