@@ -1,8 +1,6 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.Arrays;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.List;
 
 import ar.edu.unq.desapp.grupob.excepciones.DiagnosticoNoEncontradoException;
@@ -69,22 +67,13 @@ public class ProfesionalTest extends TestCase {
 	
 	public void testTratamientosParaElDiagnosticoConDiagnostico() throws DiagnosticoNoEncontradoException{
 		
-		GregorianCalendar fecha1 = new GregorianCalendar(1,2,3);
-		GregorianCalendar fecha2 = new GregorianCalendar(4,5,6);
-		GregorianCalendar fecha3 = new GregorianCalendar(7,8,9);
-		GregorianCalendar fecha4 = new GregorianCalendar(9,9,9);
-		GregorianCalendar fecha5 = new GregorianCalendar(3,3,3);
 		
 		List<Diagnostico> diagnosticos = Arrays.asList(diagnostico1, diagnostico2, diagnostico3, diagnostico4);
 		
-		HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos1.put(fecha1, diagnostico1);
-		eventos1.put(fecha2, diagnostico2);
+		List<Diagnostico> diagnosticos1 = Arrays.asList(diagnostico1, diagnostico2);
 		
-		HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos2.put(fecha3, diagnostico3);
-		eventos2.put(fecha4, diagnostico4);
-		eventos2.put(fecha5, diagnostico2);
+		List<Diagnostico> diagnosticos2 = Arrays.asList(diagnostico2, diagnostico3, diagnostico4);
+
 		
 		Tratamiento tratamiento1 = mock(Tratamiento.class);
 		Tratamiento tratamiento2 = mock(Tratamiento.class);
@@ -93,8 +82,8 @@ public class ProfesionalTest extends TestCase {
 		
 		when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
 		when(sistema.getHistorias()).thenReturn(historias);
-		when(historia1.getEventos()).thenReturn(eventos1);
-		when(historia2.getEventos()).thenReturn(eventos2);
+		when(historia1.obtenerDiagnosticos()).thenReturn(diagnosticos1);
+		when(historia2.obtenerDiagnosticos()).thenReturn(diagnosticos2);
 		when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
 		when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
 		when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
@@ -115,22 +104,11 @@ public class ProfesionalTest extends TestCase {
 	
 	public void testTratamientosParaElDiagnosticoSinDiagnostico() {
 	
-		GregorianCalendar fecha1 = new GregorianCalendar(1,2,3);
-		GregorianCalendar fecha2 = new GregorianCalendar(4,5,6);
-		GregorianCalendar fecha3 = new GregorianCalendar(7,8,9);
-		GregorianCalendar fecha4 = new GregorianCalendar(9,9,9);
-		GregorianCalendar fecha5 = new GregorianCalendar(3,3,3);
-		
 		List<Diagnostico> diagnosticos = Arrays.asList(diagnostico1, diagnostico2, diagnostico3, diagnostico4);
 		
-		HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos1.put(fecha1, diagnostico1);
-		eventos1.put(fecha2, diagnostico2);
+		List<Diagnostico> diagnosticos1 = Arrays.asList(diagnostico1, diagnostico2);
 		
-		HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos2.put(fecha3, diagnostico3);
-		eventos2.put(fecha4, diagnostico4);
-		eventos2.put(fecha5, diagnostico2);
+		List<Diagnostico> diagnosticos2 = Arrays.asList(diagnostico2, diagnostico3, diagnostico4);
 		
 		Tratamiento tratamiento1 = mock(Tratamiento.class);
 		Tratamiento tratamiento2 = mock(Tratamiento.class);
@@ -139,8 +117,8 @@ public class ProfesionalTest extends TestCase {
 		
 		when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
 		when(sistema.getHistorias()).thenReturn(historias);
-		when(historia1.getEventos()).thenReturn(eventos1);
-		when(historia2.getEventos()).thenReturn(eventos2);
+		when(historia1.obtenerDiagnosticos()).thenReturn(diagnosticos1);
+		when(historia2.obtenerDiagnosticos()).thenReturn(diagnosticos2);
 		when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
 		when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
 		when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
@@ -192,22 +170,11 @@ public class ProfesionalTest extends TestCase {
 	
 	public void testSugerirTratamientosParaElPaciente()throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
 		
-		GregorianCalendar fecha1 = new GregorianCalendar(1,2,3);
-		GregorianCalendar fecha2 = new GregorianCalendar(4,5,6);
-		GregorianCalendar fecha3 = new GregorianCalendar(7,8,9);
-		GregorianCalendar fecha4 = new GregorianCalendar(9,9,9);
-		GregorianCalendar fecha5 = new GregorianCalendar(3,3,3);
-		
 		List<Diagnostico> diagnosticos = Arrays.asList(diagnostico1, diagnostico2, diagnostico3, diagnostico4);
 		
-		HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos1.put(fecha1, diagnostico1);
-		eventos1.put(fecha2, diagnostico2);
+		List<Diagnostico> diagnosticos1 = Arrays.asList(diagnostico1, diagnostico2);
 		
-		HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos2.put(fecha3, diagnostico3);
-		eventos2.put(fecha4, diagnostico4);
-		eventos2.put(fecha5, diagnostico2);
+		List<Diagnostico> diagnosticos2 = Arrays.asList(diagnostico2, diagnostico3, diagnostico4);
 		
 		Tratamiento tratamiento1 = mock(Tratamiento.class);
 		Tratamiento tratamiento2 = mock(Tratamiento.class);
@@ -217,8 +184,8 @@ public class ProfesionalTest extends TestCase {
 		when(sistema.getDiagnosticos()).thenReturn(diagnosticos);
 		when(sistema.getHistorias()).thenReturn(historias);
 		
-		when(historia1.getEventos()).thenReturn(eventos1);
-		when(historia2.getEventos()).thenReturn(eventos2);
+		when(historia1.obtenerDiagnosticos()).thenReturn(diagnosticos1);
+		when(historia2.obtenerDiagnosticos()).thenReturn(diagnosticos2);
 		when(diagnostico1.getTratamiento()).thenReturn(tratamiento1);
 		when(diagnostico2.getTratamiento()).thenReturn(tratamiento2);
 		when(diagnostico3.getTratamiento()).thenReturn(tratamiento3);
@@ -302,34 +269,21 @@ public class ProfesionalTest extends TestCase {
 	
 	public void testQuienesTuvieronUnaEnfermedadTambienTuvieron(){
 		
-		GregorianCalendar fecha1 = new GregorianCalendar(1,2,3);
-		GregorianCalendar fecha2 = new GregorianCalendar(4,5,6);
-		GregorianCalendar fecha3 = new GregorianCalendar(7,8,9);
-		GregorianCalendar fecha4 = new GregorianCalendar(9,9,9);
-		GregorianCalendar fecha5 = new GregorianCalendar(3,3,3);
-		GregorianCalendar fecha6 = new GregorianCalendar(3,3,8);
 		
+
 		HistoriaClinica historia3 = mock(HistoriaClinica.class);
 		Diagnostico diagnostico5 = mock(Diagnostico.class);
 		
+		List<Diagnostico> diagnosticos1 = Arrays.asList(diagnostico1, diagnostico2);
+		List<Diagnostico> diagnosticos2 = Arrays.asList(diagnostico1, diagnostico3, diagnostico4);
+		List<Diagnostico> diagnosticos3 = Arrays.asList(diagnostico5);	
 		List<HistoriaClinica> historias = Arrays.asList(historia1, historia2);
-		
-		HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos1.put(fecha1, diagnostico1);
-		eventos1.put(fecha2, diagnostico2);
-		
-		HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos1.put(fecha3, diagnostico3);
-		eventos1.put(fecha4, diagnostico4);
-		eventos1.put(fecha5, diagnostico1);
-		
-		HashMap<GregorianCalendar,Diagnostico> eventos3 = new HashMap<GregorianCalendar,Diagnostico>();
-		eventos1.put(fecha6, diagnostico5);
+	
 		
 		when(sistema.getHistorias()).thenReturn(historias);
-		when(historia1.getEventos()).thenReturn(eventos1);
-		when(historia2.getEventos()).thenReturn(eventos2);
-		when(historia3.getEventos()).thenReturn(eventos3);
+		when(historia1.obtenerDiagnosticos()).thenReturn(diagnosticos1);
+		when(historia2.obtenerDiagnosticos()).thenReturn(diagnosticos2);
+		when(historia3.obtenerDiagnosticos()).thenReturn(diagnosticos3);
 		
 	    List<Diagnostico> diagnosticoReturn = profesional.quienesTuvieronUnaEnfermedadTambienTuvieron(diagnostico1, sistema);	
 	
@@ -353,16 +307,16 @@ public class ProfesionalTest extends TestCase {
 	
 	public void testConfirmarDiagnosticoParaPacienteConPaciente() throws PacienteNoEncontradoException{
 		
-		GregorianCalendar fecha = new GregorianCalendar(1,2,3);
-		
+		Evento evento = mock(Evento.class);
+			
 		when(sistema.existePaciente(paciente)).thenReturn(true);
 		when(sistema.getHistorias()).thenReturn(historias);
 		when(historia1.getPersona()).thenReturn(paciente2);
 		when(historia2.getPersona()).thenReturn(paciente);
 		
-		profesional.confirmarDiagnosticoParaPaciente(paciente, diagnostico1, fecha, sistema);
+		profesional.confirmarDiagnosticoParaPaciente(paciente, evento, sistema);
 				
-		verify(historia2).agregarEvento(fecha, diagnostico1);
+		verify(historia2).agregarEvento(evento);
 	}
 	
 	public void testRegistrarseEnElSistema() throws NombreDeUsuarioYaTomado{

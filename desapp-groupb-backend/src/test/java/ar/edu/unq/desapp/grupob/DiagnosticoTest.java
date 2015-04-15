@@ -4,6 +4,7 @@ package ar.edu.unq.desapp.grupob;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import junit.framework.TestCase;
@@ -26,18 +27,6 @@ public class DiagnosticoTest extends TestCase{
 		assert(diagnostico.getNombre() == "Sinositis");
 	}
 	
-//	public void testDiagnosticoConTresParametros(){
-//		List<Sintoma> sintomas = new ArrayList<Sintoma>();
-//		sintomas.add(sintoma);
-//		
-//		List<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
-//		tratamientos.add(tratamiento);
-//		
-//		Diagnostico diagnostico = new Diagnostico("Sinositis", sintomas, tratamientos);
-//		assert(diagnostico.getNombre() == "Sinositis");
-//		assert(diagnostico.getSintomas().contains(sintoma));
-//		assert(diagnostico.getTratamientos().contains(tratamiento));
-//	}
 	
 	public void testAgregarSintoma(){
 				
@@ -79,5 +68,22 @@ public class DiagnosticoTest extends TestCase{
 		Sintoma sintoma2 = mock(Sintoma.class);
 		diagnostico.agregarSintoma(sintoma1);
 		assert(diagnostico.seRelacionConElSintoma(sintoma2));
+	}
+	
+	public void testListaSintomas(){
+		Sintoma sintoma1 = mock(Sintoma.class);
+		Sintoma sintoma2 = mock(Sintoma.class);
+		diagnostico.agregarSintoma(sintoma1);
+		diagnostico.agregarSintoma(sintoma2);
+		
+		when(sintoma.getNombre()).thenReturn("fiebre");
+		when(sintoma1.getNombre()).thenReturn("tos");
+		when(sintoma2.getNombre()).thenReturn("dolor");
+		
+		List<String> nombres = diagnostico.listaSintomas();
+		
+		assertTrue(nombres.size() == 3);
+		assertTrue(nombres.containsAll(Arrays.asList("fiebre","tos","dolor")));
+		
 	}
 }

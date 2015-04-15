@@ -2,10 +2,12 @@ package ar.edu.unq.desapp.grupob;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 
 import junit.framework.TestCase;
 import ar.edu.unq.desapp.grupob.excepciones.NombreDeUsuarioYaTomado;
@@ -44,14 +46,14 @@ public class SistemaTest extends TestCase {
 	
 	public void testDarDeAltaNuevoUsuarioPacienteExitoso() throws NombreDeUsuarioYaTomado{
 		
-		sistema.darDeAltaNuevoUsuarioProfesional("goten", "paipai", "666777", "tao", "red");
+		sistema.darDeAltaNuevoUsuarioPaciente("goten", "paipai", "666777", "tao", "red",60,189);
 		assert(sistema.getUsuarios().get(0).getNombre() == "goten");
 	}
 	
 	public void testDarDeAltaNuevoUsuarioPacienteFallido(){
 		
 		try {
-			sistema.darDeAltaNuevoUsuarioProfesional("cell", "paipai", "666777", "tao", "blue");
+			sistema.darDeAltaNuevoUsuarioPaciente("cell", "paipai", "666777", "tao", "blue",60,189);
 			
 		} catch (NombreDeUsuarioYaTomado e) {
 			e.printStackTrace();
@@ -275,39 +277,29 @@ public class SistemaTest extends TestCase {
 		HistoriaClinica historia1 = mock(HistoriaClinica.class);
 		HistoriaClinica historia2 = mock(HistoriaClinica.class);
 		
-		GregorianCalendar fecha1 = mock(GregorianCalendar.class);
-		GregorianCalendar fecha2 = mock(GregorianCalendar.class);
-		GregorianCalendar fecha3 = mock(GregorianCalendar.class);
+		GregorianCalendar diaActual = new GregorianCalendar();
 		
-		Calendar c = Calendar.getInstance();
-		
-		int d = Integer.parseInt(Integer.toString(c.get(Calendar.DATE)));
-		int m = Integer.parseInt(Integer.toString(c.get(Calendar.MONTH)));
-		int a = Integer.parseInt(Integer.toString(c.get(Calendar.YEAR)));
+		int d = diaActual.get(GregorianCalendar.DATE);
+		int m = diaActual.get(GregorianCalendar.MONTH) ;
+		int a = diaActual.get(GregorianCalendar.YEAR);;
 
-		GregorianCalendar haceUnosMeses = new GregorianCalendar(a,m-1,d);
+		GregorianCalendar haceUnosMeses = new GregorianCalendar(a,m-12,d);
 		
-		HashMap<GregorianCalendar,Diagnostico> eventos1 = new HashMap<GregorianCalendar,Diagnostico>();
-		HashMap<GregorianCalendar,Diagnostico> eventos2 = new HashMap<GregorianCalendar,Diagnostico>();
+		List<Diagnostico> diagnosticos1 = Arrays.asList(diagnostico1,diagnostico2);
+		List<Diagnostico>  diagnosticos2 = Arrays.asList(diagnostico3);
 		
-		
-		
+	
 		when(diagnostico1.listaSintomas()).thenReturn(sintomas1);
 		when(diagnostico2.listaSintomas()).thenReturn(sintomas2);
 		when(diagnostico3.listaSintomas()).thenReturn(sintomas3);
 		
-		eventos1.put(fecha1, diagnostico1);
-		eventos1.put(fecha2, diagnostico2);
-		
-		eventos2.put(fecha3, diagnostico3);
-		
-		when(historia1.eventosDesdeFecha(haceUnosMeses)).thenReturn(eventos1);
-		when(historia2.eventosDesdeFecha(haceUnosMeses)).thenReturn(eventos2);
+		when(historia1.eventosDesdeFecha(haceUnosMeses)).thenReturn(diagnosticos1);
+		when(historia2.eventosDesdeFecha(haceUnosMeses)).thenReturn(diagnosticos2);
 		
 		sistema.getHistorias().add(historia1);
 		sistema.getHistorias().add(historia2);
 		
-		HashMap<String,Float> reporte = sistema.porcentajeDeDolenciasTratadasEnLosUltimosMeses(1);
+		HashMap<String,Float> reporte = sistema.porcentajeDeDolenciasEnLosUltimosMeses(12);
 		
 		assertTrue(reporte.size() == 4);
 	}

@@ -2,7 +2,6 @@ package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.List;
 
 public class HistoriaClinica {
@@ -10,7 +9,7 @@ public class HistoriaClinica {
 	private int peso;
 	private int altura;
 	private List<String> alergias = new ArrayList<String>();
-	private HashMap<GregorianCalendar,Diagnostico> eventos = new HashMap<GregorianCalendar,Diagnostico>();
+	private List<Evento> eventos = new ArrayList<Evento>();
 	private Persona persona;
 		
 	public HistoriaClinica(int peso, int altura, Persona persona){
@@ -18,19 +17,6 @@ public class HistoriaClinica {
 		this.altura = altura;
 		this.setPersona(persona);
 	}	
-	
-	public HashMap<GregorianCalendar, Diagnostico> getEventos() {
-		return eventos;
-	}
-
-	public void setEventos(HashMap<GregorianCalendar, Diagnostico> eventos) {
-		this.eventos = eventos;
-	}
-
-	public void agregarAlergia(String alergia){
-		this.alergias.add(alergia);		
-	}
-	
 	
 	/* ACLARACION: se podria poner como precondicion que la primer letra sea 
 	 * mayuscula y el resto minuscula o pasar todo a mayuscula y comparar
@@ -52,6 +38,32 @@ public class HistoriaClinica {
 			}
 		}
 		return false;
+	}
+	
+	public List<Diagnostico> eventosDesdeFecha(GregorianCalendar fecha){
+		
+		List<Diagnostico> events = new ArrayList<Diagnostico>();
+		
+		for(Evento evento : this.getEventos()){
+			if(evento.getFecha().after(fecha)){
+				events.add(evento.getDiagnostico());
+			}
+		}
+		return events;
+	}
+	
+	public void agregarEvento(Evento evento){
+		this.getEventos().add(evento);
+	}
+	
+	public List<Diagnostico> obtenerDiagnosticos() {
+		
+		List<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
+		for(Evento evento: this.getEventos()){
+			diagnosticos.add(evento.getDiagnostico());
+		}
+	
+		return diagnosticos;
 	}
 	
 	////////////////////////
@@ -84,23 +96,16 @@ public class HistoriaClinica {
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
-	
-	public void agregarEvento(GregorianCalendar fecha, Diagnostico diagnostico){
-		this.getEventos().put(fecha, diagnostico);
-	}
-	
-	public HashMap<GregorianCalendar,Diagnostico> eventosDesdeFecha(GregorianCalendar fecha){
 		
-		HashMap<GregorianCalendar,Diagnostico> events = new HashMap<GregorianCalendar,Diagnostico>();
-		
-		for(GregorianCalendar each : this.getEventos().keySet()){
-			if(each.after(fecha)){
-				events.put(each, this.getEventos().get(each));
-			}
-		}
-		return events;
+	public List<Evento> getEventos() {
+		return eventos;
 	}
-	
 
-	
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	public void agregarAlergia(String alergia){
+		this.alergias.add(alergia);		
+	}		
 }

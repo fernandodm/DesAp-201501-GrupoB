@@ -1,7 +1,6 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -47,7 +46,7 @@ public class Profesional extends Persona {
 		
 		if(this.tieneDiagnostico(nombre, sistema)){
 			for(HistoriaClinica h: sistema.getHistorias()){
-				for(Diagnostico d: h.getEventos().values()){//System.out.println(d.getNombre()+ " + " +nombre);
+				for(Diagnostico d: h.obtenerDiagnosticos()){
 					if(d.getNombre().toUpperCase().equals(nombre.toUpperCase())){
 						tratamientos.add(d.getTratamiento());
 					}
@@ -116,8 +115,8 @@ public class Profesional extends Persona {
 		Set<Diagnostico> diagnosticos = new HashSet<Diagnostico>();
 		
 		for(HistoriaClinica each : sistema.getHistorias()){
-			if(each.getEventos().values().contains(diagnostico)){
-				for(Diagnostico d : each.getEventos().values()){
+			if(each.obtenerDiagnosticos().contains(diagnostico)){
+				for(Diagnostico d : each.obtenerDiagnosticos()){
 					diagnosticos.add(d);
 				}
 			}
@@ -139,10 +138,10 @@ public class Profesional extends Persona {
 		
 	}
 	
-	public void confirmarDiagnosticoParaPaciente(Paciente paciente, Diagnostico diagnostico, GregorianCalendar fecha, Sistema sistema) throws PacienteNoEncontradoException{
+	public void confirmarDiagnosticoParaPaciente(Paciente paciente, Evento evento, Sistema sistema) throws PacienteNoEncontradoException{
 		
 		if(sistema.existePaciente(paciente)){
-			this.obtenerHistoriaClinicaDe(paciente, sistema).agregarEvento(fecha, diagnostico);
+			this.obtenerHistoriaClinicaDe(paciente, sistema).agregarEvento(evento);
 	
 		}else{
 			throw new PacienteNoEncontradoException();

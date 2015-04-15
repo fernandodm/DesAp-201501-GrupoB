@@ -1,7 +1,6 @@
 package ar.edu.unq.desapp.grupob;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -109,44 +108,70 @@ public class Sistema {
 		
 	}
 	
-	public float porcentajeEnCantidad(int a, int b){
-		
-		return (a * 100) / b;
-		
-	}
 	
-	public HashMap<String,Float> porcentajeDeDolenciasTratadasEnLosUltimosMeses(int meses){
+	public HashMap<String,Float> porcentajeDeDolenciasEnLosUltimosMeses(int meses){
 		
 		HashMap<String,Float> reporte = new HashMap<String,Float>();
-		
 		int cantidadDeDiagnosticos = 0;
-		ArrayList<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
-		ArrayList<String> sintomas = new ArrayList<String>();
-		Calendar c = Calendar.getInstance();
+		List<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
+		List<String> nombreDeSintomas = new ArrayList<String>();
+		GregorianCalendar diaActual = new GregorianCalendar();
 		
-		int d = Integer.parseInt(Integer.toString(c.get(Calendar.DATE)));
-		int m = Integer.parseInt(Integer.toString(c.get(Calendar.MONTH)));
-		int a = Integer.parseInt(Integer.toString(c.get(Calendar.YEAR)));
-
-		GregorianCalendar haceUnosMeses = new GregorianCalendar(a,m-meses,d);
+		int dia = diaActual.get(GregorianCalendar.DATE);
+		int mes = diaActual.get(GregorianCalendar.MONTH);
+		int anio = diaActual.get(GregorianCalendar.YEAR);
 		
-		for(HistoriaClinica each : this.getHistorias()){
-			cantidadDeDiagnosticos = cantidadDeDiagnosticos + each.eventosDesdeFecha(haceUnosMeses).size();
-		}
-		for(HistoriaClinica each : this.getHistorias()){
-			diagnosticos.addAll(each.eventosDesdeFecha(haceUnosMeses).values());
-		}
-		for(Diagnostico each : diagnosticos){
-			sintomas.addAll(each.listaSintomas());
-		}
+		GregorianCalendar haceUnosMeses = new GregorianCalendar(anio,mes-meses,dia);
+	
+		cantidadDeDiagnosticos = this.obtenerCantidadDeDiagnosticosDesde(haceUnosMeses);
+		diagnosticos = this.obtenerDiagnosticosDesde(haceUnosMeses);
+		nombreDeSintomas = this.obtenerSintomasDesde(haceUnosMeses, diagnosticos);
 		
-		Set<String> report = new HashSet<String>(sintomas);
+		Set<String> nombreDeLosSintomas = new HashSet<String>(nombreDeSintomas);
 		
-		for(String key : report){
-			reporte.put(key, this.porcentajeEnCantidad(Collections.frequency(sintomas, key), cantidadDeDiagnosticos));
+		int frecuenciaDelSintoma;
+		for(String nombre : nombreDeLosSintomas){
+			frecuenciaDelSintoma = Collections.frequency(nombreDeSintomas, nombre);
+			reporte.put(nombre, this.porcentajeEnCantidad(frecuenciaDelSintoma, cantidadDeDiagnosticos));
 		}
 		
 		return reporte;
 	}
 	
+	private List<String> obtenerSintomasDesde(GregorianCalendar haceUnosMeses, List<Diagnostico> diagnosticos) {
+		
+		List<String> sintomas = new ArrayList<String>();
+		for(Diagnostico each : diagnosticos)
+			sintomas.addAll(each.listaSintomas());
+		
+		return sintomas;
+	}
+	
+	private List<Diagnostico> obtenerDiagnosticosDesde(
+			GregorianCalendar haceUnosMeses) {
+		
+		List<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
+		for(HistoriaClinica each : this.getHistorias())
+			diagnosticos.addAll(each.eventosDesdeFecha(haceUnosMeses));
+		
+		
+		return diagnosticos;
+	}
+	
+	private int obtenerCantidadDeDiagnosticosDesde(
+			GregorianCalendar haceUnosMeses) {
+		
+		int cantidadDeDiagnosticos = 0;
+		for(HistoriaClinica each : this.getHistorias()){
+			cantidadDeDiagnosticos = cantidadDeDiagnosticos + each.eventosDesdeFecha(haceUnosMeses).size();
+		}
+		
+		return cantidadDeDiagnosticos;
+	}
+	
+	public float porcentajeEnCantidad(int a, int b){
+		
+		return (a * 100) / b;
+		
+	}
 }

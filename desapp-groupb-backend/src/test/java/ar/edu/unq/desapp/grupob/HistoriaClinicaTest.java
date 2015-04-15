@@ -91,13 +91,12 @@ public class HistoriaClinicaTest extends TestCase {
 	}
 	
 	public void testAgregarEvento(){
+
+		Evento evento = mock(Evento.class);
 		
-		Diagnostico diagnostico = mock(Diagnostico.class);
-		GregorianCalendar fecha = mock(GregorianCalendar.class);
+		historiaClinica.agregarEvento(evento);
 		
-		historiaClinica.agregarEvento(fecha, diagnostico);
-		
-		boolean seAgrego = historiaClinica.getEventos().get(fecha).equals(diagnostico);
+		boolean seAgrego = historiaClinica.getEventos().get(0).equals(evento);
 		
 		assertTrue(seAgrego);
 		
@@ -105,7 +104,6 @@ public class HistoriaClinicaTest extends TestCase {
 	
 	public void testEventosDesdeFecha(){
 		
-		Diagnostico diagnostico1 = mock(Diagnostico.class);
 		GregorianCalendar fecha1 = mock(GregorianCalendar.class);
 		Diagnostico diagnostico2 = mock(Diagnostico.class);
 		GregorianCalendar fecha2 = mock(GregorianCalendar.class);
@@ -114,17 +112,29 @@ public class HistoriaClinicaTest extends TestCase {
 		
 		GregorianCalendar fecha4 = mock(GregorianCalendar.class);
 		
+		Evento evento1 = mock(Evento.class);
+		Evento evento2 = mock(Evento.class);
+		Evento evento3 = mock(Evento.class);
+		
+		when(evento1.getFecha()).thenReturn(fecha1);
+		when(evento2.getFecha()).thenReturn(fecha2);
+		when(evento3.getFecha()).thenReturn(fecha3);
+		
+		when(evento2.getDiagnostico()).thenReturn(diagnostico2);
+		when(evento3.getDiagnostico()).thenReturn(diagnostico3);
+		
 		when(fecha1.after(fecha4)).thenReturn(false);
 		when(fecha2.after(fecha4)).thenReturn(true);
 		when(fecha3.after(fecha4)).thenReturn(true);
+				
+		historiaClinica.agregarEvento(evento1);
+		historiaClinica.agregarEvento(evento2);
+		historiaClinica.agregarEvento(evento3);
 		
-		historiaClinica.agregarEvento(fecha1, diagnostico1);
-		historiaClinica.agregarEvento(fecha2, diagnostico2);
-		historiaClinica.agregarEvento(fecha3, diagnostico3);
+		List<Diagnostico> diagnosticosReturn = historiaClinica.eventosDesdeFecha(fecha4);
 		
-		boolean retornaLasCorrectas = historiaClinica.eventosDesdeFecha(fecha4).size() == 2;
-		
-		assertTrue(retornaLasCorrectas);
+		assertTrue(diagnosticosReturn.size() == 2);
+		assertTrue(diagnosticosReturn.containsAll(Arrays.asList(diagnostico2,diagnostico3)));
 	}
 
 }
