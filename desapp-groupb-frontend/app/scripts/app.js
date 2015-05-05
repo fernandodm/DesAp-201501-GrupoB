@@ -31,6 +31,10 @@ angular
         templateUrl: 'views/crearPaciente.html',
         controller: 'CrearPacienteCtrl'
       })
+      .when('/agregarHistoria', {
+        templateUrl: 'views/agregarHistoria.html',
+        controller: 'AgregarHistoriaCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
