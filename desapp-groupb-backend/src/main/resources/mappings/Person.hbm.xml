@@ -3,16 +3,15 @@
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field"
 	default-cascade="save-update">
-	<class name="ar.edu.unq.desapp.group.model.Patient">
+	<class name="ar.edu.unq.desapp.group.model.Person">
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
-		<property name="name" />
-		<property name="age" />
-		<list name="cars" lazy="false">
-			<key column="carID" />
-			<list-index column="id" />
-			<one-to-many class="ar.edu.unq.model.Car" />
-		</list>
+		<property name="firstName" />
+		<property name="lastName" />
+		<property name="dni" />
+		<property name="username" />
+		<property name="password" />
+		
 	</class>
 </hibernate-mapping>

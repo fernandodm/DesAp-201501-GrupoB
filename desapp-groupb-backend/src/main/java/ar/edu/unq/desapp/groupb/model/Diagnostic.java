@@ -46,7 +46,7 @@ public class Diagnostic extends Entity{
 		List<String> ls = new ArrayList<String>();
 		
 		for(Symptom each : this.getSymptoms()){
-			ls.add(each.getNombre());
+			ls.add(each.getSymptomName());
 		}
 		
 		return ls;

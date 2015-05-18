@@ -80,9 +80,9 @@ public class DiagnosticTest extends TestCase{
 		diagnostic.agregarSintoma(sintoma1);
 		diagnostic.agregarSintoma(sintoma2);
 		
-		when(symptom.getNombre()).thenReturn("fiebre");
-		when(sintoma1.getNombre()).thenReturn("tos");
-		when(sintoma2.getNombre()).thenReturn("dolor");
+		when(symptom.getSymptomName()).thenReturn("fiebre");
+		when(sintoma1.getSymptomName()).thenReturn("tos");
+		when(sintoma2.getSymptomName()).thenReturn("dolor");
 		
 		List<String> nombres = diagnostic.listaSintomas();
 		

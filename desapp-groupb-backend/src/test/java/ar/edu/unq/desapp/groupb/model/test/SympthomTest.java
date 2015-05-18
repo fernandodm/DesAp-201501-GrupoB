@@ -8,9 +8,9 @@ public class SympthomTest extends TestCase {
 	
 	public void testSetNombre(){
 		Symptom sintoma = new Symptom("Fernando");
-		sintoma.setNombre("Esteban");
+		sintoma.setSymptomName("Esteban");
 		
-		assert(sintoma.getNombre() == "Esteban");
+		assert(sintoma.getSymptomName() == "Esteban");
 	}
 
 }

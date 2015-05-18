@@ -2,24 +2,24 @@ package ar.edu.unq.desapp.groupb.model;
 
 public class Symptom extends Entity{
 
-	private String nombre;
+	private String symptomName;
 	
 	public Symptom(){}
 	
 	public Symptom(String nombre){
-		this.nombre = nombre;
+		this.symptomName = nombre;
 	}
 	
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
 
-	public String getNombre() {
-		return nombre;
+	public String getSymptomName() {
+		return symptomName;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setSymptomName(String nombre) {
+		this.symptomName = nombre;
 	}
 	////////////////////////////
 }
