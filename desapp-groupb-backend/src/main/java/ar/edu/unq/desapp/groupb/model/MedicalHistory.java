@@ -33,9 +33,9 @@ public class MedicalHistory extends Entity {
 	}
 	
 	public boolean patientSupports(Treatment t) {
-		List<Medicamento> medicamentos = t.getMedicines();
-		for(Medicamento m: medicamentos){
-			if(this.getAllergies().contains(m.getDroga())){
+		List<Medicine> medicamentos = t.getMedicines();
+		for(Medicine m: medicamentos){
+			if(this.getAllergies().contains(m.getDrugName())){
 				return true;
 			}
 		}

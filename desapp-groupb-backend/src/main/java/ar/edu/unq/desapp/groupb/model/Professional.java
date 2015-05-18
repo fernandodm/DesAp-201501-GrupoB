@@ -17,21 +17,21 @@ public class Professional extends Person {
 	
 	public Professional(){}
 
-	public void register(Sistema sistema, String nombre, String apellido, String dni,
+	public void register(System sistema, String nombre, String apellido, String dni,
 			String usuario, String contrasena) throws NombreDeUsuarioYaTomado{
-		sistema.darDeAltaNuevoUsuarioProfesional(nombre, apellido, dni, usuario, contrasena);
+		sistema.registerNewProfessionalUser(nombre, apellido, dni, usuario, contrasena);
 	}
 	
 	public void registerUser(String nombre, String apellido, String dni,
-			String usuario, String contrasena, int peso, int altura, Sistema sistema) throws NombreDeUsuarioYaTomado{
+			String usuario, String contrasena, int peso, int altura, System sistema) throws NombreDeUsuarioYaTomado{
 		
-		sistema.darDeAltaNuevoUsuarioPaciente(nombre, apellido, dni, usuario, contrasena, peso, altura);
+		sistema.registerNewPatientUser(nombre, apellido, dni, usuario, contrasena, peso, altura);
 	}
 	
 	
-	public MedicalHistory getMedicalHistoryFrom(Person persona, Sistema sistema) throws PacienteNoEncontradoException{
+	public MedicalHistory getMedicalHistoryFrom(Person persona, System sistema) throws PacienteNoEncontradoException{
 		
-		for(MedicalHistory h : sistema.getHistorias()){
+		for(MedicalHistory h : sistema.getMedicalHistories()){
 			if(h.getPatient().equals(persona)){
 				return h;
 			}
@@ -40,12 +40,12 @@ public class Professional extends Person {
 		throw new PacienteNoEncontradoException();
 	}
 	
-	public List<Treatment> diagnosticTreatments(String nombre, Sistema sistema) throws DiagnosticoNoEncontradoException{
+	public List<Treatment> diagnosticTreatments(String nombre, System sistema) throws DiagnosticoNoEncontradoException{
 		
 		Set<Treatment> tratamientos = new HashSet<Treatment>();
 		
 		if(this.hasDiagnostic(nombre, sistema)){
-			for(MedicalHistory h: sistema.getHistorias()){
+			for(MedicalHistory h: sistema.getMedicalHistories()){
 				for(Diagnostic d: h.getDiagnostics()){
 					if(d.getName().toUpperCase().equals(nombre.toUpperCase())){
 						tratamientos.add(d.getTreatment());
@@ -59,8 +59,8 @@ public class Professional extends Person {
 		}
 	}
 	
-	public boolean hasDiagnostic(String nombre, Sistema sistema){
-		for(Diagnostic d: sistema.getDiagnosticos()){
+	public boolean hasDiagnostic(String nombre, System sistema){
+		for(Diagnostic d: sistema.getDiagnoses()){
 			if(d.getName().toUpperCase().equals(nombre.toUpperCase())){
 				return true;
 			}
@@ -70,7 +70,7 @@ public class Professional extends Person {
 	}
 	
 	
-	public List<Treatment> suggestTreatmentsToPatient(Patient paciente,String nombreDiagnostico, Sistema sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
+	public List<Treatment> suggestTreatmentsToPatient(Patient paciente,String nombreDiagnostico, System sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
 		List<Treatment> tratamientos = this.diagnosticTreatments(nombreDiagnostico, sistema);
 		MedicalHistory historia = this.getMedicalHistoryFrom(paciente, sistema);
 		List<Treatment> tratamientosReturn = new ArrayList<Treatment>();
@@ -83,11 +83,12 @@ public class Professional extends Person {
 	}
 	
 	
-	public List<Diagnostic> diagnosticosPosiblesParaSintomatologia(List<Symptom> sintomatologia, Sistema sistema){
+	public List<Diagnostic> possibleDiagnosticForSymptomatology
+	(List<Symptom> sintomatologia, System sistema){
 		
 		ArrayList<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
 		
-		for(Diagnostic each : sistema.getDiagnosticos()){
+		for(Diagnostic each : sistema.getDiagnoses()){
 			if(each.getSymptoms().containsAll(sintomatologia)){
 				diagnosticos.add(each);
 			}
@@ -97,11 +98,12 @@ public class Professional extends Person {
 		
 	}
 	
-	public List<Diagnostic> quienesTuvieronUnSintomaTambienTuvieron(Symptom sintoma, Sistema sistema){
+	public List<Diagnostic> whoHadSypmtomAlsoHad
+	(Symptom sintoma, System sistema){
 		
 		ArrayList<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
 		
-		for(Diagnostic each : sistema.getDiagnosticos()){
+		for(Diagnostic each : sistema.getDiagnoses()){
 			if(each.getSymptoms().contains(sintoma)){
 				diagnosticos.add(each);
 			}
@@ -110,11 +112,11 @@ public class Professional extends Person {
 		return diagnosticos;
 	}
 	
-	public List<Diagnostic> quienesTuvieronUnaEnfermedadTambienTuvieron(Diagnostic diagnostico, Sistema sistema){
+	public List<Diagnostic> whoHadADiseaseAlsoHad(Diagnostic diagnostico, System sistema){
 		
 		Set<Diagnostic> diagnosticos = new HashSet<Diagnostic>();
 		
-		for(MedicalHistory each : sistema.getHistorias()){
+		for(MedicalHistory each : sistema.getMedicalHistories()){
 			if(each.getDiagnostics().contains(diagnostico)){
 				for(Diagnostic d : each.getDiagnostics()){
 					diagnosticos.add(d);
@@ -128,9 +130,9 @@ public class Professional extends Person {
 		
 	}
 	
-	public void agregarSintomaADiagnostico(Symptom sintoma, Diagnostic diagnostico, Sistema sistema){
+	public void AddSymptomToDiagnostic(Symptom sintoma, Diagnostic diagnostico, System sistema){
 		
-		for(Diagnostic each :  sistema.getDiagnosticos()){
+		for(Diagnostic each :  sistema.getDiagnoses()){
 			if(diagnostico.equals(each)){
 				each.getSymptoms().add(sintoma);
 			}
@@ -138,9 +140,9 @@ public class Professional extends Person {
 		
 	}
 	
-	public void confirmarDiagnosticoParaPaciente(Patient paciente, Event evento, Sistema sistema) throws PacienteNoEncontradoException{
+	public void confirmDiagnosticForPatient(Patient paciente, Event evento, System sistema) throws PacienteNoEncontradoException{
 		
-		if(sistema.existePaciente(paciente)){
+		if(sistema.patientExists(paciente)){
 			this.getMedicalHistoryFrom(paciente, sistema).addEvent(evento);
 	
 		}else{

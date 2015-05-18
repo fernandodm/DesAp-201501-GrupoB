@@ -13,70 +13,70 @@ import junit.framework.TestCase;
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Patient;
-import ar.edu.unq.desapp.groupb.model.Sistema;
+import ar.edu.unq.desapp.groupb.model.System;
 import ar.edu.unq.desapp.groupb.model.exceptions.NombreDeUsuarioYaTomado;
 import ar.edu.unq.desapp.groupb.model.exceptions.PacienteNoEncontradoException;
 
 public class SistemaTest extends TestCase {
 
-	Sistema sistema;
+	System sistema;
 	
 	public void setUp(){
-		sistema = new Sistema();
+		sistema = new System();
 	}
 	
 	public void testDarDeAltaNuevoUsuarioProfesionalExitoso() throws NombreDeUsuarioYaTomado{
 		
-		sistema.darDeAltaNuevoUsuarioProfesional("goku", "paipai", "666777", "tao", "blue");
-		assertTrue(sistema.getUsuarios().size() == 1);
+		sistema.registerNewProfessionalUser("goku", "paipai", "666777", "tao", "blue");
+		assertTrue(sistema.getUsers().size() == 1);
 	}
 	
 	public void testDarDeAltaNuevoUsuarioProfesionalFallido(){
 		
 		try {
-			sistema.darDeAltaNuevoUsuarioProfesional("goku", "paipai", "666777", "tao", "blue");
+			sistema.registerNewProfessionalUser("goku", "paipai", "666777", "tao", "blue");
 			
 		} catch (NombreDeUsuarioYaTomado e) {
 			e.printStackTrace();
 		}
 		try {
-			sistema.darDeAltaNuevoUsuarioProfesional("goku", "paipai", "666777", "tao", "blue");
+			sistema.registerNewProfessionalUser("goku", "paipai", "666777", "tao", "blue");
 			fail("El usuario ya existe");
 		} catch (NombreDeUsuarioYaTomado e) {
 
 		}
-		assertTrue(sistema.getUsuarios().size() == 1);
+		assertTrue(sistema.getUsers().size() == 1);
 	}
 	
 	public void testDarDeAltaNuevoUsuarioPacienteExitoso() throws NombreDeUsuarioYaTomado{
 		
-		sistema.darDeAltaNuevoUsuarioPaciente("goten", "paipai", "666777", "tao", "red",60,189);
-		assert(sistema.getUsuarios().get(0).getNombre() == "goten");
+		sistema.registerNewPatientUser("goten", "paipai", "666777", "tao", "red",60,189);
+		assert(sistema.getUsers().get(0).getNombre() == "goten");
 	}
 	
 	public void testDarDeAltaNuevoUsuarioPacienteFallido(){
 		
 		try {
-			sistema.darDeAltaNuevoUsuarioPaciente("cell", "paipai", "666777", "tao", "blue",60,189);
+			sistema.registerNewPatientUser("cell", "paipai", "666777", "tao", "blue",60,189);
 			
 		} catch (NombreDeUsuarioYaTomado e) {
 			e.printStackTrace();
 		}
 		try {
-			sistema.darDeAltaNuevoUsuarioProfesional("cell", "paipai", "666777", "tao", "blue");
+			sistema.registerNewProfessionalUser("cell", "paipai", "666777", "tao", "blue");
 			fail("El usuario ya existe");
 		} catch (NombreDeUsuarioYaTomado e) {
 
 		}
-		assertTrue(sistema.getUsuarios().size() == 1);
+		assertTrue(sistema.getUsers().size() == 1);
 	}
 	
 	public void testExistePacienteTrue(){
 		
 		Patient paciente = mock(Patient.class);
-		sistema.getUsuarios().add(paciente);
+		sistema.getUsers().add(paciente);
 		
-		boolean existe = sistema.existePaciente(paciente);
+		boolean existe = sistema.patientExists(paciente);
 		
 		assertTrue(existe);
 		
@@ -87,9 +87,9 @@ public class SistemaTest extends TestCase {
 		Patient paciente1 = mock(Patient.class);
 		
 		Patient paciente = mock(Patient.class);
-		sistema.getUsuarios().add(paciente);
+		sistema.getUsers().add(paciente);
 		
-		boolean existe = sistema.existePaciente(paciente1);
+		boolean existe = sistema.patientExists(paciente1);
 		
 		assertTrue(!existe);
 		
@@ -105,11 +105,11 @@ public class SistemaTest extends TestCase {
 		when(paciente2.getUsuario()).thenReturn("Mark");
 		when(paciente3.getUsuario()).thenReturn("Marlos");
 		
-		sistema.getUsuarios().add(paciente1);
-		sistema.getUsuarios().add(paciente2);
-		sistema.getUsuarios().add(paciente3);
+		sistema.getUsers().add(paciente1);
+		sistema.getUsers().add(paciente2);
+		sistema.getUsers().add(paciente3);
 		
-		boolean hay = sistema.hayUsuarioConNombre("Mark");
+		boolean hay = sistema.thereIsUserWithName("Mark");
 		assertTrue(hay);
 	}
 	
@@ -123,11 +123,11 @@ public class SistemaTest extends TestCase {
 		when(paciente2.getUsuario()).thenReturn("Mark");
 		when(paciente3.getUsuario()).thenReturn("Marlos");
 		
-		sistema.getUsuarios().add(paciente1);
-		sistema.getUsuarios().add(paciente2);
-		sistema.getUsuarios().add(paciente3);
+		sistema.getUsers().add(paciente1);
+		sistema.getUsers().add(paciente2);
+		sistema.getUsers().add(paciente3);
 		
-		boolean hay = sistema.hayUsuarioConNombre("Markitos");
+		boolean hay = sistema.thereIsUserWithName("Markitos");
 		assertFalse(hay);
 	}
 	
@@ -141,11 +141,11 @@ public class SistemaTest extends TestCase {
 		when(paciente2.getUsuario()).thenReturn("Mark");
 		when(paciente3.getUsuario()).thenReturn("Marlos");
 		
-		sistema.getUsuarios().add(paciente1);
-		sistema.getUsuarios().add(paciente2);
-		sistema.getUsuarios().add(paciente3);
+		sistema.getUsers().add(paciente1);
+		sistema.getUsers().add(paciente2);
+		sistema.getUsers().add(paciente3);
 		
-		boolean esEl = sistema.usuarioConNombre("Marco").equals(paciente1);
+		boolean esEl = sistema.userWithName("Marco").equals(paciente1);
 		
 		assertTrue(esEl);
 		
@@ -161,12 +161,12 @@ public class SistemaTest extends TestCase {
 		when(paciente2.getUsuario()).thenReturn("Mark");
 		when(paciente3.getUsuario()).thenReturn("Marlos");
 		
-		sistema.getUsuarios().add(paciente1);
-		sistema.getUsuarios().add(paciente2);
-		sistema.getUsuarios().add(paciente3);
+		sistema.getUsers().add(paciente1);
+		sistema.getUsers().add(paciente2);
+		sistema.getUsers().add(paciente3);
 		
 		try {
-			sistema.usuarioConNombre("Markinios").equals(paciente1);
+			sistema.userWithName("Markinios").equals(paciente1);
 			fail("No hay usuario con ese nombre");
 		} catch (PacienteNoEncontradoException e) {
 		}
@@ -190,11 +190,11 @@ public class SistemaTest extends TestCase {
 		when(paciente3.getUsuario()).thenReturn("Marlos");
 		when(paciente3.getContrasena()).thenReturn("eri");
 		
-		sistema.getUsuarios().add(paciente1);
-		sistema.getUsuarios().add(paciente2);
-		sistema.getUsuarios().add(paciente3);
+		sistema.getUsers().add(paciente1);
+		sistema.getUsers().add(paciente2);
+		sistema.getUsers().add(paciente3);
 		
-		seLogueo = sistema.loginValido("Marco", "tor");
+		seLogueo = sistema.loginSuccess("Marco", "tor");
 		assertTrue(seLogueo);
 		
 	}
@@ -217,11 +217,11 @@ public class SistemaTest extends TestCase {
 		when(paciente3.getUsuario()).thenReturn("Marlos");
 		when(paciente3.getContrasena()).thenReturn("eri");
 		
-		sistema.getUsuarios().add(paciente1);
-		sistema.getUsuarios().add(paciente2);
-		sistema.getUsuarios().add(paciente3);
+		sistema.getUsers().add(paciente1);
+		sistema.getUsers().add(paciente2);
+		sistema.getUsers().add(paciente3);
 		
-		seLogueo = sistema.loginValido("Marsco", "tor");
+		seLogueo = sistema.loginSuccess("Marsco", "tor");
 			
 		assertFalse(seLogueo);
 	}
@@ -244,18 +244,18 @@ public class SistemaTest extends TestCase {
 		when(paciente3.getUsuario()).thenReturn("Marlos");
 		when(paciente3.getContrasena()).thenReturn("eri");
 		
-		sistema.getUsuarios().add(paciente1);
-		sistema.getUsuarios().add(paciente2);
-		sistema.getUsuarios().add(paciente3);
+		sistema.getUsers().add(paciente1);
+		sistema.getUsers().add(paciente2);
+		sistema.getUsers().add(paciente3);
 		
-		seLogueo = sistema.loginValido("Marco", "torsiglieri");
+		seLogueo = sistema.loginSuccess("Marco", "torsiglieri");
 			
 		assertFalse(seLogueo);
 	}
 	
 	public void testPorcentajeEnCantidad(){
 		
-		float porcent = sistema.porcentajeEnCantidad(50, 100);
+		float porcent = sistema.porcentageAmount(50, 100);
 		assertTrue(porcent == 50);
 	}
 	
@@ -300,10 +300,10 @@ public class SistemaTest extends TestCase {
 		when(historia1.eventsFromDate(haceUnosMeses)).thenReturn(diagnosticos1);
 		when(historia2.eventsFromDate(haceUnosMeses)).thenReturn(diagnosticos2);
 		
-		sistema.getHistorias().add(historia1);
-		sistema.getHistorias().add(historia2);
+		sistema.getMedicalHistories().add(historia1);
+		sistema.getMedicalHistories().add(historia2);
 		
-		HashMap<String,Float> reporte = sistema.porcentajeDeDolenciasEnLosUltimosMeses(12);
+		HashMap<String,Float> reporte = sistema.porcentageOfAilmentsInTheLastMonths(12);
 		
 		assertTrue(reporte.size() == 4);
 	}

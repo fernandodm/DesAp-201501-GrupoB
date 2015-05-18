@@ -27,8 +27,8 @@ public class Patient extends Person {
 		
 	}
 	
-	public void registrarEnElSistema(Sistema sistema, String nombre, String apellido, String dni,
+	public void registrarEnElSistema(System sistema, String nombre, String apellido, String dni,
 			String usuario, String contrasena, int peso, int altura) throws NombreDeUsuarioYaTomado{
-		sistema.darDeAltaNuevoUsuarioPaciente(nombre, apellido, dni, usuario, contrasena, peso, altura);
+		sistema.registerNewPatientUser(nombre, apellido, dni, usuario, contrasena, peso, altura);
 	}
 }

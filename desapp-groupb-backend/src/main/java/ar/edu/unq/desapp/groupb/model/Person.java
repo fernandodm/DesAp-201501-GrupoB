@@ -68,9 +68,10 @@ public class Person extends Entity {
 	}
 
 	
-	public void login(Sistema sistema, String usuario, String password) throws PacienteNoEncontradoException{
-		if(sistema.loginValido(usuario, password)){
-			System.out.println("Login satisfactorio!");
+	public void login(System sistema, String usuario, String password) throws PacienteNoEncontradoException{
+		if(sistema.loginSuccess(usuario, password)){
+			java.lang.System.out.println("Login satisfactorio!");
+			
 		}
 	}
 	

@@ -9,7 +9,7 @@ public class Treatment extends Entity{
 	private String type;
 	private int time;
 	private List<String> medicalPractices = new ArrayList<String>();
-	private List<Medicamento> medicines = new ArrayList<Medicamento>();
+	private List<Medicine> medicines = new ArrayList<Medicine>();
 	
 	public Treatment(){}
 	
@@ -20,7 +20,7 @@ public class Treatment extends Entity{
 	}
 	
 	public void agregarMedicamento(String droga, int concentracion, int tiempo){
-		Medicamento medicamento = new Medicamento(droga, concentracion, tiempo);
+		Medicine medicamento = new Medicine(droga, concentracion, tiempo);
 		this.medicines.add(medicamento);
 	}
 	
@@ -64,11 +64,11 @@ public class Treatment extends Entity{
 		this.medicalPractices = medicalPractices;
 	}
 
-	public List<Medicamento> getMedicines() {
+	public List<Medicine> getMedicines() {
 		return medicines;
 	}
 
-	public void setMedicines(List<Medicamento> medicines) {
+	public void setMedicines(List<Medicine> medicines) {
 		this.medicines = medicines;
 	}
 	////////////////////////////////////////
