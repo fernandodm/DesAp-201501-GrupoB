@@ -32,6 +32,10 @@ public class MedicalHistory extends Entity {
 		this.getAllergies().remove(alergia);
 	}
 	
+	public void addAllergy(String alergia){
+		this.getAllergies().add(alergia);
+	}
+	
 	public boolean patientSupports(Treatment t) {
 		List<Medicine> medicamentos = t.getMedicines();
 		for(Medicine m: medicamentos){

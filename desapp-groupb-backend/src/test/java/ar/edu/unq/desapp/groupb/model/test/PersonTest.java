@@ -2,43 +2,43 @@ package ar.edu.unq.desapp.groupb.model.test;
 
 
 import junit.framework.TestCase;
-import ar.edu.unq.desapp.groupb.model.Persona;
+import ar.edu.unq.desapp.groupb.model.Person;
 
 public class PersonTest extends TestCase {
 	
-	Persona persona;
+	Person person;
 
 	public void setUp(){
-		persona = new Persona("", "", "", "", "");
+		person = new Person("", "", "", "", "");
 	}
 
 	public void testSetNombre(){
-		persona.setNombre("Fernando");
+		person.setFirstname("Fernando");
 		
-		assert(persona.getNombre() == "Fernando");
+		assert(person.getFirstname() == "Fernando");
 	}
 	
 	public void testSetApellido(){
-		persona.setApellido("Di Meglio");
+		person.setLastname("Di Meglio");
 		
-		assert(persona.getApellido() == "Di Meglio");
+		assert(person.getLastname() == "Di Meglio");
 	}
 	
 	public void testSetDni(){
-		persona.setDni("32555666");
+		person.setDni("32555666");
 		
-		assert(persona.getDni() == "32555666");
+		assert(person.getDni() == "32555666");
 	}
 	
 	public void testSetUsuario(){
-		persona.setUsuario("fer_10");
+		person.setUsername("fer_10");
 		
-		assert(persona.getUsuario() == "fer_10");
+		assert(person.getUsername() == "fer_10");
 	}
 	
 	public void testSetContrasena(){
-		persona.setContrasena("1234");
+		person.setPassword("1234");
 		
-		assert(persona.getContrasena() == "1234");
+		assert(person.getPassword() == "1234");
 	}
 }

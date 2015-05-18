@@ -15,76 +15,76 @@ import ar.edu.unq.desapp.groupb.model.Treatment;
 
 public class DiagnosticTest extends TestCase{
 	
-	Diagnostic diagnostico;
-	Symptom sintoma;
-	Treatment tratamiento;
+	Diagnostic diagnostic;
+	Symptom symptom;
+	Treatment treatment;
 	
 	public void setUp(){
-		diagnostico = new Diagnostic("Sinositis");
-		sintoma = mock(Symptom.class);
-		tratamiento = mock(Treatment.class);
-		diagnostico.agregarSintoma(sintoma);
+		diagnostic = new Diagnostic("Sinositis");
+		symptom = mock(Symptom.class);
+		treatment = mock(Treatment.class);
+		diagnostic.agregarSintoma(symptom);
 		
 	}
 	
 	public void testDiagnosticoConUnParametro(){
-		assert(diagnostico.getNombre() == "Sinositis");
+		assert(diagnostic.getName() == "Sinositis");
 	}
 	
 	
 	public void testAgregarSintoma(){
 				
-		diagnostico.agregarSintoma(sintoma);
+		diagnostic.agregarSintoma(symptom);
 		
-		assert(diagnostico.getSintomas().contains(sintoma));
+		assert(diagnostic.getSymptoms().contains(symptom));
 	}
 	
 	
 	public void testSeRelacionaConElSintomaTrue(){
 		
 		List<Symptom> sintomas = new ArrayList<Symptom>();
-		sintomas.add(sintoma);
-		diagnostico.setSintomas(sintomas);
+		sintomas.add(symptom);
+		diagnostic.setSymptoms(sintomas);
 				
-		assert(diagnostico.seRelacionConElSintoma(sintoma));
+		assert(diagnostic.seRelacionConElSintoma(symptom));
 		
 	}
 	
 	public void testSeRelacionaConElSintomaFalse(){
-		assert(!diagnostico.seRelacionConElSintoma(sintoma));
+		assert(!diagnostic.seRelacionConElSintoma(symptom));
 	}
 	
 	public void testEliminarSintoma(){
 		List<Symptom> sintomas = new ArrayList<Symptom>();
-		sintomas.add(sintoma);
-		diagnostico.setSintomas(sintomas);
-		diagnostico.eliminarSintoma(sintoma);
+		sintomas.add(symptom);
+		diagnostic.setSymptoms(sintomas);
+		diagnostic.eliminarSintoma(symptom);
 		
-		assert(diagnostico.getSintomas().isEmpty());
+		assert(diagnostic.getSymptoms().isEmpty());
 	}
 	
 	public void testSeRelacionaConSintomaTrue(){
-		assert(diagnostico.seRelacionConElSintoma(sintoma));
+		assert(diagnostic.seRelacionConElSintoma(symptom));
 	}
 	
 	public void testSeRelacionaConSintomaFalse(){
 		Symptom sintoma1 = mock(Symptom.class);
 		Symptom sintoma2 = mock(Symptom.class);
-		diagnostico.agregarSintoma(sintoma1);
-		assert(diagnostico.seRelacionConElSintoma(sintoma2));
+		diagnostic.agregarSintoma(sintoma1);
+		assert(diagnostic.seRelacionConElSintoma(sintoma2));
 	}
 	
 	public void testListaSintomas(){
 		Symptom sintoma1 = mock(Symptom.class);
 		Symptom sintoma2 = mock(Symptom.class);
-		diagnostico.agregarSintoma(sintoma1);
-		diagnostico.agregarSintoma(sintoma2);
+		diagnostic.agregarSintoma(sintoma1);
+		diagnostic.agregarSintoma(sintoma2);
 		
-		when(sintoma.getNombre()).thenReturn("fiebre");
+		when(symptom.getNombre()).thenReturn("fiebre");
 		when(sintoma1.getNombre()).thenReturn("tos");
 		when(sintoma2.getNombre()).thenReturn("dolor");
 		
-		List<String> nombres = diagnostico.listaSintomas();
+		List<String> nombres = diagnostic.listaSintomas();
 		
 		assertTrue(nombres.size() == 3);
 		assertTrue(nombres.containsAll(Arrays.asList("fiebre","tos","dolor")));

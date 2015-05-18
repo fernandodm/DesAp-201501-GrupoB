@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import ar.edu.unq.desapp.groupb.model.Patient;
-import ar.edu.unq.desapp.groupb.model.Persona;
+import ar.edu.unq.desapp.groupb.model.Person;
 import ar.edu.unq.desapp.groupb.model.System;
 import ar.edu.unq.desapp.groupb.model.exceptions.NombreDeUsuarioYaTomado;
 
@@ -16,23 +16,23 @@ import ar.edu.unq.desapp.groupb.model.exceptions.NombreDeUsuarioYaTomado;
 
 public class PatientTest extends TestCase {
 
-	Patient paciente;
+	Patient patient;
 	
 	public void setUp(){
-		paciente = new Patient("Esteban","Di Meglia","36811371","edm","amdamd");
+		patient = new Patient("Esteban","Di Meglia","36811371","edm","amdamd");
 	}
 	
 	public void testRegistrarEnElSistema() throws NombreDeUsuarioYaTomado{
 		
 		
 		System system = mock(System.class);
-		ArrayList<Persona> users =  new ArrayList<Persona>();
+		ArrayList<Person> users =  new ArrayList<Person>();
 		
 		when(system.getUsers()).thenReturn(users);
 		
-		paciente.registrarEnElSistema(system, paciente.getNombre(), paciente.getApellido(), paciente.getDni(), paciente.getUsuario(), paciente.getContrasena(), 85, 180);
+		patient.registrarEnElSistema(system, patient.getFirstname(), patient.getLastname(), patient.getDni(), patient.getUsername(), patient.getPassword(), 85, 180);
 		
-		verify(system).registerNewPatientUser(paciente.getNombre(), paciente.getApellido(), paciente.getDni(), paciente.getUsuario(), paciente.getContrasena(), 85, 180);
+		verify(system).registerNewPatientUser(patient.getFirstname(), patient.getLastname(), patient.getDni(), patient.getUsername(), patient.getPassword(), 85, 180);
 	}
 	
 	

@@ -6,28 +6,28 @@ import ar.edu.unq.desapp.groupb.model.Treatment;
 
 public class TreatmentTest extends TestCase {
 	
-	Treatment tratamiento;
+	Treatment treatment;
 	
 	public void setUp(){
-		tratamiento = new Treatment(true, "Parcial", 2);
+		treatment = new Treatment(true, "Parcial", 2);
 	}
 	
 	public void testAgregarMedicamento(){
 		
-		tratamiento.agregarMedicamento("amoxicilina", 500, 2);
+		treatment.agregarMedicamento("amoxicilina", 500, 2);
 		
 		//Obtengo el medicamento recien agregado
-		Medicine medicamento = tratamiento.getMedicamentos().get(0); 
+		Medicine medicamento = treatment.getMedicines().get(0); 
 		
-		assert(medicamento.getConcentracion() == 500);
-		assert(medicamento.getDroga() == "amoxicilina");
-		assert(medicamento.getTiempo() == 2);
+		assert(medicamento.getConcentration() == 500);
+		assert(medicamento.getDrugName() == "amoxicilina");
+		assert(medicamento.getTime() == 2);
 	}
 	
 	public void testAgregarPracticaMedica(){
 		
-		tratamiento.agregarPracticaMedica("Cirugia");
+		treatment.agregarPracticaMedica("Cirugia");
 		
-		assert(tratamiento.getPracticasMedicas().contains("Cirugia"));
+		assert(treatment.getMedicalPractices().contains("Cirugia"));
 	}
 }
