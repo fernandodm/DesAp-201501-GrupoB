@@ -9,15 +9,22 @@
 		</id>
 
 		<property name="name" />
+
+		<!--<list name="symptoms" lazy="true">
+			<key column="diagnosticID" />
+			<list-index column="id" />
+			<many-to-many column="symptomID" class="Symptom" />
+		</list>
+		<property name="treatment" />-->
+		
 		<list name="symptoms" lazy="false">
 			<key column="symptomID" />
 			<list-index column="id" />
 			<one-to-many class="ar.edu.unq.desapp.groupb.model.Symptom" />
 		</list>
 		<property name="treatment" />
-
 		<many-to-many entity-name="ar.edu.unq.desapp.groupb.model.Symptom">
-                <column name="symptomID" not-null="true" />
-        </many-to-many>
+			<column name="symptomID" not-null="true" />
+		</many-to-many>
 	</class>
 </hibernate-mapping>

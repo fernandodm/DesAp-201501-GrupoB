@@ -9,5 +9,11 @@
 		</id>
 		<property name="symptomName" />
 		
+		<!--<list name="diagnostics" lazy="true">
+			<key column="symptomID" />
+			<list-index column="id" />
+			<many-to-many column="diagnosticID" class="Diagnostic" />
+		</list>
+		<property name="treatment" />-->
 	</class>
 </hibernate-mapping>
