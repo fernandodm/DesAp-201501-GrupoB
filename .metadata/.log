@@ -335,3 +335,77 @@ Command-line arguments:  -data /home/esteban/DesAp-201501-GrupoB -os linux -ws g
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-18 17:12:37.202
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-19 16:39:39.206
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-19 16:39:39.382
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-19 16:39:39.541
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:43:30.553
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model for ar.unq:wicket-spring-hib:1.0-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Could not find artifact ar.edu.unq:aunq-parent:pom:0.1-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 14, column 10
+ for project ar.unq:wicket-spring-hib:1.0-SNAPSHOT at /home/esteban/workspaces/wicket-spring-hib/pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:04.278
+!MESSAGE Unable to add org/apache/maven/plugins/maven-enforcer-plugin/1.4/maven-enforcer-plugin-1.4.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:07.492
+!MESSAGE Unable to add org/apache/maven/plugins/maven-surefire-plugin/2.18.1/maven-surefire-plugin-2.18.1.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:10.866
+!MESSAGE Unable to add org/apache/maven/plugins/maven-jar-plugin/2.6/maven-jar-plugin-2.6.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:15.887
+!MESSAGE Unable to add org/apache/maven/plugins/maven-resources-plugin/2.7/maven-resources-plugin-2.7.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:20.621
+!MESSAGE Unable to add org/apache/maven/plugins/maven-jxr-plugin/2.5/maven-jxr-plugin-2.5.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:23.711
+!MESSAGE Unable to add org/apache/maven/plugins/maven-project-info-reports-plugin/2.8/maven-project-info-reports-plugin-2.8.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:27.138
+!MESSAGE Unable to add org/apache/maven/plugins/maven-plugin-plugin/3.4/maven-plugin-plugin-3.4.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:29.508
+!MESSAGE Unable to add org/apache/maven/plugins/maven-surefire-report-plugin/2.18.1/maven-surefire-report-plugin-2.18.1.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:31.879
+!MESSAGE Unable to add org/apache/maven/plugins/maven-source-plugin/2.4/maven-source-plugin-2.4.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:36.338
+!MESSAGE Unable to add org/codehaus/mojo/javancss-maven-plugin/2.1/javancss-maven-plugin-2.1.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:39.397
+!MESSAGE Unable to add org/codehaus/mojo/jdepend-maven-plugin/2.0/jdepend-maven-plugin-2.0.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-19 16:51:44.087
+!MESSAGE The POM for org.log4jdbc:log4jdbc:jar:4.1.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:46.195
+!MESSAGE Failed to build parent project for ar.unq:wicket-spring-hib:war:1.0-SNAPSHOT Error resolving project artifact: Could not find artifact ar.edu.unq:aunq-parent:pom:0.1-SNAPSHOT for project ar.edu.unq:aunq-parent:pom:0.1-SNAPSHOT
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:46.527
+!MESSAGE Unable to add ar/unq/wicket-spring-hib/1.0-SNAPSHOT/wicket-spring-hib-1.0-SNAPSHOT.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:46.563
+!MESSAGE Unable to add ar/edu/unq/aunq-parent/0.1-SNAPSHOT/aunq-parent-0.1-SNAPSHOT.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-19 16:51:49.881
+!MESSAGE The POM for org.log4jdbc:log4jdbc:jar:4.1.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:52.021
+!MESSAGE Failed to build parent project for ar.unq:wicket-spring-hib:war:1.0-SNAPSHOT Error resolving project artifact: Could not find artifact ar.edu.unq:aunq-parent:pom:0.1-SNAPSHOT for project ar.edu.unq:aunq-parent:pom:0.1-SNAPSHOT
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:52.449
+!MESSAGE Unable to add ar/unq/wicket-spring-hib/1.0-SNAPSHOT/wicket-spring-hib-1.0-SNAPSHOT.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-05-19 16:51:52.570
+!MESSAGE Unable to add ar/edu/unq/aunq-parent/0.1-SNAPSHOT/aunq-parent-0.1-SNAPSHOT.pom
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-19 16:51:56.734
+!MESSAGE The POM for org.log4jdbc:log4jdbc:jar:4.1.2 is missing, no dependency information available

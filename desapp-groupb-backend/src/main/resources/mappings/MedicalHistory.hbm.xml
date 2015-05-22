@@ -10,11 +10,18 @@
 
 		<property name="weight" />
 		<property name="height" />
-		<list name="allegies" lazy="false">
-			<key column="allergyID" />
+		
+		<list name="allergies">  
+          <key column="allergyID"></key>  
+          <index column="type"></index>  
+          <element column="allergy" type="string"></element>  
+        </list>
+          
+		<list name="events" lazy="false">
+			<key column="eventID" />
 			<list-index column="id" />
-			<one-to-many class="ar.edu.unq.desapp.groupb.model.?" />
+			<one-to-many class="ar.edu.unq.desapp.groupb.model.Event" />
 		</list>
-		<many-to-one name="patient" class="ar.edu.unq.desapp.groupb.model.Patient" />
+		<one-to-one name="patient" class="ar.edu.unq.desapp.groupb.model.Patient" />
 	</class>
 </hibernate-mapping>

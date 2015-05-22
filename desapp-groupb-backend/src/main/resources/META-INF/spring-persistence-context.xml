@@ -104,10 +104,28 @@
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
 	
-	<bean id="persistence.personrepository" class="ar.edu.unq.repositories.PersonRepository" >
+	<bean id="persistence.diagnosticrepository" class="ar.edu.unq.desapp.groupb.repositories.DiagnosticDAO" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
-	<bean id="persistence.carrepository" class="ar.edu.unq.repositories.CarRepository" >
+	<bean id="persistence.eventrepository" class="ar.edu.unq.desapp.groupb.repositories.EventDAO" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	<bean id="persistence.medicalhistoryrepository" class="ar.edu.unq.desapp.groupb.repositories.MedicalHistoryDAO" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	<bean id="persistence.medicinerepository" class="ar.edu.unq.desapp.groupb.repositories.MedicineDAO" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	<bean id="persistence.patientrepository" class="ar.edu.unq.desapp.groupb.repositories.PatientDAO" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	<bean id="persistence.professionalrepository" class="ar.edu.unq.desapp.groupb.repositories.ProfessionalDAO" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	<bean id="persistence.symptomrepository" class="ar.edu.unq.desapp.groupb.repositories.SymptomDAO" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	<bean id="persistence.treatmentrepository" class="ar.edu.unq.desapp.groupb.repositories.TreatmentDAO" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 	

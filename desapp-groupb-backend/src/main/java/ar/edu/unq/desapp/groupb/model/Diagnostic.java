@@ -9,6 +9,7 @@ public class Diagnostic extends Entity{
 	private List<Symptom> symptoms = new ArrayList<Symptom>();
 	private Treatment treatment;
 	
+	
 	public Diagnostic(){}
 	
 	public Diagnostic(String nombre, List<Symptom> sintomas, Treatment tratamiento){

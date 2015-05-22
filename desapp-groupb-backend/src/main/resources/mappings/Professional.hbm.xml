@@ -3,12 +3,12 @@
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field"
 	default-cascade="save-update">
-	<class name="ar.edu.unq.desapp.group.model.Professional">
+	<class name="ar.edu.unq.desapp.groupb.model.Professional">
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
-		<property name="firstName" />
-		<property name="lastName" />
+		<property name="firstname" />
+		<property name="lastname" />
 		<property name="dni" />
 		<property name="username" />
 		<property name="password" />

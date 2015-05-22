@@ -4,19 +4,19 @@ import ar.edu.unq.desapp.groupb.model.exceptions.NombreDeUsuarioYaTomado;
 
 public class Patient extends Person {
 
-	private MedicalHistory historiaClinica;
+	private MedicalHistory medicalHistory;
 	
 	public Patient(){}
 	
 	
-	public MedicalHistory getHistoriaClinica() {
-		return historiaClinica;
+	public MedicalHistory getMedicalHistory() {
+		return medicalHistory;
 	}
 
 
 
-	public void setHistoriaClinica(MedicalHistory historiaClinica) {
-		this.historiaClinica = historiaClinica;
+	public void setMedicalHistory(MedicalHistory historiaClinica) {
+		this.medicalHistory = historiaClinica;
 	}
 
 
