@@ -45,8 +45,8 @@ public class DiagnosticRest {
     @Path("/count")
     @Produces("application/json")
     public Integer countDiagnosesAmount() {
-//        return diagnosticDAO.count();
-    	return 1;
+        return diagnosticDAO.count();
+    	//return 1;
     }
 //
 //    @GET
