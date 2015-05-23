@@ -12,4 +12,10 @@ public class PatientDAO extends HibernateGenericDAO<Patient> implements GenericR
 		return null;
 	}
 
+	public void savePatient(String firstname, String lastname, String dni,
+			String username, String password) {
+		Patient p = new Patient(firstname,lastname,dni,username,password);
+		this.save(p);
+	}
+
 }

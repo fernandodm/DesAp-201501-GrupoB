@@ -48,5 +48,9 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<bean id="diagnosesRest" class="ar.edu.unq.desapp.groupb.rest.DiagnosticRest">
 		<property name="diagnosticDAO" ref="persistence.diagnosticrepository" />
 	</bean>
+	
+	<bean id="patientsRest" class="ar.edu.unq.desapp.groupb.rest.PatientRest">
+		<property name="patientDAO" ref="persistence.patientrepository" />
+	</bean>
 
 </beans>
