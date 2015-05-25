@@ -113,7 +113,7 @@
 	<bean id="persistence.eventrepository" class="ar.edu.unq.desapp.groupb.repositories.EventDAO" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
-	<bean id="persistence.medicalhistoryrepository" class="ar.edu.unq.desapp.groupb.repositories.MedicalHistoryDAO" >
+	<bean id="persistence.medicalHistoryrepository" class="ar.edu.unq.desapp.groupb.repositories.MedicalHistoryDAO" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 	<bean id="persistence.medicinerepository" class="ar.edu.unq.desapp.groupb.repositories.MedicineDAO" >

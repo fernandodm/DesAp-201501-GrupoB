@@ -10,6 +10,13 @@
 	<bean id="services.general" class="ar.edu.unq.desapp.groupb.services.GeneralService">
 		<property name="diagnosticService" ref="services.diagnostic" />
 		<property name="patientService" ref="services.patient" />
+		<property name="eventService" ref="services.event" />
+		<property name="medicineService" ref="services.medicine" />
+		<property name="professionalService" ref="services.professional" />
+		<property name="symptomService" ref="services.symptom" />
+		<property name="treatmentService" ref="services.treatment" />
+		<property name="medicalHistoryService" ref="services.medicalHistory" />
+		
 	</bean>
 
 	<bean id="services.diagnostic" class="ar.edu.unq.desapp.groupb.services.DiagnosticService">
@@ -18,6 +25,25 @@
 	
 	<bean id="services.patient" class="ar.edu.unq.desapp.groupb.services.PatientService">
 		<property name="repository" ref="persistence.patientrepository" />
+	</bean>
+	
+	<bean id="services.event" class="ar.edu.unq.desapp.groupb.services.EventService">
+		<property name="repository" ref="persistence.eventrepository" />
+	</bean>
+	<bean id="services.medicine" class="ar.edu.unq.desapp.groupb.services.MedicineService">
+		<property name="repository" ref="persistence.medicinerepository" />
+	</bean>
+	<bean id="services.professional" class="ar.edu.unq.desapp.groupb.services.ProfessionalService">
+		<property name="repository" ref="persistence.professionalrepository" />
+	</bean>
+	<bean id="services.symptom" class="ar.edu.unq.desapp.groupb.services.SymptomService">
+		<property name="repository" ref="persistence.symptomrepository" />
+	</bean>
+	<bean id="services.treatment" class="ar.edu.unq.desapp.groupb.services.TreatmentService">
+		<property name="repository" ref="persistence.treatmentrepository" />
+	</bean>
+	<bean id="services.medicalHistory" class="ar.edu.unq.desapp.groupb.services.MedicalHistoryService">
+		<property name="repository" ref="persistence.medicalHistoryrepository" />
 	</bean>
 
 
