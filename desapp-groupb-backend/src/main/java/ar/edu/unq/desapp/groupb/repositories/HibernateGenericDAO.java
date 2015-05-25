@@ -11,9 +11,10 @@ import ar.edu.unq.desapp.groupb.model.Entity;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate3.HibernateTransactionManager;
-
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  * Generic hibernate DAO
@@ -25,26 +26,24 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
     private static final long serialVersionUID = 5058950102420892922L;
 
     protected Class<T> persistentClass = this.getDomainClass();
+    
+    protected abstract Class<T> getDomainClass();
 
     @Override
-    @SuppressWarnings("unchecked")
-    public int count() {
-        List<Long> list = this.getHibernateTemplate().find(
-                "select count(*) from " + this.persistentClass.getName() + " o");
-
-        this.getHibernateTemplate().execute(new HibernateCallback<Entity>() {
-
+	@SuppressWarnings("unchecked")
+	public int count() {
+		String query = "select count(*) from " + this.persistentClass.getName() + " o";
+		List<Long> list = this.getHibernateTemplate().find(query);
+		this.getHibernateTemplate().execute(new HibernateCallback<T>() {
 			@Override
-			public Entity doInHibernate(Session session)
-					throws HibernateException, SQLException {
+			public T doInHibernate(Session session) throws HibernateException,
+					SQLException {
 				// TODO Auto-generated method stub
 				return null;
-			}
-        });
-        Long count = list.get(0);
-        return count.intValue();
-
-    }
+			}});
+		Long count = list.get(0);
+		return count.intValue();
+	}
 
     @Override
     public void delete(final T entity) {
@@ -76,7 +75,6 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
         return this.getHibernateTemplate().get(this.persistentClass, id);
     }
 
-    protected abstract Class<T> getDomainClass();
 
     @Override
     public void save(final T entity) {

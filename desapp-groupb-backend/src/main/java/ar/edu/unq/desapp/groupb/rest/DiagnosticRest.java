@@ -5,7 +5,6 @@ package ar.edu.unq.desapp.groupb.rest;
 
 import java.util.List;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -14,23 +13,31 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Patient;
-import ar.edu.unq.desapp.groupb.model.Symptom;
-import ar.edu.unq.desapp.groupb.model.Treatment;
 import ar.edu.unq.desapp.groupb.repositories.DiagnosticDAO;
+import ar.edu.unq.desapp.groupb.services.DiagnosticService;
 
 @Path("/diagnoses")
 public class DiagnosticRest {
     
-    private DiagnosticDAO diagnosticDAO;
+    private DiagnosticService diagnosticService;
+    
+    
 
-	public DiagnosticDAO getDiagnosticDAO() {
-		return diagnosticDAO;
+	public DiagnosticService getDiagnosticService() {
+		return diagnosticService;
 	}
 
-	public void setDiagnosticDAO(DiagnosticDAO diagnosticDAO) {
-		this.diagnosticDAO = diagnosticDAO;
+	public void setDiagnosticService(DiagnosticService diagnosticService) {
+		this.diagnosticService = diagnosticService;
 	}
+
+//	public DiagnosticDAO getDiagnosticDAO() {
+//		return diagnosticDAO;
+//	}
+//
+//	public void setDiagnosticDAO(DiagnosticDAO diagnosticDAO) {
+//		this.diagnosticDAO = diagnosticDAO;
+//	}
 
    
 //    @GET
@@ -53,8 +60,24 @@ public class DiagnosticRest {
     @Path("/count")
     @Produces("application/json")
     public Integer countDiagnosesAmount() {
-        return diagnosticDAO.count();
-    	//return 1;
+        return diagnosticService.getRepository().count();
+    }
+    
+	@GET
+    @Path("/list")
+    @Produces("application/json")
+    public List<Diagnostic> getDiagnoses() {
+        List<Diagnostic> diagnoses = diagnosticService.retriveAll();
+        return diagnoses;
+    }
+    
+    @POST
+    @Path("/create")
+    @Produces("application/json")
+    public Response create(@FormParam("name") String name) {
+    	Diagnostic d = new Diagnostic(name);
+        getDiagnosticService().save(d);
+        return Response.ok(d).build();
     }
 //
 //    @GET

@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.groupb.repositories;
 
+import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.Patient;
 
 public class PatientDAO extends HibernateGenericDAO<Patient> implements GenericRepository<Patient> {
@@ -9,7 +10,7 @@ public class PatientDAO extends HibernateGenericDAO<Patient> implements GenericR
 	@Override
 	protected Class getDomainClass() {
 		// TODO Auto-generated method stub
-		return null;
+		return Patient.class;
 	}
 
 	public void savePatient(String firstname, String lastname, String dni,
