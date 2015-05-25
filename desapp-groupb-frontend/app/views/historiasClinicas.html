@@ -1,4 +1,4 @@
-<div class="container">
+<div ng-controller="HistoriasClinicasCtrl" class="container">
   <h2>Historias Clinicas</h2>
   
   <div class="row">
@@ -23,30 +23,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="success">
-        <td>Fernando</td>
-        <td>Di Meglio</td>
+      <tr ng-repeat="paciente in pacientes" class="success">
+        <td>{{paciente}}</td>
+        <td>{{paciente.lastname}}</td>
         <td><a class="btn btn-success btn-xs" ng-href="#/">Ver</a> 
         <a class="btn btn-success btn-xs" ng-href="#/agregarHistoria">Agregar</a></td>
       </tr>
-      <tr class="success">
-        <td>Mariela</td>
-        <td>Brouchy</td>
-        <td><a class="btn btn-success btn-xs" ng-href="#/">Ver</a> 
-         <a class="btn btn-success btn-xs" ng-href="#/agregarHistoria">Agregar</a></td>
-      </tr>
-      <tr class="success">
-        <td>Esteban</td>
-        <td>Tolaba</td>
-        <td><a class="btn btn-success btn-xs" ng-href="#/">Ver</a>
-         <a class="btn btn-success btn-xs" ng-href="#/agregarHistoria">Agregar</a></td>
-      </tr>
-      <tr class="success">
-        <td>Tito</td>
-        <td>Perez</td>
-        <td><a class="btn btn-success btn-xs" ng-href="#/">Ver</a> 
-         <a class="btn btn-success btn-xs" ng-href="#/agregarHistoria">Agregar</a></td>
-        </tr>
     </tbody>
   </table>
 </div>
