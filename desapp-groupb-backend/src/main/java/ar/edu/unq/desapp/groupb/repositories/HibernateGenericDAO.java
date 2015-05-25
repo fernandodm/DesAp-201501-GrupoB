@@ -3,17 +3,9 @@ package ar.edu.unq.desapp.groupb.repositories;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
-
-import org.springframework.orm.hibernate3.support.*;
-import org.springframework.orm.hibernate3.*;
-
-import ar.edu.unq.desapp.groupb.model.Entity;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
-import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**

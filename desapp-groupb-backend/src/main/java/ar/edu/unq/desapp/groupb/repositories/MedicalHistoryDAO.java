@@ -7,9 +7,8 @@ public class MedicalHistoryDAO extends HibernateGenericDAO<MedicalHistory> imple
 	private static final long serialVersionUID = 7561504669273427486L;
 
 	@Override
-	protected Class getDomainClass() {
-		// TODO Auto-generated method stub
-		return null;
+	protected Class<MedicalHistory> getDomainClass() {
+		return MedicalHistory.class;
 	}
 
 }

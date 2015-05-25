@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
 
+@SuppressWarnings("all")
 public class DiagnosticoDAO extends HibernateGenericDAO {
 
 	@Override

@@ -9,7 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.Patient;
 import ar.edu.unq.desapp.groupb.services.PatientService;
 
@@ -30,28 +29,20 @@ public class PatientRest {
 	@Path("/list")
 	@Produces("application/json")
 	public List<Patient> getAllPatients() {
-		List<Patient> patients = patientService.retriveAll();
+		List<Patient> patients = getPatientService().retriveAll();
         return patients;
 		
 	}
 
-	// @POST
-	// @Path("/create/")
-	// @Produces("application/json")
-	// public Response createPatient(@FormParam("firstname") String firstname,
-	// @FormParam("lastname") String lastname,
-	// @FormParam("dni") String dni, @FormParam("username") String
-	// username,@FormParam("password") String password){
-	// getPatientDAO().savePatient(firstname,lastname,dni,username,password);
-	// return Response.status(200).build();
-	// }
-
 	@POST
 	@Path("/create")
 	@Produces("application/json")
-	public Response create(@FormParam("firstname") String name) {
-		Patient d = new Patient();
-		d.setFirstname(name);
+	public Response createPatient(@FormParam("firstname") String firstname,
+			 @FormParam("lastname") String lastname,
+			 @FormParam("dni") String dni, @FormParam("username") String
+			 username,@FormParam("password") String password){
+		
+		Patient d = new Patient(firstname,lastname,dni,username,password);
 		getPatientService().save(d);
 		return Response.ok(d).build();
 	}
@@ -60,7 +51,7 @@ public class PatientRest {
 	@Path("/count")
 	@Produces("application/json")
 	public Integer countPatientsAmount() {
-		return patientService.getRepository().count();
+		return getPatientService().count();
 	}
 
 	// @GET

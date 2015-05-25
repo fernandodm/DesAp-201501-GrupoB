@@ -7,9 +7,8 @@ public class TreatmentDAO extends HibernateGenericDAO<Treatment> implements Gene
 	private static final long serialVersionUID = -6580172115536493048L;
 
 	@Override
-	protected Class getDomainClass() {
-		// TODO Auto-generated method stub
-		return null;
+	protected Class<Treatment> getDomainClass() {
+		return Treatment.class;
 	}
 
 }

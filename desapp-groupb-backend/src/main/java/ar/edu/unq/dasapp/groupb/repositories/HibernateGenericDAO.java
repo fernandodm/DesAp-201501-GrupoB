@@ -4,13 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.*;
-import org.springframework.orm.hibernate3.*;
-import ar.edu.unq.desapp.groupb.model.Entity;
-import org.hibernate.Session;
-import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
-import org.springframework.orm.hibernate3.HibernateTransactionManager;
-
-
 /**
  * Generic hibernate DAO
  * 
@@ -27,9 +20,6 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
     public int count() {
         List<Long> list = this.getHibernateTemplate().find(
                 "select count(*) from " + this.persistentClass.getName() + " o");
-
-//        this.getHibernateTemplate().execute(new HibernateCallBack<Entity>() {
-//        });
         Long count = list.get(0);
         return count.intValue();
 

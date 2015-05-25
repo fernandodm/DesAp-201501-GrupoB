@@ -7,9 +7,8 @@ public class EventDAO extends HibernateGenericDAO<Event> implements GenericRepos
 	private static final long serialVersionUID = 1968331268680820542L;
 
 	@Override
-	protected Class getDomainClass() {
-		// TODO Auto-generated method stub
-		return null;
+	protected Class<Event> getDomainClass() {
+		return Event.class;
 	}
 
 }

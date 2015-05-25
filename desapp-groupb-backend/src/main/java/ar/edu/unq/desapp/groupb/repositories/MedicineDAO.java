@@ -7,9 +7,8 @@ public class MedicineDAO extends HibernateGenericDAO<Medicine> implements Generi
 	private static final long serialVersionUID = -6896254684800478575L;
 
 	@Override
-	protected Class getDomainClass() {
-		// TODO Auto-generated method stub
-		return null;
+	protected Class<Medicine> getDomainClass() {
+		return Medicine.class;
 	}
 
 }
