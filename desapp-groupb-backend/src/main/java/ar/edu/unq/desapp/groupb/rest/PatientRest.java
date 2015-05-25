@@ -38,11 +38,9 @@ public class PatientRest {
 	@Path("/create")
 	@Produces("application/json")
 	public Response createPatient(@FormParam("firstname") String firstname,
-			 @FormParam("lastname") String lastname,
-			 @FormParam("dni") String dni, @FormParam("username") String
-			 username,@FormParam("password") String password){
+			 @FormParam("lastname") String lastname, @FormParam("dni") String dni){
 		
-		Patient d = new Patient(firstname,lastname,dni,username,password);
+		Patient d = new Patient(firstname,lastname,dni,null,null);
 		getPatientService().save(d);
 		return Response.ok(d).build();
 	}
