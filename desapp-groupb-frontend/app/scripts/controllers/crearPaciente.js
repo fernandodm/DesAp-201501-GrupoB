@@ -30,9 +30,16 @@ angular.module('myappApp')
             return str.join("&");
             },
             data: {firstname: $scope.firstname, lastname: $scope.lastname, dni: $scope.dni}
-        }).success(function (data) {
-                alert('"Paciente "' + $scope.firstname +'", creado correctamente!!');
-            }).error(function(data,status) {
-                alert('No se pudo crear el paciente, error (' + status + ')');});
+
+        }).success(function () {
+                    
+                });
+        location = '#/historiasClinicas';
+        changeClass();
     };
+
+    $scope.cancelar = function() {
+        location = '#/';
+    };
+
   });
