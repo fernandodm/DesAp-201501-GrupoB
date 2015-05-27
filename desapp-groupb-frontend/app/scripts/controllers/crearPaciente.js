@@ -29,7 +29,9 @@ angular.module('myappApp')
                         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
             return str.join("&");
             },
+
             data: {firstname: $scope.firstname, lastname: $scope.lastname, dni: $scope.dni, weight: $scope.weight, height: $scope.height}
+
 
         }).success(function () {
                     
