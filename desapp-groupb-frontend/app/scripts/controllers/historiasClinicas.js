@@ -14,5 +14,12 @@ angular.module('myappApp')
        //datos lo tenemos disponible en la vista gracias a $scope
        $scope.pacientes = data;
     });
+
+    $scope.verPaciente = function(paciente) {
+		location = '#/agregarHistoria/' + paciente.id;
+
+	};
+
+
   });
 
