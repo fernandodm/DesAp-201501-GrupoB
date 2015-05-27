@@ -22,23 +22,23 @@ public class Professional extends Person {
 		sistema.registerNewProfessionalUser(nombre, apellido, dni, usuario, contrasena);
 	}
 	
-	public void registerUser(String nombre, String apellido, String dni,
-			String usuario, String contrasena, int peso, int altura, System sistema) throws NombreDeUsuarioYaTomado{
-		
-		sistema.registerNewPatientUser(nombre, apellido, dni, usuario, contrasena, peso, altura);
-	}
+//	public void registerUser(String nombre, String apellido, String dni,
+//			String usuario, String contrasena, int peso, int altura, System sistema) throws NombreDeUsuarioYaTomado{
+//		
+//		sistema.registerNewPatientUser(nombre, apellido, dni, usuario, contrasena, peso, altura);
+//	}
+//	
 	
-	
-	public MedicalHistory getMedicalHistoryFrom(Person persona, System sistema) throws PacienteNoEncontradoException{
-		
-		for(MedicalHistory h : sistema.getMedicalHistories()){
-			if(h.getPatient().equals(persona)){
-				return h;
-			}
-	}
-				
-		throw new PacienteNoEncontradoException();
-	}
+//	public MedicalHistory getMedicalHistoryFrom(Person persona, System sistema) throws PacienteNoEncontradoException{
+//		
+////		for(MedicalHistory h : sistema.getMedicalHistories()){
+////			if(h.getPatient().equals(persona)){
+////				return h;
+////			}
+//	}
+//				
+//		throw new PacienteNoEncontradoException();
+//	}
 	
 	public List<Treatment> diagnosticTreatments(String nombre, System sistema) throws DiagnosticoNoEncontradoException{
 		
@@ -70,17 +70,17 @@ public class Professional extends Person {
 	}
 	
 	
-	public List<Treatment> suggestTreatmentsToPatient(Patient paciente,String nombreDiagnostico, System sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
-		List<Treatment> tratamientos = this.diagnosticTreatments(nombreDiagnostico, sistema);
-		MedicalHistory historia = this.getMedicalHistoryFrom(paciente, sistema);
-		List<Treatment> tratamientosReturn = new ArrayList<Treatment>();
-		for(Treatment t: tratamientos){
-			if(historia.patientSupports(t)){
-				tratamientosReturn.add(t);
-			}
-		}
-		return tratamientosReturn;
-	}
+//	public List<Treatment> suggestTreatmentsToPatient(Patient paciente,String nombreDiagnostico, System sistema) throws DiagnosticoNoEncontradoException, PacienteNoEncontradoException{
+//		List<Treatment> tratamientos = this.diagnosticTreatments(nombreDiagnostico, sistema);
+//		MedicalHistory historia = this.getMedicalHistoryFrom(paciente, sistema);
+//		List<Treatment> tratamientosReturn = new ArrayList<Treatment>();
+//		for(Treatment t: tratamientos){
+//			if(historia.patientSupports(t)){
+//				tratamientosReturn.add(t);
+//			}
+//		}
+//		return tratamientosReturn;
+//	}
 	
 	
 	public List<Diagnostic> possibleDiagnosticForSymptomatology
@@ -140,13 +140,13 @@ public class Professional extends Person {
 		
 	}
 	
-	public void confirmDiagnosticForPatient(Patient paciente, Event evento, System sistema) throws PacienteNoEncontradoException{
-		
-		if(sistema.patientExists(paciente)){
-			this.getMedicalHistoryFrom(paciente, sistema).addEvent(evento);
-	
-		}else{
-			throw new PacienteNoEncontradoException();
-		}
-	}
+//	public void confirmDiagnosticForPatient(Patient paciente, Event evento, System sistema) throws PacienteNoEncontradoException{
+//		
+//		if(sistema.patientExists(paciente)){
+//			this.getMedicalHistoryFrom(paciente, sistema).addEvent(evento);
+//	
+//		}else{
+//			throw new PacienteNoEncontradoException();
+//		}
+//	}
 }

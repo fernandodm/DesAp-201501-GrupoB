@@ -1,6 +1,6 @@
 <h2>Crear Paciente</h2>
 <h4>Ingrese los siguientes campos</h4>
-<form name="formPaciente" class="form-horizontal" role="form" >
+<form name="formPaciente" class="form-horizontal" role="form" ng-submit="crearPaciente()" >
   <div class="form-group">
     <label class="col-lg-2 control-label">Nombre</label>
     <div class="col-lg-5">
@@ -20,9 +20,22 @@
     </div>
   </div>
   <div class="form-group">
+    <label class="col-lg-2 control-label">Peso</label>
+    <div class="col-lg-5">
+      <input ng-model="weight" class="form-control"  placeholder="Ingrese un peso..." required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Altura</label>
+    <div class="col-lg-5"> 
+      <input ng-model="height" class="form-control" placeholder="Ingrese una altura..." required>
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-lg-offset-2 col-lg-5">
-      <button ng-Click="crearPaciente()" class="btn btn-sm btn-success" >Crear</button>
-      <button class="btn btn-sm btn-danger" type="submit">Cancelar</button>
+      <button class="btn btn-sm btn-success" type="submit">Crear</button>
+      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
     </div>
   </div>
 </form>

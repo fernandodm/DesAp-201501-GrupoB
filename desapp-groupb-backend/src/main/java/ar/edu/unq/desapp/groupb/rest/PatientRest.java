@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Patient;
 import ar.edu.unq.desapp.groupb.services.PatientService;
 
@@ -38,11 +39,13 @@ public class PatientRest {
 	@Path("/create")
 	@Produces("application/json")
 	public Response createPatient(@FormParam("firstname") String firstname,
-			 @FormParam("lastname") String lastname, @FormParam("dni") String dni){
+			 @FormParam("lastname") String lastname, @FormParam("dni") String dni, @FormParam("weight")Integer weight, @FormParam("height") Integer height){
 		
-		Patient d = new Patient(firstname,lastname,dni,null,null);
-		getPatientService().save(d);
-		return Response.ok(d).build();
+		Patient p = new Patient(weight, height,firstname,lastname,dni,null,null);
+		MedicalHistory m = new MedicalHistory();
+		p.setMedicalHistory(m);
+		getPatientService().save(p);
+		return Response.ok(p).build();
 	}
 
 	@GET

@@ -50,18 +50,18 @@ public class System extends Entity {
 		
 	}
 	
-	public void registerNewPatientUser(String nombre, String apellido, String dni,
-			String usuario, String contrasena, int peso, int altura) throws NombreDeUsuarioYaTomado{
-		if(!this.thereIsUserWithName(usuario)){
-			Patient paciente = new Patient(nombre, apellido, dni, usuario, contrasena);
-			this.users.add(paciente);
-			this.getMedicalHistories().add(new MedicalHistory(peso,altura,paciente));
-		} else {
-			throw new NombreDeUsuarioYaTomado();
-		}
-		
-			
-	}
+//	public void registerNewPatientUser(String nombre, String apellido, String dni,
+//			String usuario, String contrasena, int peso, int altura) throws NombreDeUsuarioYaTomado{
+//		if(!this.thereIsUserWithName(usuario)){
+//			Patient paciente = new Patient(nombre, apellido, dni, usuario, contrasena);
+//			this.users.add(paciente);
+//			this.getMedicalHistories().add(new MedicalHistory(peso,altura,paciente));
+//		} else {
+//			throw new NombreDeUsuarioYaTomado();
+//		}
+//		
+//			
+//	}
 	
 	
 	public boolean patientExists(Patient paciente){

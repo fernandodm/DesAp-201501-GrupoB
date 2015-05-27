@@ -12,9 +12,11 @@
 		<property name="dni" />
 		<property name="username" />
 		<property name="password" />
+		<property name="weight" />
+		<property name="height" />
 		
 		<one-to-one name="medicalHistory" class="ar.edu.unq.desapp.groupb.model.MedicalHistory"
-			cascade="save-update"></one-to-one>
+			cascade="save-update" lazy="false"></one-to-one>
 		
 	</class>
 </hibernate-mapping>
