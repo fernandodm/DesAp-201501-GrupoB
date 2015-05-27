@@ -24,7 +24,7 @@ public class MedicalHistoryTest extends TestCase {
 	
 	public void setUp(){
 		patient = mock(Patient.class);
-		medicalHistory = new MedicalHistory(60, 160, patient);
+//		medicalHistory = new MedicalHistory(60, 160, patient);
 		
 	}
 	
