@@ -16,7 +16,7 @@ angular.module('myappApp')
     });
 
     $scope.verPaciente = function(paciente) {
-		location = '#/agregarHistoria/' + paciente.id;
+		location = '#/verHistoria/' + paciente.id;
 
 	};
 
