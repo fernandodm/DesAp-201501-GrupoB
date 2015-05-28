@@ -1,0 +1,76 @@
+<h2>Crear Diagnostico</h2>
+<h4>Ingrese los siguientes campos</h4>
+<form name="formPaciente" class="form-horizontal" role="form" ng-submit="agregarSintoma()" >
+  
+  <!-- AGREGAR SINTOMA-->
+  <div>
+  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px; ">
+    <thead>
+     <tr class="active">
+        <th>Sintomas:</th>
+      </tr>
+      <tr class="active">
+        <th>Nombre</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="sintoma in sintomas" class="success">
+        <td>{{sintoma}}</td>
+        <td><center><a class="btn btn-danger btn-xs" ng-click="eliminarSintoma(sintoma)">Eliminar</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="col-lg-5" style="margin:-21px 0px 0px 74px;">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Nombre del sintoma.." ng-model="sintoma" required>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Agregar</button>
+      </span>
+    </div>
+   </div> 
+    </div>
+  <!-- AGREGAR SINTOMA-->
+
+  <div class="form-group">
+    <label class="col-lg-2 control-label" style="margin:20px 0px 0px -410px;">Nombre</label>
+    <div class="col-lg-5"> 
+      <input style="margin:20px 0px 0px -305px;" ng-model="nombre" class="form-control" placeholder="Ingrese un nombre..." required>
+    </div>
+  </div>
+
+ 
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-5" style="margin:20px 0px 0px 0px;">
+      <button class="btn btn-sm btn-success" ng-click="crearDiagnostico()">Crear</button>
+      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
+    </div>
+  </div>
+
+  <!-- DIAGNOSTICOS SUGERIDOS-->
+  <div>
+  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px; margin:-230px 0px 0px 450px;">
+    <thead>
+     <tr class="active">
+        <th>Diagnosticos sugeridos:</th>
+      </tr>
+      <tr class="active">
+        <th>Nombre</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="diagnostico in diagnosticos" class="success">
+        <td>{{diagnostico}}</td>
+        <td><center><a class="btn btn-danger btn-xs" ng-click="agregarAlPaciente(diagnostico)">Agregar al paciente</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <!-- DIAGNOSTICOS SUGERIDOS-->
+
+
+  
+</form>

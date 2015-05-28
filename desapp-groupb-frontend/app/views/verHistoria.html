@@ -5,6 +5,13 @@
     <label style="margin:6px 0px 0px -530px" class="col-lg-6 control-label" ng-model="paciente">Peso: {{paciente.weight}}</label>
     
     <label style="margin:6px 0px 0px -400px" class="col-lg-6 control-label" ng-model="paciente">Altura: {{paciente.height}}</label>
+
+  <div class="col-lg-5" style="margin:-35px 0px 0px 380px";>
+    <div class="input-group">
+        <a class="btn btn-sm btn-success">Editar</a>
+    </div>
+   </div> 
+
 </div>
   
   <!-- AGREGAR ALERGIA-->
@@ -40,14 +47,28 @@
 
 
   <!-- AGREGAR Diagnostico-->
-  <div class="jumbotron" style="margin:45px 0px 0px 45px; width:50%; height:120px;">
-     <label class="col-lg-4 control-label" style="margin:-50px 0px 0px -70px;">Diagnosticos: </label>
-    </div>
-  </div>
+  <div>
+  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px; margin:50px 0px 0px 45px;">
+    <thead>
+     <tr class="active">
+        <th>Diagnosticos:</th>
+      </tr>
+      <tr class="active">
+        <th>Nombre</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="diagnostico in diagnosticos" class="success">
+        <td>{{diagnostico.name}}</td>
+        <td><center><a class="btn btn-danger btn-xs" >Ver</a> <a class="btn btn-danger btn-xs" >Eliminar</a></center></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="col-lg-5" style="margin:0px 0px 0px 305px";>
     <div class="input-group">
-        <a class="btn btn-default" type="button">Agregar</a>
+        <a class="btn btn-default" type="button" ng-click="agregarDiagnostico(paciente)">Agregar</a>
     </div>
    </div>     
   </div>

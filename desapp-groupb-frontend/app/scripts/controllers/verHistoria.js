@@ -39,7 +39,10 @@ angular.module('myappApp')
   
     	});
 
+	};
 
+	$scope.agregarDiagnostico = function() {
+		location = '#/agregarDiagnostico/' + $routeParams.id;
 	};
 
   });
