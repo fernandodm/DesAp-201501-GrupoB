@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -59,9 +60,35 @@ public class PatientRest {
 	@GET
 	@Path("/{id}")
 	@Produces("application/json")
-	public Response findPostsPublishedByAuthorId(@PathParam("id") final
+	public Response findById(@PathParam("id") final
 			Integer id) {
 		Patient p = getPatientService().findById(id);
+		return Response.ok(p).build();
+	}
+	
+	@PUT
+	@Path("/update/{id}/{allergy}")
+	@Produces("application/json")
+	public Response updateAllery(@PathParam("id") final
+			Integer id,@PathParam("allergy") final String allergy) {
+		
+		Patient p = getPatientService().findById(id);
+		p.addAllergy(allergy);
+		getPatientService().update(p);
+		
+		return Response.ok(p).build();
+	}
+	
+	@PUT
+	@Path("/delete/{id}/{allergy}")
+	@Produces("application/json")
+	public Response deleteAllergy(@PathParam("id") final
+			Integer id,@PathParam("allergy") final String allergy) {
+		
+		Patient p = getPatientService().findById(id);
+		p.deleteAllergy(allergy);
+		getPatientService().update(p);
+		
 		return Response.ok(p).build();
 	}
 

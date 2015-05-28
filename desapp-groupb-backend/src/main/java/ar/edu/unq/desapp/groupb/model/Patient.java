@@ -52,6 +52,14 @@ public class Patient extends Person {
 	public void setWeight(Integer weight) {
 		this.weight = weight;
 	}
+
+	public void deleteAllergy(String allergy) {
+		this.getMedicalHistory().deleteAllergy(allergy);		
+	}
+
+	public void addAllergy(String allergy) {
+		this.getMedicalHistory().addAllergy(allergy);		
+	}
 	
 //	public void registrarEnElSistema(System sistema, String nombre, String apellido, String dni,
 //			String usuario, String contrasena, int peso, int altura) throws NombreDeUsuarioYaTomado{
