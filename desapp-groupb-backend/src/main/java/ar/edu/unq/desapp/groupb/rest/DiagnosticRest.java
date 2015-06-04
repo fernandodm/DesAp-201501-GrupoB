@@ -15,9 +15,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Event;
-import ar.edu.unq.desapp.groupb.model.Patient;
 import ar.edu.unq.desapp.groupb.model.Symptom;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
 
@@ -56,6 +59,10 @@ public class DiagnosticRest {
     @Produces("application/json")
     public Response createDiagnostic(@FormParam("name") String name) {
     	Diagnostic d = new Diagnostic(name);
+    	d.agregarSintoma(new Symptom("diarrea"));
+    	d.agregarSintoma(new Symptom("tos"));
+    	d.agregarSintoma(new Symptom("estornudos"));
+    	
         getDiagnosticService().save(d);
         return Response.ok(d).build();
     }
@@ -63,33 +70,32 @@ public class DiagnosticRest {
     @GET
     @Path("/{symptoms}")
     @Produces("application/json")
-    public List<Diagnostic> diagnosesContains(@PathParam("id") final List<String> symptoms) {
+    public List<Diagnostic> diagnosesContains(@PathParam("symptoms") final String symptoms) {
         List<Diagnostic> diagnoses = getDiagnosticService().retriveAll();
         List<Diagnostic> diagnosesWithSymptoms = new ArrayList<Diagnostic>();
+
         for(Diagnostic d: diagnoses){
-        	for(Symptom s : d.getSymptoms()){
-        		if(symptoms.contains(s.getSymptomName()))
+        		if(d.getSymptomsNames().containsAll(Arrays.asList(StringUtils.split(symptoms, ","))))
         			diagnosesWithSymptoms.add(d);
-        	}
         }
         
         return diagnosesWithSymptoms;
     }
-    
-    @POST
-    @Path("/create/{patient}/{name}/{symptoms}")
-    @Produces("application/json")
-    public Response createDiagnosticWith(@FormParam("patient") Patient patient, 
-    		@FormParam("name") String name, @FormParam("symptoms") List<String> symptoms) {
-    	//PRUEBA--------------------------------
-//    	Diagnostic d = new Diagnostic(name);
-//    	List<Symptom> s = Arrays.asList(new Symptom("fiebre"),new Symptom("dolor"));
-//    	d.setSymptoms(s);
-//    	patient.getMedicalHistory().addEvent(new Event(null, d));
-//        getDiagnosticService().save(patient);
-//        return Response.ok(d).build();
-    	return null;
-    }
+//    
+//    @POST
+//    @Path("/create/{patient}/{name}/{symptoms}")
+//    @Produces("application/json")
+//    public Response createDiagnosticWith(@FormParam("patient") Patient patient, 
+//    		@FormParam("name") String name, @FormParam("symptoms") List<String> symptoms) {
+//    	//PRUEBA--------------------------------
+////    	Diagnostic d = new Diagnostic(name);
+////    	List<Symptom> s = Arrays.asList(new Symptom("fiebre"),new Symptom("dolor"));
+////    	d.setSymptoms(s);
+////    	patient.getMedicalHistory().addEvent(new Event(null, d));
+////        getDiagnosticService().save(patient);
+////        return Response.ok(d).build();
+//    	return null;
+//    }
     
 //  @GET
 //  @Path("/{from}")

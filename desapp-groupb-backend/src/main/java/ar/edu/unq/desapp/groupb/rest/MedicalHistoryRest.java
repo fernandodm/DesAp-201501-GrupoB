@@ -9,10 +9,12 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
+import ar.edu.unq.desapp.groupb.model.Patient;
 import ar.edu.unq.desapp.groupb.services.MedicalHistoryService;
 
 @Path("/medicalhistories")
@@ -53,6 +55,14 @@ public class MedicalHistoryRest {
         return Response.ok(d).build();
     }
     
+	@GET
+	@Path("/{id}")
+	@Produces("application/json")
+	public Response findById(@PathParam("id") final
+			Integer id) {
+		MedicalHistory p = getMedicalHistoryService().findById(id);
+		return Response.ok(p).build();
+	}
 //  @GET
 //  @Path("/{from}")
 //  @Produces("application/json")

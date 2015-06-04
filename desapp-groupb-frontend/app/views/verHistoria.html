@@ -1,21 +1,24 @@
 <form ng-controller="VerHistoriaCtrl" class="form-horizontal" role="form" ng-submit="agregarAlergia()">
-  <div class="form-group">
-    <label  class="col-lg-6 control-label" ng-model="paciente">Nombre y apellido: {{paciente.firstname}} {{paciente.lastname}}</label> 
-	<br>
-    <label style="margin:6px 0px 0px -530px" class="col-lg-6 control-label" ng-model="paciente">Peso: {{paciente.weight}}</label>
-    
-    <label style="margin:6px 0px 0px -400px" class="col-lg-6 control-label" ng-model="paciente">Altura: {{paciente.height}}</label>
 
-  <div class="col-lg-5" style="margin:-35px 0px 0px 380px";>
-    <div class="input-group">
-        <a class="btn btn-sm btn-success">Editar</a>
-    </div>
-   </div> 
+<div class="text-left">
+  
+       <label class="text-left" class="col-lg-6 control-label" ng-model="paciente" style="margin:6px 0px 0px -280px">Nombre y apellido: {{paciente.firstname}} {{paciente.lastname}}</label> 
+       <br>
+ 
+        <label style="margin:6px 0px 0px -565px" class="col-lg-6 control-label" ng-model="paciente">Peso: {{paciente.weight}}</label>
+        <label style="margin:6px 0px 0px -430px" class="col-lg-6 control-label" ng-model="paciente">Altura: {{paciente.height}}</label>
+
+      <div>
+        <a class="btn btn-sm btn-success" style="margin:6px 0px -90px -280px">Editar</a>
+      </div> 
 
 </div>
-  
+
+
+<div class="row" style="margin:6px -300px -400px 0px">
+  <div class="col-md-6">
   <!-- AGREGAR ALERGIA-->
-  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px; margin:0px 0px 0px 45px;">
+  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
     <thead>
      <tr class="active">
         <th>Alergias:</th>
@@ -33,22 +36,26 @@
     </tbody>
   </table>
 
-  <div class="col-lg-5" style="margin:0px 0px 0px 120px;">
+  <div class="col-md-9">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Nombre de alergia.." ng-model="alergia" required>
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="submit">Agregar</button>
+      <left>
+      <input type="text" style="margin:0px 0px -50px -15px" class="form-control" placeholder="Ingrese nueva alergia.." ng-model="alergia" required>
+      </left>
+      <span class="input-group-btn" >
+        <button class="btn btn-default" type="submit" style="margin:0px 0px 0px -15px">Agregar</button>
       </span>
     </div>
    </div> 
 
   </div>
+
   <!-- AGREGAR ALERGIA-->
 
 
   <!-- AGREGAR Diagnostico-->
-  <div>
-  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px; margin:50px 0px 0px 45px;">
+<div class="row">
+  <div class="col-md-6">
+  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
     <thead>
      <tr class="active">
         <th>Diagnosticos:</th>
@@ -66,11 +73,13 @@
     </tbody>
   </table>
 
-  <div class="col-lg-5" style="margin:0px 0px 0px 305px";>
+  <div class="col-lg-1">
     <div class="input-group">
-        <a class="btn btn-default" type="button" ng-click="agregarDiagnostico(paciente)">Agregar</a>
+       <right><a class="btn btn-default" type="button" ng-click="agregarDiagnostico(paciente)" style="margin:0px 0px 0px 190px">Nuevo Diagnostico</a></right>
     </div>
    </div>     
   </div>
   <!-- AGREGAR Diagnostico-->
+  </div>
+  </div>
 </form>

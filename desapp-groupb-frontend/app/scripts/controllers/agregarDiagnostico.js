@@ -9,8 +9,9 @@
  */
 angular.module('myappApp')
   .controller('AgregarDiagnosticoCtrl', function ($http,$scope,$routeParams) {
-/**
+	$scope.sintomas =[];
     $scope.agregarSintoma = function() {
+
     	$scope.sintomas.push($scope.sintoma)
     	$http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/' + $scope.sintomas).success(function (data) {
        		
@@ -22,7 +23,7 @@ angular.module('myappApp')
 
     $scope.crearDiagnostico = function() {
 
-    	$http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/' + $routeParams.id).success(function (paciente) {
+    	$http.get('http://localhost:8080/desapp-groupb-backend/rest/medicalhistories/' + $routeParams.id).success(function (paciente) {
        		
        		$http.post('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/create/' + paciente + '/' + $scope.nombre + '/' + $scope.sintomas)
     			.success(function (data) {
@@ -33,5 +34,5 @@ angular.module('myappApp')
 
    		});
     };
-**/
+
   });

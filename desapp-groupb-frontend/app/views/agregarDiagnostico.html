@@ -24,7 +24,7 @@
 
   <div class="col-lg-5" style="margin:-21px 0px 0px 74px;">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Nombre del sintoma.." ng-model="sintoma" required>
+      <input type="text" class="form-control" placeholder="Ingrese un sintoma.." ng-model="sintoma" required>
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit">Agregar</button>
       </span>
@@ -36,7 +36,7 @@
   <div class="form-group">
     <label class="col-lg-2 control-label" style="margin:20px 0px 0px -410px;">Nombre</label>
     <div class="col-lg-5"> 
-      <input style="margin:20px 0px 0px -305px;" ng-model="nombre" class="form-control" placeholder="Ingrese un nombre..." required>
+      <input style="margin:20px 0px 0px -305px;" ng-model="nombre" class="form-control" placeholder="Ingrese un nombre de diagnostico...">
     </div>
   </div>
 
@@ -63,8 +63,8 @@
     </thead>
     <tbody>
       <tr ng-repeat="diagnostico in diagnosticos" class="success">
-        <td>{{diagnostico}}</td>
-        <td><center><a class="btn btn-danger btn-xs" ng-click="agregarAlPaciente(diagnostico)">Agregar al paciente</a></center></td>
+        <td>{{diagnostico.name}}</td>
+        <td><center><a class="btn btn-danger btn-xs" ng-click="agregarAlPaciente(diagnostico)">Agregar a Historia Clinica</a></center></td>
       </tr>
     </tbody>
   </table>

@@ -78,5 +78,41 @@ public class Diagnostic extends Entity{
 	public void setTreatment(Treatment treatment) {
 		this.treatment = treatment;
 	}
+
+	public List<String> getSymptomsNames() {
+		List<String> listNames = new ArrayList<String>();
+		for(Symptom s: this.getSymptoms()){
+			
+			listNames.add(s.getSymptomName().trim());
+		}
+		return listNames;
+	}
+	
+	public boolean containsSymptoms(List <String> symps){
+		
+		boolean ret = false;
+			
+		for(String each : symps){
+			for(String s: this.getSymptomsNames()){
+					if(each.equals(s)){
+						return true;
+						
+					}else{
+						java.lang.System.out.println(each + " " + s);
+						ret = false;
+					}
+			}
+		}
+		
+		
+		return ret;
+		
+	}
+	
+	public void deleteSymptom(String symptom){
+		
+	}
+	
+
 	
 }
