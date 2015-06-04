@@ -16,12 +16,12 @@ import ar.edu.unq.desapp.groupb.model.Treatment;
 public class DiagnosticTest extends TestCase{
 	
 	Diagnostic diagnostic;
-	Symptom symptom;
+	String symptom;
 	Treatment treatment;
 	
 	public void setUp(){
 		diagnostic = new Diagnostic("Sinositis");
-		symptom = mock(Symptom.class);
+		symptom = mock(String.class);
 		treatment = mock(Treatment.class);
 		diagnostic.agregarSintoma(symptom);
 		
@@ -42,7 +42,7 @@ public class DiagnosticTest extends TestCase{
 	
 	public void testSeRelacionaConElSintomaTrue(){
 		
-		List<Symptom> sintomas = new ArrayList<Symptom>();
+		List<String> sintomas = new ArrayList<String>();
 		sintomas.add(symptom);
 		diagnostic.setSymptoms(sintomas);
 				
@@ -55,7 +55,7 @@ public class DiagnosticTest extends TestCase{
 	}
 	
 	public void testEliminarSintoma(){
-		List<Symptom> sintomas = new ArrayList<Symptom>();
+		List<String> sintomas = new ArrayList<String>();
 		sintomas.add(symptom);
 		diagnostic.setSymptoms(sintomas);
 		diagnostic.eliminarSintoma(symptom);
@@ -68,21 +68,21 @@ public class DiagnosticTest extends TestCase{
 	}
 	
 	public void testSeRelacionaConSintomaFalse(){
-		Symptom sintoma1 = mock(Symptom.class);
-		Symptom sintoma2 = mock(Symptom.class);
+		String sintoma1 = mock(String.class);
+		String sintoma2 = mock(String.class);
 		diagnostic.agregarSintoma(sintoma1);
 		assert(diagnostic.seRelacionConElSintoma(sintoma2));
 	}
 	
 	public void testListaSintomas(){
-		Symptom sintoma1 = mock(Symptom.class);
-		Symptom sintoma2 = mock(Symptom.class);
+		String sintoma1 = mock(String.class);
+		String sintoma2 = mock(String.class);
 		diagnostic.agregarSintoma(sintoma1);
 		diagnostic.agregarSintoma(sintoma2);
 		
-		when(symptom.getSymptomName()).thenReturn("fiebre");
-		when(sintoma1.getSymptomName()).thenReturn("tos");
-		when(sintoma2.getSymptomName()).thenReturn("dolor");
+		when(symptom).thenReturn("fiebre");
+		when(sintoma1).thenReturn("tos");
+		when(sintoma2).thenReturn("dolor");
 		
 		List<String> nombres = diagnostic.listaSintomas();
 		

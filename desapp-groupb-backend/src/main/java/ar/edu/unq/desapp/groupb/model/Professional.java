@@ -84,12 +84,12 @@ public class Professional extends Person {
 	
 	
 	public List<Diagnostic> possibleDiagnosticForSymptomatology
-	(List<Symptom> sintomatologia, System sistema){
+	(List<String> sintomas1, System sistema){
 		
 		ArrayList<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
 		
 		for(Diagnostic each : sistema.getDiagnoses()){
-			if(each.getSymptoms().containsAll(sintomatologia)){
+			if(each.getSymptoms().containsAll(sintomas1)){
 				diagnosticos.add(each);
 			}
 		}
@@ -99,12 +99,12 @@ public class Professional extends Person {
 	}
 	
 	public List<Diagnostic> whoHadSypmtomAlsoHad
-	(Symptom sintoma, System sistema){
+	(String sintoma2, System sistema){
 		
 		ArrayList<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
 		
 		for(Diagnostic each : sistema.getDiagnoses()){
-			if(each.getSymptoms().contains(sintoma)){
+			if(each.getSymptoms().contains(sintoma2)){
 				diagnosticos.add(each);
 			}
 		}
@@ -130,7 +130,7 @@ public class Professional extends Person {
 		
 	}
 	
-	public void AddSymptomToDiagnostic(Symptom sintoma, Diagnostic diagnostico, System sistema){
+	public void AddSymptomToDiagnostic(String sintoma, Diagnostic diagnostico, System sistema){
 		
 		for(Diagnostic each :  sistema.getDiagnoses()){
 			if(diagnostico.equals(each)){

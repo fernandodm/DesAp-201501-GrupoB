@@ -6,13 +6,13 @@ import java.util.List;
 public class Diagnostic extends Entity{
 	
 	private String name;
-	private List<Symptom> symptoms = new ArrayList<Symptom>();
+	private List<String> symptoms = new ArrayList<String>();
 	private Treatment treatment;
 	
 	
 	public Diagnostic(){}
 	
-	public Diagnostic(String nombre, List<Symptom> sintomas, Treatment tratamiento){
+	public Diagnostic(String nombre, List<String> sintomas, Treatment tratamiento){
 		this.name = nombre;
 		this.symptoms = sintomas;
 		this.treatment = tratamiento;
@@ -22,16 +22,16 @@ public class Diagnostic extends Entity{
 		this.name = nombre;
 	}
 	
-	public void agregarSintoma(Symptom sintoma){
+	public void agregarSintoma(String sintoma){
 		this.symptoms.add(sintoma);
 	}
 	
-	public boolean seRelacionConElSintoma(Symptom sintoma){
-		return this.getSymptoms().contains(sintoma);
+	public boolean seRelacionConElSintoma(String symptom){
+		return this.getSymptoms().contains(symptom);
 	}
 	
-	public void eliminarSintoma(Symptom sintoma){
-		this.getSymptoms().remove(sintoma);
+	public void eliminarSintoma(String symptom){
+		this.getSymptoms().remove(symptom);
 	}
 	
 	////////////////////////
@@ -46,8 +46,8 @@ public class Diagnostic extends Entity{
 		
 		List<String> ls = new ArrayList<String>();
 		
-		for(Symptom each : this.getSymptoms()){
-			ls.add(each.getSymptomName());
+		for(String each : this.getSymptoms()){
+			ls.add(each);
 		}
 		
 		return ls;
@@ -63,11 +63,11 @@ public class Diagnostic extends Entity{
 		this.name = name;
 	}
 
-	public List<Symptom> getSymptoms() {
+	public List<String> getSymptoms() {
 		return symptoms;
 	}
 
-	public void setSymptoms(List<Symptom> symptoms) {
+	public void setSymptoms(List<String> symptoms) {
 		this.symptoms = symptoms;
 	}
 
@@ -81,9 +81,9 @@ public class Diagnostic extends Entity{
 
 	public List<String> getSymptomsNames() {
 		List<String> listNames = new ArrayList<String>();
-		for(Symptom s: this.getSymptoms()){
+		for(String s: this.getSymptoms()){
 			
-			listNames.add(s.getSymptomName().trim());
+			listNames.add(s);
 		}
 		return listNames;
 	}

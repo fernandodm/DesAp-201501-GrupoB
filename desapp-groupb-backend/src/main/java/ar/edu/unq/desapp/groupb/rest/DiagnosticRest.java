@@ -14,14 +14,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Symptom;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
 
 @Path("/diagnoses")
@@ -59,9 +54,9 @@ public class DiagnosticRest {
     @Produces("application/json")
     public Response createDiagnostic(@FormParam("name") String name) {
     	Diagnostic d = new Diagnostic(name);
-    	d.agregarSintoma(new Symptom("diarrea"));
-    	d.agregarSintoma(new Symptom("tos"));
-    	d.agregarSintoma(new Symptom("estornudos"));
+    	d.agregarSintoma("diarrea");
+    	d.agregarSintoma("tos");
+    	d.agregarSintoma("estornudos");
     	
         getDiagnosticService().save(d);
         return Response.ok(d).build();

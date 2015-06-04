@@ -9,18 +9,18 @@
 		</id>
 
 		<property name="name" />
-
-		<!--<list name="symptoms" lazy="true">
-			<key column="diagnosticID" />
-			<list-index column="id" />
-			<many-to-many column="symptomID" class="Symptom" />
-		</list>-->
 		
-		<list name="symptoms" lazy="false">
+		<!-- <list name="symptoms" lazy="false">
 			<key column="symptomID" />
 			<list-index column="id" />
-			<many-to-many class="ar.edu.unq.desapp.groupb.model.Symptom" />
-		</list>
+			<one-to-many class="java.lang.String" />
+		</list>-->
+		
+		<list name="symptoms" lazy="false">  
+          <key column="symptomID"></key>  
+          <index column="type"></index>  
+          <element column="simptoms" type="string"></element>  
+        </list>
 		
 		<property name="treatment" />
 

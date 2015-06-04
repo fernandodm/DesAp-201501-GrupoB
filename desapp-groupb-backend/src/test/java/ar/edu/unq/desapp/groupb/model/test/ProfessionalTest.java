@@ -229,15 +229,15 @@ public class ProfessionalTest extends TestCase {
 	
 		List<Diagnostic> diagnosticos = Arrays.asList(diagnostic1, diagnostic2, diagnostic3, diagnostic4);
 		
-		Symptom sintoma1 = mock(Symptom.class);
-		Symptom sintoma2 = mock(Symptom.class);
-		Symptom sintoma3 = mock(Symptom.class);
-		Symptom sintoma4 = mock(Symptom.class);
-		Symptom sintoma5 = mock(Symptom.class);
+		String sintoma1 = mock(String.class);
+		String sintoma2 = mock(String.class);
+		String sintoma3 = mock(String.class);
+		String sintoma4 = mock(String.class);
+		String sintoma5 = mock(String.class);
 		
-		List<Symptom> sintomas1 = Arrays.asList(sintoma1,sintoma2);
-		List<Symptom> sintomas2 = Arrays.asList(sintoma5,sintoma4);
-		List<Symptom> sintomas3 = Arrays.asList(sintoma3,sintoma2,sintoma5);
+		List<String> sintomas1 = Arrays.asList(sintoma1,sintoma2);
+		List<String> sintomas2 = Arrays.asList(sintoma5,sintoma4);
+		List<String> sintomas3 = Arrays.asList(sintoma3,sintoma2,sintoma5);
 		
 		when(diagnostic1.getSymptoms()).thenReturn(sintomas1);
 		when(diagnostic2.getSymptoms()).thenReturn(sintomas2);
@@ -259,15 +259,15 @@ public class ProfessionalTest extends TestCase {
 	
 		when(system.getDiagnoses()).thenReturn(diagnosticos);
 		
-		Symptom sintoma1 = mock(Symptom.class);
-		Symptom sintoma2 = mock(Symptom.class);
-		Symptom sintoma3 = mock(Symptom.class);
-		Symptom sintoma4 = mock(Symptom.class);
-		Symptom sintoma5 = mock(Symptom.class);
+		String sintoma1 = mock(String.class);
+		String sintoma2 = mock(String.class);
+		String sintoma3 = mock(String.class);
+		String sintoma4 = mock(String.class);
+		String sintoma5 = mock(String.class);
 		
-		List<Symptom> sintomas1 = Arrays.asList(sintoma1,sintoma2);
-		List<Symptom> sintomas2 = Arrays.asList(sintoma5,sintoma4);
-		List<Symptom> sintomas3 = Arrays.asList(sintoma3,sintoma2,sintoma5);
+		List<String> sintomas1 = Arrays.asList(sintoma1,sintoma2);
+		List<String> sintomas2 = Arrays.asList(sintoma5,sintoma4);
+		List<String> sintomas3 = Arrays.asList(sintoma3,sintoma2,sintoma5);
 		
 		when(diagnostic1.getSymptoms()).thenReturn(sintomas1);
 		when(diagnostic2.getSymptoms()).thenReturn(sintomas2);
@@ -308,7 +308,7 @@ public class ProfessionalTest extends TestCase {
 		
 		when(system.getDiagnoses()).thenReturn(diagnosticos);
 		
-		Symptom sintoma1 = mock(Symptom.class);
+		String sintoma1 = mock(String.class);
 		
 		professional.AddSymptomToDiagnostic(sintoma1, diagnostic2, system);
 		

@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Symptom;
 import ar.edu.unq.desapp.groupb.model.Treatment;
 
 public class DiagnosticDAO extends HibernateGenericDAO<Diagnostic> implements GenericRepository<Diagnostic> {
@@ -24,7 +23,7 @@ public class DiagnosticDAO extends HibernateGenericDAO<Diagnostic> implements Ge
         return (Diagnostic) criteria.list();
     }
 
-	public void saveDiagnostic(String name, List<Symptom> symptoms, Treatment treatment) {
+	public void saveDiagnostic(String name, List<String> symptoms, Treatment treatment) {
 		Diagnostic d = new Diagnostic(name, symptoms, treatment);
 		this.save(d);
 		
