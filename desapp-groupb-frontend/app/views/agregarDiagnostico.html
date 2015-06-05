@@ -44,6 +44,25 @@
   max-width: 100% !important;
   width: 100% !important;
 }
+
+.ui-datepicker {
+   background: #333;
+   border: 1px solid #555;
+   color: #EEE;
+ }
+
+
+.ui-datepicker .ui-datepicker-header{
+
+  font-size: 12px; 
+  background: #333;
+  border: #333;
+
+}
+
+
+
+
 </style>
 
 <center>
@@ -108,6 +127,12 @@
 
 <script>
   $(function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            dateFormat: 'dd/mm/yy',
+        });
   });
 </script>
