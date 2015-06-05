@@ -1,8 +1,8 @@
-<h2>Crear Diagnostico</h2>
+  <!--<h2>Crear Diagnostico</h2>
 <h4>Ingrese los siguientes campos</h4>
 <form name="formPaciente" class="form-horizontal" role="form" ng-submit="agregarSintoma()" >
   
-  <!-- AGREGAR SINTOMA-->
+  AGREGAR SINTOMA
   <div>
   <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px; ">
     <thead>
@@ -31,27 +31,40 @@
     </div>
    </div> 
     </div>
-  <!-- AGREGAR SINTOMA-->
+  <!-- AGREGAR SINTOMA
 
-  <div class="form-group">
-    <label class="col-lg-2 control-label" style="margin:20px 0px 0px -410px;">Nombre</label>
-    <div class="col-lg-5"> 
-      <input style="margin:20px 0px 0px -305px;" ng-model="nombre" class="form-control" placeholder="Ingrese un nombre de diagnostico...">
-    </div>
+</form>-->
+
+<style>
+.container {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: 0px !important;
+  margin-left: 10px !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+</style>
+
+<center>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Agregue o cree un nuevo diagnostico</h3>
   </div>
+</div>
+</center>
 
- 
+<div class="row">
 
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-5" style="margin:20px 0px 0px 0px;">
-      <button class="btn btn-sm btn-success" ng-click="crearDiagnostico()">Crear</button>
-      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
-    </div>
-  </div>
+  <div class="col-md-4">
+  <form name="formPaciente" class="form-horizontal" role="form" ng-submit="agregarSintoma()" >
+  <tags-input ng-model="tags" style="width: 55%"  ng-enter="agregarSintoma()" placeholder="Ingrese un sintoma...">
+    <!--<auto-complete source="loadItems($query)"></auto-complete> NO FUNCAAA-->
+  </tags-input>
 
   <!-- DIAGNOSTICOS SUGERIDOS-->
   <div>
-  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px; margin:-230px 0px 0px 450px;">
+  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
     <thead>
      <tr class="active">
         <th>Diagnosticos sugeridos:</th>
@@ -69,8 +82,22 @@
     </tbody>
   </table>
   </div>
+  </div>
   <!-- DIAGNOSTICOS SUGERIDOS-->
+  <div class="col-md-4">
+  <div class="form-group">
+    
+     <span> <label>Nombre:</label> <input style="width: 80%"ng-model="nombre" class="form-control" placeholder="Ingrese un nombre de diagnostico..."></span>
+    
+  </div>
+  </br>
+  <div class="form-group">
+    <div>
+      <button class="btn btn-sm btn-success" ng-click="crearDiagnostico()">Crear nuevo diagnostico</button>
+      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
+    </div>
+  </div>
+  </div>
 
-
-  
-</form>
+  </form>
+</div>

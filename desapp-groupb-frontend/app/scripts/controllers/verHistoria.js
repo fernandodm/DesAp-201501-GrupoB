@@ -9,13 +9,12 @@
  */
 angular.module('myappApp')
   .controller('VerHistoriaCtrl', function ($scope,$http,$routeParams) {
-
-    
+  	    
 	$http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/' + $routeParams.id).success(function (data) {
        //datos lo tenemos disponible en la vista gracias a $scope
        $scope.paciente = data;
        $scope.alergias = $scope.paciente.medicalHistory.allergies;
-
+       $scope.diagnosticos = $scope.paciente.medicalHistory.diagnostic;
     });
 
     $scope.agregarAlergia = function() {
@@ -25,7 +24,6 @@ angular.module('myappApp')
 			.success(function () {
        
   
-
     	});
 
 	};
@@ -42,7 +40,11 @@ angular.module('myappApp')
 	};
 
 	$scope.agregarDiagnostico = function() {
-		location = '#/agregarDiagnostico/' + $routeParams.id;
+
+		
+       	location = '#/agregarDiagnostico/' + $routeParams.id;  
+    	
+		
 	};
 
   });
