@@ -7,13 +7,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+
 import org.apache.commons.lang3.StringUtils;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
@@ -52,14 +55,36 @@ public class DiagnosticRest {
     @POST
     @Path("/create")
     @Produces("application/json")
-    public Response createDiagnostic(@FormParam("name") String name) {
-    	Diagnostic d = new Diagnostic(name);
-    	d.agregarSintoma("diarrea");
-    	d.agregarSintoma("tos");
-    	d.agregarSintoma("estornudos");
-    	
+    public Response createDiagnostic() {
+    	Diagnostic d = new Diagnostic();
         getDiagnosticService().save(d);
         return Response.ok(d).build();
+    }
+    
+    @PUT
+    @Path("/update/{id}/{name}/{symptoms}")
+    @Produces("application/json")
+    public Response updateDiagnoses(@PathParam("id") Integer id, @PathParam("name") String name,
+    		@PathParam("symptoms") final String symptoms) {
+        Diagnostic diagnostic = getDiagnosticService().findById(id);
+        List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
+
+        diagnostic.setName(name);
+        diagnostic.setSymptoms(symptomsAsList);
+        
+        getDiagnosticService().update(diagnostic);
+		
+		return Response.ok(diagnostic).build();
+    }
+    
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces("application/json")
+    public Response deleteDiagnoses(@PathParam("id") Integer id) {
+        Diagnostic diagnostic = getDiagnosticService().findById(id);
+        getDiagnosticService().delete(diagnostic);
+ 
+		return Response.ok(diagnostic).build();
     }
     
     @GET
@@ -76,6 +101,7 @@ public class DiagnosticRest {
         
         return diagnosesWithSymptoms;
     }
+    
 //    
 //    @POST
 //    @Path("/create/{patient}/{name}/{symptoms}")

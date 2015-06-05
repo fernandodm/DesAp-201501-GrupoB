@@ -66,10 +66,11 @@ public class Diagnostic extends Entity{
 	public List<String> getSymptoms() {
 		return symptoms;
 	}
-
+	
 	public void setSymptoms(List<String> symptoms) {
 		this.symptoms = symptoms;
 	}
+
 
 	public Treatment getTreatment() {
 		return treatment;
