@@ -48,7 +48,7 @@
        		
 
    		//});
-  		location = '#/verHistoria/' + $routeParams.idPaciente;
+  		//location = '#/verHistoria/' + $routeParams.idPaciente;
     };   
 
   });

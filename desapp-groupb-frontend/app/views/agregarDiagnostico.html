@@ -61,8 +61,26 @@
   <tags-input ng-model="tags" style="width: 55%"  ng-enter="agregarSintoma()" placeholder="Ingrese un sintoma...">
     <!--<auto-complete source="loadItems($query)"></auto-complete> NO FUNCAAA-->
   </tags-input>
+  </br>
 
-  <!-- DIAGNOSTICOS SUGERIDOS-->
+  <div class="form-group" style="margin-left: 0px;">
+    
+     <label>Nombre:</label> <input style="width: 70%"ng-model="nombre" class="form-control" placeholder="Ingrese un nombre de diagnostico..."></br>
+     <label>Fecha:</label> <input type="text" id="datepicker" style="width: 70%"ng-model="fecha" class="form-control" placeholder="Ingrese una fecha...">
+    
+  </div>
+  </br>
+  <div class="form-group" style="margin-bottom: 0px; margin-left: 0px;">
+    <div>
+      <button class="btn btn-sm btn-success" ng-click="crearDiagnostico()">Crear nuevo diagnostico</button>
+      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
+    </div>
+  </div> 
+  </div>
+
+ 
+  <div class="col-md-4">
+   <!-- DIAGNOSTICOS SUGERIDOS-->
   <div>
   <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
     <thead>
@@ -82,22 +100,14 @@
     </tbody>
   </table>
   </div>
-  </div>
-  <!-- DIAGNOSTICOS SUGERIDOS-->
-  <div class="col-md-4">
-  <div class="form-group">
-    
-     <span> <label>Nombre:</label> <input style="width: 80%"ng-model="nombre" class="form-control" placeholder="Ingrese un nombre de diagnostico..."></span>
-    
-  </div>
-  </br>
-  <div class="form-group">
-    <div>
-      <button class="btn btn-sm btn-success" ng-click="crearDiagnostico()">Crear nuevo diagnostico</button>
-      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
-    </div>
-  </div>
+   <!-- DIAGNOSTICOS SUGERIDOS-->
   </div>
 
   </form>
 </div>
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+</script>
