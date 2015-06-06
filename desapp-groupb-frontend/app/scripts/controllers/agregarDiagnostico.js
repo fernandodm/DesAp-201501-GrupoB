@@ -32,13 +32,34 @@
 
  
     $scope.crearDiagnostico = function() {    	
-       		
-       	//$http.put('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/update/' + $routeParams.idDiagnostico + '/' + $scope.nombre + '/' + $scope.sintomas)
-    	//	.success(function (data) {
+       	
+        /**$http.post('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/create/' , {id: $routeParams.id, name: $scope.nombre, sintomas: $scope.sintomas, date: $scope.fecha})
+    		.success(function (data) {
 
-    		//location = '#/verHistoria/' + $routeParams.idPaciente;
+    		location = '#/verHistoria/' + $routeParams.id;
 
-   		//});
+   		});**/
+
+   		$http({
+            method: 'POST',
+            url: 'http://localhost:8080/desapp-groupb-backend/rest/diagnoses/create/',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            transformRequest: function(obj) {
+                var str = [];
+                    for(var p in obj)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            return str.join("&");
+            },
+
+            data: {id: $routeParams.id, name: $scope.nombre, symptoms: $scope.sintomas, date: $scope.fecha}
+
+
+        }).success(function () {
+                    
+                });
+        location = '#/verHistoria/' + $routeParams.id;
+        changeClass();
+
     }; 
 
     $scope.cancelar = function() {
