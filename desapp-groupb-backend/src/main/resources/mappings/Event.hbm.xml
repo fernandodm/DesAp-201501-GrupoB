@@ -3,13 +3,16 @@
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field"
 	default-cascade="save-update">
-	<class name="ar.edu.unq.desapp.groupb.model.Event">
+	<class name="ar.edu.unq.desapp.groupb.model.Event" lazy="false">
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
 
 		<property name="date" />
-		<property name="diagnostic" />
+		<property name="diagnostic" lazy="false"/>
+		
+		<!--<one-to-one name="diagnostic" class="ar.edu.unq.desapp.groupb.model.Diagnostic"
+			cascade="save-update" lazy="false"></one-to-one>-->
 
 	</class>
 </hibernate-mapping>

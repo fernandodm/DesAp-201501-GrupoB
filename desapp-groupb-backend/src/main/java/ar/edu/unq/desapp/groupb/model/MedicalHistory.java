@@ -38,17 +38,17 @@ public class MedicalHistory extends Entity {
 		return false;
 	}
 	
-	public List<Diagnostic> eventsFromDate(GregorianCalendar fecha){
-		
-		List<Diagnostic> events = new ArrayList<Diagnostic>();
-		
-		for(Event evento : this.getEvents()){
-			if(evento.getFecha().after(fecha)){
-				events.add(evento.getDiagnostic());
-			}
-		}
-		return events;
-	}
+//	public List<Diagnostic> eventsFromDate(GregorianCalendar fecha){
+//		
+//		List<Diagnostic> events = new ArrayList<Diagnostic>();
+//		
+//		for(Event evento : this.getEvents()){
+//			if(evento.getFecha().after(fecha)){
+//				events.add(evento.getDiagnostic());
+//			}
+//		}
+//		return events;
+//	}
 	
 	public void addEvent(Event evento){
 		this.getEvents().add(evento);

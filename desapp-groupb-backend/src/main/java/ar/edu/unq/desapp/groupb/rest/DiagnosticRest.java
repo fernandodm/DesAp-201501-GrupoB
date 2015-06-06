@@ -20,15 +20,18 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.lang3.StringUtils;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
+import ar.edu.unq.desapp.groupb.model.Event;
+import ar.edu.unq.desapp.groupb.model.MedicalHistory;
+import ar.edu.unq.desapp.groupb.model.Treatment;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
+import ar.edu.unq.desapp.groupb.services.MedicalHistoryService;
 
 @Path("/diagnoses")
 public class DiagnosticRest {
     
     private DiagnosticService diagnosticService;
+    private MedicalHistoryService medicalHistoryService;
     
-    
-
 	public DiagnosticService getDiagnosticService() {
 		return diagnosticService;
 	}
@@ -52,29 +55,30 @@ public class DiagnosticRest {
         return diagnoses;
     }
     
+//    @POST
+//    @Path("/create")
+//    @Produces("application/json")
+//    public Response createDiagnostic() {
+//    	Diagnostic d = new Diagnostic();
+//        getDiagnosticService().save(d);
+//        return Response.ok(d).build();
+//    }
+    
     @POST
     @Path("/create")
     @Produces("application/json")
-    public Response createDiagnostic() {
-    	Diagnostic d = new Diagnostic();
-        getDiagnosticService().save(d);
-        return Response.ok(d).build();
-    }
-    
-    @PUT
-    @Path("/update/{id}/{name}/{symptoms}")
-    @Produces("application/json")
-    public Response updateDiagnoses(@PathParam("id") Integer id, @PathParam("name") String name,
-    		@PathParam("symptoms") final String symptoms) {
-        Diagnostic diagnostic = getDiagnosticService().findById(id);
-        List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
-
-        diagnostic.setName(name);
-        diagnostic.setSymptoms(symptomsAsList);
-        
-        getDiagnosticService().update(diagnostic);
-		
-		return Response.ok(diagnostic).build();
+    public Response createDiagnostic(@FormParam("id") Integer id, @FormParam("name") String name,
+    		@FormParam("symptoms") String symptoms, @FormParam("date") String date) {
+    	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
+    	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList, new Treatment());
+    	
+    	MedicalHistory medical = getMedicalHistoryService().findById(id);
+    	System.out.println(medical);
+    	Event event = new Event(date, diagnostic);
+    	medical.addEvent(event);       
+        //getDiagnosticService().save(diagnostic);
+		getMedicalHistoryService().update(medical);
+		return Response.ok(medical).build();
     }
     
     @DELETE
@@ -101,6 +105,14 @@ public class DiagnosticRest {
         
         return diagnosesWithSymptoms;
     }
+
+	public MedicalHistoryService getMedicalHistoryService() {
+		return medicalHistoryService;
+	}
+
+	public void setMedicalHistoryService(MedicalHistoryService medicalHistoryService) {
+		this.medicalHistoryService = medicalHistoryService;
+	}
     
 //    
 //    @POST

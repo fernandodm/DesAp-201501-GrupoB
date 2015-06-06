@@ -1,7 +1,10 @@
 package ar.edu.unq.desapp.groupb.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class Mains {
 
@@ -20,6 +23,10 @@ public class Mains {
     	br.add("tos");
     	br.add("diarrea");
     	java.lang.System.out.println(ar.containsAll(br));
+    	String f = "25/01/1992";
+    	List<String> ff= Arrays.asList(StringUtils.split(f, "/"));
+    	
+    	java.lang.System.out.println(Integer.parseInt(ff.get(0)) == 25 );
     }
 
 }

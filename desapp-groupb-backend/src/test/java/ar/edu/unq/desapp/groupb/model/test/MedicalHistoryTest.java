@@ -109,39 +109,39 @@ public class MedicalHistoryTest extends TestCase {
 		
 	}
 	
-	public void testEventosDesdeFecha(){
-		
-		GregorianCalendar fecha1 = mock(GregorianCalendar.class);
-		Diagnostic diagnostico2 = mock(Diagnostic.class);
-		GregorianCalendar fecha2 = mock(GregorianCalendar.class);
-		Diagnostic diagnostico3 = mock(Diagnostic.class);
-		GregorianCalendar fecha3 = mock(GregorianCalendar.class);
-		
-		GregorianCalendar fecha4 = mock(GregorianCalendar.class);
-		
-		Event evento1 = mock(Event.class);
-		Event evento2 = mock(Event.class);
-		Event evento3 = mock(Event.class);
-		
-		when(evento1.getFecha()).thenReturn(fecha1);
-		when(evento2.getFecha()).thenReturn(fecha2);
-		when(evento3.getFecha()).thenReturn(fecha3);
-		
-		when(evento2.getDiagnostic()).thenReturn(diagnostico2);
-		when(evento3.getDiagnostic()).thenReturn(diagnostico3);
-		
-		when(fecha1.after(fecha4)).thenReturn(false);
-		when(fecha2.after(fecha4)).thenReturn(true);
-		when(fecha3.after(fecha4)).thenReturn(true);
-				
-		medicalHistory.addEvent(evento1);
-		medicalHistory.addEvent(evento2);
-		medicalHistory.addEvent(evento3);
-		
-		List<Diagnostic> diagnosticosReturn = medicalHistory.eventsFromDate(fecha4);
-		
-		assertTrue(diagnosticosReturn.size() == 2);
-		assertTrue(diagnosticosReturn.containsAll(Arrays.asList(diagnostico2,diagnostico3)));
-	}
+//	public void testEventosDesdeFecha(){
+//		
+//		GregorianCalendar fecha1 = mock(GregorianCalendar.class);
+//		Diagnostic diagnostico2 = mock(Diagnostic.class);
+//		GregorianCalendar fecha2 = mock(GregorianCalendar.class);
+//		Diagnostic diagnostico3 = mock(Diagnostic.class);
+//		GregorianCalendar fecha3 = mock(GregorianCalendar.class);
+//		
+//		GregorianCalendar fecha4 = mock(GregorianCalendar.class);
+//		
+//		Event evento1 = mock(Event.class);
+//		Event evento2 = mock(Event.class);
+//		Event evento3 = mock(Event.class);
+//		
+//		when(evento1.getFecha()).thenReturn(fecha1);
+//		when(evento2.getFecha()).thenReturn(fecha2);
+//		when(evento3.getFecha()).thenReturn(fecha3);
+//		
+//		when(evento2.getDiagnostic()).thenReturn(diagnostico2);
+//		when(evento3.getDiagnostic()).thenReturn(diagnostico3);
+//		
+//		when(fecha1.after(fecha4)).thenReturn(false);
+//		when(fecha2.after(fecha4)).thenReturn(true);
+//		when(fecha3.after(fecha4)).thenReturn(true);
+//				
+//		medicalHistory.addEvent(evento1);
+//		medicalHistory.addEvent(evento2);
+//		medicalHistory.addEvent(evento3);
+//		
+//		List<Diagnostic> diagnosticosReturn = medicalHistory.eventsFromDate(fecha4);
+//		
+//		assertTrue(diagnosticosReturn.size() == 2);
+//		assertTrue(diagnosticosReturn.containsAll(Arrays.asList(diagnostico2,diagnostico3)));
+//	}
 
 }

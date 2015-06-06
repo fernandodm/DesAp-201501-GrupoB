@@ -1,22 +1,21 @@
 package ar.edu.unq.desapp.groupb.model;
 
-import java.util.GregorianCalendar;
 
 public class Event extends Entity {
-	private GregorianCalendar date;
+	private String date;
 	private Diagnostic diagnostic;
 	
 	public Event(){}
 	
-	public Event(GregorianCalendar fecha, Diagnostic diagnostico) {
+	public Event(String fecha, Diagnostic diagnostico) {
 		this.date = fecha;
 		this.diagnostic = diagnostico;
 	}
 	
-	public GregorianCalendar getFecha() {
+	public String getFecha() {
 		return date;
 	}
-	public void setDate(GregorianCalendar fecha) {
+	public void setDate(String fecha) {
 		this.date = fecha;
 	}
 	public Diagnostic getDiagnostic() {

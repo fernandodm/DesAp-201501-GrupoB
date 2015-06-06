@@ -22,7 +22,7 @@
           <element column="simptoms" type="string"></element>  
         </list>
 		
-		<property name="treatment" />
+		<property name="treatment"/>
 
 	</class>
 </hibernate-mapping>

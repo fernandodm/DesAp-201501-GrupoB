@@ -109,35 +109,35 @@ public class System extends Entity {
 	}
 	
 	
-	public HashMap<String,Float> porcentageOfAilmentsInTheLastMonths(int meses){
-		
-		HashMap<String,Float> reporte = new HashMap<String,Float>();
-		int cantidadDeDiagnosticos = 0;
-		List<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
-		List<String> nombreDeSintomas = new ArrayList<String>();
-		GregorianCalendar diaActual = new GregorianCalendar();
-		
-		int dia = diaActual.get(GregorianCalendar.DATE);
-		int mes = diaActual.get(GregorianCalendar.MONTH);
-		int anio = diaActual.get(GregorianCalendar.YEAR);
-		
-		GregorianCalendar haceUnosMeses = new GregorianCalendar(anio,mes-meses,dia);
-	
-		cantidadDeDiagnosticos = this.getNumberOfDiagnosesSince(haceUnosMeses);
-		diagnosticos = this.getDiagnosesSince(haceUnosMeses);
-		nombreDeSintomas = this.getSympthomsSince(haceUnosMeses, diagnosticos);
-		
-		Set<String> nombreDeLosSintomas = new HashSet<String>(nombreDeSintomas);
-		
-		int frecuenciaDelSintoma;
-		for(String nombre : nombreDeLosSintomas){
-			frecuenciaDelSintoma = Collections.frequency(nombreDeSintomas, nombre);
-			reporte.put(nombre, this.porcentageAmount(frecuenciaDelSintoma, cantidadDeDiagnosticos));
-		}
-		
-		return reporte;
-	}
-	
+//	public HashMap<String,Float> porcentageOfAilmentsInTheLastMonths(int meses){
+//		
+//		HashMap<String,Float> reporte = new HashMap<String,Float>();
+//		int cantidadDeDiagnosticos = 0;
+//		List<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
+//		List<String> nombreDeSintomas = new ArrayList<String>();
+//		GregorianCalendar diaActual = new GregorianCalendar();
+//		
+//		int dia = diaActual.get(GregorianCalendar.DATE);
+//		int mes = diaActual.get(GregorianCalendar.MONTH);
+//		int anio = diaActual.get(GregorianCalendar.YEAR);
+//		
+//		GregorianCalendar haceUnosMeses = new GregorianCalendar(anio,mes-meses,dia);
+//	
+//		cantidadDeDiagnosticos = this.getNumberOfDiagnosesSince(haceUnosMeses);
+//		diagnosticos = this.getDiagnosesSince(haceUnosMeses);
+//		nombreDeSintomas = this.getSympthomsSince(haceUnosMeses, diagnosticos);
+//		
+//		Set<String> nombreDeLosSintomas = new HashSet<String>(nombreDeSintomas);
+//		
+//		int frecuenciaDelSintoma;
+//		for(String nombre : nombreDeLosSintomas){
+//			frecuenciaDelSintoma = Collections.frequency(nombreDeSintomas, nombre);
+//			reporte.put(nombre, this.porcentageAmount(frecuenciaDelSintoma, cantidadDeDiagnosticos));
+//		}
+//		
+//		return reporte;
+//	}
+//	
 	private List<String> getSympthomsSince(GregorianCalendar haceUnosMeses, List<Diagnostic> diagnosticos) {
 		
 		List<String> sintomas = new ArrayList<String>();
@@ -147,27 +147,27 @@ public class System extends Entity {
 		return sintomas;
 	}
 	
-	private List<Diagnostic> getDiagnosesSince(
-			GregorianCalendar haceUnosMeses) {
-		
-		List<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
-		for(MedicalHistory each : this.getMedicalHistories())
-			diagnosticos.addAll(each.eventsFromDate(haceUnosMeses));
-		
-		
-		return diagnosticos;
-	}
-	
-	private int getNumberOfDiagnosesSince(
-			GregorianCalendar haceUnosMeses) {
-		
-		int cantidadDeDiagnosticos = 0;
-		for(MedicalHistory each : this.getMedicalHistories()){
-			cantidadDeDiagnosticos = cantidadDeDiagnosticos + each.eventsFromDate(haceUnosMeses).size();
-		}
-		
-		return cantidadDeDiagnosticos;
-	}
+//	private List<Diagnostic> getDiagnosesSince(
+//			GregorianCalendar haceUnosMeses) {
+//		
+//		List<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
+//		for(MedicalHistory each : this.getMedicalHistories())
+//			diagnosticos.addAll(each.eventsFromDate(haceUnosMeses));
+//		
+//		
+//		return diagnosticos;
+//	}
+//	
+//	private int getNumberOfDiagnosesSince(
+//			GregorianCalendar haceUnosMeses) {
+//		
+//		int cantidadDeDiagnosticos = 0;
+//		for(MedicalHistory each : this.getMedicalHistories()){
+//			cantidadDeDiagnosticos = cantidadDeDiagnosticos + each.eventsFromDate(haceUnosMeses).size();
+//		}
+//		
+//		return cantidadDeDiagnosticos;
+//	}
 	
 	public float porcentageAmount(int a, int b){
 		
