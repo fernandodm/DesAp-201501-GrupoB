@@ -78,7 +78,7 @@ public class DiagnosticRest {
     	Event event = new Event(date, diagnostic);
     	medical.addEvent(event);       
 //        getDiagnosticService().save(diagnostic);
-//        getEventService().save(event);
+//    	getEventService().save(event);
 		getMedicalHistoryService().update(medical);
 		return Response.ok(medical).build();
     }

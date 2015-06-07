@@ -8,11 +8,11 @@
 			<generator class="native" />
 		</id>
 
-		<property name="date" />
+		<property name="date"/>
 		<!--<property name="diagnostic" lazy="false"/>-->
 		
-		<one-to-one name="diagnostic" class="ar.edu.unq.desapp.groupb.model.Diagnostic"
-			cascade="save-update" lazy="false"></one-to-one>
+		<many-to-one name="diagnostic" class="ar.edu.unq.desapp.groupb.model.Diagnostic"
+			cascade="save-update" lazy="false" not-null="true"></many-to-one>
 
 	</class>
 </hibernate-mapping>
