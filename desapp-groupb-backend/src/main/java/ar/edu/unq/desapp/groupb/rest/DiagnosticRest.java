@@ -24,6 +24,7 @@ import ar.edu.unq.desapp.groupb.model.Event;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Treatment;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
+import ar.edu.unq.desapp.groupb.services.EventService;
 import ar.edu.unq.desapp.groupb.services.MedicalHistoryService;
 
 @Path("/diagnoses")
@@ -31,6 +32,7 @@ public class DiagnosticRest {
     
     private DiagnosticService diagnosticService;
     private MedicalHistoryService medicalHistoryService;
+    private EventService eventService;
     
 	public DiagnosticService getDiagnosticService() {
 		return diagnosticService;
@@ -73,10 +75,10 @@ public class DiagnosticRest {
     	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList, new Treatment());
     	
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
-    	System.out.println(medical);
     	Event event = new Event(date, diagnostic);
     	medical.addEvent(event);       
-        //getDiagnosticService().save(diagnostic);
+//        getDiagnosticService().save(diagnostic);
+//        getEventService().save(event);
 		getMedicalHistoryService().update(medical);
 		return Response.ok(medical).build();
     }
@@ -112,6 +114,14 @@ public class DiagnosticRest {
 
 	public void setMedicalHistoryService(MedicalHistoryService medicalHistoryService) {
 		this.medicalHistoryService = medicalHistoryService;
+	}
+
+	public EventService getEventService() {
+		return eventService;
+	}
+
+	public void setEventService(EventService eventService) {
+		this.eventService = eventService;
 	}
     
 //    

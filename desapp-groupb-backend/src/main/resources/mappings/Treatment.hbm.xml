@@ -18,7 +18,7 @@
 			<one-to-many class="String" />
 		</list>-->
 		
-		<list name="medicalPractices">  
+		<list name="medicalPractices" lazy="false">  
           <key column="medicalPracticeID"></key>  
           <index column="type"></index>  
           <element column="medicalPractice" type="string"></element>  

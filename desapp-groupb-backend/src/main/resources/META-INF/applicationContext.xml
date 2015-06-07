@@ -57,6 +57,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<bean id="diagnosesRest" class="ar.edu.unq.desapp.groupb.rest.DiagnosticRest">
 		<property name="diagnosticService" ref="services.diagnostic" />
 		<property name="medicalHistoryService" ref="services.medicalHistory" />
+		<property name="eventService" ref="services.event" />
 	</bean>
 
 	<bean id="patientsRest" class="ar.edu.unq.desapp.groupb.rest.PatientRest">

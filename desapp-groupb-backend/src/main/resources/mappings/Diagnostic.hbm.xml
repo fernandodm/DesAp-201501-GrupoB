@@ -22,7 +22,10 @@
           <element column="simptoms" type="string"></element>  
         </list>
 		
-		<property name="treatment"/>
+		<!--<property name="treatment"/>-->
+		
+		<one-to-one name="treatment" class="ar.edu.unq.desapp.groupb.model.Treatment"
+			cascade="save-update" lazy="false"></one-to-one>
 
 	</class>
 </hibernate-mapping>
