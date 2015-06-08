@@ -77,8 +77,6 @@ public class DiagnosticRest {
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
     	Event event = new Event(date, diagnostic);
     	medical.addEvent(event);       
-//        getDiagnosticService().save(diagnostic);
-//    	getEventService().save(event);
 		getMedicalHistoryService().update(medical);
 		return Response.ok(medical).build();
     }

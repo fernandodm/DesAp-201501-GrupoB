@@ -46,7 +46,7 @@ public class EventRest {
     @POST
     @Path("/create")
     @Produces("application/json")
-    public Response createEvent(@FormParam("name") String name) {
+    public Response createEvent() {
     	Event d = new Event();
         getEventService().save(d);
         return Response.ok(d).build();

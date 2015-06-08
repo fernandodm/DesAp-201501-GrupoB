@@ -12,7 +12,7 @@
 		<!--<property name="diagnostic" lazy="false"/>-->
 		
 		<many-to-one name="diagnostic" class="ar.edu.unq.desapp.groupb.model.Diagnostic"
-			cascade="save-update" lazy="false" not-null="true"></many-to-one>
+			cascade="save-update" lazy="false"></many-to-one>
 
 	</class>
 </hibernate-mapping>
