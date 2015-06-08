@@ -33,13 +33,6 @@
  
     $scope.crearDiagnostico = function() {    	
        	
-        /**$http.post('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/create/' , {id: $routeParams.id, name: $scope.nombre, sintomas: $scope.sintomas, date: $scope.fecha})
-    		.success(function (data) {
-
-    		location = '#/verHistoria/' + $routeParams.id;
-
-   		});**/
-
    		$http({
             method: 'POST',
             url: 'http://localhost:8080/desapp-groupb-backend/rest/diagnoses/create/',
@@ -64,16 +57,10 @@
 
     $scope.cancelar = function() {
   		
-  		//$http.delete('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/delete/' + $routeParams.idDiagnostico).success(function (data) {
-       		
-       		
-
-   		//});
-  		//location = '#/verHistoria/' + $routeParams.idPaciente;
+  		location = '#/verHistoria/' + $routeParams.id;
     };   
 
   });
-
 
 
  app.directive('ngEnter', function () {
