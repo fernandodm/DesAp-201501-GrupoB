@@ -4,38 +4,71 @@
   <div class="form-group">
     <label class="col-lg-2 control-label">Nombre</label>
     <div class="col-lg-5">
-      <input ng-model="firstname" class="form-control"  placeholder="Ingrese un nombre..." required>
+      <input ng-model="firstname" class="form-control"  onkeypress="return validar(event,this)"  placeholder="Ingrese un nombre..." required>
     </div>
   </div>
   <div class="form-group">
     <label class="col-lg-2 control-label">Apellido</label>
     <div class="col-lg-5"> 
-      <input ng-model="lastname" class="form-control" placeholder="Ingrese un apellido..." required>
+      <input ng-model="lastname" class="form-control" onkeypress="return validar(event,this)" placeholder="Ingrese un apellido..." required>
     </div>
   </div>
   <div class="form-group">
     <label class="col-lg-2 control-label">DNI</label>
     <div class="col-lg-5">
-      <input ng-model="dni" class="form-control" placeholder="Ingrese N° de DNI..." required>
+      <input ng-model="dni" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese N° de DNI..." required>
     </div>
   </div>
   <div class="form-group">
     <label class="col-lg-2 control-label">Peso</label>
     <div class="col-lg-5">
-      <input ng-model="weight" class="form-control"  placeholder="Ingrese un peso..." required>
+      <input ng-model="weight" class="form-control"  onkeypress="return justNumbers(event);" placeholder="Ingrese un peso..." required>
     </div>
   </div>
   <div class="form-group">
     <label class="col-lg-2 control-label">Altura</label>
     <div class="col-lg-5"> 
-      <input ng-model="height" class="form-control" placeholder="Ingrese una altura..." required>
+      <input ng-model="height" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese una altura en cm..." required>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-5">
-      <button class="btn btn-sm btn-success" type="submit">Crear</button>
+      <button id="myWish" class="btn btn-sm btn-success" type="submit">Crear</button>
       <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
     </div>
   </div>
+  
 </form>
+
+<script type="text/javascript">
+  function justNumbers(e){
+      var keynum = window.event ? window.event.keyCode : e.which;
+      if ((keynum == 8) || (keynum == 46))
+         return true;
+         
+      return /\d/.test(String.fromCharCode(keynum));
+    }
+
+ //primera mayuscula y el resto en minuscula
+  function formatearString(string){ 
+    var minusculas = string.toLowerCase();
+    return minusculas.charAt(0).toUpperCase() + string.slice(1); 
+  } 
+
+  function validar(e,solicitar){
+  // Admitir solo letras
+  tecla = (document.all) ? e.keyCode : e.which;
+  if (tecla==8) return true;
+  patron =/[\D\s]/;
+  te = String.fromCharCode(tecla);
+  if (!patron.test(te)) return false;
+  // No amitir espacios iniciales y convertir 1ª letra a mayúscula
+  txt = solicitar.value;
+  if(txt.length==0 && te==' ') return false;
+  if (txt.length==0 || txt.substr(txt.length-1,1)==' ') {
+    solicitar.value = txt+te.toUpperCase();
+    return false;
+  } 
+}
+</script>

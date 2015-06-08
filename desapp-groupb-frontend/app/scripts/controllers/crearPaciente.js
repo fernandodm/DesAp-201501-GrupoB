@@ -34,9 +34,13 @@ angular.module('myappApp')
 
 
         }).success(function () {
-                    
+                    alert("El paciente fue creado correctamente.");
+                    location = '#/historiasClinicas';
+                }).error(function(data,status) {
+                        alert("Error (" + status +"): " + "el paciente no se pudo crear.");
+                        location = '#/crearPaciente';
                 });
-        location = '#/historiasClinicas';
+        
         changeClass();
     };
 
