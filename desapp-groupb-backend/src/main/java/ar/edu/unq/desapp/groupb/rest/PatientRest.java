@@ -11,6 +11,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Patient;
 import ar.edu.unq.desapp.groupb.services.PatientService;
@@ -66,6 +67,16 @@ public class PatientRest {
 		return Response.ok(p).build();
 	}
 	
+	@GET
+	@Path("/diagnoses/{id}")
+	@Produces("application/json")
+	public List<Diagnostic> diagnoses(@PathParam("id") final
+			Integer id) {
+		Patient patient = getPatientService().findById(id);
+		List<Diagnostic> diagnostic = patient.getMedicalHistory().getDiagnostics();
+		return diagnostic;
+	}
+	
 	@PUT
 	@Path("/update/{id}/{allergy}")
 	@Produces("application/json")
@@ -92,28 +103,5 @@ public class PatientRest {
 		
 		return Response.ok(p).build();
 	}
-
-	// @GET
-	// @Path("/{from}")
-	// @Produces("application/json")
-	// public List<Post> findPostsPublishedByBlogId(@PathParam("from") final
-	// Integer from) {
-	// List<Post> posts = postDAO.getPosts(from, NUMBER_OF_POST, "");
-	// return posts;
-	// }
-
-	//
-	// @GET
-	// @Path("/tags")
-	// @Produces("application/json")
-	// public Set<String> getTagsByBlogId() {
-	// return postDAO.getTags();
-	// }
-	//
-	//
-	//
-	// public void setPostDAO(final PostRepository postDAO) {
-	// this.postDAO = postDAO;
-	// }
 
 }
