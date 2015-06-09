@@ -34,9 +34,14 @@ angular.module('myappApp')
             data: {firstname: $scope.firstname, lastname: $scope.lastname, dni: $scope.dni, weight: $scope.weight, height: $scope.height}
 
 
-        }).success(function () {
-                    alert("El paciente fue creado correctamente.");
+        }).success(function (data) {
+                    if(data == (-1)){
+                        alert("El DNI ya existe!! Ingrese un nuevo DNI.")
+                    }else{
+                        alert("El paciente fue creado correctamente.");
                     location = '#/historiasClinicas';
+                    }
+                    
                     
                 }).error(function(data,status) {
                         alert("Error (" + status +"): " + "el paciente no se pudo crear.");
