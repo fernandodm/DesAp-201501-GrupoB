@@ -75,7 +75,8 @@ public class DiagnosticRest {
     	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList, new Treatment());
     	
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
-    	Event event = new Event(date, diagnostic);
+    	Event event = new Event(diagnostic);
+    	event.setDate(event.stringToCalendar(date));
     	medical.addEvent(event);       
 		getMedicalHistoryService().update(medical);
 		return Response.ok(medical).build();
@@ -121,7 +122,6 @@ public class DiagnosticRest {
 	public void setEventService(EventService eventService) {
 		this.eventService = eventService;
 	}
-    
 //    
 //    @POST
 //    @Path("/create/{patient}/{name}/{symptoms}")

@@ -3,7 +3,12 @@
  */
 package ar.edu.unq.desapp.groupb.rest;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -13,6 +18,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.joda.time.DateTime;
+
+import ar.edu.unq.desapp.groupb.model.Diagnostic;
+import ar.edu.unq.desapp.groupb.model.Event;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.services.MedicalHistoryService;
 
@@ -62,33 +71,114 @@ public class MedicalHistoryRest {
 		MedicalHistory p = getMedicalHistoryService().findById(id);
 		return Response.ok(p).build();
 	}
-//  @GET
-//  @Path("/{from}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByBlogId(@PathParam("from") final Integer from) {
-//      List<Post> posts = postDAO.getPosts(from, NUMBER_OF_POST, "");
-//      return posts;
-//  }
+	
+	
+	
+	@GET
+	@Path("/symptoms/lastMonth")
+	@Produces("application/json")
+	public Map<String,Float> percentageOfSymptomsMonth() {
+		//obtengo todas las historias
+		List<MedicalHistory> medicals = getMedicalHistoryService().retriveAll();
+		
+		//creo una fecha con dia del ante ultimo mes para comparar
+		DateTime date = new DateTime().minusMonths(1);
+		
+		//obtengo todos los diagnosticos del ultimo mes
+		List<Diagnostic> diagnoses =  diagnosesLastMonth(medicals, date);
+		
+		//obtengo todos los sintomas
+		List<String> symptoms =  getSymptoms(diagnoses);
+		
+		
+		Map<String,Float> reporte = new HashMap<String,Float>();
+				
+		for(String nombre : symptoms){
+			float frecuenciaDelSintoma = Collections.frequency(symptoms, nombre);
+			reporte.put(nombre, (frecuenciaDelSintoma * 100) / symptoms.size());
+		}
+			
+		return reporte;
+	}
+	
+	@GET
+	@Path("/symptoms/semester")
+	@Produces("application/json")
+	public Map<String,Float> percentageOfSymptomsSemester() {
+		//obtengo todas las historias
+		List<MedicalHistory> medicals = getMedicalHistoryService().retriveAll();
+		
+		//creo una fecha con dia del ante ultimo mes para comparar
+		DateTime date = new DateTime().minusMonths(6);
+		
+		//obtengo todos los diagnosticos del ultimo mes
+		List<Diagnostic> diagnoses =  diagnosesLastMonth(medicals, date);
+		
+		//obtengo todos los sintomas
+		List<String> symptoms =  getSymptoms(diagnoses);
+		
+		
+		Map<String,Float> reporte = new HashMap<String,Float>();
+				
+		for(String nombre : symptoms){
+			float frecuenciaDelSintoma = Collections.frequency(symptoms, nombre);
+			reporte.put(nombre, (frecuenciaDelSintoma * 100) / symptoms.size());
+		}
+			
+		return reporte;
+	}
+	
+	@GET
+	@Path("/symptoms/year")
+	@Produces("application/json")
+	public Map<String,Float> percentageOfSymptomsYear() {
+		//obtengo todas las historias
+		List<MedicalHistory> medicals = getMedicalHistoryService().retriveAll();
+		
+		//creo una fecha con dia del ante ultimo mes para comparar
+		DateTime date = new DateTime().minusYears(1);
+		
+		//obtengo todos los diagnosticos del ultimo mes
+		List<Diagnostic> diagnoses =  diagnosesLastMonth(medicals, date);
+		
+		//obtengo todos los sintomas
+		List<String> symptoms =  getSymptoms(diagnoses);
+		
+		
+		Map<String,Float> reporte = new HashMap<String,Float>();
+				
+		for(String nombre : symptoms){
+			float frecuenciaDelSintoma = Collections.frequency(symptoms, nombre);
+			reporte.put(nombre, (frecuenciaDelSintoma * 100) / symptoms.size());
+		}
+			
+		return reporte;
+	}
 
-//  @GET
-//  @Path("/{id}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByAuthorId(@PathParam("id") final String id) {
-//      List<Post> posts = postDAO.getPosts(id);
-//      return posts;
-//  }
+	private List<String> getSymptoms(List<Diagnostic> diagnoses) {
+		
+		List<String> symptoms = new ArrayList<String>();
+		for(Diagnostic d: diagnoses){
+			symptoms.addAll(d.getSymptoms());
+		}
+	
+		return symptoms;
+	}
 
-//
-//    @GET
-//    @Path("/tags")
-//    @Produces("application/json")
-//    public Set<String> getTagsByBlogId() {
-//        return postDAO.getTags();
-//    }
-//
-//
-//
-//    public void setPostDAO(final PostRepository postDAO) {
-//        this.postDAO = postDAO;
-//    }
+	private List<Diagnostic> diagnosesLastMonth(List<MedicalHistory> medicals, DateTime date) {
+		
+		List<Diagnostic> diagnoses = new ArrayList<Diagnostic>();
+		
+		for(MedicalHistory mh: medicals){
+			List<Event> events = mh.getEvents();
+			for(Event e: events){
+				if(date.isBefore(e.getDate())){
+					diagnoses.add(e.getDiagnostic());
+				}
+			}
+		}
+		return diagnoses;
+	}
+	
+
 }

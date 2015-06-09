@@ -1,21 +1,32 @@
 package ar.edu.unq.desapp.groupb.model;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+
 
 public class Event extends Entity {
-	private String date;
+	private DateTime date;
 	private Diagnostic diagnostic;
 	
 	public Event(){}
 	
-	public Event(String fecha, Diagnostic diagnostico) {
-		this.date = fecha;
+	public Event(Diagnostic diagnostico) {
 		this.diagnostic = diagnostico;
 	}
 	
-	public String getFecha() {
+	public DateTime stringToCalendar(String date){
+		List<String> list = Arrays.asList(StringUtils.split(date, "/"));
+		DateTime dateTime = new DateTime(Integer.parseInt(list.get(2)), Integer.parseInt(list.get(1)), Integer.parseInt(list.get(0)), 0, 0);
+    	return dateTime;
+	}
+	
+	public DateTime getDate() {
 		return date;
 	}
-	public void setDate(String fecha) {
+	public void setDate(DateTime fecha) {
 		this.date = fecha;
 	}
 	public Diagnostic getDiagnostic() {
