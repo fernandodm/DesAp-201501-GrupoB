@@ -11,9 +11,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.dao.DataIntegrityViolationException;
+
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Patient;
+import ar.edu.unq.desapp.groupb.model.exceptions.NroDeDNIExistenteExeption;
 import ar.edu.unq.desapp.groupb.services.PatientService;
 
 @Path("/patients")
@@ -42,12 +46,17 @@ public class PatientRest {
 	@Path("/create")
 	@Produces("application/json")
 	public Response createPatient(@FormParam("firstname") String firstname,
-			 @FormParam("lastname") String lastname, @FormParam("dni") String dni, @FormParam("weight")Integer weight, @FormParam("height") Integer height){
+			 @FormParam("lastname") String lastname, @FormParam("dni") String dni, @FormParam("weight")Integer weight, @FormParam("height") Integer height) throws NroDeDNIExistenteExeption{
 		
 		Patient p = new Patient(weight, height,firstname,lastname,dni,null,null);
 		MedicalHistory m = new MedicalHistory();
 		p.setMedicalHistory(m);
-		getPatientService().save(p);
+		try {
+			getPatientService().save(p);
+		} catch (DataIntegrityViolationException e) {
+			return Response.ok(-1).build();
+		}
+		
 		return Response.ok(p).build();
 	}
 
