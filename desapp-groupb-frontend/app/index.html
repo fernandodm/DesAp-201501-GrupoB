@@ -43,6 +43,7 @@
     <script src="scripts/controllers/crearPaciente.js"></script>
     <script src="scripts/controllers/verHistoria.js"></script>
     <script src="scripts/controllers/agregarDiagnostico.js"></script>
+    <script src="scripts/controllers/reportes.js"></script>
     <!-- endbuild -->
     
     <!-- endbuild -->
@@ -57,15 +58,17 @@
       <div>
         <ul class="nav navbar-nav">
           <li id = "1" class="active" onclick="addClass(this);"><a href="#/">Principal</a></li>
-          <li id = "2" onclick="addClass(this);"><a href="#/historiasClinicas">Historias clinicas</a></li> 
+          <li id = "2" onclick="addClass(this);"><a href="#/historiasClinicas">Historias clinicas</a></li>
+          <li id = "3" onclick="addClass(this);"><a href="#/reportes">Reportes</a></li>
         </ul>
       </div>
     </div>
   </nav>
-
+    
 
     <div class="container">
-    <div ng-view=""></div>
+    <div ng-view="">
+    </div>
     </div>
 
    
@@ -79,9 +82,10 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
 
-        function addClass(obj){	
+      function addClass(obj){	
   			document.getElementById("1").className = "";
    			document.getElementById("2").className = "";
+        document.getElementById("3").className = "";
    			obj.className ="active";
   		}
 
