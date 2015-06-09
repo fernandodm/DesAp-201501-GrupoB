@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name myappApp.controller:AgregarDiagnosticoCtrl
+ * @name myappApp.controller:DarTratamientoCtrl
  * @description
  * # AboutCtrl
  * Controller of the myappApp
@@ -10,8 +10,8 @@
  var app =  angular.module('myappApp');
 
  app.controller('DarTratamientoCtrl', function ($http,$scope,$routeParams) {
- 	
- 	$scope.tags=[];
+
+  $scope.practicas = [];
 
  
 
@@ -51,7 +51,7 @@
             return str.join("&");
             },
 
-            data: {repose: $scope.repose, type: $scope.type, time: $scope.time, medicalPractices: $scope.medicalPractices, medicines: $scope.medicines}
+            data: {repose: $scope.repose, type: $scope.type, time: $scope.time, medicalPractices: $scope.practicas, medicines: $scope.medicines}
 
 
         }).success(function () {
@@ -65,6 +65,27 @@
         changeClass();
     };
 
+    $scope.agregarPracticaMedica = function() {
+    $scope.alergias.push($scope.alergia);
+
+    $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $routeParams.id + '/' + $scope.alergia)
+      .success(function () {
+       
+  
+      });
+
+  };
+
+  $scope.eliminarPracticaMedica = function(practica) {
+    var index = $scope.practicas.indexOf(practica);
+    $scope.practicas.splice(index,1);
+    $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/delete/' + $routeParams.id + '/' + practica)
+      .success(function () {
+       
+  
+      });
+
+  };
  
 
 
