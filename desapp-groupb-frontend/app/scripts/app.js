@@ -40,6 +40,10 @@ angular
         templateUrl: 'views/agregarDiagnostico.html',
         controller: 'AgregarDiagnosticoCtrl'
       })
+      .when('/reportes', {
+        templateUrl: 'views/reportes.html',
+        controller: 'ReportesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

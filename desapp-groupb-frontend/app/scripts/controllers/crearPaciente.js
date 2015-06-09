@@ -9,6 +9,7 @@
  */
 angular.module('myappApp')
   .controller('CrearPacienteCtrl', function ($http,$scope) {
+
     $scope.crearPaciente = function() {
        /**
         $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
@@ -36,6 +37,7 @@ angular.module('myappApp')
         }).success(function () {
                     alert("El paciente fue creado correctamente.");
                     location = '#/historiasClinicas';
+                    
                 }).error(function(data,status) {
                         alert("Error (" + status +"): " + "el paciente no se pudo crear.");
                         location = '#/crearPaciente';
