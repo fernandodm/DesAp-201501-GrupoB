@@ -40,6 +40,10 @@ angular
         templateUrl: 'views/agregarDiagnostico.html',
         controller: 'AgregarDiagnosticoCtrl'
       })
+      .when('/darTratamiento/:id', {
+        templateUrl: 'views/darTratamiento.html',
+        controller: 'DarTratamientoCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

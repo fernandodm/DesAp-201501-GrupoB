@@ -50,7 +50,7 @@
         }).success(function () {
                     
                 });
-        location = '#/verHistoria/' + $routeParams.id;
+        location = '#/darTratamiento/' + $routeParams.id;
         changeClass();
 
     }; 

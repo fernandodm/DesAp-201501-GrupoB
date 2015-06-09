@@ -1,0 +1,102 @@
+<h2>Dar Tratamiento</h2>
+<h4>Ingrese los siguientes campos</h4>
+<form name="formTratamiento" class="form-horizontal" role="form" ng-submit="nuevoTratamiento()" >
+  <div class="form-group">
+    <label class="col-lg-4 control-label">Reposo</label>
+      <div class="col-lg-5">
+    
+    <input type="radio" ng-model="repose" name="group1" ng-value=true>
+    Si
+    <input type="radio" ng-model="repose" name="group1" ng-value=false>
+    No
+  </label><br/>
+
+
+  </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-4 control-label">Tipo de roposo</label>
+    <div class="col-lg-5"> 
+    <input type="radio" ng-model="type" name="group2" ng-value=true>
+    Total
+    <input type="radio" ng-model="type" name="group2" ng-value=false>
+    Parcial
+  </label><br/>
+      
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-4 control-label">Duracion del reposo</label>
+    <div class="col-lg-5">
+      <input ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas..." required>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+      <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
+        <thead>
+         <tr class="active">
+          <th>Practicas medicas:</th>
+          </tr>
+          <tr class="active">
+            <th>Nombre</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="practica in practicas" class="success">
+            <td>{{practica}}</td>
+            <td><center><a class="btn btn-danger btn-xs" ng-click="eliminarPractica(practica)">Eliminar</a></center></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="input-group" style="width: 160%; margin:0px 0px 0px 65px; max-width: 285px !important; ">
+        <input type="text" class="form-control" placeholder="Ingrese nueva practica medica.." ng-model="practica" required>
+        <span class="input-group-btn" >
+          <button class="btn btn-default" type="submit">Agregar practica</button>
+        </span>
+      </div>
+
+    </div>
+  </div>
+    <div class="col-md-6">
+      <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
+        <thead>
+         <tr class="active">
+          <th>Medicamentos:</th>
+          </tr>
+          <tr class="active">
+            <th>Nombre</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="alergia in alergias" class="success">
+            <td>{{medicamento}}</td>
+            <td><center><a class="btn btn-danger btn-xs" ng-click="eliminarMedicamento(medicamento)">Eliminar</a></center></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="input-group" style="width: 300%; margin:0px 200px 0px 165px; max-width: 425px !important; ">
+        <input type="text" class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="medicamento" required>
+        <input type="text" class="form-control" placeholder="Ingrese una concentracion.." ng-model="medicamento" required>
+        <input type="text" class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="medicamento" required>
+       <div>
+        <span class="input-group-btn" >
+     
+          <button class="btn btn-default" type="submit">Agregar medicamento</button>
+        </span>
+        </div>
+      </div>
+
+    </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-5">
+      <button id="myWish" class="btn btn-sm btn-success" type="submit">Dar tratamiento</button>
+      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
+    </div>
+  </div>
+  
+</form>
