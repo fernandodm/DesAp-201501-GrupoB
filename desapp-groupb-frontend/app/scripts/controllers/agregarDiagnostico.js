@@ -12,11 +12,13 @@
  app.controller('AgregarDiagnosticoCtrl', function ($http,$scope,$routeParams) {
  	
  	$scope.tags=[];
- 	$http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/count').success(function (nextId) {
-       		$scope.nextd = nextId + 1;
-       	});
 
- 
+ $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/count').success(function (nextId) {
+       		
+       		$scope.nextI = nextId + 1;
+
+   		});
+ 	 
 
  	$scope.agregarSintoma = function() {
  		$scope.sintomas = [];
@@ -51,10 +53,11 @@
 
 
         }).success(function () {
-                    
+                    location = '#/darTratamiento/' + $scope.nextI;
                 });
-        location = '#/darTratamiento/' + $routeParams.id + '/' + $scope.nextd;
+        
         changeClass();
+      
 
     }; 
 

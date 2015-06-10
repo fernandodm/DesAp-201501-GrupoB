@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.Event;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
+import ar.edu.unq.desapp.groupb.model.Medicine;
 import ar.edu.unq.desapp.groupb.model.Treatment;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
 import ar.edu.unq.desapp.groupb.services.EventService;
@@ -66,65 +67,52 @@ public class TreatmentRest {
     }
     
     @POST
-    @Path("/create")
+    @Path("/create/{id}/{repose}/{type}/{time}/{medicalPractices}/{medicines}")
     @Produces("application/json")
-    public Response createTreatment(@FormParam("id") Integer id,@FormParam("id") Integer idd, @FormParam("repose") String repose,
-    		@FormParam("type") String type, @FormParam("time") String time, @FormParam("medicalPractices") String medicalPractices,
-    		@FormParam("medicines") String medicines)  {
-    	Treatment treat = new Treatment();
+    public Response createTreatment(@PathParam("id") Integer id, @PathParam("repose") String repose,
+    		@PathParam("type") String type, @PathParam("time") Integer time, @PathParam("medicalPractices") String medicalPractices,
+    		@PathParam("medicines") String medicines)  {
     	List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
-    	Diagnostic diag = this.getDiagnosticService().findById(idd);
+    	Diagnostic diag = this.getDiagnosticService().findById(id);
     	if(repose.equals("true")){
-    		treat.setRepose(true);
+    		diag.getTreatment().setRepose(true);
     	} else {
-    		treat.setRepose(false);
+    		diag.getTreatment().setRepose(false);
     	}
     	if(type.equals("true")){
-    		treat.setType("Total");
+    		diag.getTreatment().setType("Total");
     	} else {
-    		treat.setType("Parcial");
+    		diag.getTreatment().setType("Parcial");
     	}
     	
     	
-    	treat.setTime(Integer.parseInt(time));
-    	treat.setMedicalPractices(medicalPracticesAsList);
+    	diag.getTreatment().setTime(time);
+    	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
     	
-    	diag.setTreatment(treat);
         getDiagnosticService().update(diag);
         return Response.ok(diag).build();
     }
     
-//  @GET
-//  @Path("/{from}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByBlogId(@PathParam("from") final Integer from) {
-//      List<Post> posts = postDAO.getPosts(from, NUMBER_OF_POST, "");
-//      return posts;
-//  }
-
-//  @GET
-//  @Path("/{id}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByAuthorId(@PathParam("id") final String id) {
-//      List<Post> posts = postDAO.getPosts(id);
-//      return posts;
-//  }
-
-//
-//    @GET
-//    @Path("/tags")
-//    @Produces("application/json")
-//    public Set<String> getTagsByBlogId() {
-//        return postDAO.getTags();
-//    }
-//
+    @POST
+    @Path("/medicine/create/{id}/{name}/{concentration}/{weeks}")
+    @Produces("application/json")
+    public Medicine createTreatment(@PathParam("id") Integer id, @PathParam("name") String name,
+    		@PathParam("concentration") Integer concentration, @PathParam("weeks") Integer weeks)  {
+    	
+    	Treatment treatment = getTreatmentService().findById(id);
+    	Medicine medicine = new Medicine(name, concentration, weeks);
+    	treatment.getMedicines().add(medicine);
+    	getTreatmentService().update(treatment);
+        return medicine;
+    }
+    
 	@PUT
-	@Path("/update/{idd}/{medicalPractice}")
+	@Path("/update/{id}/{medicalPractice}")
 	@Produces("application/json")
-	public Response updateMedicalPractice(@PathParam("idd") final
-			Integer idd,@PathParam("medicalPractice") final String medicalPractice) {
+	public Response updateMedicalPractice(@PathParam("id") final
+			Integer id,@PathParam("medicalPractice") final String medicalPractice) {
 		
-		Diagnostic diag = this.getDiagnosticService().findById(idd);
+		Diagnostic diag = this.getDiagnosticService().findById(id);
 		diag.getTreatment().getMedicalPractices().add(medicalPractice);
 
 		
@@ -145,11 +133,4 @@ public class TreatmentRest {
 		
 		return Response.ok(diag).build();
 	}
-
-    
-//
-//
-//    public void setPostDAO(final PostRepository postDAO) {
-//        this.postDAO = postDAO;
-//    }
 }

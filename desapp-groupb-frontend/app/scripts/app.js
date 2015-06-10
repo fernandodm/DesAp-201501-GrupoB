@@ -41,7 +41,7 @@ angular
         controller: 'AgregarDiagnosticoCtrl'
       })
 
-      .when('/darTratamiento/:id/:idd', {
+      .when('/darTratamiento/:idDiagnostico', {
         templateUrl: 'views/darTratamiento.html',
         controller: 'DarTratamientoCtrl'
       })

@@ -1,6 +1,6 @@
 <h2>Dar Tratamiento</h2>
 <h4>Ingrese los siguientes campos</h4>
-<form name="formTratamiento" class="form-horizontal" role="form" ng-submit="nuevoTratamiento()" >
+<form name="formTratamiento" class="form-horizontal" role="form" >
   <div class="form-group">
     <label class="col-lg-4 control-label">Reposo</label>
       <div class="col-lg-5">
@@ -72,21 +72,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="alergia in alergias" class="success">
-            <td>{{medicamento}}</td>
+          <tr ng-repeat="medicamento in medicamentos" class="success">
+            <td>{{medicamento.drugName}}</td>
             <td><center><a class="btn btn-danger btn-xs" ng-click="eliminarMedicamento(medicamento)">Eliminar</a></center></td>
           </tr>
         </tbody>
       </table>
 
       <div class="input-group" style="width: 300%; margin:0px 200px 0px 165px; max-width: 425px !important; ">
-        <input type="text" class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="medicamento">
-        <input type="text" class="form-control" placeholder="Ingrese una concentracion.." ng-model="medicamento">
-        <input type="text" class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="medicamento">
+        <input class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="nombreMedicamento">
+        <input class="form-control" placeholder="Ingrese una concentracion.." ng-model="concentracion">
+        <input class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
        <div>
         <span class="input-group-btn" >
      
-          <button class="btn btn-default" type="submit">Agregar medicamento</button>
+          <button class="btn btn-default" type="submit" ng-click="agregarMedicamento()">Agregar medicamento</button>
         </span>
         </div>
       </div>
@@ -94,7 +94,7 @@
     </div>
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-5">
-      <button id="myWish" class="btn btn-sm btn-success" type="submit">Dar tratamiento</button>
+      <button id="myWish" class="btn btn-sm btn-success" type="submit" ng-click="nuevoTratamiento()">Dar tratamiento</button>
       <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
     </div>
   </div>
