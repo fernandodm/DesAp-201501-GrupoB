@@ -69,7 +69,7 @@ public class DiagnosticRest {
     @POST
     @Path("/create")
     @Produces("application/json")
-    public Response createDiagnostic(@FormParam("id") Integer id, @FormParam("name") String name,
+    public Diagnostic createDiagnostic(@FormParam("id") Integer id, @FormParam("name") String name,
     		@FormParam("symptoms") String symptoms, @FormParam("date") String date) {
     	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
     	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList,new Treatment());
@@ -79,7 +79,7 @@ public class DiagnosticRest {
     	event.setDate(event.stringToCalendar(date));
     	medical.addEvent(event);       
 		getMedicalHistoryService().update(medical);
-		return Response.ok(medical).build();
+		return diagnostic;
     }
     
     @DELETE
@@ -122,49 +122,4 @@ public class DiagnosticRest {
 	public void setEventService(EventService eventService) {
 		this.eventService = eventService;
 	}
-//    
-//    @POST
-//    @Path("/create/{patient}/{name}/{symptoms}")
-//    @Produces("application/json")
-//    public Response createDiagnosticWith(@FormParam("patient") Patient patient, 
-//    		@FormParam("name") String name, @FormParam("symptoms") List<String> symptoms) {
-//    	//PRUEBA--------------------------------
-////    	Diagnostic d = new Diagnostic(name);
-////    	List<Symptom> s = Arrays.asList(new Symptom("fiebre"),new Symptom("dolor"));
-////    	d.setSymptoms(s);
-////    	patient.getMedicalHistory().addEvent(new Event(null, d));
-////        getDiagnosticService().save(patient);
-////        return Response.ok(d).build();
-//    	return null;
-//    }
-    
-//  @GET
-//  @Path("/{from}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByBlogId(@PathParam("from") final Integer from) {
-//      List<Post> posts = postDAO.getPosts(from, NUMBER_OF_POST, "");
-//      return posts;
-//  }
-
-//  @GET
-//  @Path("/{id}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByAuthorId(@PathParam("id") final String id) {
-//      List<Post> posts = postDAO.getPosts(id);
-//      return posts;
-//  }
-
-//
-//    @GET
-//    @Path("/tags")
-//    @Produces("application/json")
-//    public Set<String> getTagsByBlogId() {
-//        return postDAO.getTags();
-//    }
-//
-//
-//
-//    public void setPostDAO(final PostRepository postDAO) {
-//        this.postDAO = postDAO;
-//    }
 }
