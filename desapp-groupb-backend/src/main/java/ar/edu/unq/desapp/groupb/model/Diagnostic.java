@@ -18,6 +18,12 @@ public class Diagnostic extends Entity{
 		this.treatment = tratamiento;
 	}
 	
+	public Diagnostic(String nombre, List<String> sintomas){
+		this.name = nombre;
+		this.symptoms = sintomas;
+		
+	}
+	
 	public Diagnostic(String nombre){
 		this.name = nombre;
 	}

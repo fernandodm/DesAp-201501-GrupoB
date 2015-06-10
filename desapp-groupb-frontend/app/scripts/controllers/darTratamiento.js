@@ -12,6 +12,9 @@
  app.controller('DarTratamientoCtrl', function ($http,$scope,$routeParams) {
 
   $scope.practicas = [];
+  $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/count').success(function (nextId) {
+          $scope.nextd = nextId + 1;
+  });
 
  
 
@@ -51,7 +54,7 @@
             return str.join("&");
             },
 
-            data: {repose: $scope.repose, type: $scope.type, time: $scope.time, medicalPractices: $scope.practicas, medicines: $scope.medicines}
+            data: {id: $routeParams.id, idd: $scope.nextd, repose: $scope.repose, type: $scope.type, time: $scope.time, medicalPractices: $scope.practicas, medicines: $scope.medicines}
 
 
         }).success(function () {
@@ -66,9 +69,9 @@
     };
 
     $scope.agregarPracticaMedica = function() {
-    $scope.alergias.push($scope.alergia);
+    $scope.practicas.push($scope.practica);
 
-    $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $routeParams.id + '/' + $scope.alergia)
+    $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.nextd + '/' + $scope.practica)
       .success(function () {
        
   
@@ -79,7 +82,7 @@
   $scope.eliminarPracticaMedica = function(practica) {
     var index = $scope.practicas.indexOf(practica);
     $scope.practicas.splice(index,1);
-    $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/delete/' + $routeParams.id + '/' + practica)
+    $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/delete/' + $scope.nextd + '/' + practica)
       .success(function () {
        
   

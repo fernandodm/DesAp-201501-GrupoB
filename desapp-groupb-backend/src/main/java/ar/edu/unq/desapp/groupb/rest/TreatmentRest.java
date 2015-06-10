@@ -17,17 +17,32 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang3.StringUtils;
 
-import ar.edu.unq.desapp.groupb.model.Patient;
+import ar.edu.unq.desapp.groupb.model.Diagnostic;
+import ar.edu.unq.desapp.groupb.model.Event;
+import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Treatment;
+import ar.edu.unq.desapp.groupb.services.DiagnosticService;
+import ar.edu.unq.desapp.groupb.services.EventService;
+import ar.edu.unq.desapp.groupb.services.MedicalHistoryService;
 import ar.edu.unq.desapp.groupb.services.TreatmentService;
 
 @Path("/treatments")
 public class TreatmentRest {
     
     private TreatmentService treatmentService;
+    private DiagnosticService diagnosticService;
 
 
-    public TreatmentService getTreatmentService() {
+
+	public DiagnosticService getDiagnosticService() {
+		return diagnosticService;
+	}
+
+	public void setDiagnosticService(DiagnosticService diagnosticService) {
+		this.diagnosticService = diagnosticService;
+	}
+
+	public TreatmentService getTreatmentService() {
 		return treatmentService;
 	}
 
@@ -53,23 +68,30 @@ public class TreatmentRest {
     @POST
     @Path("/create")
     @Produces("application/json")
-    public Response createTreatment(@FormParam("id") Integer id, @FormParam("repose") String repose,
+    public Response createTreatment(@FormParam("id") Integer id,@FormParam("id") Integer idd, @FormParam("repose") String repose,
     		@FormParam("type") String type, @FormParam("time") String time, @FormParam("medicalPractices") String medicalPractices,
     		@FormParam("medicines") String medicines)  {
-    	Treatment d = new Treatment();
-    	if(repose.equals("true")){
-    		d.setRepose(true);
-    	} else {
-    		d.setRepose(false);
-    	}
+    	Treatment treat = new Treatment();
     	List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
-
-    	d.setType(type);
-    	d.setTime(Integer.parseInt(time));
-    	d.setMedicalPractices(medicalPracticesAsList);
+    	Diagnostic diag = this.getDiagnosticService().findById(idd);
+    	if(repose.equals("true")){
+    		treat.setRepose(true);
+    	} else {
+    		treat.setRepose(false);
+    	}
+    	if(type.equals("true")){
+    		treat.setType("Total");
+    	} else {
+    		treat.setType("Parcial");
+    	}
     	
-        getTreatmentService().save(d);
-        return Response.ok(d).build();
+    	
+    	treat.setTime(Integer.parseInt(time));
+    	treat.setMedicalPractices(medicalPracticesAsList);
+    	
+    	diag.setTreatment(treat);
+        getDiagnosticService().update(diag);
+        return Response.ok(diag).build();
     }
     
 //  @GET
@@ -97,30 +119,31 @@ public class TreatmentRest {
 //    }
 //
 	@PUT
-	@Path("/update/{id}/{medicalPractice}")
+	@Path("/update/{idd}/{medicalPractice}")
 	@Produces("application/json")
-	public Response updateMedicalPractice(@PathParam("id") final
-			Integer id,@PathParam("medicalPractice") final String medicalPractice) {
+	public Response updateMedicalPractice(@PathParam("idd") final
+			Integer idd,@PathParam("medicalPractice") final String medicalPractice) {
 		
-		Treatment t = getTreatmentService().findById(id);
-		t.getMedicalPractices().add(medicalPractice);
-		getTreatmentService().update(t);
+		Diagnostic diag = this.getDiagnosticService().findById(idd);
+		diag.getTreatment().getMedicalPractices().add(medicalPractice);
+
 		
-		return Response.ok(t).build();
+		getDiagnosticService().update(diag);
+		return Response.ok(diag).build();
 	}
 	
 	
 	@PUT
-	@Path("/delete/{id}/{medicalPractice}")
+	@Path("/delete/{idd}/{medicalPractice}")
 	@Produces("application/json")
-	public Response deleteMedicalPractice(@PathParam("id") final
-			Integer id,@PathParam("medicalPractice") final String medicalPractice) {
+	public Response deleteMedicalPractice(@PathParam("idd") final
+			Integer idd,@PathParam("medicalPractice") final String medicalPractice) {
 		
-		Treatment t = getTreatmentService().findById(id);
-		t.getMedicalPractices().remove(medicalPractice);
-		getTreatmentService().update(t);
+		Diagnostic diag = this.getDiagnosticService().findById(idd);
+		diag.getTreatment().getMedicalPractices().remove(medicalPractice);
+		getDiagnosticService().update(diag);
 		
-		return Response.ok(t).build();
+		return Response.ok(diag).build();
 	}
 
     

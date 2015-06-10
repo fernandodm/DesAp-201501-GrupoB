@@ -72,7 +72,7 @@ public class DiagnosticRest {
     public Response createDiagnostic(@FormParam("id") Integer id, @FormParam("name") String name,
     		@FormParam("symptoms") String symptoms, @FormParam("date") String date) {
     	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
-    	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList, new Treatment());
+    	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList);
     	
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
     	Event event = new Event(diagnostic);

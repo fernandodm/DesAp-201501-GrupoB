@@ -15,7 +15,7 @@
   </div>
   </div>
   <div class="form-group">
-    <label class="col-lg-4 control-label">Tipo de roposo</label>
+    <label class="col-lg-4 control-label">Tipo de reposo</label>
     <div class="col-lg-5"> 
     <input type="radio" ng-model="type" name="group2" ng-value=true>
     Total
@@ -54,7 +54,7 @@
       <div class="input-group" style="width: 160%; margin:0px 0px 0px 65px; max-width: 285px !important; ">
         <input type="text" class="form-control" placeholder="Ingrese nueva practica medica.." ng-model="practica" required>
         <span class="input-group-btn" >
-          <button class="btn btn-default" type="submit">Agregar practica</button>
+          <button class="btn btn-default" ng-click="agregarPracticaMedica(practica)">Agregar practica</button>
         </span>
       </div>
 
@@ -80,9 +80,9 @@
       </table>
 
       <div class="input-group" style="width: 300%; margin:0px 200px 0px 165px; max-width: 425px !important; ">
-        <input type="text" class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="medicamento" required>
-        <input type="text" class="form-control" placeholder="Ingrese una concentracion.." ng-model="medicamento" required>
-        <input type="text" class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="medicamento" required>
+        <input type="text" class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="medicamento">
+        <input type="text" class="form-control" placeholder="Ingrese una concentracion.." ng-model="medicamento">
+        <input type="text" class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="medicamento">
        <div>
         <span class="input-group-btn" >
      
