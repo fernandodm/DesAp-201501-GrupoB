@@ -12,13 +12,7 @@
  app.controller('AgregarDiagnosticoCtrl', function ($http,$scope,$routeParams) {
  	
  	$scope.tags=[];
-
- $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/count').success(function (nextId) {
-       		
-       		$scope.nextI = nextId + 1;
-
-   		});
- 	 
+	 
 
  	$scope.agregarSintoma = function() {
  		$scope.sintomas = [];
@@ -52,8 +46,8 @@
             data: {id: $routeParams.id, name: $scope.nombre, symptoms: $scope.sintomas, date: $scope.fecha}
 
 
-        }).success(function () {
-                    location = '#/darTratamiento/' + $scope.nextI;
+        }).success(function (data) {
+                    location = '#/darTratamiento/' + data.id;
                 });
         
         changeClass();
