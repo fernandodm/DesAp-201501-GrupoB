@@ -31,7 +31,7 @@
       <input ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas..." required>
     </div>
   </div>
-
+<div class="row">
   <div class="col-md-6">
       <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
         <thead>
@@ -51,7 +51,7 @@
         </tbody>
       </table>
 
-      <div class="input-group" style="width: 160%; margin:0px 0px 0px 65px; max-width: 285px !important; ">
+      <div class="input-group" style="width: 160%; max-width: 285px !important; ">
         <input type="text" class="form-control" placeholder="Ingrese nueva practica medica.." ng-model="practica" required>
         <span class="input-group-btn" >
           <button class="btn btn-default" ng-click="agregarPracticaMedica(practica)">Agregar practica</button>
@@ -59,7 +59,8 @@
       </div>
 
     </div>
-  </div>
+  
+
     <div class="col-md-6">
       <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
         <thead>
@@ -79,7 +80,7 @@
         </tbody>
       </table>
 
-      <div class="input-group" style="width: 300%; margin:0px 200px 0px 165px; max-width: 425px !important; ">
+      <div class="input-group" style="width: 300%; max-width: 425px !important; ">
         <input class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="nombreMedicamento">
         <input class="form-control" placeholder="Ingrese una concentracion.." ng-model="concentracion">
         <input class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
@@ -92,6 +93,8 @@
       </div>
 
     </div>
+</div>
+</br>
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-5">
       <button id="myWish" class="btn btn-sm btn-success" type="submit" ng-click="nuevoTratamiento()">Dar tratamiento</button>
