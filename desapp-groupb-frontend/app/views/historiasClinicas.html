@@ -1,11 +1,11 @@
-<div ng-controller="HistoriasClinicasCtrl" class="container">
+<!--<div ng-controller="HistoriasClinicasCtrl" class="container">
   
   <!-- FEEDBACK CHETO VER COMO AGREGARSELO
   <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
     <strong>Exito!! </strong>
     El paciente fue creado correctamente
-  </div>-->
+  </div>
 
   <h2>Historias Clinicas</h2>
   
@@ -34,6 +34,52 @@
         <td>{{paciente.lastname}}</td>
         <td>{{paciente.dni}}</td>
         <td><center><a class="btn btn-success btn-xs" ng-click="verPaciente(paciente)">ver</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+</div>-->
+
+<!--<h2>Historias Clinicas</h2>
+</br>
+
+<div class="" ng-controller="HistoriasClinicasCtrl as myappApp">
+    <table datatable="" dt-options="myappApp.dtOptions" dt-columns="myappApp.dtColumns" class="row-border hover">
+        
+    </table>
+</div>-->
+
+<style>
+.container {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  max-width: 100% !important;
+  width: 88% !important;
+}
+</style>
+
+<h2>Historias Clinicas</h2>
+</br>
+
+<div ng-controller="HistoriasClinicasCtrl as myappApp">
+  <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+    <thead style="background: white;">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="paciente in myappApp.pacientes">
+        <td>{{ paciente.firstname }}</td>
+        <td>{{ paciente.lastname }}</td>
+        <td>{{ paciente.dni }}</td>
+        <td>
+          <button type="button" ng-click="myappApp.verPaciente(paciente)" class="btn btn-success btn-xs">
+            <span class="glyphicon glyphicon-eye-open"></span> Ver
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

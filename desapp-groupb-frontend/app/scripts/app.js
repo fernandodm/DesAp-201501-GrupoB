@@ -16,7 +16,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngTagsInput'
+    'ngTagsInput',
+    'datatables',
+    'datatables.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
