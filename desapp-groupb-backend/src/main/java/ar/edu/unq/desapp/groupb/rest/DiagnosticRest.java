@@ -106,7 +106,7 @@ public class DiagnosticRest {
         
         return diagnosesWithSymptoms;
     }
-
+    
 	public MedicalHistoryService getMedicalHistoryService() {
 		return medicalHistoryService;
 	}

@@ -47,7 +47,7 @@
 
 
         }).success(function (data) {
-                    location = '#/darTratamiento/' + data.id;
+                    location = '#/darTratamiento/' + $routeParams.id + '/' +  data.id;
                 });
         
         changeClass();

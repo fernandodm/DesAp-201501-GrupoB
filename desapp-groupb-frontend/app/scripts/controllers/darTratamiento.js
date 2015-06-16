@@ -14,20 +14,17 @@
   $scope.practicas = [];
   $scope.medicamentos = [];
 
- 	$scope.sugerirTratamientos = function() {
- 		$scope.tratamientos = [];
- 		var i;
- 		for (i = 0; i < $scope.tags.length; i++) { 
-    		$scope.tratamientos.push($scope.tags[i].text);
-		}
 
-		$http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/' + $scope.sintomas).success(function (data) {
-       		
-       		$scope.tratamientos = data;
 
-   		});
+    $http.get('http://localhost:8080/desapp-groupb-backend/rest/treatments/' + $routeParams.idDiagnostico).success(function (diagnostic) {
+          
+          $scope.nombreDiagnostico = diagnostic.name;
 
-    };
+    });
+
+
+    
+
 
    $scope.nuevoTratamiento = function() {
 
@@ -73,6 +70,16 @@
       });
 
   };
+
+  $scope.tratamientosSugeridos = function() {
+
+    $http.get('http://localhost:8080/desapp-groupb-backend/rest/treatments/suggested/' + $routeParams.idPaciente + '/' + $scope.nombreDiagnostico).success(function (sugs) {
+          
+          $scope.sugeridos = sugs;
+
+        });
+
+    };
 
 
     $scope.cancelar = function() {

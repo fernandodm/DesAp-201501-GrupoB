@@ -3,10 +3,10 @@
  */
 package ar.edu.unq.desapp.groupb.rest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -18,13 +18,11 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.lang3.StringUtils;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Event;
-import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Medicine;
+import ar.edu.unq.desapp.groupb.model.Patient;
 import ar.edu.unq.desapp.groupb.model.Treatment;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
-import ar.edu.unq.desapp.groupb.services.EventService;
-import ar.edu.unq.desapp.groupb.services.MedicalHistoryService;
+import ar.edu.unq.desapp.groupb.services.PatientService;
 import ar.edu.unq.desapp.groupb.services.TreatmentService;
 
 @Path("/treatments")
@@ -32,6 +30,15 @@ public class TreatmentRest {
     
     private TreatmentService treatmentService;
     private DiagnosticService diagnosticService;
+    private PatientService patientService;
+
+	public PatientService getPatientService() {
+		return patientService;
+	}
+
+	public void setPatientService(PatientService patientService) {
+		this.patientService = patientService;
+	}
 
 
 
@@ -64,6 +71,13 @@ public class TreatmentRest {
     public List<Treatment> getTreaments() {
         List<Treatment> treatments = treatmentService.retriveAll();
         return treatments;
+    }
+	
+	@GET
+    @Path("/{id}")
+    @Produces("application/json")
+    public Diagnostic diagnosticWithId(@PathParam("id") final int id) {
+        return getDiagnosticService().findById(id);
     }
     
     @POST
@@ -119,6 +133,52 @@ public class TreatmentRest {
 		getDiagnosticService().update(diag);
 		return Response.ok(diag).build();
 	}
+	
+	@GET
+    @Path("/suggested/{id}/{diagnosticname}")
+    @Produces("application/json")
+    public List<Treatment> suggestedTreatments(@PathParam("diagnosticname") final String diagnosticname,@PathParam("id") final Integer id) {
+        List<Diagnostic> diagnoses = getDiagnosticService().retriveAll();
+        List<Diagnostic> diagnosesNamed = new ArrayList<Diagnostic>();
+        List<Treatment> treatments = new ArrayList<Treatment>();
+        Patient p = this.getPatientService().findById(id);
+        for(Diagnostic d : diagnoses){
+        	if(d.getName().equals(diagnosticname) && p.isCompatibleWithTreatment(d.getTreatment())){
+        		diagnosesNamed.add(d);
+        	}
+        }
+        for(Diagnostic dn : diagnosesNamed){
+        	treatments.add(dn.getTreatment());
+        }
+        
+        
+        
+        
+
+        treatments.remove(treatments.size()-1);
+        return treatments;
+    }
+	
+	@GET
+    @Path("/trets/{diagnosticname}")
+    @Produces("application/json")
+    public Integer suggestedTreatmentsSize(@PathParam("diagnosticname") final String diagnosticname) {
+        List<Diagnostic> diagnoses = getDiagnosticService().retriveAll();
+        List<Diagnostic> diagnosesNamed = new ArrayList<Diagnostic>();
+        List<Treatment> treatments = new ArrayList<Treatment>();
+        for(Diagnostic d : diagnoses){
+        	if(d.getName().equals(diagnosticname)){
+        		diagnosesNamed.add(d);
+        	}
+        }
+        for(Diagnostic dn : diagnosesNamed){
+        	treatments.add(dn.getTreatment());
+        }
+
+        
+        return treatments.size();
+    }
+	
 	
 	
 	@PUT

@@ -96,10 +96,42 @@
 </div>
 </br>
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-5">
+    <div class="col-lg-offset-4 col-lg-5">
+      
       <button id="myWish" class="btn btn-sm btn-success" type="submit" ng-click="nuevoTratamiento()">Dar tratamiento</button>
       <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
     </div>
   </div>
+  <a class="btn btn-sm btn-success" ng-click="tratamientosSugeridos()">Ver tratamientos sugeridos</a>
   
+  <div>
+  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
+    <thead>
+     <tr class="active">
+        <th>Tratamientos sugeridos:</th>
+      </tr>
+      <tr class="active">
+        <th>Reposo</th>
+        <th>Parcial/Total</th>
+        <th>Semanas</th>
+        <th>Practicas medicas</th>
+        <th>Medicamentos</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="tratamiento in sugeridos" class="success">
+        <td>{{tratamiento.repose}}</td>
+        <td>{{tratamiento.type}}</td>
+        <td>{{tratamiento.time}}</td>
+        <td>{{tratamiento.medicalPractices}}</td>
+        <td>{{tratamiento.medicines}}</td>
+
+        <td><center><a class="btn btn-danger btn-xs" ng-click="cancelar()">Dar este tratamiento</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+
 </form>

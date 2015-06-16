@@ -61,6 +61,20 @@ public class Patient extends Person {
 		this.getMedicalHistory().addAllergy(allergy);		
 	}
 	
+	public boolean isCompatibleWithTreatment(Treatment t){
+		
+		for(String st : this.getMedicalHistory().getAllergies()){
+			for(String ss : t.medicineNames()){
+				if(st.equals(ss)){
+					return false;
+				}
+			}
+		}
+		
+		
+		return true;
+	}
+	
 //	public void registrarEnElSistema(System sistema, String nombre, String apellido, String dni,
 //			String usuario, String contrasena, int peso, int altura) throws NombreDeUsuarioYaTomado{
 //		sistema.registerNewPatientUser(nombre, apellido, dni, usuario, contrasena, peso, altura);

@@ -27,6 +27,16 @@ public class Treatment extends Entity{
 	public void agregarPracticaMedica(String practicaMedica){
 		this.getMedicalPractices().add(practicaMedica);		
 	}
+	
+	public List<String> medicineNames() {
+		List<String> names = new ArrayList<String>();
+		
+		for(Medicine m : this.getMedicines()){
+			names.add(m.getDrugName());
+		}
+		
+		return names;
+	}
 
 ////////////////////////
 // GETTERS AND SETTERS//
