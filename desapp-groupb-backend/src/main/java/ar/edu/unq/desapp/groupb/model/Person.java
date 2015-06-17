@@ -1,6 +1,5 @@
 package ar.edu.unq.desapp.groupb.model;
 
-import ar.edu.unq.desapp.groupb.model.exceptions.PacienteNoEncontradoException;
 
 public class Person extends Entity {
 
@@ -25,8 +24,6 @@ public class Person extends Entity {
 	////////////////////////
 	//GETTERS AND SETTERS//
 	////////////////////////
-
-	
 
 	public String getDni() {
 		return dni;

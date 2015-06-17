@@ -40,14 +40,6 @@ public class Diagnostic extends Entity{
 		this.getSymptoms().remove(symptom);
 	}
 	
-	////////////////////////
-	// GETTERS AND SETTERS//
-	////////////////////////
-	
-	
-	
-	
-	
 	public List<String> listaSintomas(){
 		
 		List<String> ls = new ArrayList<String>();
@@ -59,33 +51,7 @@ public class Diagnostic extends Entity{
 		return ls;
 		
 	}
-	//////////////////////////////////////
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public List<String> getSymptoms() {
-		return symptoms;
-	}
 	
-	public void setSymptoms(List<String> symptoms) {
-		this.symptoms = symptoms;
-	}
-
-
-	public Treatment getTreatment() {
-		return treatment;
-	}
-
-	public void setTreatment(Treatment treatment) {
-		this.treatment = treatment;
-	}
-
 	public List<String> getSymptomsNames() {
 		List<String> listNames = new ArrayList<String>();
 		for(String s: this.getSymptoms()){
@@ -116,10 +82,36 @@ public class Diagnostic extends Entity{
 		
 	}
 	
-	public void deleteSymptom(String symptom){
-		
-	}
+	
+	////////////////////////
+	// GETTERS AND SETTERS//
+	////////////////////////
 	
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<String> getSymptoms() {
+		return symptoms;
+	}
 	
+	public void setSymptoms(List<String> symptoms) {
+		this.symptoms = symptoms;
+	}
+
+
+	public Treatment getTreatment() {
+		return treatment;
+	}
+
+	public void setTreatment(Treatment treatment) {
+		this.treatment = treatment;
+	}	
+	
+	//////////////////////////////////////
 }

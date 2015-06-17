@@ -38,9 +38,9 @@ public class Treatment extends Entity{
 		return names;
 	}
 
-////////////////////////
-// GETTERS AND SETTERS//
-////////////////////////
+	////////////////////////
+	// GETTERS AND SETTERS//
+	////////////////////////
 	
 	public boolean isRepose() {
 		return repose;

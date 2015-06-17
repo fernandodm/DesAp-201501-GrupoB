@@ -52,34 +52,4 @@ public class SymptomRest {
         getSymptomService().save(d);
         return Response.ok(d).build();
     }
-    
-//  @GET
-//  @Path("/{from}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByBlogId(@PathParam("from") final Integer from) {
-//      List<Post> posts = postDAO.getPosts(from, NUMBER_OF_POST, "");
-//      return posts;
-//  }
-
-//  @GET
-//  @Path("/{id}")
-//  @Produces("application/json")
-//  public List<Post> findPostsPublishedByAuthorId(@PathParam("id") final String id) {
-//      List<Post> posts = postDAO.getPosts(id);
-//      return posts;
-//  }
-
-//
-//    @GET
-//    @Path("/tags")
-//    @Produces("application/json")
-//    public Set<String> getTagsByBlogId() {
-//        return postDAO.getTags();
-//    }
-//
-//
-//
-//    public void setPostDAO(final PostRepository postDAO) {
-//        this.postDAO = postDAO;
-//    }
 }

@@ -15,6 +15,10 @@ public class Medicine extends Entity{
 		this.time = tiempo;
 		
 	}
+	
+	////////////////////////
+	//GETTERS AND SETTERS//
+	////////////////////////
 
 	public String getDrugName() {
 		return drugName;
@@ -38,12 +42,7 @@ public class Medicine extends Entity{
 
 	public void setTime(int time) {
 		this.time = time;
-	}
-	
-	////////////////////////
-	//GETTERS AND SETTERS//
-	////////////////////////
-	
+	}	
 
 	///////////////////////////////////
 }

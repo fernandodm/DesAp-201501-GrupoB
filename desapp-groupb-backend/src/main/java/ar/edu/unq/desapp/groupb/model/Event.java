@@ -23,6 +23,10 @@ public class Event extends Entity {
     	return dateTime;
 	}
 	
+	////////////////////////
+	// GETTERS AND SETTERS//
+	////////////////////////
+	
 	public DateTime getDate() {
 		return date;
 	}
@@ -35,6 +39,6 @@ public class Event extends Entity {
 	public void setDiagnostic(Diagnostic diagnostico) {
 		this.diagnostic = diagnostico;
 	}
-	
+	////////////////////////////////
 
 }

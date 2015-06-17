@@ -10,7 +10,6 @@ import java.util.List;
 
 import junit.framework.TestCase;
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Symptom;
 import ar.edu.unq.desapp.groupb.model.Treatment;
 
 public class DiagnosticTest extends TestCase{

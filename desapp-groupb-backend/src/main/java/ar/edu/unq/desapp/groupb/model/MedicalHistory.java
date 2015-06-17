@@ -1,7 +1,6 @@
 package ar.edu.unq.desapp.groupb.model;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class MedicalHistory extends Entity {
@@ -37,19 +36,7 @@ public class MedicalHistory extends Entity {
 		}
 		return false;
 	}
-	
-//	public List<Diagnostic> eventsFromDate(GregorianCalendar fecha){
-//		
-//		List<Diagnostic> events = new ArrayList<Diagnostic>();
-//		
-//		for(Event evento : this.getEvents()){
-//			if(evento.getFecha().after(fecha)){
-//				events.add(evento.getDiagnostic());
-//			}
-//		}
-//		return events;
-//	}
-	
+
 	public void addEvent(Event evento){
 		this.getEvents().add(evento);
 	}
@@ -64,9 +51,9 @@ public class MedicalHistory extends Entity {
 		return diagnosticos;
 	}
 
-////////////////////////
-// GETTERS AND SETTERS//
-////////////////////////
+	////////////////////////
+	// GETTERS AND SETTERS//
+	////////////////////////
 
 	public List<String> getAllergies() {
 		return allergies;
@@ -83,4 +70,5 @@ public class MedicalHistory extends Entity {
 	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
+	//////////////////////////////
 }
