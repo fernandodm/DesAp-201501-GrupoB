@@ -151,11 +151,7 @@ public class TreatmentRest {
         	treatments.add(dn.getTreatment());
         }
         
-        
-        
-        
-
-        treatments.remove(treatments.size()-1);
+        treatments.remove(treatments.size()-1); //Borro el ultimo tratamiento que es el que se crea en blanco al crear un diagnostico.
         return treatments;
     }
 	

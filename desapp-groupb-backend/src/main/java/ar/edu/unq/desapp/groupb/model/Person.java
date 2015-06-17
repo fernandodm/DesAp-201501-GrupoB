@@ -65,16 +65,7 @@ public class Person extends Entity {
 
 	public void setDni(String dni) {
 		this.dni = dni;
-	}
-
-	
-	public void login(System sistema, String usuario, String password) throws PacienteNoEncontradoException{
-		if(sistema.loginSuccess(usuario, password)){
-			java.lang.System.out.println("Login satisfactorio!");
-			
-		}
-	}
-	
+	}	
 	/////////////////////////////////////
 
 }

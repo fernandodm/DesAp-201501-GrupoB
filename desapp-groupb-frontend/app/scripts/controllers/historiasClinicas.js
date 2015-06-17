@@ -36,7 +36,7 @@ function HistoriasClinicasCtrl($http, $resource, DTOptionsBuilder, DTColumnDefBu
 
     vm.dtOptions = DTOptionsBuilder.newOptions()
                             .withPaginationType('full_numbers')
-                            .withDisplayLength(1)
+                            .withDisplayLength(2)
                             .withBootstrap();
     vm.dtColumnDefs = [
         DTColumnDefBuilder.newColumnDef(0),

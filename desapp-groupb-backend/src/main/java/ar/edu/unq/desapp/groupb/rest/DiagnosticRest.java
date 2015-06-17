@@ -56,15 +56,7 @@ public class DiagnosticRest {
         List<Diagnostic> diagnoses = diagnosticService.retriveAll();
         return diagnoses;
     }
-    
-//    @POST
-//    @Path("/create")
-//    @Produces("application/json")
-//    public Response createDiagnostic() {
-//    	Diagnostic d = new Diagnostic();
-//        getDiagnosticService().save(d);
-//        return Response.ok(d).build();
-//    }
+
     
     @POST
     @Path("/create")
