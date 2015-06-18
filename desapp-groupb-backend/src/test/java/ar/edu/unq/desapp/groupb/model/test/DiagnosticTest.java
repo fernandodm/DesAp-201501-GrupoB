@@ -33,9 +33,9 @@ public class DiagnosticTest extends TestCase{
 	
 	public void testAgregarSintoma(){
 				
-		diagnostic.agregarSintoma(symptom);
+		diagnostic.agregarSintoma("Tos");
 		
-		assert(diagnostic.getSymptoms().contains(symptom));
+		assert(diagnostic.getSymptoms().contains("Tos"));
 	}
 	
 	
