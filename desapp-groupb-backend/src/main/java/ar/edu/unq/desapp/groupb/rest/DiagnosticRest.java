@@ -67,7 +67,7 @@ public class DiagnosticRest {
     	
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
     	Event event = new Event(diagnostic);
-    	event.setDate(event.stringToCalendar(date));
+    	event.setDate(event.stringToDateTime(date));
     	medical.addEvent(event);       
 		getMedicalHistoryService().update(medical);
 		return diagnostic;
@@ -91,7 +91,7 @@ public class DiagnosticRest {
         List<Diagnostic> diagnosesWithSymptoms = new ArrayList<Diagnostic>();
 
         for(Diagnostic d: diagnoses){
-        		if(d.getSymptomsNames().containsAll(Arrays.asList(StringUtils.split(symptoms, ","))))
+        		if(d.getSymptoms().containsAll(Arrays.asList(StringUtils.split(symptoms, ","))))
         			diagnosesWithSymptoms.add(d);
         }
         

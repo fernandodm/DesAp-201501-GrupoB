@@ -17,7 +17,7 @@ public class Event extends Entity {
 		this.diagnostic = diagnostico;
 	}
 	
-	public DateTime stringToCalendar(String date){
+	public DateTime stringToDateTime(String date){
 		List<String> list = Arrays.asList(StringUtils.split(date, "/"));
 		DateTime dateTime = new DateTime(Integer.parseInt(list.get(2)), Integer.parseInt(list.get(1)), Integer.parseInt(list.get(0)), 0, 0);
     	return dateTime;
