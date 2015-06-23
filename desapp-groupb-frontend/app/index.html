@@ -101,7 +101,7 @@
       function addClass(obj){	
   			document.getElementById("1").className = "";
    			document.getElementById("2").className = "";
-        document.getElementById("3").className = "";
+        	document.getElementById("3").className = "";
    			obj.className ="active";
   		}
 
@@ -113,9 +113,13 @@
       //Solo acepta numeros
       function justNumbers(e){
         var keynum = window.event ? window.event.keyCode : e.which;
-        if ((keynum == 8) || (keynum == 46))
+        
+        if (keynum == 123)
+         return false;
+
+        if (keynum == 8)
          return true;
-         
+        
         return /\d/.test(String.fromCharCode(keynum));
       }
 
