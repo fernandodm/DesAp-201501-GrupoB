@@ -11,27 +11,12 @@
 
  app.controller('AgregarDiagnosticoCtrl', function ($http,$scope,$routeParams) {
  	
- 	$scope.tags=[];
-	 
+ 	$scope.tags = [];
+	$scope.sintomas = [];
+  $scope.crearDiagnostico = function() {
 
- 	$scope.agregarSintoma = function() {
- 		$scope.sintomas = [];
- 		var i;
- 		for (i = 0; i < $scope.tags.length; i++) { 
-    		$scope.sintomas.push($scope.tags[i].text);
-		}
 
-		$http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/' + $scope.sintomas).success(function (data) {
-       		
-       		$scope.diagnosticos = data;
-
-   		});
-
-    };
-
- 
-    $scope.crearDiagnostico = function() {    	
-       	
+     if($scope.sintomas.length > 0){  	
    		$http({
             method: 'POST',
             url: 'http://localhost:8080/desapp-groupb-backend/rest/diagnoses/create/',
@@ -51,14 +36,46 @@
                 });
         
         changeClass();
-      
+      }else{
+        alert("Agregue al menos un sintoma")
+      }
 
     }; 
 
     $scope.cancelar = function() {
   		
   		location = '#/verHistoria/' + $routeParams.id;
-    };   
+    };  
+
+    $scope.eliminarSintoma = function(tag){
+      var index = $scope.sintomas.indexOf(tag.text);
+      $scope.sintomas.splice(index,1);
+
+      if($scope.sintomas.length > 0){
+        diagnosticosSugeridos()
+      }else{
+        $scope.diagnosticos = [];
+      }
+    };
+
+    $scope.agregarSintoma = function() {
+      $scope.sintomas = [];
+      var i;
+      for (i = 0; i < $scope.tags.length; i++) { 
+        $scope.sintomas.push($scope.tags[i].text);
+      }
+
+      diagnosticosSugeridos()
+
+    };
+
+    function diagnosticosSugeridos(){
+      $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/' + $scope.sintomas).success(function (data) {
+          
+          $scope.diagnosticos = data;
+
+      });
+    }
 
   });
 
@@ -75,4 +92,4 @@
             }
         });
     };
-});
+  });
