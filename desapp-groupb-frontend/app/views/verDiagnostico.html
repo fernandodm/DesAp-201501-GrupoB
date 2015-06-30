@@ -1,0 +1,90 @@
+<style>
+.container {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: 0px !important;
+  margin-left: 10px !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.ui-datepicker {
+   background: #333;
+   border: 1px solid #555;
+   color: #EEE;
+ }
+
+
+.ui-datepicker .ui-datepicker-header{
+
+  font-size: 12px; 
+  background: #333;
+  border: #333;
+
+}
+
+</style>
+
+<center>
+<div class="row">
+  <div class="col-md-12">
+    <h3>AEdite el diagnostico</h3>
+  </div>
+</div>
+</center>
+
+<div class="row">
+
+  <div class="col-md-4">
+  <form class="form-horizontal" role="form" ng-submit="crearDiagnostico()" >
+  <label>Sintomas:</label>
+  <tags-input class="bootstrap"
+              on-tag-removed="eliminarSintoma($tag)"
+              replace-spaces-with-dashes="false" 
+              ng-model="diagnostico.symptoms" 
+              onKeyDown="return notTab(event)" 
+              style="width: 55%" 
+              on-tag-added="agregarSintoma()" 
+              ng-enter="agregarSintoma()" 
+              add-on-blur="true"
+              placeholder="Ingrese un sintoma..."> <!-- add-on-enter="{boolean}" y on-tag-added="{expression}" -->
+    <!--<auto-complete source="loadItems($query)"></auto-complete>-->
+  </tags-input>
+  </br>
+
+  <div class="form-group" style="margin-left: 0px;">
+    
+     <label>Nombre:</label> <input style="width: 70%"ng-model="diagnostico.name" class="form-control" placeholder="Ingrese un nombre de diagnostico..." required></br>
+     <label>Fecha:</label> <input type="text" id="datepicker" style="width: 70%" ng-model="diagnostico.date" class="form-control" placeholder="Ingrese una fecha..." required>
+    
+  </div>
+  </br>
+  <div class="form-group" style="margin-bottom: 0px; margin-left: 0px;">
+    <div>
+      <button class="btn btn-sm btn-success" type="submit">Guardar</button>
+      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
+    </div>
+  </div> 
+  </div>
+  </form>
+</div>
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            dateFormat: 'dd/mm/yy',
+        });
+  });
+
+  function notTab(event){
+    var keynum = window.event ? window.event.keyCode : e.which;
+        if (keynum == 9)
+         return false; 
+
+       return true
+  }
+</script>

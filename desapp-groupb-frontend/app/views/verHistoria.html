@@ -59,7 +59,7 @@
           <tbody>
             <tr ng-repeat="diagnostico in diagnosticos" class="success">
               <td>{{diagnostico.name}}</td>
-                <td><center><a class="btn btn-danger btn-xs" >Ver</a> <a class="btn btn-danger btn-xs" >Eliminar</a></center></td>
+                <td><center><a class="btn btn-danger btn-xs" ng-click="verDiagnostico(diagnostico)">Ver</a> <a class="btn btn-danger btn-xs" ng-click="eliminarDiagnostico(diagnostico)" >Eliminar</a></center></td>
             </tr>
           </tbody>
         </table>

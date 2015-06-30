@@ -14,10 +14,10 @@
           <element column="allergy" type="string"></element>  
         </list>
           
-		<list name="events" inverse="false" cascade="save-update" lazy="false">
-			<key column="eventID" />
+		<list name="diagnoses" inverse="false" cascade="all" lazy="false">
+			<key column="diagnosticID" />
 			<list-index column="id" />
-			<many-to-many class="ar.edu.unq.desapp.groupb.model.Event"/>
+			<many-to-many class="ar.edu.unq.desapp.groupb.model.Diagnostic" unique="true"/>
 		</list>
 		
 	</class>

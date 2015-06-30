@@ -1,0 +1,42 @@
+<h2>Editar Paciente</h2>
+<h4>Ingrese los siguientes campos</h4>
+<form name="formPaciente" class="form-horizontal" role="form" ng-submit="editarPaciente()" >
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Nombre</label>
+    <div class="col-lg-5">
+      <input type="text" ng-model="paciente.firstname" class="form-control"  onkeypress="return validar(event,this)"  placeholder="Ingrese un nombre..." required />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Apellido</label>
+    <div class="col-lg-5"> 
+      <input ng-model="paciente.lastname" class="form-control" onkeypress="return validar(event,this)" placeholder="Ingrese un apellido..." required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">DNI</label>
+    <div class="col-lg-5">
+      <input ng-model="paciente.dni" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese N° de DNI..." required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Peso</label>
+    <div class="col-lg-5">
+      <input ng-model="paciente.weight" class="form-control"  onkeypress="return justNumbers(event);" placeholder="Ingrese un peso..." required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Altura</label>
+    <div class="col-lg-5"> 
+      <input ng-model="paciente.height" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese una altura en cm..." required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-5">
+      <button id="myWish" class="btn btn-sm btn-success" type="submit">Terminar edicion</button>
+      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
+    </div>
+  </div>
+  
+</form>

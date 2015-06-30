@@ -22,6 +22,15 @@ public class Patient extends Person {
 		
 	}
 	
+	public void updatePatient(String nombre, String apellido, String dni, int height, int weight){
+		this.setFirstname(nombre);
+		this.setLastname(apellido);
+		this.setDni(dni);
+		this.setWeight(weight);
+		this.setHeight(height);
+		
+	}
+	
 	public void deleteAllergy(String allergy) {
 		this.getMedicalHistory().deleteAllergy(allergy);		
 	}

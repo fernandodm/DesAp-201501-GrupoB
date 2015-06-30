@@ -47,9 +47,18 @@ angular
         templateUrl: 'views/darTratamiento.html',
         controller: 'DarTratamientoCtrl'
       })
+      .when('/editarPaciente/:idPaciente', {
+        templateUrl: 'views/editarPaciente.html',
+        controller: 'EditarPacienteCtrl'
+      })
       .when('/reportes', {
         templateUrl: 'views/reportes.html',
         controller: 'ReportesCtrl'
+
+      })
+      .when('/verDiagnostico/:idDiagnostico', {
+        templateUrl: 'views/verDiagnostico.html',
+        controller: 'VerDiagnosticoCtrl'
 
       })
       .otherwise({

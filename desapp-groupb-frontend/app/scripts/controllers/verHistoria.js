@@ -41,11 +41,26 @@ angular.module('myappApp')
 	};
 
 	$scope.agregarDiagnostico = function() {
-
 		
-       	location = '#/agregarDiagnostico/' + $routeParams.id;  
-    	
+       	location = '#/agregarDiagnostico/' + $routeParams.id;  	
 		
 	};
+
+  $scope.verDiagnostico = function(diagnostico) {
+    
+        location = '#/verDiagnostico/' + diagnostico.id;   
+    
+  };
+
+	$scope.eliminarDiagnostico = function(diagnostico){
+
+      var index = $scope.diagnosticos.indexOf(diagnostico);
+      $scope.diagnosticos.splice(index,1);
+
+        $http.delete('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/delete/' + diagnostico.id).success(function (data){
+
+        });
+
+   }
 
   });

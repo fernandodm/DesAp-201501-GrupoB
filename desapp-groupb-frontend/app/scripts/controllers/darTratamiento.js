@@ -83,8 +83,8 @@
 
 
     $scope.cancelar = function() {
-  		
-  		location = '#/';
+  		alert($routeParams.idPaciente)
+  		location = '#/verHistoria/' + $routeParams.idPaciente;
     };   
 
   });

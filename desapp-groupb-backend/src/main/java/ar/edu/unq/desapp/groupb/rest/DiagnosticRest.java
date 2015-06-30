@@ -65,10 +65,10 @@ public class DiagnosticRest {
     	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
     	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList,new Treatment());
     	
+    	diagnostic.setDate(diagnostic.stringToDateTime(date));
+    	
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
-    	Event event = new Event(diagnostic);
-    	event.setDate(event.stringToDateTime(date));
-    	medical.addEvent(event);       
+    	medical.getDiagnoses().add(diagnostic);       
 		getMedicalHistoryService().update(medical);
 		return diagnostic;
     }
@@ -76,11 +76,12 @@ public class DiagnosticRest {
     @DELETE
     @Path("/delete/{id}")
     @Produces("application/json")
-    public Response deleteDiagnoses(@PathParam("id") Integer id) {
+    public void deleteDiagnoses(@PathParam("id") Integer id) {
         Diagnostic diagnostic = getDiagnosticService().findById(id);
+        
         getDiagnosticService().delete(diagnostic);
  
-		return Response.ok(diagnostic).build();
+//		return Response.ok(diagnostic).build();
     }
     
     @GET

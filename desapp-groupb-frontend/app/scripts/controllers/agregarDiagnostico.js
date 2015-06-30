@@ -32,6 +32,7 @@
 
 
         }).success(function (data) {
+          
                     location = '#/darTratamiento/' + $routeParams.id + '/' +  data.id;
                 });
         

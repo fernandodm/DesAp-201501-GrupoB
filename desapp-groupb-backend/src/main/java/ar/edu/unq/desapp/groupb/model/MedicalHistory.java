@@ -6,7 +6,7 @@ import java.util.List;
 public class MedicalHistory extends Entity {
 	
 	private List<String> allergies = new ArrayList<String>();
-	private List<Event> events = new ArrayList<Event>();
+	private List<Diagnostic> diagnoses = new ArrayList<Diagnostic>();
 		
 	public MedicalHistory(){}
 	
@@ -37,19 +37,19 @@ public class MedicalHistory extends Entity {
 		return false;
 	}
 
-	public void addEvent(Event evento){
-		this.getEvents().add(evento);
-	}
-	
-	public List<Diagnostic> getDiagnostics() {
-		
-		List<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
-		for(Event evento: this.getEvents()){
-			diagnosticos.add(evento.getDiagnostic());
-		}
-	
-		return diagnosticos;
-	}
+//	public void addEvent(Event evento){
+//		this.getEvents().add(evento);
+//	}
+//	
+//	public List<Diagnostic> getDiagnostics() {
+//		
+//		List<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
+//		for(Event evento: this.getEvents()){
+//			diagnosticos.add(evento.getDiagnostic());
+//		}
+//	
+//		return diagnosticos;
+//	}
 
 	////////////////////////
 	// GETTERS AND SETTERS//
@@ -63,12 +63,16 @@ public class MedicalHistory extends Entity {
 		this.allergies = alergies;
 	}
 
-	public List<Event> getEvents() {
-		return events;
+
+	public List<Diagnostic> getDiagnoses() {
+		return diagnoses;
 	}
 
-	public void setEvents(List<Event> events) {
-		this.events = events;
+
+	public void setDiagnoses(List<Diagnostic> diagnoses) {
+		this.diagnoses = diagnoses;
 	}
+
+	
 	//////////////////////////////
 }

@@ -58,6 +58,21 @@ public class PatientRest {
 		
 		return Response.ok(p).build();
 	}
+	
+	@PUT
+	@Path("/edit/{id}/{firstname}/{lastname}/{dni}/{weight}/{height}")
+	@Produces("application/json")
+	public void editPatient(@PathParam("id") Integer id, @PathParam("firstname") String firstname,
+			 @PathParam("lastname") String lastname, @PathParam("dni") String dni, @PathParam("weight")Integer weight, @PathParam("height") Integer height){
+		
+		
+		Patient pe = this.getPatientService().findById(id);
+		pe.updatePatient(firstname, lastname, dni, height, weight);
+		
+		
+		this.getPatientService().update(pe);
+		
+	}
 
 	@GET
 	@Path("/count")
@@ -81,7 +96,7 @@ public class PatientRest {
 	public List<Diagnostic> diagnoses(@PathParam("id") final
 			Integer id) {
 		Patient patient = getPatientService().findById(id);
-		List<Diagnostic> diagnostic = patient.getMedicalHistory().getDiagnostics();
+		List<Diagnostic> diagnostic = patient.getMedicalHistory().getDiagnoses();
 		return diagnostic;
 	}
 	
