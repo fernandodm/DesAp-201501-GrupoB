@@ -12,6 +12,7 @@ angular.module('myappApp')
   	    
 	$http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/' + $routeParams.id).success(function (paciente) {
        //datos lo tenemos disponible en la vista gracias a $scope
+       alert(paciente.medicalHistory)
        $scope.alergias = paciente.medicalHistory.allergies;
        $http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/diagnoses/' + $routeParams.id).success(function (diagnosticos) {
        		$scope.diagnosticos = diagnosticos;
@@ -19,13 +20,16 @@ angular.module('myappApp')
     });
 
     $scope.agregarAlergia = function() {
-		$scope.alergias.push($scope.alergia);
 
-		$http.put('http://localhost:8080/desapp-groupb-backend/rest/patients/update/' + $routeParams.id + '/' + $scope.alergia)
-			.success(function () {
+    	if($scope.alergias.indexOf($scope.alergia) == -1){
+    		$scope.alergias.push($scope.alergia);
+  		
+			$http.put('http://localhost:8080/desapp-groupb-backend/rest/patients/update/' + $routeParams.id + '/' + $scope.alergia)
+				.success(function () {
        
   
-    	});
+    		});
+		}
 
 	};
 

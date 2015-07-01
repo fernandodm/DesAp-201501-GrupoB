@@ -1,12 +1,12 @@
 <style>
-.container {
+/**.container {
   padding-right: 0px !important;
   padding-left: 0px !important;
   margin-right: 0px !important;
   margin-left: 10px !important;
   max-width: 100% !important;
   width: 100% !important;
-}
+}**/
 
 .ui-datepicker {
    background: #333;
@@ -25,17 +25,15 @@
 
 </style>
 
-<center>
+<form>
 <div class="row">
   <div class="col-md-12">
-    <h3>AEdite el diagnostico</h3>
+    <h3>Edite el diagnostico</h3>
   </div>
 </div>
-</center>
 
 <div class="row">
-
-  <div class="col-md-4">
+  <div class="col-md-8">
   <form class="form-horizontal" role="form" ng-submit="crearDiagnostico()" >
   <label>Sintomas:</label>
   <tags-input class="bootstrap"
@@ -58,16 +56,110 @@
      <label>Fecha:</label> <input type="text" id="datepicker" style="width: 70%" ng-model="diagnostico.date" class="form-control" placeholder="Ingrese una fecha..." required>
     
   </div>
-  </br>
+  
+  </div>
+</div>
+
+<h3>Edite el tratamiento</h3>
+ <div id="accordion">
+  <h3>Reposo</h3>
+  <div>
+    <div class="row form-group">
+      <label class="col-lg-2 control-label">Reposo</label>
+      <div class="col-lg-5">
+    	<input type="radio" ng-model="repose" name="group1" ng-value=true>
+    	Si
+    	<input type="radio" ng-model="repose" name="group1" ng-value=false>
+    	No
+   		
+  	  </div>
+  	</div>
+
+  <div class="row form-group">
+    <label class="col-lg-3 control-label">Tipo de reposo</label>
+    <div class="col-lg-4"> 
+    <input type="radio" ng-model="type" name="group2" ng-value=true>
+    Total
+    <input type="radio" ng-model="type" name="group2" ng-value=false>
+    Parcial
+    </div>
+  </div>
+
+
+  <div class="row form-group">
+    <label class="col-lg-4 control-label">Duracion del reposo</label>
+    <div class="col-lg-5">
+      <input ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas..." required>
+    </div>
+  </div>
+  </div>
+
+
+  <h3>Practicas medicas</h3>
+  <div>
+    
+      <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
+        <thead>
+          <tr class="active">
+            <th>Nombre</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="practica in practicas" class="success">
+            <td>{{practica}}</td>
+            <td><center><button class="btn btn-danger btn-xs" ng-click="eliminarPracticaMedica(practica)">Eliminar</button></center></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="input-group" style="width: 160%; max-width: 285px !important; ">
+        <input type="text" class="form-control" placeholder="Ingrese nueva practica medica.." ng-model="practica" required>
+       <!-- <span class="input-group-btn" > -->
+          <button class="btn btn-default" ng-click="agregarPracticaMedica(practica)">Agregar practica</button>
+        <!--</span> -->
+      
+
+    </div>
+  </div>
+  <h3>Medicamentos</h3>
+  <div>
+    <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
+        <thead>
+          <tr class="active">
+            <th>Nombre</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="medicamento in medicamentos" class="success">
+            <td>{{medicamento.drugName}}</td>
+            <td><center><button class="btn btn-danger btn-xs" ng-click="eliminarMedicamento(medicamento)">Eliminar</button></center></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="input-group" style="width: 300%; max-width: 425px !important; ">
+        <input class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="nombreMedicamento">
+        <input class="form-control" placeholder="Ingrese una concentracion.." ng-model="concentracion">
+        <input class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
+       <div>
+        <!--<span class="input-group-btn" >-->
+          <button class="btn btn-default" type="submit" ng-click="agregarMedicamento()">Agregar medicamento</button>
+        <!--</span>-->
+        </div>
+      </div>
+    
+   </div>
+ </div>
+</br>
   <div class="form-group" style="margin-bottom: 0px; margin-left: 0px;">
     <div>
       <button class="btn btn-sm btn-success" type="submit">Guardar</button>
       <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
     </div>
   </div> 
-  </div>
-  </form>
-</div>
+ <form>
 
 <script>
   $(function() {
@@ -87,4 +179,13 @@
 
        return true
   }
+
+  $(function() {
+    $( "#accordion" ).accordion({ 
+
+		heightStyle: "content"
+
+	});
+  });
 </script>
+
