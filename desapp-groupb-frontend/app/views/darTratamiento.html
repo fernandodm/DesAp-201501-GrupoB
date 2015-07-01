@@ -142,7 +142,7 @@
       <div class="col-lg-5">
     	<input type="radio" ng-model="repose" name="group1" ng-value=true>
     	Si
-    	<input type="radio" ng-model="repose" name="group1" ng-value=false>
+    	<input type="radio" ng-model="repose" ng-click="resetearCampos()" name="group1" ng-value=false>
     	No
    		
   	  </div>
@@ -151,9 +151,9 @@
   <div class="form-group">
     <label class="col-lg-4 control-label">Tipo de reposo</label>
     <div class="col-lg-5"> 
-    <input type="radio" ng-model="type" name="group2" ng-value=true>
+    <input type="radio" ng-disabled="!repose" ng-model="type" name="group2" ng-value=true>
     Total
-    <input type="radio" ng-model="type" name="group2" ng-value=false>
+    <input type="radio" ng-disabled="!repose" ng-model="type" name="group2" ng-value=false>
     Parcial
     
       
@@ -164,7 +164,7 @@
   <div class="form-group">
     <label class="col-lg-4 control-label">Duracion del reposo</label>
     <div class="col-lg-5">
-      <input ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas..." required>
+      <input ng-disabled="!repose" ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas..." required>
     </div>
   </div>
   </div>

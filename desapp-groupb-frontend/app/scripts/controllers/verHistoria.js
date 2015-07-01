@@ -12,7 +12,6 @@ angular.module('myappApp')
   	    
 	$http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/' + $routeParams.id).success(function (paciente) {
        //datos lo tenemos disponible en la vista gracias a $scope
-       alert(paciente.medicalHistory)
        $scope.alergias = paciente.medicalHistory.allergies;
        $http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/diagnoses/' + $routeParams.id).success(function (diagnosticos) {
        		$scope.diagnosticos = diagnosticos;

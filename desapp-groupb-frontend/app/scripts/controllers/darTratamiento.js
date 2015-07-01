@@ -23,12 +23,19 @@
     });
 
 
+    $scope.resetearCampos = function() {
+      $scope.type = null;
+      $scope.time = null;
+    };
     
 
 
    $scope.nuevoTratamiento = function() {
-
-      $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/create/' + $routeParams.idDiagnostico + '/' +$scope.repose
+      if($scope.time == null){
+        $scope.time = 0;
+      }
+  
+      $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/create/' + $routeParams.idDiagnostico + '/' + $scope.repose
        + '/' + $scope.type + '/' + $scope.time + '/' + $scope.practicas + '/' + $scope.medicamentos)
       .success(function (data) {
           $scope.medicamentos.push(data);
