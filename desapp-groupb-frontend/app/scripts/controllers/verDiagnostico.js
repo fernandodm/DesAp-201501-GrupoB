@@ -15,6 +15,16 @@ angular.module('myappApp')
         	var date = new Date(data.date);
         	$scope.diagnostico = data;
         	$scope.diagnostico.date = date.getDate() + '/' + date.getMonth() + '/' +  date.getFullYear();
+
+        	$scope.practicas = $scope.diagnostico.treatment.medicalPractices
+        	$scope.medicamentos = $scope.diagnostico.treatment.medicines
+
+        	$scope.repose = $scope.diagnostico.treatment.repose
+
+        	if($scope.repose){
+        		$scope.type = $scope.diagnostico.treatment.type
+        		$scope.time = $scope.diagnostico.treatment.time
+        	}
     });
 
   });
