@@ -45,18 +45,22 @@ public class PatientRest {
 	@Path("/create")
 	@Produces("application/json")
 	public Response createPatient(@FormParam("firstname") String firstname,
-			 @FormParam("lastname") String lastname, @FormParam("dni") String dni, @FormParam("weight")Integer weight, @FormParam("height") Integer height) throws NroDeDNIExistenteExeption{
+			 @FormParam("lastname") String lastname, @FormParam("dni") String dni, @FormParam("weight")Integer weight, @FormParam("height") Integer height){
 		
-		Patient p = new Patient(weight, height,firstname,lastname,dni,null,null);
-		MedicalHistory m = new MedicalHistory();
-		p.setMedicalHistory(m);
-		try {
+		
+		Patient patient = getPatientService().findByDni(dni);
+		
+		if(patient == null){
+			Patient p = new Patient(weight, height,firstname,lastname,dni,null,null);
+			MedicalHistory m = new MedicalHistory();
+			p.setMedicalHistory(m);
 			getPatientService().save(p);
-		} catch (DataIntegrityViolationException e) {
+		}else{
 			return Response.ok(-1).build();
 		}
+
 		
-		return Response.ok(p).build();
+		return Response.ok(patient).build();
 	}
 	
 	@PUT
@@ -103,14 +107,16 @@ public class PatientRest {
 	@PUT
 	@Path("/update/{id}/{allergy}")
 	@Produces("application/json")
-	public Response updateAllery(@PathParam("id") final
+	public void updateAllery(@PathParam("id") final
 			Integer id,@PathParam("allergy") final String allergy) {
 		
 		Patient p = getPatientService().findById(id);
-		p.addAllergy(allergy);
-		getPatientService().update(p);
-		
-		return Response.ok(p).build();
+		if(!p.getMedicalHistory().getAllergies().contains(allergy)){
+			
+			p.addAllergy(allergy);
+			getPatientService().update(p);
+		}
+
 	}
 	
 	

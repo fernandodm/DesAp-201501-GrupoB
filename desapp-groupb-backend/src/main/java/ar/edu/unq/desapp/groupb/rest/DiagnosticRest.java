@@ -81,7 +81,17 @@ public class DiagnosticRest {
         
         getDiagnosticService().delete(diagnostic);
  
-//		return Response.ok(diagnostic).build();
+    }
+    
+    
+    @GET
+    @Path("/diagnostic/{id}")
+    @Produces("application/json")
+    public Diagnostic findById(@PathParam("id") Integer id) {
+        Diagnostic diagnostic = getDiagnosticService().findById(id);
+        
+        return diagnostic;
+ 
     }
     
     @GET

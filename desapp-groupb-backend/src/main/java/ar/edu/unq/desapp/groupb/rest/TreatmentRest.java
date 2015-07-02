@@ -88,19 +88,20 @@ public class TreatmentRest {
     		@PathParam("medicines") String medicines)  {
     	List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
     	Diagnostic diag = this.getDiagnosticService().findById(id);
+    	
     	if(repose.equals("true")){
     		diag.getTreatment().setRepose(true);
+    		diag.getTreatment().setTime(time);
+        	if(type.equals("true")){
+        		diag.getTreatment().setType("Total");
+        	} else {
+        		diag.getTreatment().setType("Parcial");
+        	}
     	} else {
     		diag.getTreatment().setRepose(false);
     	}
-    	if(type.equals("true")){
-    		diag.getTreatment().setType("Total");
-    	} else {
-    		diag.getTreatment().setType("Parcial");
-    	}
     	
     	
-    	diag.getTreatment().setTime(time);
     	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
     	
         getDiagnosticService().update(diag);
