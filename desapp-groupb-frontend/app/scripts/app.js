@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ngTagsInput',
     'datatables',
-    'datatables.bootstrap'
+    'datatables.bootstrap',
+    'ngDialog'
   ])
   .config(function ($routeProvider) {
     $routeProvider

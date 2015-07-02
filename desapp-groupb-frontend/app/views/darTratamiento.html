@@ -1,140 +1,7 @@
 <h2>Dar Tratamiento</h2>
 <h4>Ingrese los siguientes campos</h4>
-<form name="formTratamiento" class="form-horizontal" role="form" >
-  <!--<div class="form-group">
-    <label class="col-lg-4 control-label">Reposo</label>
-      <div class="col-lg-5">
-    
-    <input type="radio" ng-model="repose" name="group1" ng-value=true>
-    Si
-    <input type="radio" ng-model="repose" name="group1" ng-value=false>
-    No
-  </label><br/>
-
-
-  </div>
-  </div>
-  <div class="form-group">
-    <label class="col-lg-4 control-label">Tipo de reposo</label>
-    <div class="col-lg-5"> 
-    <input type="radio" ng-model="type" name="group2" ng-value=true>
-    Total
-    <input type="radio" ng-model="type" name="group2" ng-value=false>
-    Parcial
-  </label><br/>
-      
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-lg-4 control-label">Duracion del reposo</label>
-    <div class="col-lg-5">
-      <input ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas..." required>
-    </div>
-  </div>
-<div class="row">
-  <div class="col-md-6">
-      <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
-        <thead>
-         <tr class="active">
-          <th>Practicas medicas:</th>
-          </tr>
-          <tr class="active">
-            <th>Nombre</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="practica in practicas" class="success">
-            <td>{{practica}}</td>
-            <td><center><a class="btn btn-danger btn-xs" ng-click="eliminarPracticaMedica(practica)">Eliminar</a></center></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="input-group" style="width: 160%; max-width: 285px !important; ">
-        <input type="text" class="form-control" placeholder="Ingrese nueva practica medica.." ng-model="practica" required>
-        <span class="input-group-btn" >
-          <button class="btn btn-default" ng-click="agregarPracticaMedica(practica)">Agregar practica</button>
-        </span>
-      </div>
-
-    </div>
-  
-
-    <div class="col-md-6">
-      <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
-        <thead>
-         <tr class="active">
-          <th>Medicamentos:</th>
-          </tr>
-          <tr class="active">
-            <th>Nombre</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="medicamento in medicamentos" class="success">
-            <td>{{medicamento.drugName}}</td>
-            <td><center><a class="btn btn-danger btn-xs" ng-click="eliminarMedicamento(medicamento)">Eliminar</a></center></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="input-group" style="width: 300%; max-width: 425px !important; ">
-        <input class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="nombreMedicamento">
-        <input class="form-control" placeholder="Ingrese una concentracion.." ng-model="concentracion">
-        <input class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
-       <div>
-        <span class="input-group-btn" >
-     
-          <button class="btn btn-default" type="submit" ng-click="agregarMedicamento()">Agregar medicamento</button>
-        </span>
-        </div>
-      </div>
-
-    </div>
-</div>
-</br>
-  <div class="form-group">
-    <div class="col-lg-offset-4 col-lg-5">
-      
-      <button id="myWish" class="btn btn-sm btn-success" type="submit" ng-click="nuevoTratamiento()">Dar tratamiento</button>
-      <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
-    </div>
-  </div>
-  <a class="btn btn-sm btn-success" ng-click="tratamientosSugeridos()">Ver tratamientos sugeridos</a>
-  
-  <div>
-  <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
-    <thead>
-     <tr class="active">
-        <th>Tratamientos sugeridos:</th>
-      </tr>
-      <tr class="active">
-        <th>Reposo</th>
-        <th>Parcial/Total</th>
-        <th>Semanas</th>
-        <th>Practicas medicas</th>
-        <th>Medicamentos</th>
-        <th>Accion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="tratamiento in sugeridos" class="success">
-        <td>{{tratamiento.repose}}</td>
-        <td>{{tratamiento.type}}</td>
-        <td>{{tratamiento.time}}</td>
-        <td>{{tratamiento.medicalPractices}}</td>
-        <td>{{tratamiento.medicines}}</td>
-
-        <td><center><a class="btn btn-danger btn-xs" ng-click="cancelar()">Dar este tratamiento</a></center></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>-->
-
-
-  <div id="accordion">
+<form name="formTratamiento" class="form-horizontal" role="form" novalidate>
+  <div id="accordion" style="width: 120%;">
   <h3>Reposo</h3>
   <div>
     <div class="form-group">
@@ -155,16 +22,13 @@
     Total
     <input type="radio" ng-disabled="!repose" ng-model="type" name="group2" ng-value=false>
     Parcial
-    
-      
     </div>
   </div>
-
 
   <div class="form-group">
     <label class="col-lg-4 control-label">Duracion del reposo</label>
     <div class="col-lg-5">
-      <input ng-disabled="!repose" ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas..." required>
+      <input ng-disabled="!repose" ng-model="time" class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese cantidad de semanas...">
     </div>
   </div>
   </div>
@@ -216,8 +80,8 @@
 
       <div class="input-group" style="width: 300%; max-width: 425px !important; ">
         <input class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="nombreMedicamento">
-        <input class="form-control" placeholder="Ingrese una concentracion.." ng-model="concentracion">
-        <input class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
+        <input class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese una concentracion.." ng-model="concentracion">
+        <input class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
        <div>
         <!--<span class="input-group-btn" >-->
           <button class="btn btn-default" type="submit" ng-click="agregarMedicamento()">Agregar medicamento</button>
@@ -229,7 +93,7 @@
   <h3>Tratamientos sugeridos</h3>
   <div>
   	 <button class="btn btn-sm btn-success" ng-click="tratamientosSugeridos()">Ver tratamientos sugeridos</button>
-    <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
+    <table class="table table-bordered"  style="bgcolor:#00FFFF;">
     <thead>
       <tr class="active">
         <th>Reposo</th>
@@ -242,11 +106,15 @@
     </thead>
     <tbody>
       <tr ng-repeat="tratamiento in sugeridos" class="success">
-        <td>{{tratamiento.repose}}</td>
-        <td>{{tratamiento.type}}</td>
-        <td>{{tratamiento.time}}</td>
-        <td>{{tratamiento.medicalPractices}}</td>
-        <td>{{tratamiento.medicines}}</td>
+        <td>{{retornarReposo(tratamiento.repose)}}</td>
+        <td>{{retornarTipo(tratamiento.type)}}</td>
+        <td>{{retornarTiempo(tratamiento.time)}}</td>
+        <td> 
+          <select class="form-control">
+          <option ng-repeat="practicas in tratamiento.medicalPractices" value="">{{practicas}}</option>
+          </select>
+         </td>
+        <td><button class="btn btn-xs btn-success" type="submit" ng-click="clickToOpen(tratamiento)">ver</button></td>
 
         <td><center><button class="btn btn-danger btn-xs" ng-click="cancelar()">Dar este tratamiento</button></center></td>
       </tr>
@@ -261,13 +129,30 @@
       <button id="myWish" class="btn btn-sm btn-success" type="submit" ng-click="nuevoTratamiento()">Dar tratamiento</button>
       <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
     </div>
-  </div>
- 
+  </div> 
 </form>
 
-<style type="text/css">
-	
-</style>
+<script type="text/ng-template" id="templateId">
+    <h4>Medicamentos</h4>
+     <table class="table table-bordered"  style="bgcolor:#00FFFF;">
+    <thead>
+      <tr class="active">
+        <th>Nombre</th>
+        <th>Concentracion</th>
+        <th>Tiempo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="medicamento in tratamiento.medicines" class="success">
+        <td>{{medicamento.drugName}}</td>
+        <td>{{medicamento.concentration}}</td>
+        <td>{{medicamento.time}}</td>
+      </tr>
+    </tbody>
+  </table>
+</script>
+ 
+
 
 <script type="text/javascript">
 
@@ -276,7 +161,6 @@
 
 		heightStyle: "content"
 
-	});
+	 });
   });
-
 </script>

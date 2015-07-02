@@ -22,9 +22,18 @@ angular.module('myappApp')
         	$scope.repose = $scope.diagnostico.treatment.repose
 
         	if($scope.repose){
-        		$scope.type = $scope.diagnostico.treatment.type
+        		cambiarValorType()
         		$scope.time = $scope.diagnostico.treatment.time
         	}
     });
+
+    function cambiarValorType(){
+    	
+    	if($scope.diagnostico.treatment.type == "Total"){
+    		$scope.type = true
+    	}else{
+    		$scope.type = false
+    	}
+    }
 
   });

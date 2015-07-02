@@ -34,7 +34,7 @@
 
 <div class="row">
   <div class="col-md-8">
-  <form class="form-horizontal" role="form" ng-submit="crearDiagnostico()" >
+  <form class="form-horizontal" role="form" ng-submit="crearDiagnostico()">
   <label>Sintomas:</label>
   <tags-input class="bootstrap"
               on-tag-removed="eliminarSintoma($tag)"
@@ -141,8 +141,8 @@
 
       <div class="input-group" style="width: 300%; max-width: 425px !important; ">
         <input class="form-control" placeholder="Ingrese nombre de medicamento.." ng-model="nombreMedicamento">
-        <input class="form-control" placeholder="Ingrese una concentracion.." ng-model="concentracion">
-        <input class="form-control" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
+        <input class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese una concentracion.." ng-model="concentracion">
+        <input class="form-control" onkeypress="return justNumbers(event);" placeholder="Ingrese tiempo en semanas.." ng-model="semanas">
        <div>
         <!--<span class="input-group-btn" >-->
           <button class="btn btn-default" type="submit" ng-click="agregarMedicamento()">Agregar medicamento</button>
