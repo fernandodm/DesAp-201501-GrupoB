@@ -81,12 +81,12 @@ public class TreatmentRest {
     }
     
     @POST
-    @Path("/create/{id}/{repose}/{type}/{time}/{medicalPractices}/{medicines}")
+    @Path("/create/{id}/{repose}/{type}/{time}/{medicalPractices}")
     @Produces("application/json")
     public Response createTreatment(@PathParam("id") Integer id, @PathParam("repose") String repose,
-    		@PathParam("type") String type, @PathParam("time") Integer time, @PathParam("medicalPractices") String medicalPractices,
-    		@PathParam("medicines") String medicines)  {
+    		@PathParam("type") String type, @PathParam("time") Integer time, @PathParam("medicalPractices") String medicalPractices)  {
     	List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
+
     	Diagnostic diag = this.getDiagnosticService().findById(id);
     	
     	if(repose.equals("true")){
@@ -100,10 +100,33 @@ public class TreatmentRest {
     	} else {
     		diag.getTreatment().setRepose(false);
     	}
-    	
-    	
+        	
     	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
+
+        getDiagnosticService().update(diag);
+        return Response.ok(diag).build();
+    }
+    
+    @POST
+    @Path("/create/{id}/{repose}/{type}/{time}")
+    @Produces("application/json")
+    public Response createTreatmentSinPractica(@PathParam("id") Integer id, @PathParam("repose") String repose,
+    		@PathParam("type") String type, @PathParam("time") Integer time)  {
+
+    	Diagnostic diag = this.getDiagnosticService().findById(id);
     	
+    	if(repose.equals("true")){
+    		diag.getTreatment().setRepose(true);
+    		diag.getTreatment().setTime(time);
+        	if(type.equals("true")){
+        		diag.getTreatment().setType("Total");
+        	} else {
+        		diag.getTreatment().setType("Parcial");
+        	}
+    	} else {
+    		diag.getTreatment().setRepose(false);
+    	}
+
         getDiagnosticService().update(diag);
         return Response.ok(diag).build();
     }
@@ -111,7 +134,7 @@ public class TreatmentRest {
     @POST
     @Path("/medicine/create/{id}/{name}/{concentration}/{weeks}")
     @Produces("application/json")
-    public Medicine createTreatment(@PathParam("id") Integer id, @PathParam("name") String name,
+    public Medicine createMedicine(@PathParam("id") Integer id, @PathParam("name") String name,
     		@PathParam("concentration") Integer concentration, @PathParam("weeks") Integer weeks)  {
     	
     	Treatment treatment = getTreatmentService().findById(id);
