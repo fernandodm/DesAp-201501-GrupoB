@@ -43,6 +43,18 @@
 
     }; 
 
+    $scope.asignarDiagnostico = function(diagnostico) {
+
+    	$http.post('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/assignDiagnostic/' + $routeParams.id + '/' + diagnostico.name + '/' + diagnostico.symptoms + '/' + $scope.fecha).success(function (data) {
+         
+          location = '#/darTratamiento/' + $routeParams.id + '/' +  data.id;
+
+      });
+
+
+    }; 
+
+
     $scope.cancelar = function() {
   		
   		location = '#/verHistoria/' + $routeParams.id;

@@ -25,7 +25,10 @@
 
 </style>
 
+
+
 <center>
+
 <div class="row">
   <div class="col-md-12">
     <h3>Agregue o cree un nuevo diagnostico</h3>
@@ -37,6 +40,8 @@
 
   <div class="col-md-4">
   <form class="form-horizontal" role="form" ng-submit="crearDiagnostico()" >
+  <label>Fecha:</label> <input type="text" id="datepicker" style="width: 70%" ng-model="fecha" class="form-control" placeholder="Ingrese una fecha..." required>
+   </br>
   <label>Sintomas:</label>
   <tags-input class="bootstrap"
               on-tag-removed="eliminarSintoma($tag)"
@@ -55,7 +60,7 @@
   <div class="form-group" style="margin-left: 0px;">
     
      <label>Nombre:</label> <input style="width: 70%"ng-model="nombre" class="form-control" placeholder="Ingrese un nombre de diagnostico..." required></br>
-     <label>Fecha:</label> <input type="text" id="datepicker" style="width: 70%" ng-model="fecha" class="form-control" placeholder="Ingrese una fecha..." required>
+     
     
   </div>
   </br>
@@ -90,7 +95,7 @@
           <option ng-repeat="sintoma in diagnostico.symptoms" value="">{{sintoma}}</option>
           </select>
          </td>
-        <td><center><a class="btn btn-danger btn-xs" ng-click="agregarAlPaciente(diagnostico)">Agregar a Historia Clinica</a></center></td>
+        <td><center><a class="btn btn-danger btn-xs" ng-click="asignarDiagnostico(diagnostico)">Agregar a Historia Clinica y dar tratamiento</a></center></td>
       </tr>
     </tbody>
   </table>

@@ -7,19 +7,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang3.StringUtils;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Event;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Treatment;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
@@ -73,13 +71,59 @@ public class DiagnosticRest {
 		return diagnostic;
     }
     
-    @DELETE
-    @Path("/delete/{id}")
+    @POST
+    @Path("/assignDiagnostic/{id}/{name}/{symptoms}/{day}/{month}/{year}")
     @Produces("application/json")
-    public void deleteDiagnoses(@PathParam("id") Integer id) {
-        Diagnostic diagnostic = getDiagnosticService().findById(id);
+    public Diagnostic assignDiagnostic(@PathParam("id") Integer id, @PathParam("name") String name,
+    		@PathParam("symptoms") String symptoms, @PathParam("day") String day, @PathParam("month") String month, @PathParam("year") String year) {
+    	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
+    	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList,new Treatment());
+    	String date = day + "/" + month + "/" + year;
+    	diagnostic.setDate(diagnostic.stringToDateTime(date));
+    	diagnostic.setName(name);
+    	
+    	MedicalHistory medical = getMedicalHistoryService().findById(id);
+    	medical.getDiagnoses().add(diagnostic);       
+		getMedicalHistoryService().update(medical);
+		return diagnostic;
+    }
+    
+//    @DELETE
+//    @Path("/delete/{id}")
+//    @Produces("application/json")
+//    public void deleteDiagnoses(@PathParam("id") Integer id) {
+//        Diagnostic diagnostic = getDiagnosticService().findById(id);
+//        
+//        getDiagnosticService().delete(diagnostic);
+// 
+//    }
+    
+    @POST
+    @Path("/delete/{id}/{idd}")
+    @Produces("application/json")
+    public void deleteDiagnoses(@PathParam("id") Integer id,@PathParam("idd") Integer idd) {
+        Diagnostic diagnostic = getDiagnosticService().findById(idd);
+        diagnostic.eraseAll();
+        this.getDiagnosticService().update(diagnostic);
+        MedicalHistory m = this.getMedicalHistoryService().findById(id);
+//        Integer n = m.getDiagnoses().indexOf(diagnostic);
+//        m.getDiagnoses().remove(diagnostic);
+        List<Diagnostic> diags = m.getDiagnoses();
+        for(Diagnostic c : diags){
+        	if(c.getId() == idd){
+        		diags.remove(c);
+        	}
+        }
+//        diags.remove(diagnostic);
+        List<Diagnostic> diags2 = new ArrayList<Diagnostic>();
+        for(Diagnostic each : diags){
+        	diags2.add(each);
+        }
+        m.setDiagnoses(diags2);
         
-        getDiagnosticService().delete(diagnostic);
+//        this.getDiagnosticService().delete(diagnostic);
+        this.getMedicalHistoryService().update(m);
+//        getDiagnosticService().delete(diagnostic);
  
     }
     

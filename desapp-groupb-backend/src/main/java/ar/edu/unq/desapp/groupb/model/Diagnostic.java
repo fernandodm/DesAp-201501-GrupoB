@@ -49,6 +49,13 @@ public class Diagnostic extends Entity{
 		DateTime dateTime = new DateTime(Integer.parseInt(list.get(2)), Integer.parseInt(list.get(1)), Integer.parseInt(list.get(0)), 0, 0);
     	return dateTime;
 	}
+	
+	public void eraseAll(){
+		this.setDate(null);
+		this.setName(null);
+		this.setSymptoms(null);
+		this.setTreatment(null);
+	}
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////

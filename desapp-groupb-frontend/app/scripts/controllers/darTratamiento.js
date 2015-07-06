@@ -61,6 +61,17 @@
       }
     };
 
+    $scope.asignarTratamiento = function(tratamiento) {
+
+      $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/assignTreatment/'+ tratamiento.id + '/' + $routeParams.idDiagnostico + '/' + tratamiento.repose + '/' + tratamiento.type + '/' + tratamiento.time + '/' + tratamiento.medicalPractices).success(function (data) {
+          alert("Tratamiento confirmado exitosamente");
+          location = '#/verHistoria/' + $routeParams.id;
+
+      });
+
+
+    }; 
+
     function guardarTratamientoSinPracticas(){
 
         $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/create/' + $routeParams.idDiagnostico + '/' + $scope.repose
