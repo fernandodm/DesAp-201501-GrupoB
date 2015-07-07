@@ -30,10 +30,8 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 		<jaxrs:serviceBeans>
 			<ref bean="patientsRest" />
 			<ref bean="diagnosesRest" />
-			<ref bean="eventsRest" />
 			<ref bean="medicinesRest" />
 			<ref bean="professionalsRest" />
-			<ref bean="symptomsRest" />
 			<ref bean="treatmentsRest" />
 			<ref bean="medicalHistoriesRest" />
 		</jaxrs:serviceBeans>
@@ -49,6 +47,9 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 			<cxf:logging />
 		</jaxrs:features>
 	</jaxrs:server>
+	
+
+    
 
 
 	<!-- <bean id="dao.diagnostic" class="ar.edu.unq.desapp.groupb.repositories.DiagnosticDAO" 
@@ -57,23 +58,16 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<bean id="diagnosesRest" class="ar.edu.unq.desapp.groupb.rest.DiagnosticRest">
 		<property name="diagnosticService" ref="services.diagnostic" />
 		<property name="medicalHistoryService" ref="services.medicalHistory" />
-		<property name="eventService" ref="services.event" />
 	</bean>
 
 	<bean id="patientsRest" class="ar.edu.unq.desapp.groupb.rest.PatientRest">
 		<property name="patientService" ref="services.patient" />
-	</bean>
-	<bean id="eventsRest" class="ar.edu.unq.desapp.groupb.rest.EventRest">
-		<property name="eventService" ref="services.event" />
 	</bean>
 	<bean id="medicinesRest" class="ar.edu.unq.desapp.groupb.rest.MedicineRest">
 		<property name="medicineService" ref="services.medicine" />
 	</bean>
 	<bean id="professionalsRest" class="ar.edu.unq.desapp.groupb.rest.ProfessionalRest">
 		<property name="professionalService" ref="services.professional" />
-	</bean>
-	<bean id="symptomsRest" class="ar.edu.unq.desapp.groupb.rest.SymptomRest">
-		<property name="symptomService" ref="services.symptom" />
 	</bean>
 	<bean id="treatmentsRest" class="ar.edu.unq.desapp.groupb.rest.TreatmentRest">
 		<property name="treatmentService" ref="services.treatment" />

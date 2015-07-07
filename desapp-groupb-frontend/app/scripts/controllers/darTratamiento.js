@@ -65,7 +65,7 @@
 
       $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/assignTreatment/'+ tratamiento.id + '/' + $routeParams.idDiagnostico + '/' + tratamiento.repose + '/' + tratamiento.type + '/' + tratamiento.time + '/' + tratamiento.medicalPractices).success(function (data) {
           alert("Tratamiento confirmado exitosamente");
-          location = '#/verHistoria/' + $routeParams.id;
+          location = '#/verHistoria/' + $routeParams.idPaciente;
 
       });
 
@@ -160,11 +160,23 @@
  
    $scope.agregarMedicamento = function() {
 
-    $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/medicine/create/' + $routeParams.idDiagnostico + '/' + $scope.nombreMedicamento + '/' + $scope.concentracion + '/' + $scope.semanas)
-      .success(function (data) {
+    if(!existeMedicamento($scope.nombreMedicamento)){
+
+      $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/medicine/create/' + $routeParams.idDiagnostico + '/' + $scope.nombreMedicamento + '/' + $scope.concentracion + '/' + $scope.semanas)
+        .success(function (data) {
           $scope.medicamentos.push(data);
       });
+    }
+  };
 
+  function existeMedicamento(nombre){
+
+    for (var i = 0; i < $scope.medicamentos.length; i++) {
+      if($scope.medicamentos[i].drugName == nombre){
+        return true;
+      }
+    }
+    return false;
   };
 
   $scope.tratamientosSugeridos = function() {

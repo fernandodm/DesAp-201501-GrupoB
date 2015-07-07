@@ -1,9 +1,12 @@
 package ar.edu.unq.desapp.groupb.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.joda.time.DateTime;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.Treatment;
@@ -28,5 +31,30 @@ public class DiagnosticDAO extends HibernateGenericDAO<Diagnostic> implements Ge
 		this.save(d);
 		
 	}
+	
+	//obtengo los sintomas entre la fecha de hoy y dateToCompare
+		public List<String> symptoms(DateTime dateToCompare) {
+			
+			Session session = this.getHibernateTemplate().getSessionFactory().openSession();
+			DateTime today = new DateTime();
+	        try {
+	        	 String queryStr = " SELECT d FROM " + this.persistentClass.getName() + " AS d WHERE d.date BETWEEN :dateToCompare AND :today";
+
+	             @SuppressWarnings("unchecked")
+				List<Diagnostic> diagnoses = session.createQuery(queryStr).setParameter("today", today)
+	             											       .setParameter("dateToCompare", dateToCompare).list();
+	             //obtener los sintomas
+	             List<String> symptoms = new ArrayList<String>();
+	     		 for(Diagnostic d: diagnoses){
+	     			symptoms.addAll(d.getSymptoms());
+	     		 }
+	     		 
+	             return symptoms;
+
+	        } finally {
+	            session.close();
+	        }
+		}
+
 	
 }

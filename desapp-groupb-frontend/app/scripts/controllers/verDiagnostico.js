@@ -36,4 +36,61 @@ angular.module('myappApp')
     	}
     }
 
+    $scope.guardarDiagnostico = function() {
+        
+        $http.put('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/update/' + $scope.diagnostico.id + '/' + $scope.diagnostico.name + '/' +$scope.diagnostico.symptoms + '/' + $scope.diagnostico.date)
+            .success(function(data) {
+            
+        });
+
+        $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.diagnostico.treatment.id + '/' + $scope.repose + '/' + $scope.type + '/' + $scope.time + '/' + $scope.practicas)
+            .success(function(data) {
+            
+        });
+    };
+
+    $scope.agregarPracticaMedica = function() {
+
+      if($scope.practicas.indexOf($scope.practica) == -1){
+        $scope.practicas.push($scope.practica);
+      
+        $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.diagnostico.id + '/' + $scope.practica)
+          .success(function () {
+  
+          });
+      }
+    
+   };
+
+  $scope.eliminarPracticaMedica = function(practica) {
+    var index = $scope.practicas.indexOf(practica);
+    $scope.practicas.splice(index,1);
+    $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/delete/' + $scope.diagnostico.id + '/' + practica)
+      .success(function () {
+       
+  
+      });
+
+  };
+ 
+   $scope.agregarMedicamento = function() {
+
+    if(!existeMedicamento($scope.nombreMedicamento)){
+
+      $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/medicine/create/' + $scope.diagnostico.id  + '/' + $scope.nombreMedicamento + '/' + $scope.concentracion + '/' + $scope.semanas)
+        .success(function (data) {
+          $scope.medicamentos.push(data);
+      });
+    }
+  };
+
+  function existeMedicamento(nombre){
+
+    for (var i = 0; i < $scope.medicamentos.length; i++) {
+      if($scope.medicamentos[i].drugName == nombre){
+        return true;
+      }
+    }
+    return false;
+  }
   });

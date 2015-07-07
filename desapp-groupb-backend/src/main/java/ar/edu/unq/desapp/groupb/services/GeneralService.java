@@ -4,20 +4,10 @@ public class GeneralService {
 
 	private DiagnosticService diagnosticService;
 	private PatientService patientService;
-	private EventService eventService;
 	private MedicalHistoryService medicalHistoryService;
 	private MedicineService medicineService;
 	private ProfessionalService professionalService;
-	private SymptomService symptomService;
 	private TreatmentService treatmentService;
-	
-	public EventService getEventService() {
-		return eventService;
-	}
-
-	public void setEventService(EventService eventService) {
-		this.eventService = eventService;
-	}
 
 	public MedicalHistoryService getMedicalHistoryService() {
 		return medicalHistoryService;
@@ -41,14 +31,6 @@ public class GeneralService {
 
 	public void setProfessionalService(ProfessionalService professionalService) {
 		this.professionalService = professionalService;
-	}
-
-	public SymptomService getSymptomService() {
-		return symptomService;
-	}
-
-	public void setSymptomService(SymptomService symptomService) {
-		this.symptomService = symptomService;
 	}
 
 	public TreatmentService getTreatmentService() {

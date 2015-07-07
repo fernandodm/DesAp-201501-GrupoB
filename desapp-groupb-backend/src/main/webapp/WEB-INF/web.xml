@@ -25,7 +25,7 @@
 	<param-value>development</param-value>
 </context-param>
 
-<listener>
+<listener id="loggerAspect">
 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 </listener>
 

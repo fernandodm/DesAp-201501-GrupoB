@@ -11,19 +11,12 @@
 		<property name="name" />
 		<property name="date" type="org.joda.time.contrib.hibernate.PersistentDateTime"/>
 		
-		<!-- <list name="symptoms" lazy="false">
-			<key column="symptomID" />
-			<list-index column="id" />
-			<one-to-many class="java.lang.String" />
-		</list>-->
 		
 		<list name="symptoms" lazy="false">  
           <key column="symptomID"></key>  
           <index column="type"></index>  
           <element column="simptoms" type="string"></element>  
         </list>
-		
-		<!--<property name="treatment"/>-->
 		
 		<one-to-one name="treatment" class="ar.edu.unq.desapp.groupb.model.Treatment"
 			cascade="save-update" lazy="false"></one-to-one>

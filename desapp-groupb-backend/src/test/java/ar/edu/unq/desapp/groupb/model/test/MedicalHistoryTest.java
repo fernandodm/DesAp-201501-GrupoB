@@ -10,7 +10,6 @@ import java.util.List;
 
 import junit.framework.TestCase;
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
-import ar.edu.unq.desapp.groupb.model.Event;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Medicine;
 import ar.edu.unq.desapp.groupb.model.Patient;
@@ -22,8 +21,7 @@ public class MedicalHistoryTest extends TestCase {
 	Patient patient;
 	Diagnostic diagnostic1;
 	Diagnostic diagnostic2;
-	Event event1;
-	Event event2;
+
 	
 	public void setUp(){
 		medicalHistory = new MedicalHistory();
@@ -38,26 +36,26 @@ public class MedicalHistoryTest extends TestCase {
 		assert(medicalHistory.getAllergies().contains("Penicilina"));
 	}
 	
-	public void testGetDiagnostics(){
-		
-		diagnostic1 = mock(Diagnostic.class);
-		diagnostic2 = mock(Diagnostic.class);
-		
-		event1 = mock(Event.class);
-		event2 = mock(Event.class);
-		
-		when(event1.getDiagnostic()).thenReturn(diagnostic1);
-		when(event2.getDiagnostic()).thenReturn(diagnostic2);
-		
-		List<Event> events = Arrays.asList(event1, event2);
-				
-		medicalHistory.setEvents(events);
-		
-		List<Diagnostic> diagnosesReturn = medicalHistory.getDiagnostics();
-		List<Diagnostic> diagnoses = Arrays.asList(diagnostic1,diagnostic2);
-		
-		assert(diagnosesReturn.containsAll(diagnoses));
-	}
+//	public void testGetDiagnostics(){
+//		
+//		diagnostic1 = mock(Diagnostic.class);
+//		diagnostic2 = mock(Diagnostic.class);
+//		
+//		event1 = mock(Event.class);
+//		event2 = mock(Event.class);
+//		
+//		when(event1.getDiagnostic()).thenReturn(diagnostic1);
+//		when(event2.getDiagnostic()).thenReturn(diagnostic2);
+//		
+//		List<Event> events = Arrays.asList(event1, event2);
+//				
+//		medicalHistory.setEvents(events);
+//		
+//		List<Diagnostic> diagnosesReturn = medicalHistory.getDiagnostics();
+//		List<Diagnostic> diagnoses = Arrays.asList(diagnostic1,diagnostic2);
+//		
+//		assert(diagnosesReturn.containsAll(diagnoses));
+//	}
 	
 	public void testEsAlergicoATrue(){
 		List<String> alergias = new ArrayList<String>();
@@ -119,17 +117,5 @@ public class MedicalHistoryTest extends TestCase {
 		boolean esCompatible = medicalHistory.patientSupports(tratamiento);
 		
 		assert(!esCompatible);		
-	}
-	
-	public void testAgregarEvento(){
-
-		Event evento = mock(Event.class);
-		
-		medicalHistory.addEvent(evento);
-		
-		boolean seAgrego = medicalHistory.getEvents().get(0).equals(evento);
-		
-		assertTrue(seAgrego);
-		
 	}
 }

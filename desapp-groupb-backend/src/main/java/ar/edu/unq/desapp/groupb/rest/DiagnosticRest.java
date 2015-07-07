@@ -6,6 +6,7 @@ package ar.edu.unq.desapp.groupb.rest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -16,12 +17,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
 
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Treatment;
 import ar.edu.unq.desapp.groupb.services.DiagnosticService;
-import ar.edu.unq.desapp.groupb.services.EventService;
 import ar.edu.unq.desapp.groupb.services.MedicalHistoryService;
 
 @Path("/diagnoses")
@@ -29,7 +30,6 @@ public class DiagnosticRest {
     
     private DiagnosticService diagnosticService;
     private MedicalHistoryService medicalHistoryService;
-    private EventService eventService;
     
 	public DiagnosticService getDiagnosticService() {
 		return diagnosticService;
@@ -71,6 +71,24 @@ public class DiagnosticRest {
 		return diagnostic;
     }
     
+    @PUT
+    @Path("/update/{id}/{name}/{symptoms}/{day}/{month}/{year}")
+    @Produces("application/json")
+    public Diagnostic editDiagnostic(@PathParam("id") Integer id, @PathParam("name") String name,
+    		@PathParam("symptoms") String symptoms, @PathParam("day") String day, @PathParam("month") String month, @PathParam("year") String year) {
+    	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
+    	Diagnostic diagnostic = this.getDiagnosticService().findById(id);
+    	diagnostic.setName(name);
+    	diagnostic.setSymptoms(symptomsAsList);
+    	String date = day + "/" + month + "/" + year;
+    	diagnostic.setDate(diagnostic.stringToDateTime(date));
+    	 
+		getDiagnosticService().update(diagnostic);
+		return diagnostic;
+    }
+    
+    
+    
     @POST
     @Path("/assignDiagnostic/{id}/{name}/{symptoms}/{day}/{month}/{year}")
     @Produces("application/json")
@@ -87,17 +105,7 @@ public class DiagnosticRest {
 		getMedicalHistoryService().update(medical);
 		return diagnostic;
     }
-    
-//    @DELETE
-//    @Path("/delete/{id}")
-//    @Produces("application/json")
-//    public void deleteDiagnoses(@PathParam("id") Integer id) {
-//        Diagnostic diagnostic = getDiagnosticService().findById(id);
-//        
-//        getDiagnosticService().delete(diagnostic);
-// 
-//    }
-    
+        
     @POST
     @Path("/delete/{id}/{idd}")
     @Produces("application/json")
@@ -106,24 +114,19 @@ public class DiagnosticRest {
         diagnostic.eraseAll();
         this.getDiagnosticService().update(diagnostic);
         MedicalHistory m = this.getMedicalHistoryService().findById(id);
-//        Integer n = m.getDiagnoses().indexOf(diagnostic);
-//        m.getDiagnoses().remove(diagnostic);
         List<Diagnostic> diags = m.getDiagnoses();
         for(Diagnostic c : diags){
         	if(c.getId() == idd){
         		diags.remove(c);
         	}
         }
-//        diags.remove(diagnostic);
         List<Diagnostic> diags2 = new ArrayList<Diagnostic>();
         for(Diagnostic each : diags){
         	diags2.add(each);
         }
         m.setDiagnoses(diags2);
         
-//        this.getDiagnosticService().delete(diagnostic);
         this.getMedicalHistoryService().update(m);
-//        getDiagnosticService().delete(diagnostic);
  
     }
     
@@ -153,6 +156,37 @@ public class DiagnosticRest {
         return diagnosesWithSymptoms;
     }
     
+    @GET
+    @Path("/symptoms/lastMonth")
+    @Produces("application/json")
+    public Map<String,Float> percentageOfSymptomsMonth() {
+    	
+    	DateTime dateLastMonth = new DateTime().minusMonths(1);
+    	
+        return getDiagnosticService().percentageOfSymptomsFrom(dateLastMonth);
+        
+    }
+    
+    @GET
+    @Path("/symptoms/semester")
+    @Produces("application/json")
+    public Map<String,Float> percentageOfSymptomsSemester() {
+    	
+    	DateTime dateLastSemester = new DateTime().minusMonths(6);
+    	
+        return getDiagnosticService().percentageOfSymptomsFrom(dateLastSemester);
+    }
+    
+    @GET
+    @Path("/symptoms/year")
+    @Produces("application/json")
+    public Map<String,Float> percentageOfSymptomsYear() {
+    	
+    	DateTime dateLastYear = new DateTime().minusYears(1);
+    	
+        return getDiagnosticService().percentageOfSymptomsFrom(dateLastYear);
+    }
+    
 	public MedicalHistoryService getMedicalHistoryService() {
 		return medicalHistoryService;
 	}
@@ -161,11 +195,4 @@ public class DiagnosticRest {
 		this.medicalHistoryService = medicalHistoryService;
 	}
 
-	public EventService getEventService() {
-		return eventService;
-	}
-
-	public void setEventService(EventService eventService) {
-		this.eventService = eventService;
-	}
 }

@@ -12,15 +12,15 @@ angular.module('myappApp')
 
 
 
-  	$http.get('http://localhost:8080/desapp-groupb-backend/rest/events/symptoms/lastMonth').success(function (data) {
+  	$http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/lastMonth').success(function (data) {
        $scope.sintomasMes = data;
     });
 
-    $http.get('http://localhost:8080/desapp-groupb-backend/rest/events/symptoms/semester').success(function (data) {
+    $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/semester').success(function (data) {
        $scope.sintomasSemestre = data;
     });
 
-    $http.get('http://localhost:8080/desapp-groupb-backend/rest/events/symptoms/year').success(function (data) {
+    $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/year').success(function (data) {
        $scope.sintomasAnho = data;
     });
     

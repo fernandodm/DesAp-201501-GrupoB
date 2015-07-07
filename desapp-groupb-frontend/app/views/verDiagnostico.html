@@ -25,7 +25,7 @@
 
 </style>
 
-<form>
+<form name="myform" novalidate>
 <div class="row">
   <div class="col-md-12">
     <h3>Edite el diagnostico</h3>
@@ -34,7 +34,7 @@
 
 <div class="row">
   <div class="col-md-8">
-  <form class="form-horizontal" role="form" ng-submit="crearDiagnostico()">
+  <form class="form-horizontal" role="form">
   <label>Sintomas:</label>
   <tags-input class="bootstrap"
               on-tag-removed="eliminarSintoma($tag)"
@@ -155,11 +155,11 @@
 </br>
   <div class="form-group" style="margin-bottom: 0px; margin-left: 0px;">
     <div>
-      <button class="btn btn-sm btn-success" type="submit">Guardar</button>
+      <button class="btn btn-sm btn-success" ng-click="guardarDiagnostico()" type="submit">Guardar</button>
       <a class="btn btn-sm btn-danger" ng-click="cancelar()">Cancelar</a>
     </div>
   </div> 
- <form>
+ </form>
 
 <script>
   $(function() {
