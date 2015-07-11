@@ -136,7 +136,7 @@
 
     $scope.agregarPracticaMedica = function() {
 
-      if($scope.practicas.indexOf($scope.practica) == -1){
+      if($scope.practicas.indexOf($scope.practica) == -1 && $scope.practica != null){
         $scope.practicas.push($scope.practica);
       
         $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $routeParams.idDiagnostico + '/' + $scope.practica)
@@ -160,7 +160,9 @@
  
    $scope.agregarMedicamento = function() {
 
-    if(!existeMedicamento($scope.nombreMedicamento)){
+    if(!existeMedicamento($scope.nombreMedicamento) && 
+      $scope.nombreMedicamento != null && $scope.concentracion != null &&
+      $scope.semanas != null){
 
       $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/medicine/create/' + $routeParams.idDiagnostico + '/' + $scope.nombreMedicamento + '/' + $scope.concentracion + '/' + $scope.semanas)
         .success(function (data) {

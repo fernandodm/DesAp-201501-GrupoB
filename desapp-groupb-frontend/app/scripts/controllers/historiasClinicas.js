@@ -13,6 +13,9 @@ angular.module('myappApp')
 
 function HistoriasClinicasCtrl($http, $resource, DTOptionsBuilder, DTColumnDefBuilder) {
     var vm = this;
+     
+      //var info = table.page.info();
+     // alert(info.page)
     $http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/list/').success(function (data) {
        //datos lo tenemos disponible en la vista gracias a $scope
        vm.pacientes = data;
@@ -20,7 +23,7 @@ function HistoriasClinicasCtrl($http, $resource, DTOptionsBuilder, DTColumnDefBu
 
     vm.dtOptions = DTOptionsBuilder.newOptions()
                             .withPaginationType('full_numbers')
-                            .withDisplayLength(10)
+                            .withDisplayLength(1)
                             .withBootstrap();
     vm.dtColumnDefs = [
         DTColumnDefBuilder.newColumnDef(0),
@@ -30,10 +33,6 @@ function HistoriasClinicasCtrl($http, $resource, DTOptionsBuilder, DTColumnDefBu
         DTColumnDefBuilder.newColumnDef(4),
         DTColumnDefBuilder.newColumnDef(5).notSortable()
     ];
-    
-
-
-
 
     vm.verPaciente = function(paciente) {
     location = '#/verHistoria/' + paciente.id;

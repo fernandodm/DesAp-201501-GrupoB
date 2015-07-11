@@ -11,7 +11,7 @@
 </br>
 
 <div ng-controller="HistoriasClinicasCtrl as myappApp">
-  <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+  <table id="e" datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
     <thead style="background: white;">
       <tr>
         <th>Nombre</th>
@@ -44,3 +44,14 @@
     </tbody>
   </table>
 </div>
+
+<script type="text/javascript">
+ var table = $('#e').DataTable();
+
+$('#e').on('page.dt', function() {
+    var info = table.page.info();
+    var page = info;
+    console.log(table);
+});
+
+</script>
