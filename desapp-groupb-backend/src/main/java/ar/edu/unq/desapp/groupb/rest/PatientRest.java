@@ -11,12 +11,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import org.springframework.dao.DataIntegrityViolationException;
-
 import ar.edu.unq.desapp.groupb.model.Diagnostic;
 import ar.edu.unq.desapp.groupb.model.MedicalHistory;
 import ar.edu.unq.desapp.groupb.model.Patient;
-import ar.edu.unq.desapp.groupb.model.exceptions.NroDeDNIExistenteExeption;
 import ar.edu.unq.desapp.groupb.services.PatientService;
 
 @Path("/patients")

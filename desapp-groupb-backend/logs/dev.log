@@ -4236,3 +4236,502 @@ Content-Type: application/json
 Headers: {Date=[Tue, 07 Jul 2015 23:38:23 GMT]}
 Payload: {"name":"popopoopoooppo","date":1420686000000,"treatment":{"type":"Parcial","time":9,"medicines":[{"time":33,"concentration":55,"drugName":"jhgg","id":1}],"medicalPractices":["popo"],"repose":false,"id":1},"symptoms":["[object Object]"],"id":1}
 --------------------------------------
+[20:11:58] INFO [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization started
+[20:11:59] INFO [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing Root WebApplicationContext: startup date [Sat Jul 11 20:11:59 ART 2015]; root of context hierarchy
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-web.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-http.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.propertyConfigurer': replacing [Generic bean: class [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.dataSource': replacing [Generic bean: class [org.apache.commons.dbcp.BasicDataSource]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [org.apache.commons.dbcp.BasicDataSource]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.sessionFactory': replacing [Generic bean: class [org.springframework.orm.hibernate3.LocalSessionFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [org.springframework.orm.hibernate3.LocalSessionFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.transactionManager': replacing [Generic bean: class [org.springframework.orm.hibernate3.HibernateTransactionManager]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [org.springframework.orm.hibernate3.HibernateTransactionManager]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.jdbcExceptionTranslator': replacing [Generic bean: class [org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'loggerAspect': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.aspects.LoggerAspect]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.aspects.LoggerAspect]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.diagnosticrepository': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.DiagnosticDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.DiagnosticDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.patientrepository': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.PatientDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.PatientDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.medicalHistoryrepository': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.MedicalHistoryDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.MedicalHistoryDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.medicinerepository': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.MedicineDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.MedicineDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.professionalrepository': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.ProfessionalDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.ProfessionalDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'persistence.treatmentrepository': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.TreatmentDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.repositories.TreatmentDAO]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-persistence-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'services.general': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.services.GeneralService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.services.GeneralService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'services.diagnostic': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.services.DiagnosticService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.services.DiagnosticService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'services.patient': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.services.PatientService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.services.PatientService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'services.medicine': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.services.MedicineService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.services.MedicineService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'services.professional': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.services.ProfessionalService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.services.ProfessionalService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'services.treatment': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.services.TreatmentService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.services.TreatmentService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'services.medicalHistory': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.services.MedicalHistoryService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.services.MedicalHistoryService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/spring-services-context.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'cxf': replacing [Generic bean: class [org.apache.cxf.bus.CXFBusImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=shutdown; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.bus.CXFBusImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=shutdown; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.bus.spring.BusApplicationListener': replacing [Generic bean: class [org.apache.cxf.bus.spring.BusApplicationListener]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.bus.spring.BusApplicationListener]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor': replacing [Generic bean: class [org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.bus.spring.Jsr250BeanPostProcessor': replacing [Generic bean: class [org.apache.cxf.bus.spring.Jsr250BeanPostProcessor]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.bus.spring.Jsr250BeanPostProcessor]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.bus.spring.BusExtensionPostProcessor': replacing [Generic bean: class [org.apache.cxf.bus.spring.BusExtensionPostProcessor]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.bus.spring.BusExtensionPostProcessor]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.resource.ResourceManager': replacing [Generic bean: class [org.apache.cxf.bus.resource.ResourceManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.bus.resource.ResourceManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.configuration.Configurer': replacing [Generic bean: class [org.apache.cxf.configuration.spring.ConfigurerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.configuration.spring.ConfigurerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.binding.BindingFactoryManager': replacing [Generic bean: class [org.apache.cxf.binding.BindingFactoryManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.binding.BindingFactoryManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transport.DestinationFactoryManager': replacing [Generic bean: class [org.apache.cxf.transport.DestinationFactoryManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.transport.DestinationFactoryManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transport.ConduitInitiatorManager': replacing [Generic bean: class [org.apache.cxf.transport.ConduitInitiatorManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.transport.ConduitInitiatorManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.wsdl.WSDLManager': replacing [Generic bean: class [org.apache.cxf.wsdl11.WSDLManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.wsdl11.WSDLManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.phase.PhaseManager': replacing [Generic bean: class [org.apache.cxf.phase.PhaseManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.phase.PhaseManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.workqueue.WorkQueueManager': replacing [Generic bean: class [org.apache.cxf.workqueue.WorkQueueManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.workqueue.WorkQueueManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.buslifecycle.BusLifeCycleManager': replacing [Generic bean: class [org.apache.cxf.buslifecycle.CXFBusLifeCycleManager]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.buslifecycle.CXFBusLifeCycleManager]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.endpoint.ServerRegistry': replacing [Generic bean: class [org.apache.cxf.endpoint.ServerRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.endpoint.ServerRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.endpoint.ServerLifeCycleManager': replacing [Generic bean: class [org.apache.cxf.endpoint.ServerLifeCycleManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.endpoint.ServerLifeCycleManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.endpoint.ClientLifeCycleManager': replacing [Generic bean: class [org.apache.cxf.endpoint.ClientLifeCycleManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.endpoint.ClientLifeCycleManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transports.http.QueryHandlerRegistry': replacing [Generic bean: class [org.apache.cxf.transport.http.QueryHandlerRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.transport.http.QueryHandlerRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.endpoint.EndpointResolverRegistry': replacing [Generic bean: class [org.apache.cxf.endpoint.EndpointResolverRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.endpoint.EndpointResolverRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.headers.HeaderManager': replacing [Generic bean: class [org.apache.cxf.headers.HeaderManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.headers.HeaderManagerImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.catalog.OASISCatalogManager': replacing [Generic bean: class [org.apache.cxf.catalog.OASISCatalogManager]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.catalog.OASISCatalogManager]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.service.factory.FactoryBeanListenerManager': replacing [Generic bean: class [org.apache.cxf.service.factory.FactoryBeanListenerManager]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.service.factory.FactoryBeanListenerManager]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.endpoint.ServiceContractResolverRegistry': replacing [Generic bean: class [org.apache.cxf.endpoint.ServiceContractResolverRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]] with [Generic bean: class [org.apache.cxf.endpoint.ServiceContractResolverRegistryImpl]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.binding.soap.SoapBindingFactory': replacing [Generic bean: class [org.apache.cxf.binding.soap.SoapBindingFactory]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-soap.xml]] with [Generic bean: class [org.apache.cxf.binding.soap.SoapBindingFactory]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-soap.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.binding.soap.SoapTransportFactory': replacing [Generic bean: class [org.apache.cxf.binding.soap.SoapTransportFactory]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-soap.xml]] with [Generic bean: class [org.apache.cxf.binding.soap.SoapTransportFactory]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-soap.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.binding.soap.customEditorConfigurer': replacing [Generic bean: class [org.springframework.beans.factory.config.CustomEditorConfigurer]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-soap.xml]] with [Generic bean: class [org.springframework.beans.factory.config.CustomEditorConfigurer]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-soap.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+[20:11:59] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-http.xml]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder': replacing [Generic bean: class [org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]] with [Generic bean: class [org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder': replacing [Generic bean: class [org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]] with [Generic bean: class [org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider': replacing [Generic bean: class [org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]] with [Generic bean: class [org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transport.http.ClientOnlyHTTPTransportFactory': replacing [Generic bean: class [org.apache.cxf.transport.http.ClientOnlyHTTPTransportFactory]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]] with [Generic bean: class [org.apache.cxf.transport.http.ClientOnlyHTTPTransportFactory]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-extension-http.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'org.apache.cxf.transport.servlet.ServletTransportFactory': replacing [Generic bean: class [org.apache.cxf.transport.servlet.ServletTransportFactory]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-servlet.xml]] with [Generic bean: class [org.apache.cxf.transport.servlet.ServletTransportFactory]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [META-INF/cxf/cxf-servlet.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'jaxbProvider': replacing [Generic bean: class [org.apache.cxf.jaxrs.provider.JAXBElementProvider]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [org.apache.cxf.jaxrs.provider.JAXBElementProvider]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'jacksonProvider': replacing [Generic bean: class [org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'globalService': replacing [Generic bean: class [org.apache.cxf.jaxrs.spring.JAXRSServerFactoryBeanDefinitionParser$SpringJAXRSServerFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=create; destroyMethodName=null] with [Generic bean: class [org.apache.cxf.jaxrs.spring.JAXRSServerFactoryBeanDefinitionParser$SpringJAXRSServerFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=create; destroyMethodName=null]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'diagnosesRest': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.rest.DiagnosticRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.rest.DiagnosticRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'patientsRest': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.rest.PatientRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.rest.PatientRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'medicinesRest': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.rest.MedicineRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.rest.MedicineRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'professionalsRest': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.rest.ProfessionalRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.rest.ProfessionalRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'treatmentsRest': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.rest.TreatmentRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.rest.TreatmentRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:11:59] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'medicalHistoriesRest': replacing [Generic bean: class [ar.edu.unq.desapp.groupb.rest.MedicalHistoryRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]] with [Generic bean: class [ar.edu.unq.desapp.groupb.rest.MedicalHistoryRest]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/applicationContext.xml]]
+[20:12:00] INFO [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/hibernate.properties]
+[20:12:00] INFO [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/jdbc.properties]
+[20:12:00] INFO [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from URL [file:/home/fernando/git/DesAp-201501-GrupoB/desapp-groupb-backend/target/classes/META-INF/log4j.properties]
+[20:12:00] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6368b817: defining beans [org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,persistence.propertyConfigurer,persistence.dataSource,persistence.sessionFactory,persistence.transactionManager,persistence.jdbcExceptionTranslator,loggerAspect,persistence.diagnosticrepository,persistence.patientrepository,persistence.medicalHistoryrepository,persistence.medicinerepository,persistence.professionalrepository,persistence.treatmentrepository,services.general,services.diagnostic,services.patient,services.medicine,services.professional,services.treatment,services.medicalHistory,cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.service.factory.FactoryBeanListenerManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder,org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder,org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider,org.apache.cxf.transport.http.ClientOnlyHTTPTransportFactory,org.apache.cxf.transport.servlet.ServletTransportFactory,jaxbProvider,jacksonProvider,globalService,diagnosesRest,patientsRest,medicinesRest,professionalsRest,treatmentsRest,medicalHistoriesRest]; root of factory hierarchy
+[20:12:00] INFO [org.hibernate.annotations.common.Version] - Hibernate Commons Annotations 3.2.0.Final
+[20:12:00] INFO [org.hibernate.cfg.Environment] - Hibernate 3.6.0.Final
+[20:12:00] INFO [org.hibernate.cfg.Environment] - hibernate.properties not found
+[20:12:00] INFO [org.hibernate.cfg.Environment] - Bytecode provider name : javassist
+[20:12:00] INFO [org.hibernate.cfg.Environment] - using JDK 1.4 java.sql.Timestamp handling
+[20:12:01] WARN [org.hibernate.util.DTDEntityResolver] - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+[20:12:01] WARN [org.hibernate.util.DTDEntityResolver] - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+[20:12:01] WARN [org.hibernate.util.DTDEntityResolver] - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+[20:12:01] WARN [org.hibernate.util.DTDEntityResolver] - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+[20:12:01] WARN [org.hibernate.util.DTDEntityResolver] - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+[20:12:01] WARN [org.hibernate.util.DTDEntityResolver] - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping class: ar.edu.unq.desapp.groupb.model.Medicine -> Medicine
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping class: ar.edu.unq.desapp.groupb.model.Patient -> Patient
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping class: ar.edu.unq.desapp.groupb.model.Diagnostic -> Diagnostic
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping collection: ar.edu.unq.desapp.groupb.model.Diagnostic.symptoms -> Diagnostic_symptoms
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping class: ar.edu.unq.desapp.groupb.model.Treatment -> Treatment
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping collection: ar.edu.unq.desapp.groupb.model.Treatment.medicalPractices -> Treatment_medicalPractices
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping collection: ar.edu.unq.desapp.groupb.model.Treatment.medicines -> Treatment_medicines
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping class: ar.edu.unq.desapp.groupb.model.Professional -> Professional
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping class: ar.edu.unq.desapp.groupb.model.MedicalHistory -> MedicalHistory
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping collection: ar.edu.unq.desapp.groupb.model.MedicalHistory.allergies -> MedicalHistory_allergies
+[20:12:01] INFO [org.hibernate.cfg.HbmBinder] - Mapping collection: ar.edu.unq.desapp.groupb.model.MedicalHistory.diagnoses -> MedicalHistory_diagnoses
+[20:12:01] INFO [org.hibernate.cfg.Configuration] - Hibernate Validator not found: ignoring
+[20:12:01] INFO [org.springframework.orm.hibernate3.LocalSessionFactoryBean] - Building new Hibernate SessionFactory
+[20:12:01] INFO [org.hibernate.cfg.search.HibernateSearchEventListenerRegister] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[20:12:01] WARN [org.hibernate.cfg.Environment] - Property [hibernate.cglib.use_reflection_optimizer] has been renamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately
+[20:12:01] INFO [org.hibernate.connection.ConnectionProviderFactory] - Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Database ->
+       name : HSQL Database Engine
+    version : 2.2.4
+      major : 2
+      minor : 2
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Driver ->
+       name : HSQL Database Engine Driver
+    version : 2.2.4
+      major : 2
+      minor : 2
+[20:12:01] INFO [org.hibernate.dialect.Dialect] - Using dialect: org.hibernate.dialect.HSQLDialect
+[20:12:01] INFO [org.hibernate.transaction.TransactionFactoryFactory] - Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+[20:12:01] INFO [org.hibernate.transaction.TransactionManagerLookupFactory] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Automatic flush during beforeCompletion(): disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Automatic session close at end of transaction: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - JDBC batch size: 15
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - JDBC batch updates for versioned data: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Scrollable result sets: enabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - JDBC3 getGeneratedKeys(): enabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Connection release mode: auto
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Default batch fetch size: 1
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Generate SQL with comments: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Order SQL updates by primary key: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Order SQL inserts for batching: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[20:12:01] INFO [org.hibernate.hql.ast.ASTQueryTranslatorFactory] - Using ASTQueryTranslatorFactory
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Query language substitutions: {}
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - JPA-QL strict compliance: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Second-level cache: enabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Query cache: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Optimize cache for minimal puts: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Structured second-level cache entries: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Echoing all SQL to stdout
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Statistics: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Deleted entity synthetic identifier rollback: disabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Default entity-mode: pojo
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Named query checking : enabled
+[20:12:01] INFO [org.hibernate.cfg.SettingsFactory] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[20:12:01] INFO [org.hibernate.impl.SessionFactoryImpl] - building session factory
+[20:12:01] INFO [org.hibernate.impl.SessionFactoryObjectFactory] - Not binding factory to JNDI, no JNDI name configured
+[20:12:02] INFO [org.hibernate.tool.hbm2ddl.SchemaExport] - Running hbm2ddl schema export
+[20:12:02] INFO [org.hibernate.tool.hbm2ddl.SchemaExport] - exporting generated schema to database
+[20:12:02] INFO [org.hibernate.tool.hbm2ddl.SchemaExport] - schema export complete
+[20:12:02] INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+[20:12:02] INFO [org.springframework.jdbc.support.SQLErrorCodesFactory] - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+[20:12:02] INFO [org.springframework.orm.hibernate3.HibernateTransactionManager] - Using DataSource [org.apache.commons.dbcp.BasicDataSource@14a3f90c] of Hibernate SessionFactory for HibernateTransactionManager
+[20:12:03] INFO [org.apache.cxf.endpoint.ServerImpl] - Setting the server's publish address to be null
+[20:12:03] INFO [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 4188 ms
+[20:12:03] INFO [org.apache.cxf.transport.servlet.AbstractCXFServlet] - Load the bus with application context
+[20:12:03] INFO [org.apache.cxf.bus.spring.BusApplicationContext] - Refreshing org.apache.cxf.bus.spring.BusApplicationContext@7ef29877: startup date [Sat Jul 11 20:12:03 ART 2015]; parent: Root WebApplicationContext
+[20:12:03] INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@d9f2856: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@6368b817
+[20:12:03] INFO [org.apache.cxf.transport.servlet.AbstractCXFServlet] - Servlet transport factory already registered 
+[20:13:26] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 2
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://localhost:9000], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:26] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 1
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://localhost:9000], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:27] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 2
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:27 GMT]}
+Payload: []
+--------------------------------------
+[20:13:27] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 1
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:27 GMT]}
+Payload: []
+--------------------------------------
+[20:13:38] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 3
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], Cache-Control=[max-age=0], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:38] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 3
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:38 GMT]}
+Payload: []
+--------------------------------------
+[20:13:38] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 4
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], Cache-Control=[max-age=0], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:38] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 4
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:38 GMT]}
+Payload: []
+--------------------------------------
+[20:13:40] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 5
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:40] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 5
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:40 GMT]}
+Payload: []
+--------------------------------------
+[20:13:40] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 6
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:40] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 6
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:40 GMT]}
+Payload: []
+--------------------------------------
+[20:13:56] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 7
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/create/
+Encoding: ISO-8859-1
+Http-Method: POST
+Content-Type: application/x-www-form-urlencoded
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Length=[71], content-type=[application/x-www-form-urlencoded], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+Payload: firstname=Fernando&lastname=Di%20Meglo&dni=323232&weight=323&height=323
+--------------------------------------
+[20:13:57] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 7
+Response-Code: 200
+Content-Type: text/xml
+Headers: {Date=[Sat, 11 Jul 2015 23:13:57 GMT]}
+--------------------------------------
+[20:13:58] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 8
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:58] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 8
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:58 GMT]}
+Payload: [{"height":323,"medicalHistory":{"allergies":[],"diagnoses":[],"id":1},"weight":323,"password":null,"username":null,"dni":"323232","firstname":"Fernando","lastname":"Di Meglo","id":1}]
+--------------------------------------
+[20:13:58] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 9
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/list/
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:13:58] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 9
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:13:58 GMT]}
+Payload: [{"height":323,"medicalHistory":{"allergies":[],"diagnoses":[],"id":1},"weight":323,"password":null,"username":null,"dni":"323232","firstname":"Fernando","lastname":"Di Meglo","id":1}]
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 10
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/1
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 10
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:04 GMT]}
+Payload: {"height":323,"medicalHistory":{"allergies":[],"diagnoses":[],"id":1},"weight":323,"password":null,"username":null,"dni":"323232","firstname":"Fernando","lastname":"Di Meglo","id":1}
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 11
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/1
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 11
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:04 GMT]}
+Payload: {"height":323,"medicalHistory":{"allergies":[],"diagnoses":[],"id":1},"weight":323,"password":null,"username":null,"dni":"323232","firstname":"Fernando","lastname":"Di Meglo","id":1}
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 12
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/diagnoses/1
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 12
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:04 GMT]}
+Payload: []
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 13
+Address: http://localhost:8080/desapp-groupb-backend/rest/patients/diagnoses/1
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:04] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 13
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:04 GMT]}
+Payload: []
+--------------------------------------
+[20:14:09] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 14
+Address: http://localhost:8080/desapp-groupb-backend/rest/diagnoses/fefe
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:09] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 14
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:09 GMT]}
+Payload: []
+--------------------------------------
+[20:14:12] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 15
+Address: http://localhost:8080/desapp-groupb-backend/rest/diagnoses/fef
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:12] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 15
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:12 GMT]}
+Payload: []
+--------------------------------------
+[20:14:12] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 16
+Address: http://localhost:8080/desapp-groupb-backend/rest/diagnoses/fef
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:12] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 16
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:12 GMT]}
+Payload: []
+--------------------------------------
+[20:14:14] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 17
+Address: http://localhost:8080/desapp-groupb-backend/rest/diagnoses/create/
+Encoding: ISO-8859-1
+Http-Method: POST
+Content-Type: application/x-www-form-urlencoded
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Length=[47], content-type=[application/x-www-form-urlencoded], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+Payload: id=1&name=fefe&symptoms=fef&date=01%2F07%2F2015
+--------------------------------------
+[20:14:14] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 17
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:14 GMT]}
+Payload: {"date":1435719600000,"symptoms":["fef"],"treatment":{"time":0,"medicines":[],"medicalPractices":[],"repose":false,"type":null,"id":1},"name":"fefe","id":1}
+--------------------------------------
+[20:14:14] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 18
+Address: http://localhost:8080/desapp-groupb-backend/rest/treatments/1
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:14] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 18
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:14 GMT]}
+Payload: {"date":1435719600000,"symptoms":["fef"],"treatment":{"time":0,"medicines":[],"medicalPractices":[],"repose":false,"type":null,"id":1},"name":"fefe","id":1}
+--------------------------------------
+[20:14:17] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 19
+Address: http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/lastMonth
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:17] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 20
+Address: http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/semester
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:17] INFO [org.apache.cxf.interceptor.LoggingInInterceptor] - Inbound Message
+----------------------------
+ID: 21
+Address: http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/year
+Http-Method: GET
+Content-Type: 
+Headers: {Accept=[application/json, text/plain, */*], accept-encoding=[gzip, deflate, sdch], Accept-Language=[es-ES,es;q=0.8,en;q=0.6], connection=[keep-alive], Content-Type=[null], Host=[localhost:8080], Origin=[http://evil.com/], Referer=[http://localhost:9000/], User-Agent=[Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36]}
+--------------------------------------
+[20:14:17] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 21
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:17 GMT]}
+Payload: {"fef":100.0}
+--------------------------------------
+[20:14:17] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 20
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:17 GMT]}
+Payload: {"fef":100.0}
+--------------------------------------
+[20:14:17] INFO [org.apache.cxf.interceptor.LoggingOutInterceptor] - Outbound Message
+---------------------------
+ID: 19
+Response-Code: 200
+Content-Type: application/json
+Headers: {Date=[Sat, 11 Jul 2015 23:14:17 GMT]}
+Payload: {"fef":100.0}
+--------------------------------------
