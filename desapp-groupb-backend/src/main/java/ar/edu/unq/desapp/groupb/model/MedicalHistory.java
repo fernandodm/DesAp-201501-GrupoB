@@ -37,20 +37,6 @@ public class MedicalHistory extends Entity {
 		return false;
 	}
 
-//	public void addEvent(Event evento){
-//		this.getEvents().add(evento);
-//	}
-//	
-//	public List<Diagnostic> getDiagnostics() {
-//		
-//		List<Diagnostic> diagnosticos = new ArrayList<Diagnostic>();
-//		for(Event evento: this.getEvents()){
-//			diagnosticos.add(evento.getDiagnostic());
-//		}
-//	
-//		return diagnosticos;
-//	}
-
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
