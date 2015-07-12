@@ -1,7 +1,9 @@
 package ar.edu.unq.desapp.groupb.repositories;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -55,6 +57,25 @@ public class DiagnosticDAO extends HibernateGenericDAO<Diagnostic> implements Ge
 	            session.close();
 	        }
 		}
+	public Set<String> getAllSymptoms() {
+			
+		Session session = this.getHibernateTemplate().getSessionFactory().openSession();
+	    try {
+	      	 String queryStr = " SELECT d FROM " + this.persistentClass.getName() + " AS d";
+             @SuppressWarnings("unchecked")
+			 List<Diagnostic> diagnoses = session.createQuery(queryStr).list();
+             //obtener los sintomas
+             Set<String> symptoms = new HashSet<String>();
+     		 for(Diagnostic d: diagnoses){
+     			symptoms.addAll(d.getSymptoms());
+    		 }
+     		 
+             return symptoms;
+
+        } finally {
+            session.close();
+        }
+	}
 
 	
 }

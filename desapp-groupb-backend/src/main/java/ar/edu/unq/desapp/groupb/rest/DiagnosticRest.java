@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -185,6 +186,13 @@ public class DiagnosticRest {
     	DateTime dateLastYear = new DateTime().minusYears(1);
     	
         return getDiagnosticService().percentageOfSymptomsFrom(dateLastYear);
+    }
+    
+    @GET
+    @Path("/symptoms/list")
+    @Produces("application/json")
+    public Set<String> getSymptoms() {
+        return getDiagnosticService().getSymptoms();
     }
     
 	public MedicalHistoryService getMedicalHistoryService() {

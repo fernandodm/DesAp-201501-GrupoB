@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.joda.time.DateTime;
 
@@ -25,6 +26,10 @@ public class DiagnosticService extends GenericService<Diagnostic> {
 		}
 			
 		return reporte;
+	}
+	
+	public Set<String> getSymptoms() {
+		return ((DiagnosticDAO) this.getRepository()).getAllSymptoms();
 	}
 
 }
