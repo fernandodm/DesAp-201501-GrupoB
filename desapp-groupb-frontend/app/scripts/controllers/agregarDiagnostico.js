@@ -13,8 +13,17 @@
  	
  	$scope.tags = [];
 	$scope.sintomas = [];
-  $scope.crearDiagnostico = function() {
 
+  $scope.loadTags = function(query) {
+    return $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/list', { cache: true}).then(function(response) {
+      var sintomas = response.data;
+      return sintomas.filter(function(sintoma) {
+        return sintoma.toLowerCase().indexOf(query.toLowerCase()) != -1;
+      });
+    });
+  };
+
+  $scope.crearDiagnostico = function() {
 
      if($scope.sintomas.length > 0){  	
    		$http({

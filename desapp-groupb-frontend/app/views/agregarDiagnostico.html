@@ -53,7 +53,9 @@
               ng-enter="agregarSintoma()" 
               add-on-blur="true"
               placeholder="Ingrese un sintoma..."> <!-- add-on-enter="{boolean}" y on-tag-added="{expression}" -->
-    <!--<auto-complete source="loadItems($query)"></auto-complete>-->
+    <auto-complete source="loadTags($query)"
+    highlight-matched-text="true"
+    min-length="1"></auto-complete>
   </tags-input>
   </br>
 
