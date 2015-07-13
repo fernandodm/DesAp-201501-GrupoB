@@ -31,7 +31,6 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 			<ref bean="patientsRest" />
 			<ref bean="diagnosesRest" />
 			<ref bean="medicinesRest" />
-			<ref bean="professionalsRest" />
 			<ref bean="treatmentsRest" />
 			<ref bean="medicalHistoriesRest" />
 		</jaxrs:serviceBeans>
@@ -65,9 +64,6 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	</bean>
 	<bean id="medicinesRest" class="ar.edu.unq.desapp.groupb.rest.MedicineRest">
 		<property name="medicineService" ref="services.medicine" />
-	</bean>
-	<bean id="professionalsRest" class="ar.edu.unq.desapp.groupb.rest.ProfessionalRest">
-		<property name="professionalService" ref="services.professional" />
 	</bean>
 	<bean id="treatmentsRest" class="ar.edu.unq.desapp.groupb.rest.TreatmentRest">
 		<property name="treatmentService" ref="services.treatment" />

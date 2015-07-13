@@ -11,7 +11,6 @@
 		<property name="diagnosticService" ref="services.diagnostic" />
 		<property name="patientService" ref="services.patient" />
 		<property name="medicineService" ref="services.medicine" />
-		<property name="professionalService" ref="services.professional" />
 		<property name="treatmentService" ref="services.treatment" />
 		<property name="medicalHistoryService" ref="services.medicalHistory" />
 		
@@ -26,9 +25,6 @@
 	</bean>
 	<bean id="services.medicine" class="ar.edu.unq.desapp.groupb.services.MedicineService">
 		<property name="repository" ref="persistence.medicinerepository" />
-	</bean>
-	<bean id="services.professional" class="ar.edu.unq.desapp.groupb.services.ProfessionalService">
-		<property name="repository" ref="persistence.professionalrepository" />
 	</bean>
 	<bean id="services.treatment" class="ar.edu.unq.desapp.groupb.services.TreatmentService">
 		<property name="repository" ref="persistence.treatmentrepository" />

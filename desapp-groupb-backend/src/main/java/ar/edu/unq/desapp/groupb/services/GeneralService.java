@@ -6,7 +6,6 @@ public class GeneralService {
 	private PatientService patientService;
 	private MedicalHistoryService medicalHistoryService;
 	private MedicineService medicineService;
-	private ProfessionalService professionalService;
 	private TreatmentService treatmentService;
 
 	public MedicalHistoryService getMedicalHistoryService() {
@@ -23,14 +22,6 @@ public class GeneralService {
 
 	public void setMedicineService(MedicineService medicineService) {
 		this.medicineService = medicineService;
-	}
-
-	public ProfessionalService getProfessionalService() {
-		return professionalService;
-	}
-
-	public void setProfessionalService(ProfessionalService professionalService) {
-		this.professionalService = professionalService;
 	}
 
 	public TreatmentService getTreatmentService() {

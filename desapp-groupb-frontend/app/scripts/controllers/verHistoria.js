@@ -51,7 +51,7 @@ angular.module('myappApp')
 
   $scope.verDiagnostico = function(diagnostico) {
     
-        location = '#/verDiagnostico/' + diagnostico.id;   
+        location = '#/verDiagnostico/' + $routeParams.id + '/' + diagnostico.id;   
     
   };
 

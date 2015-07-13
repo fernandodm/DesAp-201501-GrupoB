@@ -1,25 +1,29 @@
 package ar.edu.unq.desapp.groupb.model;
 
 
-public class Patient extends Person {
+public class Patient extends Entity {
 
+	private String firstname;
+	private String lastname;
+	private String dni;
 	private MedicalHistory medicalHistory;
 	private Integer weight;
 	private Integer height;
 	
 	public Patient(){}
 	
-	public Patient(Integer weight, Integer height,String nombre, String apellido, String dni,
-			String usuario, String contrasena){
-		super(nombre,apellido,dni,usuario, contrasena);
+	public Patient(Integer weight, Integer height,String nombre, String apellido, String dni){
+		this.firstname = nombre;
+		this.lastname = apellido;
+		this.dni = dni;	
 		this.weight = weight;
 		this.height = height;
 	}
 	
-	public Patient(String nombre, String apellido, String dni,
-			String usuario, String contrasena){
-		super(nombre,apellido,dni,usuario, contrasena);
-		
+	public Patient(String nombre, String apellido, String dni){
+		this.setFirstname(nombre);
+		this.setLastname(apellido);
+		this.setDni(dni);
 	}
 	
 	public void updatePatient(String nombre, String apellido, String dni, int height, int weight){
@@ -58,8 +62,34 @@ public class Patient extends Person {
 	// GETTERS AND SETTERS//
 	////////////////////////
 	
+	
+	
 	public MedicalHistory getMedicalHistory() {
 		return medicalHistory;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public void setMedicalHistory(MedicalHistory historiaClinica) {

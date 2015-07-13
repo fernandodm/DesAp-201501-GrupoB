@@ -57,7 +57,7 @@ angular
         controller: 'ReportesCtrl'
 
       })
-      .when('/verDiagnostico/:idDiagnostico', {
+      .when('/verDiagnostico/:idPaciente/:idDiagnostico', {
         templateUrl: 'views/verDiagnostico.html',
         controller: 'VerDiagnosticoCtrl'
 

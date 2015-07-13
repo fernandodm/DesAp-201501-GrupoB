@@ -48,7 +48,7 @@ public class PatientRest {
 		Patient patient = getPatientService().findByDni(dni);
 		
 		if(patient == null){
-			Patient p = new Patient(weight, height,firstname,lastname,dni,null,null);
+			Patient p = new Patient(weight, height,firstname,lastname,dni);
 			MedicalHistory m = new MedicalHistory();
 			p.setMedicalHistory(m);
 			getPatientService().save(p);

@@ -10,8 +10,6 @@
 		<property name="firstname" />
 		<property name="lastname" />
 		<property name="dni" unique="true"/>
-		<property name="username" unique="true"/>
-		<property name="password" />
 		<property name="weight" />
 		<property name="height" />
 		

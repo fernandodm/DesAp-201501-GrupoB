@@ -112,7 +112,6 @@ public class DiagnosticRest {
     @Produces("application/json")
     public void deleteDiagnoses(@PathParam("id") Integer id,@PathParam("idd") Integer idd) {
         Diagnostic diagnostic = getDiagnosticService().findById(idd);
-        diagnostic.eraseAll();
         this.getDiagnosticService().update(diagnostic);
         MedicalHistory m = this.getMedicalHistoryService().findById(id);
         List<Diagnostic> diags = m.getDiagnoses();

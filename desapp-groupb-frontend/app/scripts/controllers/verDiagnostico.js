@@ -21,6 +21,7 @@ angular.module('myappApp')
 
         	$scope.repose = $scope.diagnostico.treatment.repose
 
+
         	if($scope.repose){
         		cambiarValorType()
         		$scope.time = $scope.diagnostico.treatment.time
@@ -49,16 +50,57 @@ angular.module('myappApp')
 
     $scope.guardarDiagnostico = function() {
         
-        $http.put('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/update/' + $scope.diagnostico.id + '/' + $scope.diagnostico.name + '/' +$scope.diagnostico.symptoms + '/' + $scope.diagnostico.date)
-            .success(function(data) {
-            
-        });
 
-        $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.diagnostico.treatment.id + '/' + $scope.repose + '/' + $scope.type + '/' + $scope.time + '/' + $scope.practicas)
+
+
+        if(seLlenaronCamposPrincipales()){
+
+            $http.put('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/update/' + $scope.diagnostico.id + '/' + $scope.diagnostico.name + '/' +$scope.diagnostico.symptoms + '/' + $scope.diagnostico.date)
             .success(function(data) {
             
         });
+            
+        if($scope.time == null){
+          $scope.time = 0;
+        }
+
+        if($scope.practicas.length == 0){
+
+            guardarTratamientoSinPracticas()
+
+        }else{
+  
+        $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.diagnostico.treatment.id + '/' + $scope.repose + '/' + $scope.type + '/' + $scope.time + '/' + $scope.practicas)
+        .success(function (data) {
+          $scope.medicamentos.push(data);
+        }).success(function (data) {
+                    alert("Diagnostico editado exitosamente");
+                    location = '#/verHistoria/' + $routeParams.idPaciente;
+                }).error(function(data,status) {
+                        alert("Error (" + status +"): " + "no se pudo editar el diagnostico.");
+                        location = '#/verHistoria/' + $routeParams.idPaciente;
+                });
+        }
+      }
+
+      
+
     };
+
+    function guardarTratamientoSinPracticas(){
+
+        $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.diagnostico.treatment.id + '/' + $scope.repose + '/' + $scope.type + '/' + $scope.time)
+        .success(function (data) {
+          $scope.medicamentos.push(data);
+        }).success(function (data) {
+                    alert("Diagnostico editado exitosamente");
+                    location = '#/verHistoria/' + $routeParams.idPaciente;
+                }).error(function(data,status) {
+                        alert("Error (" + status +"): " + "no se pudo editar el diagnostico.");
+                        location = '#/verHistoria/' + $routeParams.idPaciente;
+                });
+    }
+
 
     $scope.agregarPracticaMedica = function() {
 
@@ -83,6 +125,22 @@ angular.module('myappApp')
       });
 
   };
+
+  function seLlenaronCamposPrincipales(){
+
+      if($scope.repose == null){
+        alert("Elija si esta en reposo o no");
+        return false;
+      }else{
+         if(($scope.repose == true) && (($scope.type == null) || ($scope.time == null))){
+            alert("Llene los campos tipo de reposo y duracion");
+            return false;
+         }
+      }
+
+      return true;
+
+    }
  
    $scope.agregarMedicamento = function() {
 
@@ -104,4 +162,16 @@ angular.module('myappApp')
     }
     return false;
   }
+
+  
+  $scope.cancelar = function() {
+        alert($routeParams.idPaciente)
+        location = '#/verHistoria/' + $routeParams.idPaciente;
+    };  
+
+
+
+
+
+
   });

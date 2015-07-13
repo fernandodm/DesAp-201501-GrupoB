@@ -10,7 +10,7 @@ public class PatientTest extends TestCase {
 	Patient patient;
 	
 	public void setUp(){
-		patient = new Patient("Esteban","Di Meglia","36811371","edm","amdamd");
+		patient = new Patient("Esteban","Di Meglia","36811371");
 	}
 		
 	public void testAddAllergy(){

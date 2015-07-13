@@ -50,12 +50,6 @@ public class Diagnostic extends Entity{
     	return dateTime;
 	}
 	
-	public void eraseAll(){
-		this.setDate(null);
-		this.setName(null);
-		this.setSymptoms(null);
-		this.setTreatment(null);
-	}
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
