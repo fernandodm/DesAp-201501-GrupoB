@@ -133,8 +133,8 @@ public class TreatmentRest {
     	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
 //    	diag.getTreatment().setMedicines(diag.getTreatment().getMedicines());
 
-        getDiagnosticService().update(diag);
-        return Response.ok(diag).build();
+        getTreatmentService().update(diag.getTreatment());
+        return Response.ok(diag.getTreatment().getMedicines()).build();
     }
     
     @PUT

@@ -28,6 +28,7 @@ angular.module('myappApp')
        
   
     		});
+        $scope.alergia = "";
 		}
 
 	};

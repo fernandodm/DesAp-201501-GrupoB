@@ -7,13 +7,18 @@
  * # AboutCtrl
  * Controller of the myappApp
  */
-angular.module('myappApp')
-  .controller('VerDiagnosticoCtrl', function ($http,$scope,$routeParams) {
+ var app =  angular.module('myappApp');
+
+ app.controller('VerDiagnosticoCtrl', function ($http,$scope,$routeParams) {
+
+
 
   	$http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/diagnostic/' + $routeParams.idDiagnostico)
         .success(function(data) {
         	var date = new Date(data.date);
+
         	$scope.diagnostico = data;
+            $scope.tags = $scope.diagnostico.symptoms;
         	$scope.diagnostico.date = date.getDate() + '/' + date.getMonth() + '/' +  date.getFullYear();
 
         	$scope.practicas = $scope.diagnostico.treatment.medicalPractices
@@ -40,25 +45,40 @@ angular.module('myappApp')
     $scope.loadTags = function(query) {
     return $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/list', { cache: true}).then(function(response) {
       var sintomas = response.data;
-      console.log(sintomas);
+      
        return sintomas.filter(function(sintoma) {
         return sintoma.toLowerCase().indexOf(query.toLowerCase()) != -1;
        });
       });
     };
 
+    $scope.eliminarSintoma = function(tag){
+      var index = $scope.diagnostico.symptoms.indexOf(tag.text);
+      $scope.diagnostico.symptoms.splice(index,0);
+       $scope.actualizarSintomas();
+
+    };
+
+    $scope.actualizarSintomas = function() {
+      $scope.diagnostico.symptoms = [];
+      var i;
+      for (i = 0; i < $scope.tags.length; i++) { 
+        $scope.diagnostico.symptoms.push($scope.tags[i].text);
+      }
+    };
+
 
     $scope.guardarDiagnostico = function() {
-        
+        $scope.actualizarSintomas();
 
-
-
-        if(seLlenaronCamposPrincipales()){
-
-            $http.put('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/update/' + $scope.diagnostico.id + '/' + $scope.diagnostico.name + '/' +$scope.diagnostico.symptoms + '/' + $scope.diagnostico.date)
+        $http.put('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/update/' + $scope.diagnostico.id + '/' + $scope.diagnostico.name + '/' + $scope.diagnostico.symptoms + '/' + $scope.diagnostico.date)
             .success(function(data) {
             
         });
+
+        if(seLlenaronCamposPrincipales()){
+
+            
             
         if($scope.time == null){
           $scope.time = 0;
@@ -72,7 +92,7 @@ angular.module('myappApp')
   
         $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.diagnostico.treatment.id + '/' + $scope.repose + '/' + $scope.type + '/' + $scope.time + '/' + $scope.practicas)
         .success(function (data) {
-          $scope.medicamentos.push(data);
+       
         }).success(function (data) {
                     alert("Diagnostico editado exitosamente");
                     location = '#/verHistoria/' + $routeParams.idPaciente;
@@ -91,7 +111,7 @@ angular.module('myappApp')
 
         $http.put('http://localhost:8080/desapp-groupb-backend/rest/treatments/update/' + $scope.diagnostico.treatment.id + '/' + $scope.repose + '/' + $scope.type + '/' + $scope.time)
         .success(function (data) {
-          $scope.medicamentos.push(data);
+
         }).success(function (data) {
                     alert("Diagnostico editado exitosamente");
                     location = '#/verHistoria/' + $routeParams.idPaciente;
@@ -174,4 +194,21 @@ angular.module('myappApp')
 
 
 
+
+
+  });
+
+
+app.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress ", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+ 
+                event.preventDefault();
+            }
+        });
+    };
   });
