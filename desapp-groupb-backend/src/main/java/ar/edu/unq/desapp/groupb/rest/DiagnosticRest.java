@@ -105,31 +105,7 @@ public class DiagnosticRest {
     	medical.getDiagnoses().add(diagnostic);       
 		getMedicalHistoryService().update(medical);
 		return diagnostic;
-    }
-        
-    @POST
-    @Path("/delete/{id}/{idd}")
-    @Produces("application/json")
-    public void deleteDiagnoses(@PathParam("id") Integer id,@PathParam("idd") Integer idd) {
-        Diagnostic diagnostic = getDiagnosticService().findById(idd);
-        this.getDiagnosticService().update(diagnostic);
-        MedicalHistory m = this.getMedicalHistoryService().findById(id);
-        List<Diagnostic> diags = m.getDiagnoses();
-        for(Diagnostic c : diags){
-        	if(c.getId() == idd){
-        		diags.remove(c);
-        	}
-        }
-        List<Diagnostic> diags2 = new ArrayList<Diagnostic>();
-        for(Diagnostic each : diags){
-        	diags2.add(each);
-        }
-        m.setDiagnoses(diags2);
-        
-        this.getMedicalHistoryService().update(m);
- 
-    }
-    
+    }    
     
     @GET
     @Path("/diagnostic/{id}")

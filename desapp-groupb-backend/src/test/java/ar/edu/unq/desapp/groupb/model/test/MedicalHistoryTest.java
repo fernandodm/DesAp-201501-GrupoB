@@ -35,28 +35,7 @@ public class MedicalHistoryTest extends TestCase {
 		
 		assert(medicalHistory.getAllergies().contains("Penicilina"));
 	}
-	
-//	public void testGetDiagnostics(){
-//		
-//		diagnostic1 = mock(Diagnostic.class);
-//		diagnostic2 = mock(Diagnostic.class);
-//		
-//		event1 = mock(Event.class);
-//		event2 = mock(Event.class);
-//		
-//		when(event1.getDiagnostic()).thenReturn(diagnostic1);
-//		when(event2.getDiagnostic()).thenReturn(diagnostic2);
-//		
-//		List<Event> events = Arrays.asList(event1, event2);
-//				
-//		medicalHistory.setEvents(events);
-//		
-//		List<Diagnostic> diagnosesReturn = medicalHistory.getDiagnostics();
-//		List<Diagnostic> diagnoses = Arrays.asList(diagnostic1,diagnostic2);
-//		
-//		assert(diagnosesReturn.containsAll(diagnoses));
-//	}
-	
+		
 	public void testEsAlergicoATrue(){
 		List<String> alergias = new ArrayList<String>();
 		alergias.add("Penicilina");
