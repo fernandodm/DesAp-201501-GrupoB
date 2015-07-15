@@ -132,7 +132,7 @@
   
           });
       }
-    
+      $scope.practica = "";
    };
 
   $scope.eliminarPracticaMedica = function(practica) {
@@ -188,13 +188,6 @@
         alert($routeParams.idPaciente)
         location = '#/verHistoria/' + $routeParams.idPaciente;
     };  
-
-
-
-
-
-
-
 
   });
 

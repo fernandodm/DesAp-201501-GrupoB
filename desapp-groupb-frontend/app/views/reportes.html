@@ -1,3 +1,76 @@
+<h2>Reportes de los sintomas</h2>
+<ul id="tabs">
+   <li><a href="#" name="tab1">Ultimo mes</a></li>
+   <li><a href="#" name="tab2">Ultimo semestre</a></li>
+   <li><a href="#" name="tab3">Ultimo año</a></li>
+</ul>
+<div id="content">
+
+    <!-- ULTIMO MES -->
+   <div id="tab1">
+    <div ng-controller="ReportesCtrl as myappApp">
+      <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+        <thead style="background: white;">
+          <tr>
+            <th>Sintoma</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="(nombre, porcentaje) in myappApp.sintomasMes">
+            <td>{{nombre}}</td>
+            <td>{{porcentaje}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
+   <!-- ULTIMO MES -->
+
+   <!-- ULTIMO SEMESTRE -->
+   <div id="tab2">
+    <div ng-controller="ReportesCtrl as myappApp">
+      <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+        <thead style="background: white;">
+          <tr>
+            <th>Sintoma</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="(nombre, porcentaje) in myappApp.sintomasSemestre">
+            <td>{{nombre}}</td>
+            <td>{{porcentaje}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
+   <!-- ULTIMO SEMESTRE -->
+
+   <!-- ULTIMO AÑO -->
+   <div id="tab3">
+    <div ng-controller="ReportesCtrl as myappApp">
+      <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+        <thead style="background: white;">
+          <tr>
+            <th>Sintoma</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="(nombre, porcentaje) in myappApp.sintomasAnho">
+            <td>{{nombre}}</td>
+            <td>{{porcentaje}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
+   <!-- ULTIMO AÑO -->
+</div>
+
+
 <style type="text/css">
    #tabs {
    overflow: hidden;
@@ -80,71 +153,3 @@
        });
    });
 </script>
-<h2>Reportes de los sintomas</h2>
-<ul id="tabs">
-   <li><a href="#" name="tab1">Ultimo mes</a></li>
-   <li><a href="#" name="tab2">Ultimo semestre</a></li>
-   <li><a href="#" name="tab3">Ultimo año</a></li>
-</ul>
-<div id="content">
-
-    <!-- ULTIMO MES -->
-   <div id="tab1">
-      
-      <table class="table table-bordered"  style="bgcolor:#00FFFF; width: 70%; background: #eee;">
-         <thead>
-            <tr class="active">
-               <th>Sintoma</th>
-               <th>%</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr ng-repeat="(nombre, porcentaje) in sintomasMes" >
-               <td>{{nombre}}</td>
-               <td>{{porcentaje}}</td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <!-- ULTIMO MES -->
-
-   <!-- ULTIMO SEMESTRE -->
-   <div id="tab2">
-     
-      <table class="table table-bordered"  style="bgcolor:#00FFFF; width: 70%; background: #eee;">
-         <thead>
-            <tr class="active">
-               <th style="width: 69%">Sintoma</th>
-               <th>%</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr ng-repeat="(nombre, porcentaje) in sintomasSemestre">
-               <td>{{nombre}}</td>
-               <td>{{porcentaje}}</td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <!-- ULTIMO SEMESTRE -->
-
-   <!-- ULTIMO AÑO -->
-   <div id="tab3">
-      
-      <table class="table table-bordered"  style="bgcolor:#00FFFF; width: 70%; background: #eee;">
-         <thead>
-            <tr class="active">
-               <th>Sintoma</th>
-               <th>%</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr ng-repeat="(nombre, porcentaje) in sintomasAnho">
-               <td>{{nombre}}</td>
-               <td>{{porcentaje}}</td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <!-- ULTIMO AÑO -->
-</div>

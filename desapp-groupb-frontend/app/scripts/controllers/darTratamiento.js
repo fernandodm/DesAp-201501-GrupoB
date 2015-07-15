@@ -143,7 +143,7 @@
   
           });
       }
-    
+      $scope.practica = "";
    };
 
   $scope.eliminarPracticaMedica = function(practica) {
@@ -168,6 +168,9 @@
           $scope.medicamentos.push(data);
       });
     }
+    $scope.nombreMedicamento = "";
+    $scope.concentracion = "";
+    $scope.semanas = "";
   };
 
   function existeMedicamento(nombre){

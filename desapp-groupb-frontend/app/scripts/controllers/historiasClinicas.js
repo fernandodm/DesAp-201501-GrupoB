@@ -14,8 +14,6 @@ angular.module('myappApp')
 function HistoriasClinicasCtrl($http, $resource, DTOptionsBuilder, DTColumnDefBuilder) {
     var vm = this;
      
-      //var info = table.page.info();
-     // alert(info.page)
     $http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/list/').success(function (data) {
        //datos lo tenemos disponible en la vista gracias a $scope
        vm.pacientes = data;

@@ -17,6 +17,7 @@
   $scope.loadTags = function(query) {
     return $http.get('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/symptoms/list', { cache: true}).then(function(response) {
       var sintomas = response.data;
+      console.log(sintomas)
       return sintomas.filter(function(sintoma) {
         return sintoma.toLowerCase().indexOf(query.toLowerCase()) != -1;
       });
