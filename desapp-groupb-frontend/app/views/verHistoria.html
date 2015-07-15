@@ -1,21 +1,9 @@
-<style>
-.container {
-  padding-right: 0px !important;
-  padding-left: 0px !important;
-  margin-right: 0px !important;
-  margin-left: 10px !important;
-  max-width: 100% !important;
-  width: 100% !important;
-}
-</style>
-
 <form ng-controller="VerHistoriaCtrl" class="form-horizontal" role="form" ng-submit="agregarAlergia()">
   <h3>Agregue una alergia o diagnostico nuevo</h3>
   </br>
   <div class="row">
-  
     <!-- AGREGAR ALERGIA -->
-    <div class="col-md-4">
+    <div class="col-md-7">
       <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
         <thead>
          <tr class="active">
@@ -43,7 +31,10 @@
 
     </div>
     <!-- AGREGAR ALERGIA -->
+  </div>
 
+  </br>
+  <div class="row">
     <!-- AGREGAR Diagnostico -->
     <div class="col-md-4">
         <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
@@ -59,7 +50,7 @@
           <tbody>
             <tr ng-repeat="diagnostico in diagnosticos" class="success">
               <td>{{diagnostico.name}}</td>
-                <td><center><a class="btn btn-danger btn-xs" ng-click="verDiagnostico(diagnostico)">Ver</a> <a class="btn btn-danger btn-xs" ng-click="eliminarDiagnostico(diagnostico)" >Eliminar</a></center></td>
+                <td><center><a class="btn btn-danger btn-xs" ng-click="verDiagnostico(diagnostico)">Ver</a></center></td>
             </tr>
           </tbody>
         </table>
@@ -70,8 +61,8 @@
     
       </div>
     <!-- AGREGAR Diagnostico -->
+    </div>
 
-  </div>
    
 </form>
 

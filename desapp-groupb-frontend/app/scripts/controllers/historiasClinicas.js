@@ -33,25 +33,10 @@ function HistoriasClinicasCtrl($http, $resource, DTOptionsBuilder, DTColumnDefBu
     ];
 
     vm.verPaciente = function(paciente) {
-    location = '#/verHistoria/' + paciente.id;
+      location = '#/verHistoria/' + paciente.id;
+    };
 
-   };
-
-vm.editarPaciente = function(paciente) {
-    location = '#/editarPaciente/' + paciente.id;
-
-   };
-
-   vm.eliminarPaciente = function(paciente){
-
-      var index = vm.pacientes.indexOf(paciente);
-      vm.pacientes.splice(index,1);
-
-        $http.delete('http://localhost:8080/desapp-groupb-backend/rest/patients/delete/' + paciente.id).success(function (data){
-
-        });
-
-   }
-
-
+    vm.editarPaciente = function(paciente) {
+      location = '#/editarPaciente/' + paciente.id;
+    };
 }

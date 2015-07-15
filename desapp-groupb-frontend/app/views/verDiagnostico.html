@@ -1,13 +1,4 @@
 <style>
-/**.container {
-  padding-right: 0px !important;
-  padding-left: 0px !important;
-  margin-right: 0px !important;
-  margin-left: 10px !important;
-  max-width: 100% !important;
-  width: 100% !important;
-}**/
-
 .ui-datepicker {
    background: #333;
    border: 1px solid #555;
@@ -136,7 +127,7 @@
         <tbody>
           <tr ng-repeat="medicamento in medicamentos" class="success">
             <td>{{medicamento.drugName}}</td>
-            <td><center><button class="btn btn-danger btn-xs" ng-click="eliminarMedicamento(medicamento)">Eliminar</button></center></td>
+            <td><center><button class="btn btn-danger btn-xs">¿editar?</button></center></td>
           </tr>
         </tbody>
       </table>
@@ -185,9 +176,9 @@
   $(function() {
     $( "#accordion" ).accordion({ 
 
-		heightStyle: "content"
+		  heightStyle: "content"
 
-	});
+	  });
   });
 </script>
 

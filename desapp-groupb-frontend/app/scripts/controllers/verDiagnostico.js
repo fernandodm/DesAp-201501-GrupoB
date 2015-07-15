@@ -185,7 +185,6 @@
 
   
   $scope.cancelar = function() {
-        alert($routeParams.idPaciente)
         location = '#/verHistoria/' + $routeParams.idPaciente;
     };  
 

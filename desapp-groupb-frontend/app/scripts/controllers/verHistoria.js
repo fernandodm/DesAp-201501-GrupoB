@@ -56,15 +56,4 @@ angular.module('myappApp')
     
   };
 
-	$scope.eliminarDiagnostico = function(diagnostico){
-
-      var index = $scope.diagnosticos.indexOf(diagnostico);
-      $scope.diagnosticos.splice(index,1);
-
-        $http.post('http://localhost:8080/desapp-groupb-backend/rest/diagnoses/delete/' + $routeParams.id  + '/' + diagnostico.id).success(function (data){
-
-        });
-
-   }
-
-  });
+});
