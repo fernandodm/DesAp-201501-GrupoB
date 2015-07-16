@@ -35,28 +35,31 @@ public class DiagnosticDAO extends HibernateGenericDAO<Diagnostic> implements Ge
 	}
 	
 	//obtengo los sintomas entre la fecha de hoy y dateToCompare
-		public List<String> symptoms(DateTime dateToCompare) {
+	public List<String> symptoms(DateTime dateToCompare) {
 			
-			Session session = this.getHibernateTemplate().getSessionFactory().openSession();
-			DateTime today = new DateTime();
-	        try {
-	        	 String queryStr = " SELECT d FROM " + this.persistentClass.getName() + " AS d WHERE d.date BETWEEN :dateToCompare AND :today";
+		Session session = this.getHibernateTemplate().getSessionFactory().openSession();
+		DateTime today = new DateTime();
+	    try {
+	        String queryStr = " SELECT d FROM " + this.persistentClass.getName() + " AS d WHERE d.date BETWEEN :dateToCompare AND :today";
 
-	             @SuppressWarnings("unchecked")
-				List<Diagnostic> diagnoses = session.createQuery(queryStr).setParameter("today", today)
-	             											       .setParameter("dateToCompare", dateToCompare).list();
-	             //obtener los sintomas
-	             List<String> symptoms = new ArrayList<String>();
-	     		 for(Diagnostic d: diagnoses){
-	     			symptoms.addAll(d.getSymptoms());
-	     		 }
-	     		 
-	             return symptoms;
+	        @SuppressWarnings("unchecked")
+		    List<Diagnostic> diagnoses = session.createQuery(queryStr).setParameter("today", today)
+	             											       .setParameter("dateToCompare", dateToCompare).list();	     		 
+	        return getSympotms(diagnoses);
 
-	        } finally {
-	            session.close();
-	        }
-		}
+	     } finally {
+	           session.close();
+	     }
+	}
+		
+	public List<String> getSympotms(List<Diagnostic> diagnoses){
+        List<String> symptoms = new ArrayList<String>();
+        for(Diagnostic d: diagnoses){
+     		symptoms.addAll(d.getSymptoms());
+     	}
+        return symptoms;
+	}
+		
 	public Set<String> getAllSymptoms() {
 			
 		Session session = this.getHibernateTemplate().getSessionFactory().openSession();
@@ -64,13 +67,10 @@ public class DiagnosticDAO extends HibernateGenericDAO<Diagnostic> implements Ge
 	      	 String queryStr = " SELECT d FROM " + this.persistentClass.getName() + " AS d";
              @SuppressWarnings("unchecked")
 			 List<Diagnostic> diagnoses = session.createQuery(queryStr).list();
-             //obtener los sintomas
-             Set<String> symptoms = new HashSet<String>();
-     		 for(Diagnostic d: diagnoses){
-     			symptoms.addAll(d.getSymptoms());
-    		 }
-     		 
-             return symptoms;
+			 List<String> symptomsList = getSympotms(diagnoses);
+             Set<String> symptomsSet = new HashSet<String>();
+             symptomsSet.addAll(symptomsList);
+             return symptomsSet;
 
         } finally {
             session.close();
