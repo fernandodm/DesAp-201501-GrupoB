@@ -1,68 +1,79 @@
-<form ng-controller="VerHistoriaCtrl" class="form-horizontal" role="form" ng-submit="agregarAlergia()">
-  <h3>Agregue una alergia o diagnostico nuevo</h3>
-  </br>
-  <div class="row">
-    <!-- AGREGAR ALERGIA -->
-    <div class="col-md-7">
-      <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
-        <thead>
-         <tr class="active">
-          <th>Alergias:</th>
-          </tr>
-          <tr class="active">
-            <th>Nombre</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="alergia in alergias" class="success">
-            <td>{{alergia}}</td>
-            <td><center><a class="btn btn-danger btn-xs" ng-click="eliminarAlergia(alergia)">Eliminar</a></center></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="input-group" style="width: 70%; margin:0px 0px 0px 65px; max-width: 285px !important; ">
-        <input type="text" class="form-control" placeholder="Ingrese nueva alergia.." ng-model="alergia" required>
-        <span class="input-group-btn" >
-          <button class="btn btn-success" type="submit">Agregar</button>
-        </span>
-      </div>
-
+<h3>Agregue una alergia o diagnostico nuevo</h3>
+<!-- AGREGAR ALERGIA -->
+<div class="row">
+    <div class="col-md-9" ng-controller="VerHistoriaCtrl as myappApp">
+        <h3><span class="label label-info">Alergias</span></h3>
+        <form class="form-inline" ng-submit="myappApp.agregarAlergia()">
+            <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+                <thead style="background: white;">
+                    <tr>
+                        <th>
+                            <div class="form-group">
+                                <label>
+                                    <input class="form-control" ng-model="myappApp.alergia" value="" placeholder="Ingrese nueva alergia.." required>
+                                    <button type="submit" class="btn btn-success">Agregar</button>
+                                </label>
+                            </div>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="alergia in myappApp.alergias">
+                        <td>{{alergia}}</td>
+                        <td>
+                            <center><a class="btn btn-danger btn-xs" ng-click="myappApp.eliminarAlergia(alergia)">Eliminar</a>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
-    <!-- AGREGAR ALERGIA -->
-  </div>
+</div>
+<!-- AGREGAR ALERGIA -->
 
-  </br>
-  <div class="row">
-    <!-- AGREGAR Diagnostico -->
-    <div class="col-md-4">
-        <table class="table table-bordered"  style="bgcolor:#00FFFF;  width:350px;">
-          <thead>
-            <tr class="active">
-              <th>Diagnosticos:</th>
-            </tr>
-            <tr class="active">
-              <th>Nombre</th>
-              <th>Accion</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="diagnostico in diagnosticos" class="success">
-              <td>{{diagnostico.name}}</td>
-                <td><center><a class="btn btn-danger btn-xs" ng-click="verDiagnostico(diagnostico)">Ver</a></center></td>
-            </tr>
-          </tbody>
-        </table>
-
-          <div class="input-group">
-            <a class="btn btn-success" type="button" ng-click="agregarDiagnostico(paciente)" style="margin:0px 0px 0px 205px">Nuevo Diagnostico</a>
-          </div>
-    
-      </div>
-    <!-- AGREGAR Diagnostico -->
+<!-- AGREGAR Diagnostico -->
+<div class="row">
+    <div class="col-md-9" ng-controller="VerHistoriaCtrl as myappApp">
+        <hr style="border-top: 1px solid #333 !important">
+        <h3><span class="label label-info">Diagnosticos</span></h3>
+        <form class="form-inline" ng-submit="myappApp.agregarDiagnostico(paciente)">
+            <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+                <thead style="background: white;">
+                    <tr>
+                        <th>
+                            <div class="form-group">
+                                <label>
+                                    <button type="submit" class="btn btn-success">Nuevo Diagnostico</button>
+                                </label>
+                            </div>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Nombre</th>
+                        <th style="width: 68px;">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="diagnostico in myappApp.diagnosticos">
+                        <td>{{diagnostico.name}}</td>
+                        <td>
+                            <center><a class="btn btn-danger btn-xs" ng-click="myappApp.verDiagnostico(diagnostico)">Ver</a>
+                            </center>
+                        </td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
-
-   
-</form>
-
+</div>
+<!-- AGREGAR Diagnostico -->
