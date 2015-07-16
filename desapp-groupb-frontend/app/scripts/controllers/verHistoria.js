@@ -14,11 +14,7 @@ angular.module('myappApp')
   function VerHistoriaCtrl($http, $routeParams, $resource, DTOptionsBuilder, DTColumnDefBuilder) {
     
     var vm = this;
-     
-    $http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/list/').success(function (data) {
-       vm.pacientes = data;
-    });
-
+    
     vm.dtOptions = DTOptionsBuilder.newOptions()
                             .withOption('info',false)
                             .withDisplayLength(10)

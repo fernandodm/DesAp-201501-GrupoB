@@ -67,12 +67,16 @@
         <thead>
           <tr class="active">
             <th>Nombre</th>
+            <th>Concentracion</th>
+            <th>Semanas</th>
             <th>Accion</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="medicamento in medicamentos" class="success">
             <td>{{medicamento.drugName}}</td>
+            <td>{{medicamento.concentration}}</td>
+            <td>{{medicamento.time}}</td>
             <td><center><button class="btn btn-danger btn-xs" >¿editar?</button></center></td>
           </tr>
         </tbody>

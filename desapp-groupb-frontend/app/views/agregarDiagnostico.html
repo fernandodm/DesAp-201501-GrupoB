@@ -1,34 +1,4 @@
-<style>
-.container {
-  padding-right: 0px !important;
-  padding-left: 0px !important;
-  margin-right: 0px !important;
-  margin-left: 10px !important;
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-.ui-datepicker {
-   background: #333;
-   border: 1px solid #555;
-   color: #EEE;
- }
-
-
-.ui-datepicker .ui-datepicker-header{
-
-  font-size: 12px; 
-  background: #333;
-  border: #333;
-
-}
-
-</style>
-
-
-
 <center>
-
 <div class="row">
   <div class="col-md-12">
     <h3>Agregue o cree un nuevo diagnostico</h3>
@@ -74,23 +44,19 @@
   </div> 
   </div>
 
- 
+  <!-- DIAGNOSTICOS SUGERIDOS-->
   <div class="col-md-5">
-   <!-- DIAGNOSTICOS SUGERIDOS-->
-  <div>
-  <table class="table table-bordered"  style="bgcolor:#00FFFF;">
-    <thead>
-     <tr class="active">
-        <th>Diagnosticos sugeridos:</th>
-      </tr>
-      <tr class="active">
+  <div ng-controller="AgregarDiagnosticoCtrl as myappApp">
+  <table datatable="ng" dt-options="myappApp.dtOptions" dt-column-defs="myappApp.dtColumnDefs" class="row-border hover">
+    <thead style="background: white;">
+      <tr>
         <th>Nombre</th>
         <th>Sintomas</th>
         <th>Accion</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="diagnostico in diagnosticos" class="success">
+      <tr ng-repeat="diagnostico in diagnosticos">
         <td>{{diagnostico.name}}</td>
          <td> 
           <select class="form-control">
@@ -101,12 +67,39 @@
       </tr>
     </tbody>
   </table>
-  </div>
-   <!-- DIAGNOSTICOS SUGERIDOS-->
+</div>
+  <!--DIAGNOSTICOS SUGERIDOS-->
   </div>
 
   </form>
 </div>
+
+<style>
+.container {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: 0px !important;
+  margin-left: 10px !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.ui-datepicker {
+   background: #333;
+   border: 1px solid #555;
+   color: #EEE;
+ }
+
+
+.ui-datepicker .ui-datepicker-header{
+
+  font-size: 12px; 
+  background: #333;
+  border: #333;
+
+}
+
+</style>
 
 <script>
   $(function() {

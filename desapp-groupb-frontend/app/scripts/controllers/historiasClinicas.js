@@ -15,7 +15,6 @@ function HistoriasClinicasCtrl($http, $resource, DTOptionsBuilder, DTColumnDefBu
     var vm = this;
      
     $http.get('http://localhost:8080/desapp-groupb-backend/rest/patients/list/').success(function (data) {
-       //datos lo tenemos disponible en la vista gracias a $scope
        vm.pacientes = data;
     });
 

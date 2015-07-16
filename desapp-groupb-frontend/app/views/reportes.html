@@ -20,7 +20,7 @@
         <tbody>
           <tr ng-repeat="(nombre, porcentaje) in myappApp.sintomasMes">
             <td>{{nombre}}</td>
-            <td>{{porcentaje}}</td>
+            <td>{{porcentaje.toFixed(2)}}</td>
           </tr>
         </tbody>
       </table>
@@ -41,7 +41,7 @@
         <tbody>
           <tr ng-repeat="(nombre, porcentaje) in myappApp.sintomasSemestre">
             <td>{{nombre}}</td>
-            <td>{{porcentaje}}</td>
+            <td>{{porcentaje.toFixed(2)}}</td>
           </tr>
         </tbody>
       </table>
@@ -62,7 +62,7 @@
         <tbody>
           <tr ng-repeat="(nombre, porcentaje) in myappApp.sintomasAnho">
             <td>{{nombre}}</td>
-            <td>{{porcentaje}}</td>
+            <td>{{porcentaje.toFixed(2)}}</td>
           </tr>
         </tbody>
       </table>

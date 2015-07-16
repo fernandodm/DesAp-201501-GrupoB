@@ -9,8 +9,23 @@
  */
  var app =  angular.module('myappApp');
 
- app.controller('AgregarDiagnosticoCtrl', function ($http,$scope,$routeParams) {
- 	
+ app.controller('AgregarDiagnosticoCtrl', AgregarDiagnosticoCtrl);
+
+
+
+ function AgregarDiagnosticoCtrl ($http,$scope,$routeParams,$resource, DTOptionsBuilder, DTColumnDefBuilder) {
+  var vm = this;
+  vm.dtOptions = DTOptionsBuilder.newOptions()
+                            .withOption('info',false)
+                            .withDisplayLength(10)
+                            .withBootstrap();
+  vm.dtColumnDefs = [
+        DTColumnDefBuilder.newColumnDef(0),
+        DTColumnDefBuilder.newColumnDef(1),
+        DTColumnDefBuilder.newColumnDef(2).notSortable()
+    ];
+
+
  	$scope.tags = [];
 	$scope.sintomas = [];
 
@@ -100,7 +115,7 @@
       });
     }
 
-  });
+  };
 
 
  app.directive('ngEnter', function () {

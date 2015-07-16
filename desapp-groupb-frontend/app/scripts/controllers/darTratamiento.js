@@ -32,8 +32,6 @@
       $scope.time = null;
     };
     
-
-
    $scope.nuevoTratamiento = function() {
       
       if(seLlenaronCamposPrincipales()){
