@@ -22,6 +22,14 @@ public class Diagnostic extends Entity{
 		this.treatment = tratamiento;
 	}
 	
+	public void assignParameters(Diagnostic diagnostic,String name, String symptoms, String date, Treatment treatment){
+		List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
+		diagnostic.setName(name);
+		diagnostic.setSymptoms(symptomsAsList);
+		diagnostic.setDate(diagnostic.stringToDateTime(date));
+		diagnostic.setTreatment(treatment);
+	}
+	
 	public Diagnostic(String nombre, List<String> sintomas){
 		this.name = nombre;
 		this.symptoms = sintomas;

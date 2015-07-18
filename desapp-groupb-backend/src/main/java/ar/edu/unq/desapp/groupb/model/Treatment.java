@@ -1,7 +1,12 @@
 package ar.edu.unq.desapp.groupb.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import javax.ws.rs.core.Response;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class Treatment extends Entity{
 	
@@ -36,6 +41,42 @@ public class Treatment extends Entity{
 		}
 		
 		return names;
+	}
+	
+	public void assignParameters(Diagnostic diag, String medicalPractices, String repose, String type, int time ){
+		List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
+
+    	if(repose.equals("true")){
+    		diag.getTreatment().setRepose(true);
+    		diag.getTreatment().setTime(time);
+        	if(type.equals("true")){
+        		diag.getTreatment().setType("Total");
+        	} else {
+        		diag.getTreatment().setType("Parcial");
+        	}
+    	} else {
+    		diag.getTreatment().setRepose(false);
+    	}
+        	
+    	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
+
+	}
+	
+	public void assignParametersWithoutMedicalPractices(Diagnostic diag, String repose, String type, int time ){
+
+    	if(repose.equals("true")){
+    		diag.getTreatment().setRepose(true);
+    		diag.getTreatment().setTime(time);
+        	if(type.equals("true")){
+        		diag.getTreatment().setType("Total");
+        	} else {
+        		diag.getTreatment().setType("Parcial");
+        	}
+    	} else {
+    		diag.getTreatment().setRepose(false);
+    	}
+        	
+
 	}
 
 	////////////////////////

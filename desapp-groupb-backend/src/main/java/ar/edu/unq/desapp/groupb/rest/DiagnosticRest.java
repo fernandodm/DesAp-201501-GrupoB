@@ -61,10 +61,8 @@ public class DiagnosticRest {
     @Produces("application/json")
     public Diagnostic createDiagnostic(@FormParam("id") Integer id, @FormParam("name") String name,
     		@FormParam("symptoms") String symptoms, @FormParam("date") String date) {
-    	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
-    	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList,new Treatment());
-    	
-    	diagnostic.setDate(diagnostic.stringToDateTime(date));
+    	Diagnostic diagnostic = new Diagnostic();
+    	diagnostic.assignParameters(diagnostic, name, symptoms, date, new Treatment());
     	
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
     	medical.getDiagnoses().add(diagnostic);       
@@ -77,12 +75,9 @@ public class DiagnosticRest {
     @Produces("application/json")
     public Diagnostic editDiagnostic(@PathParam("id") Integer id, @PathParam("name") String name,
     		@PathParam("symptoms") String symptoms, @PathParam("day") String day, @PathParam("month") String month, @PathParam("year") String year) {
-    	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
     	Diagnostic diagnostic = this.getDiagnosticService().findById(id);
-    	diagnostic.setName(name);
-    	diagnostic.setSymptoms(symptomsAsList);
     	String date = day + "/" + month + "/" + year;
-    	diagnostic.setDate(diagnostic.stringToDateTime(date));
+    	diagnostic.assignParameters(diagnostic, name, symptoms, date, diagnostic.getTreatment());;
     	 
 		getDiagnosticService().update(diagnostic);
 		return diagnostic;
@@ -95,11 +90,9 @@ public class DiagnosticRest {
     @Produces("application/json")
     public Diagnostic assignDiagnostic(@PathParam("id") Integer id, @PathParam("name") String name,
     		@PathParam("symptoms") String symptoms, @PathParam("day") String day, @PathParam("month") String month, @PathParam("year") String year) {
-    	List<String> symptomsAsList = Arrays.asList(StringUtils.split(symptoms, ","));
-    	Diagnostic diagnostic = new Diagnostic(name,symptomsAsList,new Treatment());
+    	Diagnostic diagnostic = new Diagnostic();
     	String date = day + "/" + month + "/" + year;
-    	diagnostic.setDate(diagnostic.stringToDateTime(date));
-    	diagnostic.setName(name);
+    	diagnostic.assignParameters(diagnostic, name, symptoms, date, new Treatment());
     	
     	MedicalHistory medical = getMedicalHistoryService().findById(id);
     	medical.getDiagnoses().add(diagnostic);       

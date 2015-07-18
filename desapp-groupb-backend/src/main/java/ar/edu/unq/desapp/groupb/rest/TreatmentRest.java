@@ -85,23 +85,10 @@ public class TreatmentRest {
     @Produces("application/json")
     public Response createTreatment(@PathParam("id") Integer id, @PathParam("repose") String repose,
     		@PathParam("type") String type, @PathParam("time") Integer time, @PathParam("medicalPractices") String medicalPractices)  {
-    	List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
 
     	Diagnostic diag = this.getDiagnosticService().findById(id);
-    	
-    	if(repose.equals("true")){
-    		diag.getTreatment().setRepose(true);
-    		diag.getTreatment().setTime(time);
-        	if(type.equals("true")){
-        		diag.getTreatment().setType("Total");
-        	} else {
-        		diag.getTreatment().setType("Parcial");
-        	}
-    	} else {
-    		diag.getTreatment().setRepose(false);
-    	}
-        	
-    	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
+
+    	diag.getTreatment().assignParameters(diag, medicalPractices, repose, type, time);
 
         getDiagnosticService().update(diag);
         return Response.ok(diag).build();
@@ -112,26 +99,10 @@ public class TreatmentRest {
     @Produces("application/json")
     public Response editTreatmentWithMedicalPractices(@PathParam("id") Integer id, @PathParam("repose") String repose,
     		@PathParam("type") String type, @PathParam("time") Integer time, @PathParam("medicalPractices") String medicalPractices)  {
-    	List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
     	
     	Diagnostic diag = this.getDiagnosticService().findById(id);
     	
-    	
-    	
-    	if(repose.equals("true")){
-    		diag.getTreatment().setRepose(true);
-    		diag.getTreatment().setTime(time);
-        	if(type.equals("true")){
-        		diag.getTreatment().setType("Total");
-        	} else {
-        		diag.getTreatment().setType("Parcial");
-        	}
-    	} else {
-    		diag.getTreatment().setRepose(false);
-    	}
-        	
-    	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
-//    	diag.getTreatment().setMedicines(diag.getTreatment().getMedicines());
+    	diag.getTreatment().assignParameters(diag, medicalPractices, repose, type, time);
 
         getTreatmentService().update(diag.getTreatment());
         return Response.ok(diag.getTreatment().getMedicines()).build();
@@ -145,19 +116,7 @@ public class TreatmentRest {
     	
     	Diagnostic diag = this.getDiagnosticService().findById(id);
     	
-    	
-    	
-    	if(repose.equals("true")){
-    		diag.getTreatment().setRepose(true);
-    		diag.getTreatment().setTime(time);
-        	if(type.equals("true")){
-        		diag.getTreatment().setType("Total");
-        	} else {
-        		diag.getTreatment().setType("Parcial");
-        	}
-    	} else {
-    		diag.getTreatment().setRepose(false);
-    	}
+    	diag.getTreatment().assignParametersWithoutMedicalPractices(diag, repose, type, time);
         	
 
         getDiagnosticService().update(diag);
@@ -169,24 +128,31 @@ public class TreatmentRest {
     @Produces("application/json")
     public Response assignTreatment(@PathParam("idt") Integer idt,@PathParam("id") Integer id, @PathParam("repose") String repose,
     		@PathParam("type") String type, @PathParam("time") Integer time, @PathParam("medicalPractices") String medicalPractices)  {
-    	List<String> medicalPracticesAsList = Arrays.asList(StringUtils.split(medicalPractices, ","));
+    	Treatment trat = this.getTreatmentService().findById(idt);
+    	Diagnostic diag = this.getDiagnosticService().findById(id);
+    	diag.getTreatment().assignParameters(diag, medicalPractices, repose, type, time);
+    	List<Medicine> meds = new ArrayList<Medicine>();
+    	for(Medicine m : trat.getMedicines()){
+    		meds.add(m);
+    	}
+    	diag.getTreatment().setMedicines(meds);
+
+        getDiagnosticService().update(diag);
+        return Response.ok(diag).build();
+    }
+    
+    @POST
+    @Path("/assignTreatment/{idt}/{id}/{repose}/{type}/{time}")
+    @Produces("application/json")
+    public Response assignTreatmentWithoutMedicalPractices(@PathParam("idt") Integer idt,@PathParam("id") Integer id, @PathParam("repose") String repose,
+    		@PathParam("type") String type, @PathParam("time") Integer time)  {
     	Treatment trat = this.getTreatmentService().findById(idt);
     	
     	Diagnostic diag = this.getDiagnosticService().findById(id);
     	
-    	if(repose.equals("true")){
-    		diag.getTreatment().setRepose(true);
-    		diag.getTreatment().setTime(time);
-        	if(type.equals("true")){
-        		diag.getTreatment().setType("Total");
-        	} else {
-        		diag.getTreatment().setType("Parcial");
-        	}
-    	} else {
-    		diag.getTreatment().setRepose(false);
-    	}
+    	diag.getTreatment().assignParametersWithoutMedicalPractices(diag, repose, type, time);
         	
-    	diag.getTreatment().setMedicalPractices(medicalPracticesAsList);
+    	diag.getTreatment().setMedicalPractices(new ArrayList<String>());
     	List<Medicine> meds = new ArrayList<Medicine>();
     	for(Medicine m : trat.getMedicines()){
     		meds.add(m);
@@ -206,17 +172,7 @@ public class TreatmentRest {
 
     	Diagnostic diag = this.getDiagnosticService().findById(id);
     	
-    	if(repose.equals("true")){
-    		diag.getTreatment().setRepose(true);
-    		diag.getTreatment().setTime(time);
-        	if(type.equals("true")){
-        		diag.getTreatment().setType("Total");
-        	} else {
-        		diag.getTreatment().setType("Parcial");
-        	}
-    	} else {
-    		diag.getTreatment().setRepose(false);
-    	}
+    	diag.getTreatment().assignParametersWithoutMedicalPractices(diag, repose, type, time);
 
         getDiagnosticService().update(diag);
         return Response.ok(diag).build();

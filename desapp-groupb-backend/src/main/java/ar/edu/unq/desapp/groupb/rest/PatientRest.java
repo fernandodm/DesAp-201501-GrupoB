@@ -49,14 +49,10 @@ public class PatientRest {
 		
 		if(patient == null){
 			Patient p = new Patient(weight, height,firstname,lastname,dni);
-			MedicalHistory m = new MedicalHistory();
-			p.setMedicalHistory(m);
 			getPatientService().save(p);
 		}else{
 			return Response.ok(-1).build();
 		}
-
-		
 		return Response.ok(patient).build();
 	}
 	

@@ -59,12 +59,14 @@
                     </tr>
                     <tr>
                         <th>Nombre</th>
+                        <th>Fecha</th>
                         <th style="width: 68px;">Accion</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="diagnostico in myappApp.diagnosticos">
                         <td>{{diagnostico.name}}</td>
+                        <td>{{diagnostico.date}}</td>
                         <td>
                             <center><a class="btn btn-danger btn-xs" ng-click="myappApp.verDiagnostico(diagnostico)">Ver</a>
                             </center>

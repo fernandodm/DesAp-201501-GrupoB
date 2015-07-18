@@ -18,6 +18,7 @@ public class Patient extends Entity {
 		this.dni = dni;	
 		this.weight = weight;
 		this.height = height;
+		this.setMedicalHistory(new MedicalHistory());
 	}
 	
 	public Patient(String nombre, String apellido, String dni){

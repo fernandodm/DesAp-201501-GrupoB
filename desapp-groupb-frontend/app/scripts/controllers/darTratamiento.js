@@ -61,11 +61,21 @@
 
     $scope.asignarTratamiento = function(tratamiento) {
 
-      $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/assignTreatment/'+ tratamiento.id + '/' + $routeParams.idDiagnostico + '/' + tratamiento.repose + '/' + tratamiento.type + '/' + tratamiento.time + '/' + tratamiento.medicalPractices).success(function (data) {
-          alert("Tratamiento confirmado exitosamente");
-          location = '#/verHistoria/' + $routeParams.idPaciente;
+      if($scope.practicas.length == 0){
+            $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/assignTreatment/'+ tratamiento.id + '/' + $routeParams.idDiagnostico + '/' + tratamiento.repose + '/' + tratamiento.type + '/' + tratamiento.time).success(function (data) {
+              });
+          
+      } else {
 
-      });
+            $http.post('http://localhost:8080/desapp-groupb-backend/rest/treatments/assignTreatment/'+ tratamiento.id + '/' + $routeParams.idDiagnostico + '/' + tratamiento.repose + '/' + tratamiento.type + '/' + tratamiento.time + '/' + tratamiento.medicalPractices).success(function (data) {
+          
+
+              });
+      }
+
+
+      alert("Tratamiento confirmado exitosamente");
+      location = '#/verHistoria/' + $routeParams.idPaciente;
 
     }; 
 
